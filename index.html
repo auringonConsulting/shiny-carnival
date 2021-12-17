@@ -79,7 +79,7 @@
           .slide {
             width: 100vw;
             height: 95vh;
-            padding: 4rem;
+            padding: 4em;
 
             /* scroll-snap */
             scroll-snap-align: start;
@@ -119,18 +119,97 @@
             width: 100vw;
             height: 100vh;
             background-repeat: no-repeat;
-            position: relative;
             top: 0;
             left: 0;
           }
 
-          #content-desktop {display: block;}
+#content-desktop {display: block;}
 #content-mobile {display: none;}
+#content-mobile-small {display: none;}
 
-@media screen and (max-width: 1220px) {
+@media screen and (max-width: 768px) and (min-width: 400px) {
 
 #content-desktop {display: none;}
 #content-mobile {display: block;}
+#content-mobile-small {display: none;}
+
+.slide:nth-child(1) {
+  background-color: black;
+  background-image: url("./MobileWelcome.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  text-align: center;
+  background-position-y: center;
+  background-size: 95%
+}
+
+.viewer {
+  margin-top: 5%;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  padding: 4em;
+
+  /* scroll-snap */
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+
+body {
+  font-size: .8em;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 1.2em;
+}
+
+}
+
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+
+  .slide:nth-child(1) {
+    background-color: black;
+    background-image: url("./TabletWelcome.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    background-position-y: center;
+    background-size: 95%
+  }
+
+
+  body {
+    font-size: 1em;
+}
+
+h1 {
+    font-size: 2.10em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+
+}
+
+@media screen and (max-width: 400px) {
+
+#content-desktop {display: none;}
+#content-mobile {display: none;}
+#content-mobile-small {display: block;}
 
 }
 
@@ -139,20 +218,21 @@
   </head>
 
   <body>
-    <div id="content-mobile">
+
+    <div id="content-mobile-small">
       <div class="mobileFail"></div>
 
          <img class="float-left" src="./MobileFail.svg" width="100%" height="80%" style="position:absolute;top:0;text-align: center;">
 
     </div>
 
-    <div id="content-desktop">
+    <div id="content-mobile">
     <!-- Navigation-->
     <header class="site-header sticky-top py-1">
-      <nav class="navbar navbar-expand-lg navbar-light bg-black fixed-top py-3" id="mainNav">
+      <nav class="navbar navbar-expand navbar-light bg-black fixed-top py-3" id="mainNav">
           <div class="container">
             <a class="zoomHover" href="#main">
-                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="275" height="100">
+                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="69" height="25">
             </a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -184,7 +264,7 @@
       </h2>
     </div>
  <div class="row">
-   <div class="col-9">
+   <div class="col">
      <p>The word Auringon &mdash; a derivation of the Finnish word for “sun” &mdash; is closely tied to our firm’s identity. Specifically, we’re inspired by the sun’s unique role in the Finnish landscape throughout the seasons.
      </p>
      <p>
@@ -216,21 +296,21 @@ Auringon Consulting strives to emulate the versatility, reliability and influenc
      <a href="./services.html"
       onclick="location.href='#connect';"
       target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
-         <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> STRATEGY
+         <img class="float-left" src="./icon3.svg" alt="Branding" width="46" height="17"> STRATEGY
      </a><br><br>
    </h1>
   <h1>
     <a href="./services.html"
      onclick="location.href='#connect';"
      target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
-        <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> RESEARCH + DEVELOPMENT
+        <img class="float-left" src="./icon3.svg" alt="Branding" width="46" height="17"> R + D
     </a><br><br>
   </h1>
   <h1>
     <a href="./services.html"
      onclick="location.href='#connect';"
      target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
-        <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> IMPLEMENTATION
+        <img class="float-left" src="./icon3.svg" alt="Branding" width="46" height="17"> IMPLEMENTATION
     </a>
   </h1>
  </div>
@@ -239,6 +319,140 @@ Auringon Consulting strives to emulate the versatility, reliability and influenc
   <section class="slide" id="connect">
         <div class="container"><br><br><br><br>
       <div id="#Connect" class="row" style="border-bottom: 1px solid white;">
+        <h2 style="color: white" >
+          let's connect<br>
+        </h2>
+      </div>
+    <div class="row">
+     <div style="color: white" class="col"><br><br><br>
+       <p>
+          <i><b>Hey there. Let’s chat.</b></i>
+       </p>
+       <p>We love meeting new people.
+       </p>
+        <p>
+          Whether you need help with a project, are looking to partner, or just want to chat, drop us a line!
+       </p>
+        <p>
+          We would love to learn more about what you are working on.
+       </p>
+       <p>
+          -Aurigon Consulting
+       </p>
+     </div>
+     </div>
+     <div style="color: white" class="col"><br><br><br>
+       <h2>
+         <a class="zoomHover" href="mailto:hello@ji.design?subject=Looking%20To%20Connect&body=Hi%20Auringon%0D%0A%0D%0AMy%20name%20is%20YOURNAME%20and%20...%20" style="color:white;">
+           <img class="float-left" src="./icon2.svg" alt="Branding" width="46" height="17">hello@auringon.com
+         </a>
+       </h2>
+     </div>
+    </div>
+      <div class="text-center py-3 row" style="font-size: 10px; color:black; position: absolute; bottom: 0; ">Auringon LLC | SM 2021 [copywright pending]
+      </div>
+
+  </section>
+
+
+
+</article>
+
+</div>
+
+    <div id="content-desktop">
+    <!-- Navigation-->
+    <header class="site-header sticky-top py-1">
+      <nav class="navbar navbar-expand navbar-light bg-black fixed-top py-3" id="mainNav">
+          <div class="container">
+            <a class="zoomHover" href="#main1">
+                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="275" height="100">
+            </a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                      <li class="nav-item"><a class="nav-link yesHover" href="#about1" style="color:#c2b196;font-weight: 500;">About</a></li>
+                      <li class="nav-item">
+                        <a
+                        class="nav-link yesHover" href="./services.html"   onclick="location.href='#connect1';" target="_blank" style="color:#c2b196;font-weight: 500;">
+                          Services
+                        </a>
+                      </li>
+                      <li class="nav-item"><a class="nav-link yesHover" href="https://medium.com/@Auringon" target="_blank" style="color:#c2b196;font-weight: 500;">Insights</a></li>
+                      <li class="nav-item"><a class="nav-link yesHover" href="#connect1" style="color:#c2b196;font-weight: 500;">Connect</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+    <article class="viewer">
+
+  <section class="slide" id="main1">
+  </section>
+
+  <section class="slide" id="about1">
+    <br><br><br>
+    <div class="row">
+      <h2>
+        why auringon?
+      </h2>
+    </div>
+ <div class="row">
+   <div class="col-9">
+     <p>The word Auringon &mdash; a derivation of the Finnish word for “sun” &mdash; is closely tied to our firm’s identity. Specifically, we’re inspired by the sun’s unique role in the Finnish landscape throughout the seasons.
+     </p>
+     <p>
+In winter, the sun provides the energy necessary for the auroras to embellish the dark sky with color. In summer, the midnight radiance shrouds the darkness of previous seasons.
+     </p>
+     <p>
+Auringon Consulting strives to emulate the versatility, reliability and influence of the auringon. Our boutique consulting firm is dedicated to providing our clients with bespoke solutions for their unique needs.
+     </p><br>
+     <h2>
+       what we do
+     </h2>
+     <p>We help small organizations leverage technology to operate more efficiently and better serve their customers.
+     </p>
+   </div>
+ </div>
+
+
+  </section>
+
+  <section class="slide" id="services1">
+    <br><br><br>
+    <div class="row">
+      <h2>
+        areas of focus<br><br>
+      </h2>
+    </div>
+ <div class="row">
+   <h1>
+     <a href="./services.html"
+      onclick="location.href='#connect';"
+      target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
+         <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> STRATEGY
+     </a><br><br>
+   </h1>
+  <h1>
+    <a href="./services.html"
+     onclick="location.href='#connect1';"
+     target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
+        <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> RESEARCH + DEVELOPMENT
+    </a><br><br>
+  </h1>
+  <h1>
+    <a href="./services.html"
+     onclick="location.href='#connect1';"
+     target="_blank" class="zoomHover" style="color:#c2b196;text-decoration: none;">
+        <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> IMPLEMENTATION
+    </a>
+  </h1>
+ </div>
+  </section>
+
+  <section class="slide" id="connect1">
+        <div class="container"><br><br><br><br>
+      <div id="#Connect1" class="row" style="border-bottom: 1px solid white;">
         <h2 style="color: white" >
           let's connect<br>
         </h2>

@@ -148,34 +148,95 @@
             }
 
             #content-desktop {display: block;}
-  #content-mobile {display: none;}
+            #content-mobile {display: none;}
+            #content-mobile-small {display: none;}
 
-  @media screen and (max-width: 1220px) {
+@media screen and (max-width: 768px) and (min-width: 400px) {
 
   #content-desktop {display: none;}
   #content-mobile {display: block;}
+  #content-mobile-small {display: none;}
+
+  body {
+    font-size: .8em;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .btn {
+     color:#c2b196;
+     text-decoration: none;
+     font-size:1.4em;
+     font-weight: 300;
+
+        background-color:black!important;
+  }
+
 
   }
+
+  @media screen and (max-width: 400px) {
+
+  #content-desktop {display: none;}
+  #content-mobile {display: none;}
+  #content-mobile-small {display: block;}
+
+  }
+
+  @media screen and (max-width: 1200px) and (min-width: 768px) {
+
+
+
+    body {
+      font-size: 1em;
+  }
+
+  h1 {
+      font-size: 2.10em;
+  }
+
+  h2 {
+      font-size: 1.8em;
+  }
+
+  .btn {
+     color:#c2b196;
+     text-decoration: none;
+     font-size:1em;
+     font-weight: 300;
+
+        background-color:black!important;
+  }
+
+
+}
 
 
     </style>
   </head>
 
   <body>
-    <div id="content-mobile">
+    <div id="content-mobile-small">
       <div class="mobileFail"></div>
 
          <img class="float-left" src="./MobileFail.svg" width="100%" height="80%" style="position:absolute;top:0;text-align: center;">
 
     </div>
 
-    <div id="content-desktop">
+
+    <div id="content-mobile">
 
     <header class="site-header sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-light bg-black py-3" id="mainNav">
+      <nav class="navbar navbar-expand navbar-light bg-black py-3" id="mainNav">
           <div class="container">
             <a class="zoomHover" href="./index.html#main">
-                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="275" height="100">
+                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="69" height="25">
             </a>
               <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -197,9 +258,165 @@
       </h2><br>
 
     <div class="accordion accordion-flush" id="accordionFlushExample">
-  <div class="accordion-item">
+    <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">
       <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+
+          <div class="col-11">STRATEGY
+          </div>
+          <div class="col-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
+              <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435a4.9 4.9 0 0 1 .106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
+            </svg>
+          </div>
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+
+            <div class="container">
+              <div class="row">
+                  <div class="card">
+                    <h3>digital strategy</h3>
+                    <p>We'll work with you to tailor an approach that fits your needs.</p>
+                  </div>
+                  <div class="card">
+                    <h3>organization design</h3>
+                    <p>
+                      We'll help you figure out the right staffing model for your needs.
+                    </p>
+                  </div>
+                  <div class="card">
+                    <h3>culture change</h3>
+                    <p>
+                      Adopting new technology and changing how you work is never easy. We're here to help you through it.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+      </div>
+    </div>
+    </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        <div class="col-11"> R + D
+        </div>
+        <div class="col-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
+            <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435a4.9 4.9 0 0 1 .106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
+          </svg>
+        </div>
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+
+        <div class="container">
+          <div class="row">
+              <div class="card">
+                <h3>product development</h3>
+                <p>We'll work with you and your customers to build tools that solve their problems.</p>
+              </div>
+              <div class="card">
+                <h3>automation</h3>
+                <p>
+                  We'll work with you to automate redundant processes so that you can focus your time on what matters.
+                </p>
+              </div>
+              <div class="card">
+                <h3>process improvement</h3>
+                <p>
+                  We'll help you streamline your processes.
+                </p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    </div>
+    <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        <div class="col-11">IMPLEMENTATION
+        </div>
+        <div class="col-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hand-index" viewBox="0 0 16 16">
+            <path d="M6.75 1a.75.75 0 0 1 .75.75V8a.5.5 0 0 0 1 0V5.467l.086-.004c.317-.012.637-.008.816.027.134.027.294.096.448.182.077.042.15.147.15.314V8a.5.5 0 1 0 1 0V6.435a4.9 4.9 0 0 1 .106-.01c.316-.024.584-.01.708.04.118.046.3.207.486.43.081.096.15.19.2.259V8.5a.5.5 0 0 0 1 0v-1h.342a1 1 0 0 1 .995 1.1l-.271 2.715a2.5 2.5 0 0 1-.317.991l-1.395 2.442a.5.5 0 0 1-.434.252H6.035a.5.5 0 0 1-.416-.223l-1.433-2.15a1.5 1.5 0 0 1-.243-.666l-.345-3.105a.5.5 0 0 1 .399-.546L5 8.11V9a.5.5 0 0 0 1 0V1.75A.75.75 0 0 1 6.75 1zM8.5 4.466V1.75a1.75 1.75 0 1 0-3.5 0v5.34l-1.2.24a1.5 1.5 0 0 0-1.196 1.636l.345 3.106a2.5 2.5 0 0 0 .405 1.11l1.433 2.15A1.5 1.5 0 0 0 6.035 16h6.385a1.5 1.5 0 0 0 1.302-.756l1.395-2.441a3.5 3.5 0 0 0 .444-1.389l.271-2.715a2 2 0 0 0-1.99-2.199h-.581a5.114 5.114 0 0 0-.195-.248c-.191-.229-.51-.568-.88-.716-.364-.146-.846-.132-1.158-.108l-.132.012a1.26 1.26 0 0 0-.56-.642 2.632 2.632 0 0 0-.738-.288c-.31-.062-.739-.058-1.05-.046l-.048.002zm2.094 2.025z"/>
+          </svg>
+        </div>
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+
+        <div class="container">
+          <div class="row">
+              <div class="card">
+                <h3>research</h3>
+                <p>Have a question that you’re not sure how to answer? We’re experts in conducting quantitative and qualitative research.</p>
+              </div>
+              <div class="card">
+                <h3>planning</h3>
+                <p>
+                  Have a concept, but not sure how to bring it to life? We can chart the course for you.
+                </p>
+              </div>
+              <div class="card">
+                <h3>management</h3>
+                <p>
+                  Have a project or product to manage? We can help you deliver.
+                </p>
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="row">
+      <div class="text-center py-3" style="font-size: 10px; color:#c2b196; position: absolute; bottom: 0; align-items: center;">Auringon LLC | SM 2021 [copywright pending]
+      </div>
+    </div>
+    </div>
+
+
+    <div id="content-desktop">
+
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand navbar-light bg-black py-3" id="mainNav">
+          <div class="container">
+            <a class="zoomHover" href="./index.html#main1">
+                <img class="float-left" src="./main-branding2.svg" alt="Branding" width="275" height="100">
+            </a>
+              <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                  <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                      <li class="nav-item"><a class="nav-link yesHover" href="./index.html#about1" style="color:#c2b196;font-weight: 500;">About</a></li>
+                      <li class="nav-item"><a class="nav-link yesHover" href="./services.html" style="color:#c2b196;font-weight: 500;">Services</a></li>
+                      <li class="nav-item"><a class="nav-link yesHover" href="https://medium.com/@Auringon" target="_blank" style="color:#c2b196;font-weight: 500;">Insights</a></li>
+                      <li class="nav-item"><a class="nav-link yesHover" href="./index.html#connect1" style="color:#c2b196;font-weight: 500;">Connect</a></li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <br><br>
+      <h2>
+        areas of expertise
+      </h2><br>
+
+    <div class="accordion accordion-flush" id="accordionFlushExample1">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne1">
+      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne1" aria-expanded="false" aria-controls="flush-collapseOne1">
 
           <div class="col-11">
           <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> STRATEGY
@@ -211,7 +428,7 @@
           </div>
       </button>
     </h2>
-    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseOne1" class="accordion-collapse collapse" aria-labelledby="flush-headingOne1" data-bs-parent="#accordionFlushExample1">
       <div class="accordion-body">
 
             <div class="container">
@@ -245,8 +462,8 @@
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingTwo">
-      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+    <h2 class="accordion-header" id="flush-headingTwo1">
+      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo1" aria-expanded="false" aria-controls="flush-collapseTwo1">
         <div class="col-11">
         <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> RESEARCH & DEVELOPMENT
         </div>
@@ -257,7 +474,7 @@
         </div>
       </button>
     </h2>
-    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseTwo1" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo1" data-bs-parent="#accordionFlushExample1">
       <div class="accordion-body">
 
         <div class="container">
@@ -291,8 +508,8 @@
     </div>
   </div>
   <div class="accordion-item">
-    <h2 class="accordion-header" id="flush-headingThree">
-      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+    <h2 class="accordion-header" id="flush-headingThree1">
+      <button class="accordion-button collapsed btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree1" aria-expanded="false" aria-controls="flush-collapseThree1">
         <div class="col-11">
         <img class="float-left" src="./icon3.svg" alt="Branding" width="138" height="50"> IMPLEMENTATION
         </div>
@@ -303,7 +520,7 @@
         </div>
       </button>
     </h2>
-    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+    <div id="flush-collapseThree1" class="accordion-collapse collapse" aria-labelledby="flush-headingThree1" data-bs-parent="#accordionFlushExample1">
       <div class="accordion-body">
 
         <div class="container">
