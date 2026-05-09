@@ -35,6 +35,7 @@ font-size: 18px;
 line-height: 1.55;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
+overflow-x: hidden;
 }
 
 a { color: inherit; }
@@ -53,6 +54,8 @@ justify-content: space-between;
 align-items: baseline;
 border-bottom: 1px solid transparent;
 transition: border-color 0.3s ease;
+gap: 24px;
+flex-wrap: wrap;
 }
 nav.top.scrolled { border-bottom-color: var(--rule); }
 
@@ -62,6 +65,7 @@ cursor: pointer;
 display: flex;
 align-items: center;
 height: 22px;
+flex-shrink: 0;
 }
 .wordmark svg {
 height: 22px;
@@ -1498,10 +1502,23 @@ color: var(--muted);
 font-weight: 500;
 margin-bottom: 40px;
 }
+.testimonials .offering-head {
+margin-bottom: 40px;
+}
+.testimonials h3 {
+font-family: 'Instrument Serif', serif;
+font-size: 28px;
+line-height: 1.2;
+color: var(--ink);
+margin: 0;
+font-weight: 400;
+}
+.testimonials h3 em { font-style: italic; }
 .testimonials-list {
 display: grid;
 gap: 40px;
 max-width: 820px;
+padding-left: 96px;
 }
 .testimonial {
 padding: 28px 0;
@@ -1879,6 +1896,13 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <circle cx="122" cy="84" r="8" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
 <path d="M140,92 C136,82 146,74 156,74 C166,74 172,82 170,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
 <path d="M178,92 C174,86 180,80 184,80 C190,80 192,86 190,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+</symbol>
+
+<symbol id="m-voices" viewBox="0 0 200 120">
+<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<path d="M28,92 C24,76 36,62 52,62 C70,62 80,76 76,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M88,92 C84,72 100,56 116,56 C134,56 144,72 140,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M152,92 C148,80 158,68 168,68 C180,68 186,80 182,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
 </symbol>
 
 <!-- Engagement card marks — follow site color grammar:
@@ -2284,7 +2308,7 @@ What Auringon does
 <span class="mark"><svg><use href="#m-startups-ran"/></svg></span>
 <h3>On the <em>startup</em> side.</h3>
 </div>
-<p>As COO at Bandwagon — a shared-mobility startup matching passengers heading the same direction across NYC transit hubs — I joined when the entire team had been furloughed and the company's future was unclear. The work was rebuilding enough of the operation to ship a new van-sharing service line while the ground was still moving. The company didn't ultimately make it, but the pattern stuck: most problems are diagnostic problems before they're anything else.</p>
+<p>As COO at Bandwagon — a shared-mobility startup matching passengers heading the same direction across NYC transit hubs — I joined fresh out of grad school, into a company where the team had just been furloughed and the future was uncertain. The demand was real — sometimes 60-minute taxi queues at the hubs — but the operation behind it was thin: matching required sales agents working the software for every pairing, support was an inbox no one watched. I rebuilt the matching software so pairing happened automatically, built a 24/7 customer service center, and led a rebrand to reflect what the company had become. The company didn't make it. The capability did — taking an operation that's working roughly and making it run well.</p>
 <p>Most recently at Fleet, a commuter benefits platform spanning transit, rideshare, micromobility, and parking. I joined as Head of Ops and Product and was promoted to COO, holding the role through the company's push from seed to Series A. The work was what the title suggests and also what it doesn't: product direction, customer operations, and the unglamorous financial plumbing — payroll integrations, invoicing, deduction rails — that makes a multi-sided product actually work for enterprise buyers.</p>
 <div class="meta"><span>Bandwagon</span><span>Fleet</span></div>
 </div>
@@ -2324,9 +2348,9 @@ What Auringon does
 <span class="mark"><svg><use href="#m-side"/></svg></span>
 <h3>Mentoring, advising, and <em>community building</em>.</h3>
 </div>
-<p>Mentoring and coaching has been a through-line for a decade. Inside roles, that's meant managing and developing teams — ten people at Ad Hoc, an analytics and product practice at TLC built largely by upskilling the analysts already there. Outside roles, five years of volunteer mentoring with Technologists for the Public Good, guiding early-career technologists working on mission-driven problems inside public-sector organizations. Earlier, advising a rural tech hackathon in Connecticut, helping bring modern mobility innovation to communities outside the usual urban-tech orbit.</p>
+<p>Mentoring and coaching has been a through-line for a decade. Inside organizations, it's looked like building teams by developing the people in them — practice-managing PMs and data analysts at Ad Hoc, and at TLC, building a community of practice the team grew inside. Outside organizations, five years of volunteer mentoring early-career technologists in public-interest work — through Coding it Forward, and this year through Technologists for the Public Good.</p>
 <p>I'm also the founder of <em>Civic Tech'ish</em>, a network of more than 1,000 technologists in NYC that bridges public-interest, civic, and urban tech. It brings together government, startups, big tech, nonprofits, and consultants — the kind of cross-sector room that rarely exists on its own, and has to be built on purpose.</p>
-<div class="meta"><span>Civic Tech'ish</span><span>Technologists for the Public Good</span></div>
+<div class="meta"><span>Civic Tech'ish</span><span>Coding it Forward</span><span>Technologists for the Public Good</span></div>
 </div>
 
 </div>
@@ -2334,7 +2358,10 @@ What Auringon does
 
 <section class="testimonials" id="tr-testimonials">
 <div class="wrap">
-<div class="colkicker-block">On working with Jonathan</div>
+<div class="offering-head">
+<span class="mark"><svg><use href="#m-voices"/></svg></span>
+<h3>On working with <em>Jonathan</em>.</h3>
+</div>
 <div class="testimonials-list">
 
 <div class="testimonial">
@@ -2637,7 +2664,7 @@ Approach
 <div class="post-body">
 <p class="lede">The work was helping a strong individual contributor turn a pile of good artifacts into a coherent case the right people could act on.</p>
 
-<p class="context">Mentoring and coaching has been a through-line for a decade — managing and developing teams at Ad Hoc and TLC, and advising early-career technologists for five years through Technologists for the Public Good. The engagement below is one written-up example of that work.</p>
+<p class="context">Mentoring and coaching has been a through-line for a decade — managing and developing teams at Ad Hoc and TLC, and advising early-career technologists for five years through Coding it Forward and Technologists for the Public Good. The engagement below is one written-up example of that work.</p>
 
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-mentor"/></svg></div>
 
