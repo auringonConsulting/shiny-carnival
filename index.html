@@ -494,6 +494,104 @@ max-width: 620px;
 margin-top: 16px;
 }
 
+/* Background hero: portrait + text side-by-side */
+.work-hero .hero-row {
+display: grid;
+grid-template-columns: minmax(0, 1fr) auto;
+gap: 64px;
+align-items: start;
+}
+.work-hero .hero-text { min-width: 0; }
+.work-hero .hero-portrait {
+flex-shrink: 0;
+width: 260px;
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin-top: 6px;
+}
+.work-hero .portrait-frame {
+position: relative;
+width: 100%;
+aspect-ratio: 4 / 5;
+overflow: hidden;
+background: rgba(123, 157, 163, 0.10);
+}
+.work-hero .portrait-frame::before {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(160deg, transparent 55%, rgba(241, 242, 218, 0.18));
+mix-blend-mode: soft-light;
+pointer-events: none;
+z-index: 2;
+}
+.work-hero .portrait-frame::after {
+content: "";
+position: absolute;
+left: -10px;
+bottom: -10px;
+width: 56px;
+height: 56px;
+border-left: 1px solid var(--ink);
+border-bottom: 1px solid var(--ink);
+opacity: 0.45;
+pointer-events: none;
+}
+.work-hero .portrait-frame img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+object-position: 72% center;
+display: block;
+filter: saturate(0.92) contrast(0.98);
+transition: filter 0.6s ease, transform 0.8s ease;
+}
+.work-hero .portrait-frame:hover img {
+filter: saturate(1) contrast(1);
+transform: scale(1.015);
+}
+.work-hero .portrait-meta {
+display: flex;
+flex-direction: column;
+gap: 4px;
+padding-left: 2px;
+}
+.work-hero .portrait-caption {
+font-family: 'Instrument Serif', Georgia, serif;
+font-style: italic;
+font-size: 14px;
+color: var(--muted);
+line-height: 1.4;
+}
+.work-hero .portrait-link {
+font-size: 14px;
+color: var(--ink-soft);
+text-decoration: none;
+display: inline-flex;
+align-items: baseline;
+gap: 6px;
+transition: color 0.2s ease;
+align-self: flex-start;
+}
+.work-hero .portrait-link:hover { color: var(--terracotta); }
+.work-hero .portrait-link .arrow {
+font-size: 12px;
+transition: transform 0.25s ease;
+}
+.work-hero .portrait-link:hover .arrow { transform: translateX(3px); }
+
+@media (max-width: 860px) {
+.work-hero .hero-row {
+grid-template-columns: 1fr;
+gap: 40px;
+}
+.work-hero .hero-portrait {
+width: 220px;
+order: -1;
+}
+}
+
 /* Offerings as numbered entries */
 .offerings {
 padding: 16px 0 40px;
@@ -1009,6 +1107,78 @@ line-height: 1.5;
 color: var(--ink-soft);
 max-width: 640px;
 margin: 0;
+}
+
+/* Featured work teaser (TLC on home page) */
+.feature-link {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-size: 18px;
+text-decoration: none;
+border-bottom: 1px solid var(--ink);
+padding-bottom: 2px;
+color: var(--ink);
+transition: all 0.2s ease;
+cursor: pointer;
+margin-top: 24px;
+}
+.feature-link:hover {
+color: var(--terracotta);
+border-color: var(--terracotta);
+}
+
+/* Engagement tiles — smaller, lower-weight grid for secondary case studies */
+.eng-tiles {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+margin-top: 64px;
+padding-top: 40px;
+border-top: 1px solid var(--rule);
+}
+.eng-tile {
+cursor: pointer;
+transition: opacity 0.2s ease;
+display: block;
+text-decoration: none;
+color: inherit;
+}
+.eng-tile.is-placeholder { cursor: default; opacity: 0.7; }
+.eng-tile:not(.is-placeholder):hover { opacity: 0.7; }
+
+.eng-tile .eng-tile-illo {
+width: 100%;
+aspect-ratio: 240 / 160;
+margin-bottom: 16px;
+}
+.eng-tile .eng-tile-illo svg { width: 100%; height: 100%; display: block; }
+.eng-tile .eng-tile-meta {
+font-size: 12px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--muted);
+font-weight: 500;
+margin-bottom: 8px;
+}
+.eng-tile h4 {
+font-family: 'Instrument Serif', serif;
+font-weight: 400;
+font-size: 22px;
+line-height: 1.2;
+letter-spacing: -0.01em;
+margin: 0 0 8px;
+color: var(--ink);
+}
+.eng-tile h4 em { font-style: italic; }
+.eng-tile .eng-tile-dek {
+font-size: 15px;
+line-height: 1.45;
+color: var(--ink-soft);
+margin: 0;
+}
+@media (max-width: 768px) {
+.eng-tiles { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* Post reading view */
@@ -2020,6 +2190,16 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <path d="M150,124 C144,104 164,92 178,94 C194,96 200,108 196,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
 </symbol>
 
+<!-- Coming soon: sun rising over an empty horizon — work not yet landed -->
+<symbol id="m-eng-coming" viewBox="0 0 240 160">
+<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="1.5"/>
+<!-- sun, low on the horizon, suggesting "rising" / "not yet" -->
+<circle cx="120" cy="100" r="14" fill="#e39b48" stroke="#3a3a3a" stroke-width="2" opacity="0.55"/>
+<!-- dashed ghost stones — placeholders for engagements not yet written up -->
+<path d="M60,124 C56,114 66,108 74,108 C84,108 88,114 86,124 Z" fill="none" stroke="#3a3a3a" stroke-width="1.25" stroke-dasharray="3,3" opacity="0.4"/>
+<path d="M170,124 C166,114 176,108 184,108 C194,108 198,114 196,124 Z" fill="none" stroke="#3a3a3a" stroke-width="1.25" stroke-dasharray="3,3" opacity="0.4"/>
+</symbol>
+
 <!-- Editorial illustrations for journal posts -->
 
 <!-- Urban systems: three horizon bands (policy / working layer / infrastructure), sun above, stones living in the middle layer -->
@@ -2124,8 +2304,8 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
 <ul id="navList">
 <li><a data-page="home" onclick="goto('home')" class="active">Home</a></li>
-<li><a data-page="work" onclick="goto('work')">Work</a></li>
-<li><a data-page="about" onclick="goto('about')">About</a></li>
+<li><a data-page="work" onclick="goto('work')">Services</a></li>
+<li><a data-page="about" onclick="goto('about')">How I Work</a></li>
 <li><a data-page="track" onclick="goto('track')">Background</a></li>
 <li><a data-page="journal" onclick="goto('journal')">Journal</a></li>
 <li><a data-page="contact" onclick="goto('contact')">Contact</a></li>
@@ -2140,7 +2320,7 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <section class="hero">
 <div class="wrap">
 <div class="kicker">Jonathan Internicola's consulting practice for urban systems · <span style="text-transform: none; letter-spacing: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--ink-soft);">Auringon · OW-ring-gon</span></div>
-<h1>Urban innovation fails in execution. <em>That's the gap I work in.</em></h1>
+<h1>Urban innovation fails in execution. <em>I work in that gap.</em></h1>
 <p class="hero-sub">Building the teams, processes, and platforms that turn intent into operation.</p>
 <div class="hero-illo">
 <svg viewBox="0 0 600 200"><use href="#m-hero-gap"/></svg>
@@ -2186,14 +2366,14 @@ What Auringon does
 <div class="wrap two-col">
 <div class="colkicker">Who I work with</div>
 <div class="who-list">
-<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 8px; max-width: 620px;">Direct engagements with startups, small businesses, and nonprofits. For government, foundations, and larger organizations, I sub through partner firms priming the contract.</p>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 8px; max-width: 620px;">Direct engagements with startups, small businesses, and nonprofits. For government, foundations, and larger organizations, I sub in through partner firms that hold the contract.</p>
 <div class="who-entry">
 <div class="label"><span class="mark"><svg><use href="#m-startups"/></svg></span>Direct: startups, small businesses, nonprofits</div>
 <p>Post-revenue, pre-scale. You have customers, traction, a product or program that's working. What you don't have is an operation that runs without you in every room.</p>
 </div>
 <div class="who-entry">
 <div class="label"><span class="mark"><svg><use href="#m-gov"/></svg></span>Through primes: government, foundations, larger organizations</div>
-<p>Cities, agencies, operating foundations, larger nonprofits. The work is the same — building the team and systems to turn intent into operation — but contracted through an established firm priming the engagement. I bring deep operational experience and urban-systems pattern recognition to augment the prime's team on engagements where that specialized depth helps.</p>
+<p>A "prime" is the firm that holds the contract with the buyer. For larger organizations whose procurement rules require working through an established firm, I sub in on the prime's team. The work is the same — building the team and systems to turn intent into operation — but contracted through them. I bring deep operational experience and urban-systems pattern recognition on engagements where that specialized depth helps.</p>
 </div>
 </div>
 </div>
@@ -2242,6 +2422,41 @@ What Auringon does
 </div>
 </section>
 
+<section class="block">
+<div class="wrap two-col">
+<div class="colkicker">
+<span class="mark"><svg><use href="#m-side"/></svg></span>
+Selected work
+</div>
+<div>
+<p>I joined the NYC Taxi and Limousine Commission as Director of Analytics — hired to bring data discipline to the agency that regulates every taxi, Uber, and Lyft in the city. What I argued for, built, and left behind was something larger: a ten-person product practice inside a six-hundred-person regulator that had never had one.</p>
+<p>By the time I left, the agency had stood up its first Chief Product Officer role to keep it going.</p>
+<a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
+
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-bandwagon')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-bandwagon"/></svg></div>
+<div class="eng-tile-meta">Bandwagon · Launch</div>
+<h4>Shipping a new service line <em>in chaos</em></h4>
+<p class="eng-tile-dek">A van-sharing pilot built in weeks with Transdev. Not a market test — a vehicle to put the company in a conversation it couldn't otherwise reach.</p>
+</a>
+<a class="eng-tile" onclick="goto('engagement-mentor')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-mentor"/></svg></div>
+<div class="eng-tile-meta">Technologists for the Public Good · Advisory</div>
+<h4>Sharpening the case <em>a data professional was making</em></h4>
+<p class="eng-tile-dek">A strong IC with the substance but not the pitch. Reframing the goal, sequencing the deliverables, getting the case in front of leadership.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <section class="closing">
 <div class="wrap">
 <h2>The space between ambition and reality. <em>That's where I work.</em></h2>
@@ -2264,7 +2479,7 @@ What Auringon does
 
 <section class="work-hero">
 <div class="wrap">
-<div class="kicker">Work</div>
+<div class="kicker">Services</div>
 <h1>Every engagement is different. <em>The work underneath isn't.</em></h1>
 <p class="lede">Five shapes the work takes — three scoped engagements with defined deliverables, two ongoing relationships. A first conversation usually sorts out which one you're in.</p>
 </div>
@@ -2366,8 +2581,21 @@ What Auringon does
 <section class="work-hero">
 <div class="wrap">
 <div class="kicker">Background</div>
+<div class="hero-row">
+<div class="hero-text">
 <h1>Auringon is the practice of <em>Jonathan Internicola</em>—built around a decade of operational work across urban systems.</h1>
 <p class="lede">Startup COO. City agency executive. Government-tech consultant. Standards-body contributor. The same operational work, seen from every seat it shows up in. The pattern that work revealed is what the practice is built around.</p>
+</div>
+<aside class="hero-portrait">
+<div class="portrait-frame">
+<img src="jonathan.jpg" alt="Jonathan Internicola, photographed on a hillside overlooking the Columbia River" loading="lazy">
+</div>
+<div class="portrait-meta">
+<span class="portrait-caption">Jonathan Internicola</span>
+<a class="portrait-link" href="https://www.linkedin.com/in/jonathaninternicola/" target="_blank" rel="noopener noreferrer">Jonathan on LinkedIn <span class="arrow">→</span></a>
+</div>
+</aside>
+</div>
 </div>
 </section>
 
@@ -2403,7 +2631,7 @@ What Auringon does
 <h3>Two tenures at <em>NYC TLC</em>.</h3>
 </div>
 <p>The NYC Taxi and Limousine Commission regulates every for-hire vehicle in the city — taxis, Uber, Lyft, and more than two hundred thousand licensees. I joined first as Director of Analytics. In practice, the role became building a ten-person product practice from scratch inside a six-hundred-person regulatory agency that had never had one — analytics as the entry point, but the discipline that emerged was broader. The team's work shaped regulatory and budget decisions across the agency, and developed the distribution methodology for the Medallion Relief Fund — the city's response to driver debt during the medallion market collapse.</p>
-<p>I returned later as Chief Experience and Transformation Officer — a nine-month engagement to lay the foundation for the agency's first major technology modernization in decades. No direct reports, full accountability for outcomes. The job was coordination across divisions with incompatible incentives, and the real work wasn't replacing legacy systems. <em>It was refusing to rebuild the bad processes the old technology had calcified.</em></p>
+<p>I returned later as Chief Experience and Transformation Officer — a nine-month engagement to lay the foundation for the agency's first major technology modernization in decades. No direct reports, full accountability for outcomes. The job was coordination across divisions with incompatible incentives, and the real work wasn't replacing legacy systems. It was refusing to rebuild the bad processes the old technology had calcified.</p>
 <div class="meta"><span>Director of Analytics</span><span>CXTO</span></div>
 </div>
 
@@ -2423,7 +2651,7 @@ What Auringon does
 <h3>Helping write <em>the rules</em>.</h3>
 </div>
 <p>I led NYC's contribution to the Mobility Data Specification through the Open Mobility Foundation's board and steering committee — the global standard for how cities and mobility providers communicate. 160+ cities. 200+ operators. What started as a tool for managing scooters now covers taxis, ride-hail, car share, delivery robots, and autonomous vehicles.</p>
-<p><em>Saw ride-hail go from unregulated to structured — in the room when the rules got written, and in the building when they had to work.</em></p>
+<p>Saw ride-hail go from unregulated to structured — in the room when the rules got written, and in the building when they had to work.</p>
 <div class="meta"><span>OMF</span><span>MDS</span></div>
 </div>
 
@@ -2481,8 +2709,8 @@ What Auringon does
 
 <section class="about-hero">
 <div class="wrap">
-<div class="kicker">About</div>
-<h1>A decade of operational work in <em>urban systems</em>.</h1>
+<div class="kicker">How I Work</div>
+<h1>A small practice for <em>urban systems</em>.</h1>
 </div>
 </section>
 
@@ -2524,7 +2752,7 @@ Focus
 <h2>A method that <em>travels across domains</em>.</h2>
 <p>The domain where I've run the most reps is urban mobility — for-hire vehicle regulation, commuter benefits, shared mobility, the standards that hold it all together. That's where the operational pattern-recognition was earned.</p>
 <p>But the work itself isn't really about mobility. It's a method — diagnose where the system is breaking, design change that fits the resources available, navigate the stakeholders whose buy-in it depends on. Do that well and the domain is almost beside the point.</p>
-<p>The outcomes show up wherever urban systems have to function — mobility, yes, and also water affordability, food access, circular economy pilots, workforce programs, climate resilience. Different subject matter, same underlying work. And urban work is distinctive: agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room, with different authority and different time horizons. <em>That's the environment I know how to work in, regardless of subject matter.</em></p>
+<p>The outcomes show up wherever urban systems have to function — mobility, yes, and also water affordability, food access, circular economy pilots, workforce programs, climate resilience. Different subject matter, same underlying work. And urban work is distinctive: agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room, with different authority and different time horizons. That's the environment I know how to work in, regardless of subject matter.</p>
 </div>
 </div>
 </section>
@@ -2583,7 +2811,7 @@ The name
 
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
-<span>←</span> Work
+<span>←</span> Services
 </a>
 
 <header class="post-header">
@@ -2595,7 +2823,7 @@ The name
 
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></div>
 
-<p>The gap I saw in my first ninety days at TLC was less about data than about discipline. Systems did just enough to operationalize the law and no more. Decisions got made on whoever's anecdote was loudest. There was no shared way of asking <em>who actually uses this, what are they trying to do, and is the system helping them or just processing them.</em> I'd been hired as Director of Analytics to bring data discipline to the agency — which regulates New York City's for-hire vehicle industry, the vehicles, the drivers, and the businesses behind them. What I argued for, built out, and ultimately left behind was something larger: a product practice, inside a regulator that had never had one. I wrote the diagnosis into a proposal — a team, a way of working, a theory of where the discipline should sit — and pitched it to a few commissioners. They bought in.</p>
+<p>The gap I saw in my first ninety days at TLC was less about data than about discipline. Systems did just enough to operationalize the law and no more. Decisions got made on whoever's anecdote was loudest. There was no shared way of asking who actually uses this, what are they trying to do, and is the system helping them or just processing them. I'd been hired as Director of Analytics to bring data discipline to the agency — which regulates New York City's for-hire vehicle industry, the vehicles, the drivers, and the businesses behind them. What I argued for, built out, and ultimately left behind was something larger: a product practice, inside a regulator that had never had one. I wrote the diagnosis into a proposal — a team, a way of working, a theory of where the discipline should sit — and pitched it to a few commissioners. They bought in.</p>
 
 <h2>The discipline: who, and what they worked on</h2>
 
@@ -2603,7 +2831,7 @@ The name
 
 <p>The first wave of external hires came next: a data scientist, a data engineer, a more senior analyst. None had worked in government. They were chosen specifically to do work that would move a visible needle quickly, because credibility in this kind of agency is bought one delivered improvement at a time. Once we had a few of those wins, I brought in a deputy director who'd run the data group as a data product manager, then a designer and a researcher. By that point I'd shifted into a true product role and we could start looking at problems no one had yet thought of as product problems.</p>
 
-<p>The sequence — <em>trust first, capability second, full discipline third</em> — is the part I'd repeat anywhere. The institution rejects transplants. It accepts grafts.</p>
+<p>The sequence — trust first, capability second, full discipline third — is the part I'd repeat anywhere. The institution rejects transplants. It accepts grafts.</p>
 
 <p>The harder question — and the one I think agencies trying to do this kind of work most often get wrong — is <em>what to work on at all</em>. When I joined, prioritization happened the way it does almost everywhere in resource-strapped government: feature-by-feature, request-by-request, anecdote-by-anecdote. A commissioner heard a complaint and a project got launched. A legacy system's quirk caused enough pain to escalate and a fix went into the backlog. The work got done, but the connection between any given output and an outcome the agency actually cared about was rarely examined.</p>
 
@@ -2653,7 +2881,7 @@ The name
 <footer class="post-footer">
 <p>More engagements coming.</p>
 <a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Work
+<span>←</span> Back to Services
 </a>
 </footer>
 
@@ -2668,7 +2896,7 @@ The name
 
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
-<span>←</span> Work
+<span>←</span> Services
 </a>
 
 <header class="post-header">
@@ -2682,7 +2910,7 @@ The name
 
 <p>Bandwagon was a shared-mobility startup focused on splitting taxi rides across riders heading the same direction from New York's transportation hubs — JFK, LaGuardia, Newark, the Port Authority, Penn Station. The product addressed a real coordination failure. Hub-bound riders heading to the same neighborhood were each taking individual taxis while the queues at peak times ran forty-five minutes and empty cabs sat one curb over. The underlying problem was the absence of a viable shared option for those last-mile trips — a gap public transit didn't fill at the hubs in question, and that the taxi system was structurally unable to fill on its own. Bandwagon's pooling tech was an attempt to close part of that gap inside the constraints of the system that actually existed.</p>
 
-<p>The strategic problem wasn't the product. It was <em>who could buy us</em>. The natural exits — TNCs (Uber, Lyft, Via) and taxi vendors (Curb, Arro) — all had their own pooling tech or were building it. We were a feature, not a company, from those buyers' point of view. We needed a different angle to be in a different conversation. <em>Vans were the angle we picked.</em></p>
+<p>The strategic problem wasn't the product. It was who could buy us. The natural exits — TNCs (Uber, Lyft, Via) and taxi vendors (Curb, Arro) — all had their own pooling tech or were building it. We were a feature, not a company, from those buyers' point of view. We needed a different angle to be in a different conversation. Vans were the angle we picked.</p>
 
 <p>The work I'm writing about here is what we did next — a partnership with Transdev to launch a van-sharing pilot called Bandwagon Transit, built and deployed in a matter of weeks, designed to do something more specific than test whether van-sharing worked.</p>
 
@@ -2702,7 +2930,7 @@ The name
 
 <p>For the route, we analyzed gaps in the MTA's bus and subway network and picked Penn Station to Grand Central — a corridor where a meaningful number of trips weren't well-served by the existing transfer-heavy subway connection between the two stations, and where a direct cross-midtown van had a clear use case for riders making that specific trip.</p>
 
-<p>The whole stack — vans, drivers, brand, signage, route, regulatory posture — was assembled in weeks. It wasn't beautiful. It was <em>real</em>, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</p>
+<p>The whole stack — vans, drivers, brand, signage, route, regulatory posture — was assembled in weeks. It wasn't beautiful. It was real, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</p>
 
 <h2>What the work was, and what the company was</h2>
 
@@ -2710,13 +2938,13 @@ The name
 
 <p>Those conversations didn't ultimately convert into the deal that would have saved the company. Bandwagon didn't make it.</p>
 
-<p>I want to be clear about how I think about that. <em>The pilot was the right move and it succeeded at the thing it was designed to do.</em> The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category or whether our pilot had been well-executed. Conflating those two — claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better — would be dishonest in either direction. <strong>The work was good. The company didn't make it. Those are two different sentences and they belong in different paragraphs.</strong></p>
+<p>I want to be clear about how I think about that. The pilot was the right move and it succeeded at the thing it was designed to do. The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category or whether our pilot had been well-executed. Conflating those two — claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better — would be dishonest in either direction. <strong>The work was good. The company didn't make it. Those are two different sentences and they belong in different paragraphs.</strong></p>
 
 <p>What I took from it isn't a startup-survival story. It's a muscle.</p>
 
 <h2>What travels</h2>
 
-<p>The thing Bandwagon Transit taught me, and the thing I've used in nearly every job since, is that <em>if the conversation you're hoping for isn't presenting itself, you can build something to create it.</em> Not a deck. Not a strategic memo. Something real, on the ground, that changes the facts on which the conversation is based.</p>
+<p>The thing Bandwagon Transit taught me, and the thing I've used in nearly every job since, is that if the conversation you're hoping for isn't presenting itself, you can build something to create it. Not a deck. Not a strategic memo. Something real, on the ground, that changes the facts on which the conversation is based.</p>
 
 <p>This is the muscle that gets least respected in formal planning environments — where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many transit decisions get made top-down and committed to permanently, when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver.</p>
 
@@ -2726,7 +2954,7 @@ The name
 <footer class="post-footer">
 <p>More engagements coming.</p>
 <a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Work
+<span>←</span> Back to Services
 </a>
 </footer>
 
@@ -2741,7 +2969,7 @@ The name
 
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
-<span>←</span> Work
+<span>←</span> Services
 </a>
 
 <header class="post-header">
@@ -2757,7 +2985,7 @@ The name
 
 <p>Technologists for the Public Good runs a mentoring program that pairs senior practitioners with people working in civic tech and government — across organizations, outside the reporting line. The engagement I want to write about here is with an early-career data professional inside a major regional transportation authority, working at the intersection of city planning, data infrastructure, and public-sector strategy. Engineering undergrad, master's from a strong urban planning program, several years of analytical work before the current role. He'd shipped real things — a fare-evasion dashboard pulling 100M+ rows from five different sources, a federal funding allocation tool. The kind of work that's hard to fake.</p>
 
-<p>The premise of a lot of mentoring writing is that the mentor brought something the mentee didn't have. <em>That's not what happened here.</em> The substance was already there — decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. Some were quite good. But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him. The gap wasn't engineering. It was <em>narrative and delivery</em> — the thing that turns a portfolio of good thinking into something a director can champion upward, an IT team can plan against, and an intern can be onboarded into without a month of catch-up.</p>
+<p>The premise of a lot of mentoring writing is that the mentor brought something the mentee didn't have. That's not what happened here. The substance was already there — decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. Some were quite good. But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him. The gap wasn't engineering. It was narrative and delivery — the thing that turns a portfolio of good thinking into something a director can champion upward, an IT team can plan against, and an intern can be onboarded into without a month of catch-up.</p>
 
 <h2>The advisory work</h2>
 
@@ -2765,7 +2993,7 @@ The name
 
 <p>From there the work organized itself around three deliverables, each pointed at a different audience. A <strong>data operations document</strong> — the technical operating manual, written for him, his interns, the IT team, and any future data hire — that defined how data flowed through the department as a system rather than as a series of one-off projects. A <strong>data strategy one-pager</strong>, written for his Assistant Director and Director, that translated the technical reality into a leadership story: what data capacity existed today, where it was going, and what was needed to get there. And a <strong>management framework</strong> for the interns — collaborative goal-setting, a 1:1 cadence, a retrospective process — designed to be tested with the unpaid undergraduate intern starting in February and refined for the paid graduate hire arriving in June.</p>
 
-<p>The artifacts weren't new ideas. <em>The work was deciding which audience each one was for, what each one had to do, and in what order they got built.</em> The ops doc could go deep because the people reading it would go deep with it. The strategy one-pager couldn't — its job was to be a thing the Assistant Director could pick up and use to make the case upward without further translation. The management framework had to be lightweight enough that an intern could be onboarded into it in a week, not handed a binder, and it had to surface what worked and what didn't in time for the summer hire's framework to be a revised v2 rather than a rerun.</p>
+<p>The artifacts weren't new ideas. The work was deciding which audience each one was for, what each one had to do, and in what order they got built. The ops doc could go deep because the people reading it would go deep with it. The strategy one-pager couldn't — its job was to be a thing the Assistant Director could pick up and use to make the case upward without further translation. The management framework had to be lightweight enough that an intern could be onboarded into it in a week, not handed a binder, and it had to surface what worked and what didn't in time for the summer hire's framework to be a revised v2 rather than a rerun.</p>
 
 <h2>What changed</h2>
 
@@ -2775,17 +3003,17 @@ The name
 
 <h2>Where it landed</h2>
 
-<p>He's actively pitching the case to leadership now. The strategy one-pager exists. The ops doc is in draft. The undergraduate intern is onboarded against the management framework, and the framework will get its revision before the summer hire arrives. The substance was always going to come from him. <em>What the engagement did was compress the time between "I have the pieces" and "I have a case I can take to leadership."</em> Government windows are short. An analyst who arrives at a coherent pitch six months later than they could have, often arrives after the moment to make it has closed.</p>
+<p>He's actively pitching the case to leadership now. The strategy one-pager exists. The ops doc is in draft. The undergraduate intern is onboarded against the management framework, and the framework will get its revision before the summer hire arrives. The substance was always going to come from him. What the engagement did was compress the time between "I have the pieces" and "I have a case I can take to leadership." Government windows are short. An analyst who arrives at a coherent pitch six months later than they could have, often arrives after the moment to make it has closed.</p>
 
 <h2>What travels</h2>
 
-<p>The pattern from this engagement isn't about data infrastructure, or government, or early career. It's the gap that shows up wherever someone technically capable is making an institutional case for the first time. <em>The artifacts they have are usually fine. What's missing is the audience-specific framing that turns artifacts into a case.</em> I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't — restate the goal, map the audiences, sequence the deliverables, write each one for the audience it's actually for. Most strong ICs are sitting on more material than they need. The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order.</p>
+<p>The pattern from this engagement isn't about data infrastructure, or government, or early career. It's the gap that shows up wherever someone technically capable is making an institutional case for the first time. The artifacts they have are usually fine. What's missing is the audience-specific framing that turns artifacts into a case. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't — restate the goal, map the audiences, sequence the deliverables, write each one for the audience it's actually for. Most strong ICs are sitting on more material than they need. The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order.</p>
 </div>
 
 <footer class="post-footer">
 <p>More engagements coming.</p>
 <a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Work
+<span>←</span> Back to Services
 </a>
 </footer>
 
@@ -2817,28 +3045,20 @@ The name
 </section>
 
 <div class="wrap">
-<section class="categories">
-<div class="colkicker">Topics</div>
-<div class="cat-list">
-<button class="cat active">All</button>
-<button class="cat">Pattern recognition</button>
-</div>
-</section>
-
 <section class="posts">
 <div class="post-list">
-<article class="post-item" onclick="goto('post-urban-systems')">
-<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg></div>
+<article class="post-item" onclick="goto('post-failure-modes')">
+<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"/></svg></div>
 <div>
 <div class="post-meta">
 <span>Pattern recognition</span>
 <span class="dot">·</span>
-<span>2 min read</span>
+<span>3 min read</span>
 <span class="dot">·</span>
-<span>March 2026</span>
+<span>May 2026</span>
 </div>
-<h3>What I mean when I say <em>urban systems</em></h3>
-<p class="post-dek">Defining the working layer — between the policy debates above it and the infrastructure underneath it — where cities actually run.</p>
+<h3>Four ways urban work fails <em>after the approval</em></h3>
+<p class="post-dek">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
 </div>
 </article>
 <article class="post-item" onclick="goto('post-container-moves')">
@@ -2855,18 +3075,18 @@ The name
 <p class="post-dek">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia that's been rebuilt twice. Three cases, and what they show about the gap between structure and function.</p>
 </div>
 </article>
-<article class="post-item" onclick="goto('post-failure-modes')">
-<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"/></svg></div>
+<article class="post-item" onclick="goto('post-urban-systems')">
+<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg></div>
 <div>
 <div class="post-meta">
 <span>Pattern recognition</span>
 <span class="dot">·</span>
-<span>3 min read</span>
+<span>2 min read</span>
 <span class="dot">·</span>
-<span>May 2026</span>
+<span>March 2026</span>
 </div>
-<h3>Four ways urban work fails <em>after the approval</em></h3>
-<p class="post-dek">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
+<h3>What I mean when I say <em>urban systems</em></h3>
+<p class="post-dek">Defining the working layer — between the policy debates above it and the infrastructure underneath it — where cities actually run.</p>
 </div>
 </article>
 </div>
@@ -2914,9 +3134,9 @@ The name
 
 <p>That's the working layer I mean when I talk about urban systems — the systems a city has to operate, day in and day out, for it to function at all. Some are literal: water, waste, food, energy. Some are logistical: transport, housing, health, emergency response. Some are social: education, workforce, economic mobility. The list isn't ordered or exhaustive. It's the territory.</p>
 
-<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem — often with different authority, different incentives, and different time horizons. <em>That's what makes the work hard. Not any single piece of it. The coordination.</em></p>
+<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem — often with different authority, different incentives, and different time horizons. That's what makes the work hard. Not any single piece of it. The coordination.</p>
 
-<p>Perhaps the clearest illustration comes from a specific moment. In 2018, the NYC Taxi and Limousine Commission capped the number of for-hire vehicles on the road for the first time. Uber and Lyft had grown unchecked for most of a decade, and the consequences had arrived all at once: congestion, emissions, wage collapse, a medallion market in freefall, a wave of driver suicides. The cap was the headline. <em>The cap was also the easy part.</em></p>
+<p>Perhaps the clearest illustration comes from a specific moment. In 2018, the NYC Taxi and Limousine Commission capped the number of for-hire vehicles on the road for the first time. Uber and Lyft had grown unchecked for most of a decade, and the consequences had arrived all at once: congestion, emissions, wage collapse, a medallion market in freefall, a wave of driver suicides. The cap was the headline. The cap was also the easy part.</p>
 
 <p>The real work was underneath. Rules had to become logic a system could enforce. New data had to be collected, and new analysis stood up, so the agency could tell whether any of it was working. Operations had to be redesigned. Teams had to be restructured. Every change had to be walked through with the industry while it was still being built. All of it had to happen at once, without breaking the service millions of New Yorkers depended on every day.</p>
 
@@ -2986,7 +3206,7 @@ The name
 
 <p>In 2022, Sanergy split in two. <em>Fresh Life</em>, the nonprofit, runs the toilets and waste collection. <em>Regen Organics</em>, the for-profit, runs the processing and product sales. Both sit under an umbrella that keeps the value chain intact operationally but separates the legal and financial containers. One chain, two balance sheets.</p>
 
-<p>This is a container move in its purest form. The tension that had constrained the model for a decade got resolved by changing the legal vessel, not the operations. But what makes it work isn't just the restructure. It's that by 2022 the underlying operations were mature enough to survive the split. The container move was right <em>at the right time</em> — earlier, and it would have split a fragile operation; later, and the tension would have constrained growth on both sides for longer than it needed to.</p>
+<p>This is a container move in its purest form. The tension that had constrained the model for a decade got resolved by changing the legal vessel, not the operations. But what makes it work isn't just the restructure. It's that by 2022 the underlying operations were mature enough to survive the split. The container move was right at the right time — earlier, and it would have split a fragile operation; later, and the tension would have constrained growth on both sides for longer than it needed to.</p>
 
 <h2>Philadelphia TAP — when the container fights the machinery</h2>
 
@@ -2996,13 +3216,13 @@ The name
 
 <p>Then in 2024, the city pivoted. Philadelphia Water Revenue partnered with the city's Office of Integrated Data for Evidence and Action and started auto-enrolling customers who had already been income-verified by other city programs. In one year, enrollment went from about 22,000 to more than 60,000.</p>
 
-<p>The move was operational, not structural. <em>The container didn't change. The machinery underneath it did.</em> The part of the machinery doing all the damage — the individualized income verification required to set an individualized rate — got offloaded onto a data pipeline that other agencies had already built. TAP as a rate structure stayed the same; TAP as an administrative process is now a different program than it was. What matters is whether the organization behind the container can find a way to make the machinery underneath it actually work — and that sometimes takes years of operating a broken version before the right fix becomes visible.</p>
+<p>The move was operational, not structural. The container didn't change. The machinery underneath it did. The part of the machinery doing all the damage — the individualized income verification required to set an individualized rate — got offloaded onto a data pipeline that other agencies had already built. TAP as a rate structure stayed the same; TAP as an administrative process is now a different program than it was. What matters is whether the organization behind the container can find a way to make the machinery underneath it actually work — and that sometimes takes years of operating a broken version before the right fix becomes visible.</p>
 
 <h2>What the three cases have in common</h2>
 
 <p>Cal-ITP works because the machinery matched the container from the start. Sanergy works because the operations were mature enough to survive splitting the container when the time came. Philadelphia TAP is still working through it — the container surfaced an operational problem the utility couldn't solve alone, and a fix is emerging now from a part of the city that wasn't even in the room when TAP was designed.</p>
 
-<p>The container move is real. Finding the right legal, financial, or governance vehicle genuinely is the high-leverage play in a lot of urban systems work. But <em>the container doesn't do the work. The container makes the work possible.</em> What determines whether the work actually happens is the operation that lives inside it — and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</p>
+<p>The container move is real. Finding the right legal, financial, or governance vehicle genuinely is the high-leverage play in a lot of urban systems work. But the container doesn't do the work. The container makes the work possible. What determines whether the work actually happens is the operation that lives inside it — and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</p>
 
 <p>This matters because the container move is what gets the press. New authority formed. New entity launched. New rate structure approved. What doesn't make the headlines, and what determines almost everything about the outcome, is whether the organization behind the container can actually run what's inside it — through the second year and the fifth year and the year the founding champion moves on.</p>
 
@@ -3048,7 +3268,7 @@ The name
 </figure>
 <p class="lede">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
 
-<p>These aren't the failures the trade press writes about. <em>Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind.</em> Those are the ones I get called in on. After enough reps — startup side, agency side, foundation side, vendor side — four of them show up more than the rest.</p>
+<p>These aren't the failures the trade press writes about. Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind. Those are the ones I get called in on. After enough reps — startup side, agency side, foundation side, vendor side — four of them show up more than the rest.</p>
 
 <h2>"The plan assumed someone would build it."</h2>
 
@@ -3060,7 +3280,7 @@ The name
 
 <h2>"The old process got copied into the new system."</h2>
 
-<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better — because the broken processes the old technology had calcified got faithfully reproduced in the new one. <em>The tech changed. The work didn't.</em></p>
+<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better — because the broken processes the old technology had calcified got faithfully reproduced in the new one. The tech changed. The work didn't.</p>
 
 <p>The tell is usually in the RFP. If the requirements document was written by the people whose job is to protect the existing process, the modernization will deliver exactly what it asked for — which is the problem. The real work of modernization isn't the migration. It's refusing to rebuild the bad processes the old technology was hiding. That refusal is political, not technical, which is why most modernization vendors avoid it.</p>
 
@@ -3074,9 +3294,9 @@ The name
 
 <p>The last pattern is the most human. A founder, an executive director, a commissioner, a program lead — someone has become the single point of coordination for a program that's outgrown them. Every question routes to them. Every decision waits for them. The organization is technically bigger than one person but operationally isn't. They know it. They'll tell you over coffee. Nobody has figured out how to unblock it.</p>
 
-<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives. <em>They don't need another direct report. They need the system around them to work without them in every room.</em></p>
+<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives. They don't need another direct report. They need the system around them to work without them in every room.</p>
 
-<p>These four don't cover every way urban work fails. They cover most of the ones I get hired to fix. <em>The pattern that connects them is that none of them are strategy problems. They're operational problems that look like strategy problems from a distance — and the longer you sit in one, the more expensive it gets to fix.</em></p>
+<p>These four don't cover every way urban work fails. They cover most of the ones I get hired to fix. The pattern that connects them is that none of them are strategy problems. They're operational problems that look like strategy problems from a distance — and the longer you sit in one, the more expensive it gets to fix.</p>
 </div>
 
 <footer class="post-footer">
@@ -3098,7 +3318,7 @@ The name
 <div class="wrap">
 <div class="kicker">Contact</div>
 <h1>Start a <em>conversation</em>.</h1>
-<p class="lede">Thirty minutes. <em>No pitch, no proposal</em> — honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
+<p class="lede">Thirty minutes. No pitch, no proposal — honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
 <div class="contact-mark"><svg viewBox="0 0 600 200"><use href="#m-contact-hero"/></svg></div>
 </div>
 </section>
