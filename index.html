@@ -1278,7 +1278,7 @@ border-color: var(--ink);
 
 /* Posts empty state */
 .posts {
-padding: 40px 0 140px;
+padding: 40px 0 64px;
 }
 .posts-empty {
 text-align: center;
@@ -1597,6 +1597,56 @@ text-align: left;
 .post-footer:has(.eng-tiles) .post-back-bottom {
 display: inline-flex;
 margin-top: 56px;
+}
+
+/* Compact contact CTA at bottom of engagement detail pages */
+.post-footer .footer-contact {
+margin-top: 56px;
+padding-top: 40px;
+border-top: 1px solid var(--rule);
+display: flex;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 8px 18px;
+}
+.post-footer .footer-contact .footer-contact-lede {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 22px;
+color: var(--ink);
+margin: 0;
+flex: 1 1 100%;
+}
+.post-footer .footer-contact .footer-contact-lede em {
+color: var(--terracotta);
+}
+.post-footer .footer-contact a {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 20px;
+text-decoration: none;
+border-bottom: 1px solid currentColor;
+padding-bottom: 2px;
+letter-spacing: -0.01em;
+transition: color 0.2s ease, border-color 0.2s ease;
+}
+.post-footer .footer-contact .footer-contact-email { color: var(--terracotta); }
+.post-footer .footer-contact .footer-contact-email:hover { color: var(--ink); }
+.post-footer .footer-contact .footer-contact-or {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 14px;
+color: var(--muted);
+border: none;
+padding: 0;
+}
+.post-footer .footer-contact .footer-contact-book { color: var(--ink); }
+.post-footer .footer-contact .footer-contact-book:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.post-footer:has(.footer-contact) .post-back-bottom { margin-top: 40px; }
+
+@media (max-width: 520px) {
+.post-footer .footer-contact .footer-contact-lede { font-size: 19px; }
+.post-footer .footer-contact a { font-size: 18px; }
 }
 
 @media (max-width: 800px) {
@@ -3281,24 +3331,18 @@ The name
 <footer class="post-footer">
 <p class="eng-tiles-label">Other examples</p>
 <div class="eng-tiles">
-<a class="eng-tile" onclick="goto('engagement-bandwagon')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-bandwagon"/></svg></div>
-<div class="eng-tile-meta">Bandwagon · Launch</div>
-<h4>Shipping a new service line <em>in chaos</em></h4>
-<p class="eng-tile-dek">A van-sharing pilot built in weeks with Transdev. Not a market test — a vehicle to put the company in a conversation it couldn't otherwise reach.</p>
-</a>
-<a class="eng-tile" onclick="goto('engagement-mentor')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-mentor"/></svg></div>
-<div class="eng-tile-meta">Technologists for the Public Good · Advisory</div>
-<h4>Sharpening the case <em>a data professional was making</em></h4>
-<p class="eng-tile-dek">A strong IC with the substance but not the pitch. Reframing the goal, sequencing the deliverables, getting the case in front of leadership.</p>
-</a>
 <div class="eng-tile is-placeholder">
 <div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
 <div class="eng-tile-meta">Coming soon</div>
 <h4>More engagements <em>on the way</em></h4>
 <p class="eng-tile-dek">Additional case studies in development.</p>
 </div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
 </div>
 <a class="post-back-bottom" onclick="goto('work')">
 <span>←</span> Back to Services
@@ -3372,7 +3416,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More engagements coming.</p>
+<p class="eng-tiles-label">Other examples</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-tlc')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-meta">NYC TLC · Build</div>
+<h4>Building a product practice inside a <em>regulator</em></h4>
+<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+</div>
 <a class="post-back-bottom" onclick="goto('work')">
 <span>←</span> Back to Services
 </a>
@@ -3431,7 +3495,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More engagements coming.</p>
+<p class="eng-tiles-label">Other examples</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-tlc')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-meta">NYC TLC · Build</div>
+<h4>Building a product practice inside a <em>regulator</em></h4>
+<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+</div>
 <a class="post-back-bottom" onclick="goto('work')">
 <span>←</span> Back to Services
 </a>
@@ -3566,7 +3650,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More in the Journal.</p>
+<p class="eng-tiles-label">Examples of this work</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-tlc')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-meta">NYC TLC · Build</div>
+<h4>Building a product practice inside a <em>regulator</em></h4>
+<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+</div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
@@ -3650,7 +3754,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More in the Journal.</p>
+<p class="eng-tiles-label">Examples of this work</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-tlc')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-meta">NYC TLC · Build</div>
+<h4>Building a product practice inside a <em>regulator</em></h4>
+<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+</div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
@@ -3720,7 +3844,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More in the Journal.</p>
+<p class="eng-tiles-label">Examples of this work</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-tlc')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-meta">NYC TLC · Build</div>
+<h4>Building a product practice inside a <em>regulator</em></h4>
+<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
+<div class="footer-contact">
+<p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
+<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="footer-contact-or">or</span>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+</div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
