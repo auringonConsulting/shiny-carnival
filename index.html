@@ -216,6 +216,7 @@ height: 112px;
 .colkicker.is-featured .mark svg rect,
 .colkicker.is-featured .mark svg line { stroke-width: inherit; }
 .two-col .colkicker.is-featured { padding-top: 0; }
+.example-mark-mobile { display: none; }
 
 /* Featured example: clickable title block on home that mirrors the engagement page header */
 .example-title-link {
@@ -573,21 +574,27 @@ align-self: stretch;
 .home-contact-more .arrow { transition: transform 0.25s ease; }
 .home-contact-more:hover .arrow { transform: translateX(3px); }
 
-/* The home-contact tint should butt directly against the dark footer.
-   Only on the home page; other pages keep their breathing room. */
-main:has(#page-home.active) + footer.site { margin-top: 0; }
+/* Tinted sections that butt directly against the dark footer should not
+   have a gap between them. Applies to pages whose last block is tinted. */
+main:has(#page-home.active) + footer.site,
+main:has(#page-work.active) + footer.site { margin-top: 0; }
 
 @media (max-width: 880px) {
 .home-contact { padding: 72px 40px 88px; }
 .home-contact-header { margin-bottom: 36px; }
 .home-contact-body {
 grid-template-columns: 1fr;
-gap: 32px;
+gap: 40px;
 }
-.home-contact-illo { max-width: 360px; }
+.home-contact-illo { max-width: 100%; }
+.home-contact-paths {
+align-items: center;
+text-align: center;
+}
 .home-contact-paths .path-email { font-size: 22px; }
 .home-contact-paths .path-book { font-size: 19px; }
 .home-contact-tag { font-size: 18px; }
+.home-contact-more { align-self: center; }
 }
 
 /* ——— Footer ——— */
@@ -773,27 +780,29 @@ transition: transform 0.25s ease;
 
 @media (max-width: 860px) {
 .work-hero .hero-row {
-grid-template-columns: minmax(0, 1fr) 140px;
-gap: 24px;
+grid-template-columns: minmax(0, 1fr) auto;
+gap: 48px;
 align-items: start;
 }
 .work-hero .hero-portrait {
-width: 140px;
+width: 220px;
 margin-top: 4px;
 }
-.work-hero .portrait-caption { font-size: 13px; }
-.work-hero .portrait-link { font-size: 13px; }
 }
 @media (max-width: 520px) {
 .work-hero .hero-row {
-grid-template-columns: minmax(0, 1fr);
-gap: 28px;
+display: flex;
+flex-direction: column;
+gap: 24px;
 }
+.work-hero .hero-text { display: contents; }
+.work-hero .hero-text h1 { order: 1; }
+.work-hero .hero-portrait { order: 2; }
+.work-hero .hero-text .lede { order: 3; }
 .work-hero .hero-portrait {
-order: -1;
 width: 100%;
-max-width: 280px;
-margin: 0 0 4px;
+max-width: none;
+margin: 4px 0;
 }
 .work-hero .portrait-meta {
 flex-direction: row;
@@ -1136,11 +1145,11 @@ shape-outside: margin-box;
 }
 .engagement-page .engagement-mark svg { width: 100%; height: auto; display: block; }
 
-@media (max-width: 800px) {
+@media (max-width: 520px) {
 .engagement-page .engagement-mark {
 float: none;
 width: 100%;
-max-width: 220px;
+max-width: none;
 margin: 0 0 24px 0;
 }
 }
@@ -1872,6 +1881,13 @@ padding: 80px 0;
 border-bottom: 1px solid var(--rule);
 }
 .about-block:last-of-type { border-bottom: none; }
+.about-block.about-block--tint {
+background: rgba(123, 157, 163, 0.10);
+margin: 0 -40px;
+padding: 80px 40px;
+border-top: 1px solid var(--rule);
+border-bottom: 1px solid var(--rule);
+}
 .about-block .colkicker { padding-top: 8px; }
 .about-block h2 {
 font-family: 'Instrument Serif', serif;
@@ -1926,48 +1942,69 @@ max-width: 620px;
 /* ═══════════════ MOBILE JUMP NAV (Background page) ═══════════════ */
 .mobile-jump {
 display: none;
-margin: 0 0 40px;
-padding: 20px 0 4px;
+position: sticky;
+top: 70px;
+z-index: 40;
+margin: 0 0 32px;
+padding: 10px 0;
 border-top: 1px solid var(--rule);
 border-bottom: 1px solid var(--rule);
+background: rgba(241, 242, 218, 0.85);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
 }
-.mobile-jump .mj-label {
-font-size: 11px;
-letter-spacing: 0.16em;
-text-transform: uppercase;
-color: var(--muted);
-font-weight: 500;
-margin-bottom: 14px;
-padding: 0 4px;
-}
+.mobile-jump .mj-label { display: none; }
 .mobile-jump ul {
 list-style: none;
 display: flex;
-flex-wrap: wrap;
+flex-wrap: nowrap;
+overflow-x: auto;
 gap: 8px;
-padding: 0 0 16px;
 margin: 0;
+padding: 2px 0;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+-webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 }
-.mobile-jump li { margin: 0; }
+.mobile-jump ul::-webkit-scrollbar { display: none; }
+.mobile-jump li { margin: 0; flex-shrink: 0; }
 .mobile-jump a {
 display: inline-block;
 font-size: 13px;
+line-height: 1.2;
 padding: 7px 14px;
 border: 1px solid var(--rule);
 border-radius: 999px;
 color: var(--ink-soft);
 text-decoration: none;
 cursor: pointer;
+background: var(--paper);
+white-space: nowrap;
 transition: all 0.2s ease;
 }
 .mobile-jump a:hover,
-.mobile-jump a:active {
+.mobile-jump a:active,
+.mobile-jump a.active {
 background: var(--ink);
 color: var(--paper);
 border-color: var(--ink);
 }
 @media (max-width: 1100px) {
 .mobile-jump { display: block; }
+.mobile-jump ul {
+margin: 0 -40px;
+padding-left: 40px;
+padding-right: 40px;
+}
+}
+@media (max-width: 520px) {
+.mobile-jump { top: 62px; }
+.mobile-jump ul {
+margin: 0 -24px;
+padding-left: 24px;
+padding-right: 24px;
+}
 }
 @media (min-width: 1101px) {
 .mobile-jump { display: none !important; }
@@ -2100,6 +2137,13 @@ background: var(--sky);
 border-color: var(--sky);
 }
 
+/* Background page rail — green variant */
+.track-rail.rail--green a.active { color: var(--green); }
+.track-rail.rail--green a.active .dot {
+background: var(--green);
+border-color: var(--green);
+}
+
 @media (max-width: 1100px) {
 .track-rail { display: none !important; }
 }
@@ -2137,17 +2181,28 @@ nav.top ul li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
 nav.top ul li:last-child { border-bottom: none; }
 nav.top a { font-size: 16px; }
 
-.subscribe,
-.contact-block,
-.contact-expect,
-.contact-pair,
-.contact-fit { grid-template-columns: 1fr; gap: 16px; }
-.fit-grid { grid-template-columns: 1fr; gap: 28px; }
+.subscribe { grid-template-columns: 1fr; gap: 16px; }
 .subscribe form { flex-direction: column; }
-.contact-block .email { font-size: 26px; word-break: break-all; }
-.contact-paths .path-email { font-size: 26px; word-break: break-all; }
-.contact-paths .path-book { font-size: 22px; }
 .about-block h2 { font-size: 32px; }
+.about-block { padding: 56px 0; }
+.about-block.about-block--tint {
+margin: 0 -24px;
+padding: 56px 24px;
+}
+.about-block .colkicker {
+display: flex;
+align-items: center;
+gap: 14px;
+padding-top: 0;
+margin-bottom: 4px;
+}
+.about-block .colkicker .mark {
+width: 64px;
+height: 42px;
+}
+.principle { padding: 18px 0; }
+.principle h3 { font-size: 20px; }
+.about-principles { margin-top: 20px; }
 main { padding: 0 24px; }
 nav.top { padding: 20px 24px; }
 nav.top ul { gap: 14px; }
@@ -2166,6 +2221,13 @@ nav.top ul { gap: 14px; }
 .offering-example { margin-left: 0; }
 .two-col .colkicker,
 .case .sector { padding-top: 0; }
+.colkicker.is-featured .mark { display: none; }
+.example-mark-mobile {
+display: block;
+width: 100%;
+margin: 8px 0 18px;
+}
+.example-mark-mobile svg { width: 100%; height: 100%; display: block; }
 .engage-entry { grid-template-columns: 1fr; gap: 8px; }
 .engage-entry .answer-pair { justify-content: flex-end; }
 .engage-entry .mark { width: 36px; height: 26px; }
@@ -2179,6 +2241,35 @@ footer.site .footer-bottom { flex-direction: column; align-items: flex-start; ga
 .work-hero { padding: 64px 0 56px; }
 .cases { padding: 56px 24px; margin: 0 -24px; }
 section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+}
+
+/* ═══════════════ CONTACT PAGE — RESPONSIVE ═══════════════ */
+/* Tablet (≤880px): collapse internal kicker columns to single column
+   so kicker labels sit above content, but keep contact-pair and fit-grid
+   as side-by-side two-column comparisons. */
+@media (max-width: 880px) {
+.contact-block,
+.contact-expect,
+.contact-fit { grid-template-columns: 1fr; gap: 16px; }
+.contact-block .email { font-size: 28px; }
+.contact-paths .path-email { font-size: 30px; }
+.contact-paths .path-book { font-size: 24px; }
+}
+
+/* Phone (≤520px): collapse the side-by-side pairs to a single column too,
+   and tighten section padding + list item spacing to reduce page length. */
+@media (max-width: 520px) {
+.contact-pair { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+.fit-grid { grid-template-columns: 1fr; gap: 24px; }
+.contact-expect { padding: 0 0 40px; border-top: none; }
+.contact-fit { padding: 48px 0 72px; }
+.contact-block .email { font-size: 26px; word-break: break-all; }
+.contact-paths .path-email { font-size: 26px; word-break: break-all; }
+.contact-paths .path-book { font-size: 22px; }
+.expect-list li { padding: 12px 0; font-size: 17px; }
+.expect-list li strong { font-size: 18px; }
+.fit-col h4 { font-size: 20px; margin-bottom: 10px; }
+.fit-col li { padding: 8px 0; font-size: 15px; }
 }
 </style>
 </head>
@@ -2693,6 +2784,14 @@ Example of my work
 <div class="example-role">Director of Analytics · NYC Taxi & Limousine Commission</div>
 <h3 class="example-title">Building a product practice inside a <em>regulator</em></h3>
 </a>
+<div class="example-mark-mobile" aria-hidden="true"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="0.7"/>
+<path d="M50,124 Q44,62 120,54 Q196,50 200,124 Z" fill="none" stroke="#3a3a3a" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.55"/>
+<circle cx="156" cy="38" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="0.9"/>
+<path d="M62,124 C58,114 68,108 76,108 C86,108 90,114 88,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="0.7" stroke-linejoin="round"/>
+<path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="0.9" stroke-linejoin="round"/>
+</svg></div>
 <p>I joined the NYC Taxi and Limousine Commission as Director of Analytics — hired to bring data discipline to the agency that regulates every taxi, Uber, and Lyft in the city. What I argued for, built, and left behind was something larger: a ten-person product practice inside a six-hundred-person regulator that had never had one.</p>
 <p>By the time I left, the agency had stood up its first Chief Product Officer role to keep it going.</p>
 <a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
@@ -2750,6 +2849,17 @@ Example of my work
 </section>
 
 <div class="wrap">
+
+<nav class="mobile-jump" aria-label="Jump to section">
+<div class="mj-label">Jump to</div>
+<ul>
+<li><a data-target="wk-mandate">Build</a></li>
+<li><a data-target="wk-diagnose">Diagnose</a></li>
+<li><a data-target="wk-ship">Launch</a></li>
+<li><a data-target="wk-fractional">Fractional</a></li>
+<li><a data-target="wk-advisory">Advisory</a></li>
+</ul>
+</nav>
 
 <div class="offerings-group">
 <div class="offerings-group-label">Scoped engagements</div>
@@ -2833,7 +2943,7 @@ Example of my work
 <!-- ═══════════════ BACKGROUND ═══════════════ -->
 <div class="page" id="page-track">
 
-<aside class="track-rail" id="track-rail" aria-label="Section navigation">
+<aside class="track-rail rail--green" id="track-rail" aria-label="Section navigation">
 <a data-target="tr-startups"><span class="dot"></span>Startups</a>
 <a data-target="tr-gov"><span class="dot"></span>Government</a>
 <a data-target="tr-consulting"><span class="dot"></span>Consulting</a>
@@ -3006,7 +3116,7 @@ The practice
 </div>
 </section>
 
-<section class="about-block">
+<section class="about-block about-block--tint">
 <div class="wrap two-col">
 <div class="colkicker">
 <span class="mark"><svg><use href="#m-about-focus"/></svg></span>
@@ -3793,7 +3903,12 @@ function activateScrollTarget(link, e) {
 e.preventDefault();
 const target = document.getElementById(link.dataset.target);
 if (!target) return;
-const y = target.getBoundingClientRect().top + window.scrollY - 80;
+// Offset = top nav (~70px) + sticky chip nav on tablet/mobile (~52px) + breathing room
+const stickyChips = document.querySelector('.page.active .mobile-jump');
+const chipsHeight = (stickyChips && getComputedStyle(stickyChips).display !== 'none')
+? stickyChips.getBoundingClientRect().height : 0;
+const offset = 80 + chipsHeight + 8;
+const y = target.getBoundingClientRect().top + window.scrollY - offset;
 window.scrollTo({ top: y, behavior: 'smooth' });
 }
 document.querySelectorAll('a[data-target]').forEach(link => {
@@ -3824,6 +3939,7 @@ updateRailActive();
 
 function updateRailActive() {
 const triggerY = window.innerHeight * 0.3;
+let activeIdForPage = null;
 rails.forEach(r => {
 if (!r.el.classList.contains('visible')) return;
 let activeId = null;
@@ -3836,6 +3952,23 @@ if (rect.top <= triggerY) activeId = link.dataset.target;
 r.links.forEach(link => {
 link.classList.toggle('active', link.dataset.target === activeId);
 });
+activeIdForPage = activeId;
+});
+// Mirror active state onto mobile-jump chips on the currently-visible page
+document.querySelectorAll('.page.active .mobile-jump a[data-target]').forEach(link => {
+const isActive = link.dataset.target === activeIdForPage;
+const wasActive = link.classList.contains('active');
+link.classList.toggle('active', isActive);
+// On narrow viewports, scroll the chip strip so the active chip is visible
+if (isActive && !wasActive && window.innerWidth <= 520) {
+const ul = link.closest('ul');
+if (ul) {
+const linkRect = link.getBoundingClientRect();
+const ulRect = ul.getBoundingClientRect();
+const offset = (linkRect.left - ulRect.left) - (ulRect.width / 2 - linkRect.width / 2);
+ul.scrollTo({ left: ul.scrollLeft + offset, behavior: 'smooth' });
+}
+}
 });
 }
 
