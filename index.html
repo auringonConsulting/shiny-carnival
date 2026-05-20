@@ -786,12 +786,26 @@ margin-top: 4px;
 }
 @media (max-width: 520px) {
 .work-hero .hero-row {
-grid-template-columns: minmax(0, 1fr) 110px;
-gap: 18px;
+grid-template-columns: minmax(0, 1fr);
+gap: 28px;
 }
-.work-hero .hero-portrait { width: 110px; }
-.work-hero .portrait-caption { font-size: 12px; line-height: 1.35; }
-.work-hero .portrait-link { font-size: 12px; }
+.work-hero .hero-portrait {
+order: -1;
+width: 100%;
+max-width: 280px;
+margin: 0 0 4px;
+}
+.work-hero .portrait-meta {
+flex-direction: row;
+justify-content: space-between;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 8px 14px;
+}
+.work-hero .portrait-caption { font-size: 13px; line-height: 1.35; }
+.work-hero .portrait-link { font-size: 13px; }
+.work-hero h1 { font-size: clamp(32px, 8vw, 44px); }
+.work-hero .lede { font-size: 17px; }
 }
 
 /* Offerings as numbered entries */
