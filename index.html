@@ -1946,34 +1946,36 @@ position: sticky;
 top: 70px;
 z-index: 40;
 margin: 0 0 32px;
-padding: 14px 0 12px;
-border-top: 1px solid var(--rule);
+padding: 12px 0;
 border-bottom: 1px solid var(--rule);
-background: rgba(241, 242, 218, 0.85);
+background: rgba(241, 242, 218, 0.94);
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
+box-shadow: 0 1px 0 0 var(--rule), 0 6px 12px -8px rgba(58, 58, 58, 0.08);
 }
 .mobile-jump .mj-label { display: none; }
 .mobile-jump ul {
 list-style: none;
 display: flex;
 flex-wrap: nowrap;
+align-items: center;
 overflow-x: auto;
 gap: 8px;
 margin: 0;
-padding: 2px 0;
+padding: 0;
 -webkit-overflow-scrolling: touch;
 scrollbar-width: none;
 -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 }
 .mobile-jump ul::-webkit-scrollbar { display: none; }
-.mobile-jump li { margin: 0; flex-shrink: 0; }
+.mobile-jump li { margin: 0; flex-shrink: 0; display: flex; }
 .mobile-jump a {
-display: inline-block;
+display: inline-flex;
+align-items: center;
 font-size: 13px;
-line-height: 1.2;
-padding: 7px 14px;
+line-height: 1;
+padding: 8px 14px;
 border: 1px solid var(--rule);
 border-radius: 999px;
 color: var(--ink-soft);
@@ -3959,8 +3961,8 @@ document.querySelectorAll('.page.active .mobile-jump a[data-target]').forEach(li
 const isActive = link.dataset.target === activeIdForPage;
 const wasActive = link.classList.contains('active');
 link.classList.toggle('active', isActive);
-// On narrow viewports, scroll the chip strip so the active chip is visible
-if (isActive && !wasActive && window.innerWidth <= 520) {
+// Scroll the chip strip so the active chip is visible (chip nav appears below 1100px)
+if (isActive && !wasActive && window.innerWidth <= 1100) {
 const ul = link.closest('ul');
 if (ul) {
 const linkRect = link.getBoundingClientRect();
