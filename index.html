@@ -87,7 +87,7 @@ background: var(--paper);
 padding: 24px 40px;
 display: flex;
 justify-content: space-between;
-align-items: baseline;
+align-items: center;
 border-bottom: 1px solid transparent;
 transition: border-color 0.3s ease;
 gap: 24px;
@@ -1943,7 +1943,7 @@ max-width: 620px;
 .mobile-jump {
 display: none;
 position: sticky;
-top: 70px;
+top: var(--nav-height, 70px);
 z-index: 40;
 margin: 0 0 32px;
 padding: 12px 0;
@@ -1968,7 +1968,7 @@ scrollbar-width: none;
 -webkit-mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 mask-image: linear-gradient(to right, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
 }
-.mobile-jump ul::-webkit-scrollbar { display: none; }
+.mobile-jump ul::-webkit-scrollbar { display: none; width: 0; height: 0; }
 .mobile-jump li { margin: 0; flex-shrink: 0; display: flex; }
 .mobile-jump a {
 display: inline-flex;
@@ -2001,7 +2001,6 @@ padding-right: 40px;
 }
 }
 @media (max-width: 520px) {
-.mobile-jump { top: 62px; }
 .mobile-jump ul {
 margin: 0 -24px;
 padding-left: 24px;
@@ -3889,6 +3888,20 @@ goto(resolvePageFromHash(), { skipUrl: true });
 });
 
 const nav = document.getElementById('nav');
+
+// Measure top nav height and expose it as a CSS variable so the sticky chip
+// nav can dock flush against the top nav's bottom edge at any viewport.
+function updateNavHeight() {
+const h = nav.getBoundingClientRect().height;
+document.documentElement.style.setProperty('--nav-height', h + 'px');
+}
+updateNavHeight();
+window.addEventListener('resize', updateNavHeight, { passive: true });
+// Also re-measure after fonts load, since they can change nav height slightly
+if (document.fonts && document.fonts.ready) {
+document.fonts.ready.then(updateNavHeight);
+}
+
 window.addEventListener('scroll', () => {
 nav.classList.toggle('scrolled', window.scrollY > 8);
 updateRailActive();
@@ -3905,11 +3918,12 @@ function activateScrollTarget(link, e) {
 e.preventDefault();
 const target = document.getElementById(link.dataset.target);
 if (!target) return;
-// Offset = top nav (~70px) + sticky chip nav on tablet/mobile (~52px) + breathing room
+// Offset = top nav height + sticky chip nav (when visible) + breathing room
+const navHeight = nav.getBoundingClientRect().height;
 const stickyChips = document.querySelector('.page.active .mobile-jump');
 const chipsHeight = (stickyChips && getComputedStyle(stickyChips).display !== 'none')
 ? stickyChips.getBoundingClientRect().height : 0;
-const offset = 80 + chipsHeight + 8;
+const offset = navHeight + chipsHeight + 12;
 const y = target.getBoundingClientRect().top + window.scrollY - offset;
 window.scrollTo({ top: y, behavior: 'smooth' });
 }
