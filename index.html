@@ -507,26 +507,27 @@ transform-origin: center;
 
 .home-contact-paths {
 display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 14px;
+flex-wrap: wrap;
+align-items: baseline;
+gap: 8px 18px;
 }
 .home-contact-tag {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 20px;
+font-size: 22px;
 line-height: 1.4;
-color: var(--ink-soft);
-margin: 0 0 6px;
+color: var(--ink);
+margin: 0 0 12px;
+flex: 1 1 100%;
 }
 .home-contact-paths .path-email {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 28px;
+font-size: 20px;
 color: var(--terracotta);
 text-decoration: none;
 border-bottom: 1px solid var(--terracotta);
-padding-bottom: 3px;
+padding-bottom: 2px;
 letter-spacing: -0.01em;
 transition: color 0.2s ease, border-color 0.2s ease;
 }
@@ -536,20 +537,20 @@ font-family: 'Instrument Serif', serif;
 font-style: italic;
 font-size: 14px;
 color: var(--muted);
-padding-left: 2px;
+padding-left: 0;
 }
 .home-contact-paths .path-book {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 24px;
+font-size: 20px;
 color: var(--ink);
 text-decoration: none;
 border-bottom: 1px solid var(--ink);
-padding-bottom: 3px;
+padding-bottom: 2px;
 letter-spacing: -0.01em;
 display: inline-flex;
 align-items: center;
-gap: 10px;
+gap: 8px;
 transition: color 0.2s ease, border-color 0.2s ease;
 }
 .home-contact-paths .path-book:hover { color: var(--terracotta); border-color: var(--terracotta); }
@@ -557,6 +558,7 @@ transition: color 0.2s ease, border-color 0.2s ease;
 .home-contact-paths .path-book:hover .arrow { transform: translateX(3px); }
 
 .home-contact-more {
+flex: 1 1 100%;
 margin-top: 22px;
 padding-top: 22px;
 border-top: 1px solid var(--rule);
@@ -568,7 +570,6 @@ display: inline-flex;
 align-items: center;
 gap: 6px;
 transition: color 0.2s ease;
-align-self: stretch;
 }
 .home-contact-more:hover { color: var(--ink); }
 .home-contact-more .arrow { transition: transform 0.25s ease; }
@@ -587,14 +588,9 @@ grid-template-columns: 1fr;
 gap: 40px;
 }
 .home-contact-illo { max-width: 100%; }
-.home-contact-paths {
-align-items: center;
-text-align: center;
-}
-.home-contact-paths .path-email { font-size: 22px; }
-.home-contact-paths .path-book { font-size: 19px; }
-.home-contact-tag { font-size: 18px; }
-.home-contact-more { align-self: center; }
+.home-contact-paths .path-email { font-size: 18px; }
+.home-contact-paths .path-book { font-size: 18px; }
+.home-contact-tag { font-size: 19px; }
 }
 
 /* ——— Footer ——— */
@@ -1144,6 +1140,7 @@ margin: 8px 32px 16px 0;
 shape-outside: margin-box;
 }
 .engagement-page .engagement-mark svg { width: 100%; height: auto; display: block; }
+.engagement-page .engagement-mark svg * { vector-effect: non-scaling-stroke; }
 
 @media (max-width: 520px) {
 .engagement-page .engagement-mark {
@@ -1319,6 +1316,7 @@ width: 180px;
 aspect-ratio: 320 / 280;
 }
 .post-item .post-illo-thumb svg { width: 100%; height: 100%; display: block; }
+.post-item .post-illo-thumb svg * { vector-effect: non-scaling-stroke; }
 
 .post-item .post-meta {
 font-size: 12px;
@@ -1395,6 +1393,7 @@ aspect-ratio: 240 / 160;
 margin-bottom: 16px;
 }
 .eng-tile .eng-tile-illo svg { width: 100%; height: 100%; display: block; }
+.eng-tile .eng-tile-illo svg * { vector-effect: non-scaling-stroke; }
 .eng-tile .eng-tile-meta {
 font-size: 12px;
 letter-spacing: 0.14em;
@@ -1489,6 +1488,7 @@ width: 100%;
 height: auto;
 display: block;
 }
+.post-illo svg * { vector-effect: non-scaling-stroke; }
 .post-illo .caption {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
@@ -2871,7 +2871,7 @@ Example of my work
 <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg"><use href="#m-contact-hero"/></svg>
 </div>
 <div class="home-contact-paths">
-<p class="home-contact-tag">Thirty minutes. No pitch, no proposal.</p>
+<p class="home-contact-tag">Thirty minutes. No pitch, no proposal — honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
 <a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
@@ -3547,7 +3547,7 @@ The name
 </div>
 <h1>The <em>Urbanist Operator</em></h1>
 <p class="lede">For people who operationalize urban systems—not policy wonks or tech evangelists. The unglamorous reality of making things work.</p>
-<p class="lede">Implementation stories. Vendor landscape. Pattern recognition. Policy-to-operations translation. The machinery nobody talks about. Written by Jonathan.</p>
+<p class="lede">Implementation stories. Vendor landscape. Field cases. Policy-to-operations translation. The machinery nobody talks about. Written by Jonathan.</p>
 </div>
 </section>
 
@@ -3558,7 +3558,7 @@ The name
 <div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"/></svg></div>
 <div>
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Patterns</span>
 <span class="dot">·</span>
 <span>3 min read</span>
 <span class="dot">·</span>
@@ -3572,7 +3572,7 @@ The name
 <div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"/></svg></div>
 <div>
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Cases</span>
 <span class="dot">·</span>
 <span>5 min read</span>
 <span class="dot">·</span>
@@ -3586,7 +3586,7 @@ The name
 <div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg></div>
 <div>
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Framing</span>
 <span class="dot">·</span>
 <span>2 min read</span>
 <span class="dot">·</span>
@@ -3623,7 +3623,7 @@ The name
 
 <header class="post-header">
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Framing</span>
 <span class="dot">·</span>
 <span>2 min read</span>
 <span class="dot">·</span>
@@ -3695,7 +3695,7 @@ The name
 
 <header class="post-header">
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Cases</span>
 <span class="dot">·</span>
 <span>5 min read</span>
 <span class="dot">·</span>
@@ -3799,7 +3799,7 @@ The name
 
 <header class="post-header">
 <div class="post-meta">
-<span>Pattern recognition</span>
+<span>Patterns</span>
 <span class="dot">·</span>
 <span>3 min read</span>
 <span class="dot">·</span>
