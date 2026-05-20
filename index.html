@@ -457,16 +457,13 @@ margin: 0 -40px;
 padding: 96px 40px 112px;
 border-top: 1px solid var(--rule);
 }
-.home-contact-inner {
-max-width: 960px;
-margin: 0 auto;
-display: grid;
-grid-template-columns: 1fr auto;
-gap: 56px 80px;
-align-items: end;
+.home-contact .wrap { max-width: 1040px; }
+
+.home-contact-header {
+max-width: 720px;
+margin-bottom: 56px;
 }
-.home-contact-text { max-width: 460px; }
-.home-contact-text .kicker {
+.home-contact-header .kicker {
 font-size: 12px;
 letter-spacing: 0.18em;
 text-transform: uppercase;
@@ -474,34 +471,57 @@ color: var(--muted);
 font-weight: 500;
 margin-bottom: 20px;
 }
-.home-contact-text h2 {
+.home-contact-header h2 {
 font-family: 'Instrument Serif', serif;
 font-weight: 400;
-font-size: clamp(34px, 4.2vw, 52px);
-line-height: 1.05;
-letter-spacing: -0.01em;
-margin: 0 0 16px;
+font-size: clamp(40px, 5.5vw, 68px);
+line-height: 1.02;
+letter-spacing: -0.015em;
+margin: 0;
 color: var(--ink);
 }
-.home-contact-text h2 em { font-style: italic; }
-.home-contact-text p {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 20px;
-line-height: 1.4;
-color: var(--ink-soft);
-margin: 0;
+.home-contact-header h2 em { font-style: italic; }
+
+.home-contact-body {
+display: grid;
+grid-template-columns: 1.4fr 1fr;
+gap: 64px;
+align-items: center;
 }
+.home-contact-illo {
+width: 100%;
+max-width: 560px;
+}
+.home-contact-illo svg {
+width: 100%;
+height: auto;
+display: block;
+overflow: visible;
+}
+.home-contact-illo svg circle {
+transition: transform 0.7s ease;
+transform-origin: center;
+}
+.home-contact:hover .home-contact-illo svg circle { transform: translateX(12px); }
+
 .home-contact-paths {
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 14px;
 }
+.home-contact-tag {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 20px;
+line-height: 1.4;
+color: var(--ink-soft);
+margin: 0 0 6px;
+}
 .home-contact-paths .path-email {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 26px;
+font-size: 28px;
 color: var(--terracotta);
 text-decoration: none;
 border-bottom: 1px solid var(--terracotta);
@@ -520,7 +540,7 @@ padding-left: 2px;
 .home-contact-paths .path-book {
 font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 22px;
+font-size: 24px;
 color: var(--ink);
 text-decoration: none;
 border-bottom: 1px solid var(--ink);
@@ -536,20 +556,18 @@ transition: color 0.2s ease, border-color 0.2s ease;
 .home-contact-paths .path-book:hover .arrow { transform: translateX(3px); }
 
 .home-contact-more {
-grid-column: 1 / -1;
-margin-top: 24px;
-padding-top: 28px;
+margin-top: 22px;
+padding-top: 22px;
 border-top: 1px solid var(--rule);
-font-size: 14px;
+font-size: 13px;
 color: var(--muted);
 text-decoration: none;
 cursor: pointer;
 display: inline-flex;
 align-items: center;
 gap: 6px;
-align-self: start;
-justify-self: start;
 transition: color 0.2s ease;
+align-self: stretch;
 }
 .home-contact-more:hover { color: var(--ink); }
 .home-contact-more .arrow { transition: transform 0.25s ease; }
@@ -559,15 +577,17 @@ transition: color 0.2s ease;
    Only on the home page; other pages keep their breathing room. */
 main:has(#page-home.active) + footer.site { margin-top: 0; }
 
-@media (max-width: 720px) {
+@media (max-width: 880px) {
 .home-contact { padding: 72px 40px 88px; }
-.home-contact-inner {
+.home-contact-header { margin-bottom: 36px; }
+.home-contact-body {
 grid-template-columns: 1fr;
-gap: 40px;
-align-items: start;
+gap: 32px;
 }
+.home-contact-illo { max-width: 360px; }
 .home-contact-paths .path-email { font-size: 22px; }
 .home-contact-paths .path-book { font-size: 19px; }
+.home-contact-tag { font-size: 18px; }
 }
 
 /* ——— Footer ——— */
@@ -753,13 +773,25 @@ transition: transform 0.25s ease;
 
 @media (max-width: 860px) {
 .work-hero .hero-row {
-grid-template-columns: 1fr;
-gap: 40px;
+grid-template-columns: minmax(0, 1fr) 140px;
+gap: 24px;
+align-items: start;
 }
 .work-hero .hero-portrait {
-width: 220px;
-order: -1;
+width: 140px;
+margin-top: 4px;
 }
+.work-hero .portrait-caption { font-size: 13px; }
+.work-hero .portrait-link { font-size: 13px; }
+}
+@media (max-width: 520px) {
+.work-hero .hero-row {
+grid-template-columns: minmax(0, 1fr) 110px;
+gap: 18px;
+}
+.work-hero .hero-portrait { width: 110px; }
+.work-hero .portrait-caption { font-size: 12px; line-height: 1.35; }
+.work-hero .portrait-link { font-size: 12px; }
 }
 
 /* Offerings as numbered entries */
@@ -2663,18 +2695,21 @@ Example of my work
 
 <section class="home-contact">
 <div class="wrap">
-<div class="home-contact-inner">
-<div class="home-contact-text">
+<div class="home-contact-header">
 <div class="kicker">Or skip ahead</div>
 <h2>If you'd rather just <em>talk</em>.</h2>
-<p>Thirty minutes. No pitch, no proposal.</p>
+</div>
+<div class="home-contact-body">
+<div class="home-contact-illo" aria-hidden="true">
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg"><use href="#m-contact-hero"/></svg>
 </div>
 <div class="home-contact-paths">
+<p class="home-contact-tag">Thirty minutes. No pitch, no proposal.</p>
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
 <a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
-</div>
 <a class="home-contact-more" onclick="goto('contact')">More about what to expect <span>→</span></a>
+</div>
 </div>
 </div>
 </section>
