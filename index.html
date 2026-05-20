@@ -199,6 +199,56 @@ height: 26px;
 }
 .colkicker .mark svg { width: 100%; height: 100%; display: block; }
 
+/* Featured colkicker: big mark stacked above label, for highlighted sections */
+.colkicker.is-featured { display: block; }
+.colkicker.is-featured .mark {
+width: 120px;
+height: 78px;
+margin-bottom: 18px;
+display: block;
+}
+.colkicker.is-featured .mark.mark-tlc {
+width: 168px;
+height: 112px;
+}
+.colkicker.is-featured .mark svg path,
+.colkicker.is-featured .mark svg circle,
+.colkicker.is-featured .mark svg rect,
+.colkicker.is-featured .mark svg line { stroke-width: inherit; }
+.two-col .colkicker.is-featured { padding-top: 0; }
+
+/* Featured example: clickable title block on home that mirrors the engagement page header */
+.example-title-link {
+display: block;
+text-decoration: none;
+color: inherit;
+cursor: pointer;
+margin-bottom: 28px;
+}
+.example-role {
+font-family: 'Instrument Sans', sans-serif;
+font-size: 12px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+color: var(--muted);
+font-weight: 500;
+margin-bottom: 14px;
+transition: color 0.2s ease;
+}
+.example-title {
+font-family: 'Instrument Serif', Georgia, serif;
+font-weight: 400;
+font-size: clamp(28px, 3.4vw, 40px);
+line-height: 1.1;
+letter-spacing: -0.01em;
+color: var(--ink);
+margin: 0;
+max-width: 620px;
+transition: color 0.2s ease;
+}
+.example-title em { font-style: italic; }
+.example-title-link:hover .example-title { color: var(--terracotta); }
+
 .hero .kicker {
 font-size: 13px;
 letter-spacing: 0.14em;
@@ -398,6 +448,126 @@ cursor: pointer;
 .closing .link:hover {
 color: var(--terracotta);
 border-color: var(--terracotta);
+}
+
+/* Home page express-route contact section */
+.home-contact {
+background: rgba(123, 157, 163, 0.10);
+margin: 0 -40px;
+padding: 96px 40px 112px;
+border-top: 1px solid var(--rule);
+}
+.home-contact-inner {
+max-width: 960px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1fr auto;
+gap: 56px 80px;
+align-items: end;
+}
+.home-contact-text { max-width: 460px; }
+.home-contact-text .kicker {
+font-size: 12px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--muted);
+font-weight: 500;
+margin-bottom: 20px;
+}
+.home-contact-text h2 {
+font-family: 'Instrument Serif', serif;
+font-weight: 400;
+font-size: clamp(34px, 4.2vw, 52px);
+line-height: 1.05;
+letter-spacing: -0.01em;
+margin: 0 0 16px;
+color: var(--ink);
+}
+.home-contact-text h2 em { font-style: italic; }
+.home-contact-text p {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 20px;
+line-height: 1.4;
+color: var(--ink-soft);
+margin: 0;
+}
+.home-contact-paths {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 14px;
+}
+.home-contact-paths .path-email {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 26px;
+color: var(--terracotta);
+text-decoration: none;
+border-bottom: 1px solid var(--terracotta);
+padding-bottom: 3px;
+letter-spacing: -0.01em;
+transition: color 0.2s ease, border-color 0.2s ease;
+}
+.home-contact-paths .path-email:hover { color: var(--ink); border-color: var(--ink); }
+.home-contact-paths .path-or {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 14px;
+color: var(--muted);
+padding-left: 2px;
+}
+.home-contact-paths .path-book {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 22px;
+color: var(--ink);
+text-decoration: none;
+border-bottom: 1px solid var(--ink);
+padding-bottom: 3px;
+letter-spacing: -0.01em;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+transition: color 0.2s ease, border-color 0.2s ease;
+}
+.home-contact-paths .path-book:hover { color: var(--terracotta); border-color: var(--terracotta); }
+.home-contact-paths .path-book .arrow { font-size: 0.8em; transition: transform 0.25s ease; }
+.home-contact-paths .path-book:hover .arrow { transform: translateX(3px); }
+
+.home-contact-more {
+grid-column: 1 / -1;
+margin-top: 24px;
+padding-top: 28px;
+border-top: 1px solid var(--rule);
+font-size: 14px;
+color: var(--muted);
+text-decoration: none;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+align-self: start;
+justify-self: start;
+transition: color 0.2s ease;
+}
+.home-contact-more:hover { color: var(--ink); }
+.home-contact-more .arrow { transition: transform 0.25s ease; }
+.home-contact-more:hover .arrow { transform: translateX(3px); }
+
+/* The home-contact tint should butt directly against the dark footer.
+   Only on the home page; other pages keep their breathing room. */
+main:has(#page-home.active) + footer.site { margin-top: 0; }
+
+@media (max-width: 720px) {
+.home-contact { padding: 72px 40px 88px; }
+.home-contact-inner {
+grid-template-columns: 1fr;
+gap: 40px;
+align-items: start;
+}
+.home-contact-paths .path-email { font-size: 22px; }
+.home-contact-paths .path-book { font-size: 19px; }
 }
 
 /* ——— Footer ——— */
@@ -893,6 +1063,23 @@ font-weight: 500;
 margin-bottom: 20px;
 }
 
+/* Read time + chapter count below the title */
+.engagement-page .post-meta {
+margin-top: 20px;
+font-family: 'Instrument Sans', sans-serif;
+font-size: 13px;
+letter-spacing: 0.06em;
+color: var(--muted);
+display: flex;
+gap: 10px;
+align-items: center;
+}
+.engagement-page .post-meta .read-time { color: var(--terracotta); font-weight: 500; }
+.engagement-page .post-meta .meta-sep { opacity: 0.5; }
+
+/* When ToC anchors jump to an h2, leave breathing room under the sticky nav */
+.engagement-page .post-body h2 { scroll-margin-top: 96px; }
+
 /* Magazine-style: mark floats left, opening body paragraph wraps around it */
 .engagement-page .engagement-mark {
 float: left;
@@ -1337,6 +1524,25 @@ font-style: normal;
 letter-spacing: 0;
 }
 .post-footer .post-back-bottom:hover { color: var(--terracotta); border-color: var(--terracotta); }
+
+/* When eng-tiles appear inside a post-footer (e.g. bottom of TLC story), widen and left-align */
+.post-footer:has(.eng-tiles) {
+max-width: 1000px;
+text-align: left;
+}
+.post-footer .eng-tiles-label {
+font-family: 'Instrument Serif', serif;
+font-style: italic;
+font-size: 18px;
+color: var(--muted);
+margin: 0 0 8px;
+text-align: left;
+}
+.post-footer .eng-tiles { margin-top: 12px; }
+.post-footer:has(.eng-tiles) .post-back-bottom {
+display: inline-flex;
+margin-top: 56px;
+}
 
 @media (max-width: 800px) {
 .post-header { margin-bottom: 40px; }
@@ -1815,6 +2021,14 @@ gap: 12px;
 cursor: pointer;
 transition: color 0.2s ease;
 }
+/* Hrefless anchors used for in-page navigation still need pointer + focus styles */
+.track-rail a:focus-visible,
+.mobile-jump a:focus-visible {
+outline: 2px solid var(--terracotta);
+outline-offset: 4px;
+border-radius: 2px;
+}
+.mobile-jump a { cursor: pointer; }
 .track-rail a .dot {
 width: 6px;
 height: 6px;
@@ -2424,35 +2638,18 @@ What Auringon does
 
 <section class="block">
 <div class="wrap two-col">
-<div class="colkicker">
-<span class="mark"><svg><use href="#m-side"/></svg></span>
-Selected work
+<div class="colkicker is-featured">
+<span class="mark mark-tlc"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></span>
+Example of my work
 </div>
 <div>
+<a class="example-title-link" onclick="goto('engagement-tlc')">
+<div class="example-role">Director of Analytics · NYC Taxi & Limousine Commission</div>
+<h3 class="example-title">Building a product practice inside a <em>regulator</em></h3>
+</a>
 <p>I joined the NYC Taxi and Limousine Commission as Director of Analytics — hired to bring data discipline to the agency that regulates every taxi, Uber, and Lyft in the city. What I argued for, built, and left behind was something larger: a ten-person product practice inside a six-hundred-person regulator that had never had one.</p>
 <p>By the time I left, the agency had stood up its first Chief Product Officer role to keep it going.</p>
 <a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
-
-<div class="eng-tiles">
-<a class="eng-tile" onclick="goto('engagement-bandwagon')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-bandwagon"/></svg></div>
-<div class="eng-tile-meta">Bandwagon · Launch</div>
-<h4>Shipping a new service line <em>in chaos</em></h4>
-<p class="eng-tile-dek">A van-sharing pilot built in weeks with Transdev. Not a market test — a vehicle to put the company in a conversation it couldn't otherwise reach.</p>
-</a>
-<a class="eng-tile" onclick="goto('engagement-mentor')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-mentor"/></svg></div>
-<div class="eng-tile-meta">Technologists for the Public Good · Advisory</div>
-<h4>Sharpening the case <em>a data professional was making</em></h4>
-<p class="eng-tile-dek">A strong IC with the substance but not the pitch. Reframing the goal, sequencing the deliverables, getting the case in front of leadership.</p>
-</a>
-<div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
-<div class="eng-tile-meta">Coming soon</div>
-<h4>More engagements <em>on the way</em></h4>
-<p class="eng-tile-dek">Additional case studies in development.</p>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -2464,17 +2661,35 @@ Selected work
 </div>
 </section>
 
+<section class="home-contact">
+<div class="wrap">
+<div class="home-contact-inner">
+<div class="home-contact-text">
+<div class="kicker">Or skip ahead</div>
+<h2>If you'd rather just <em>talk</em>.</h2>
+<p>Thirty minutes. No pitch, no proposal.</p>
+</div>
+<div class="home-contact-paths">
+<a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
+<span class="path-or">or</span>
+<a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
+</div>
+<a class="home-contact-more" onclick="goto('contact')">More about what to expect <span>→</span></a>
+</div>
+</div>
+</section>
+
 </div>
 
 <!-- ═══════════════ WORK ═══════════════ -->
 <div class="page" id="page-work">
 
 <aside class="track-rail rail--sky" id="work-rail" aria-label="Section navigation">
-<a href="#wk-mandate" data-target="wk-mandate"><span class="dot"></span>Build</a>
-<a href="#wk-diagnose" data-target="wk-diagnose"><span class="dot"></span>Diagnose</a>
-<a href="#wk-ship" data-target="wk-ship"><span class="dot"></span>Launch</a>
-<a href="#wk-fractional" data-target="wk-fractional"><span class="dot"></span>Fractional</a>
-<a href="#wk-advisory" data-target="wk-advisory"><span class="dot"></span>Advisory</a>
+<a data-target="wk-mandate"><span class="dot"></span>Build</a>
+<a data-target="wk-diagnose"><span class="dot"></span>Diagnose</a>
+<a data-target="wk-ship"><span class="dot"></span>Launch</a>
+<a data-target="wk-fractional"><span class="dot"></span>Fractional</a>
+<a data-target="wk-advisory"><span class="dot"></span>Advisory</a>
 </aside>
 
 <section class="work-hero">
@@ -2570,12 +2785,12 @@ Selected work
 <div class="page" id="page-track">
 
 <aside class="track-rail" id="track-rail" aria-label="Section navigation">
-<a href="#tr-startups" data-target="tr-startups"><span class="dot"></span>Startups</a>
-<a href="#tr-gov" data-target="tr-gov"><span class="dot"></span>Government</a>
-<a href="#tr-consulting" data-target="tr-consulting"><span class="dot"></span>Consulting</a>
-<a href="#tr-standards" data-target="tr-standards"><span class="dot"></span>Standards</a>
-<a href="#tr-community" data-target="tr-community"><span class="dot"></span>Community</a>
-<a href="#tr-testimonials" data-target="tr-testimonials"><span class="dot"></span>References</a>
+<a data-target="tr-startups"><span class="dot"></span>Startups</a>
+<a data-target="tr-gov"><span class="dot"></span>Government</a>
+<a data-target="tr-consulting"><span class="dot"></span>Consulting</a>
+<a data-target="tr-standards"><span class="dot"></span>Standards</a>
+<a data-target="tr-community"><span class="dot"></span>Community</a>
+<a data-target="tr-testimonials"><span class="dot"></span>References</a>
 </aside>
 
 <section class="work-hero">
@@ -2604,12 +2819,12 @@ Selected work
 <nav class="mobile-jump" aria-label="Jump to section">
 <div class="mj-label">Jump to</div>
 <ul>
-<li><a href="#tr-startups" data-target="tr-startups">Startups</a></li>
-<li><a href="#tr-gov" data-target="tr-gov">Government</a></li>
-<li><a href="#tr-consulting" data-target="tr-consulting">Consulting</a></li>
-<li><a href="#tr-standards" data-target="tr-standards">Standards</a></li>
-<li><a href="#tr-community" data-target="tr-community">Community</a></li>
-<li><a href="#tr-testimonials" data-target="tr-testimonials">References</a></li>
+<li><a data-target="tr-startups">Startups</a></li>
+<li><a data-target="tr-gov">Government</a></li>
+<li><a data-target="tr-consulting">Consulting</a></li>
+<li><a data-target="tr-standards">Standards</a></li>
+<li><a data-target="tr-community">Community</a></li>
+<li><a data-target="tr-testimonials">References</a></li>
 </ul>
 </nav>
 
@@ -2807,6 +3022,16 @@ The name
 
 <!-- ═══════════════ ENGAGEMENT: TLC ═══════════════ -->
 <div class="page" id="page-engagement-tlc">
+
+<aside class="track-rail" id="tlc-rail" aria-label="Chapters">
+<a data-target="tlc-team"><span class="dot"></span>Team</a>
+<a data-target="tlc-priorities"><span class="dot"></span>Priorities</a>
+<a data-target="tlc-shipped"><span class="dot"></span>Shipped</a>
+<a data-target="tlc-resistance"><span class="dot"></span>Resistance</a>
+<a data-target="tlc-decision"><span class="dot"></span>Decision</a>
+<a data-target="tlc-travels"><span class="dot"></span>Travels</a>
+</aside>
+
 <div class="wrap">
 
 <div class="engagement-page">
@@ -2816,16 +3041,29 @@ The name
 
 <header class="post-header">
 <h1><span class="role-kicker">Director of Analytics · NYC Taxi & Limousine Commission</span>Building a product practice inside a regulator</h1>
+<div class="post-meta"><span class="read-time">8 min read</span><span class="meta-sep">·</span><span>6 chapters</span></div>
 </header>
 
 <div class="post-body">
 <p class="lede">The work was introducing product thinking to a regulator that had never had a seat for it.</p>
 
+<nav class="mobile-jump" aria-label="Chapters">
+<div class="mj-label">In this piece</div>
+<ul>
+<li><a data-target="tlc-team">Building the team</a></li>
+<li><a data-target="tlc-priorities">Choosing what to work on</a></li>
+<li><a data-target="tlc-shipped">What the team shipped</a></li>
+<li><a data-target="tlc-resistance">The resistance</a></li>
+<li><a data-target="tlc-decision">The decision I still think about</a></li>
+<li><a data-target="tlc-travels">What survived, what travels</a></li>
+</ul>
+</nav>
+
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></div>
 
 <p>The gap I saw in my first ninety days at TLC was less about data than about discipline. Systems did just enough to operationalize the law and no more. Decisions got made on whoever's anecdote was loudest. There was no shared way of asking who actually uses this, what are they trying to do, and is the system helping them or just processing them. I'd been hired as Director of Analytics to bring data discipline to the agency — which regulates New York City's for-hire vehicle industry, the vehicles, the drivers, and the businesses behind them. What I argued for, built out, and ultimately left behind was something larger: a product practice, inside a regulator that had never had one. I wrote the diagnosis into a proposal — a team, a way of working, a theory of where the discipline should sit — and pitched it to a few commissioners. They bought in.</p>
 
-<h2>The discipline: who, and what they worked on</h2>
+<h2 id="tlc-team">Building the team</h2>
 
 <p>I started by upskilling the analysts who were already there. The agency had inherited talented people who hadn't been given new tools or methods, and the institutional knowledge they carried was the asset I had the least appetite to throw away. Familiar faces using new techniques opened doors that an outside team would have spent a year trying to open.</p>
 
@@ -2833,13 +3071,15 @@ The name
 
 <p>The sequence — trust first, capability second, full discipline third — is the part I'd repeat anywhere. The institution rejects transplants. It accepts grafts.</p>
 
+<h2 id="tlc-priorities">Choosing what to work on</h2>
+
 <p>The harder question — and the one I think agencies trying to do this kind of work most often get wrong — is <em>what to work on at all</em>. When I joined, prioritization happened the way it does almost everywhere in resource-strapped government: feature-by-feature, request-by-request, anecdote-by-anecdote. A commissioner heard a complaint and a project got launched. A legacy system's quirk caused enough pain to escalate and a fix went into the backlog. The work got done, but the connection between any given output and an outcome the agency actually cared about was rarely examined.</p>
 
 <p>We changed that. Once the team had enough credibility to insist on it, our posture was that we wouldn't take on a project unless we could forecast a quantitative outcome it would move. Wait times. Application processing time. Resolution rates. Repeat-contact volume. Before scoping anything, we asked: if we do this work and it succeeds, what number changes, and by roughly how much? Projects that couldn't answer that question got pushed back on. Projects that could — even when the forecasted lift was modest — got prioritized over flashier work with vaguer outcomes.</p>
 
 <p>This is the part of product thinking I think is hardest to import into a regulatory environment. Regulators are wired to deliver features specified in advance — by laws, by contracts, by political commitments — and asking what outcome a piece of work will move can read as insubordination. It implies the originating request might not be the right thing to work on, which is a question many agencies aren't structured to entertain. The way we made it stick was by always answering the question first, ourselves, before asking it of anyone else — bringing forecasts to scoping conversations rather than asking stakeholders to justify their requests. That single shift reshaped the team's mandate over time more than any individual project did.</p>
 
-<h2>What the team actually shipped</h2>
+<h2 id="tlc-shipped">What the team actually shipped</h2>
 
 <p>The work I'd point to first is what we did with customer service. TLC had multiple contact channels — a call center, a web portal, an email inbox, and a walk-in center that operated like a DMV — managed separately, instrumented differently, and sharing no view of who was contacting the agency or why. The team pooled the data across all of them.</p>
 
@@ -2851,13 +3091,13 @@ The name
 
 <p>The customer service work also produced something I didn't plan for. As other operating units saw what was possible, they started asking for help with problems that weren't on the team's original mandate. One of those asks became the distribution methodology for the Medallion Relief Fund — the city's response to driver debt during the medallion market collapse. We weren't chartered for that work. We got pulled into it because the credibility we'd built doing the unglamorous customer service work made us the team people thought of when something big and outside-the-box needed to be figured out.</p>
 
-<h2>The resistance, and how it resolved</h2>
+<h2 id="tlc-resistance">The resistance, and how it resolved</h2>
 
 <p>Not everyone was on board. The pushback I heard most often was a version of why are you asking so many questions, just build the thing. In an institution wired for execution, discovery work reads as overhead.</p>
 
 <p>It didn't resolve through argument. It resolved through delivery. The closest-in operating units — the ones we worked with first — started seeing improvements they couldn't have specified up front. Their wait times dropped. Their backlogs cleared. Once those teams were vocal advocates, the request pattern flipped: instead of us pitching the discipline, other parts of the agency started asking when we could come help them.</p>
 
-<h2>The decision I still think about</h2>
+<h2 id="tlc-decision">The decision I still think about</h2>
 
 <p>The team lived in an operating division. Not in IT. Not in the commissioner's office.</p>
 
@@ -2867,7 +3107,7 @@ The name
 
 <p>Placed in the commissioner's office, the team would have had more authority and been treated by the rest of the agency as an inspectorate — a group whose questions implied judgment. Operators wouldn't have shown us the messy parts. The team's home shaped what kind of work it was structurally able to do — that's the part I think about.</p>
 
-<h2>What survived, and what travels</h2>
+<h2 id="tlc-travels">What survived, and what travels</h2>
 
 <p>When I left, my role was split. One of the pieces became the agency's first chief product officer. The seat wasn't planned when I joined; it emerged because the work the team did, over years, demonstrated there was a discipline worth giving an executive home to.</p>
 
@@ -2879,7 +3119,27 @@ The name
 </div>
 
 <footer class="post-footer">
-<p>More engagements coming.</p>
+<p class="eng-tiles-label">Other examples</p>
+<div class="eng-tiles">
+<a class="eng-tile" onclick="goto('engagement-bandwagon')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-bandwagon"/></svg></div>
+<div class="eng-tile-meta">Bandwagon · Launch</div>
+<h4>Shipping a new service line <em>in chaos</em></h4>
+<p class="eng-tile-dek">A van-sharing pilot built in weeks with Transdev. Not a market test — a vehicle to put the company in a conversation it couldn't otherwise reach.</p>
+</a>
+<a class="eng-tile" onclick="goto('engagement-mentor')">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-mentor"/></svg></div>
+<div class="eng-tile-meta">Technologists for the Public Good · Advisory</div>
+<h4>Sharpening the case <em>a data professional was making</em></h4>
+<p class="eng-tile-dek">A strong IC with the substance but not the pitch. Reframing the goal, sequencing the deliverables, getting the case in front of leadership.</p>
+</a>
+<div class="eng-tile is-placeholder">
+<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-meta">Coming soon</div>
+<h4>More engagements <em>on the way</em></h4>
+<p class="eng-tile-dek">Additional case studies in development.</p>
+</div>
+</div>
 <a class="post-back-bottom" onclick="goto('work')">
 <span>←</span> Back to Services
 </a>
@@ -3406,9 +3666,28 @@ The name
 </footer>
 
 <script>
-function goto(page) {
+// Short URL slugs → full page keys. Used for deep-linking (e.g. /#tlc).
+// Long-form keys (engagement-tlc, post-failure-modes) still work too.
+const URL_SLUGS = {
+'tlc': 'engagement-tlc',
+'bandwagon': 'engagement-bandwagon',
+'mentor': 'engagement-mentor',
+'urban-systems': 'post-urban-systems',
+'container-moves': 'post-container-moves',
+'failure-modes': 'post-failure-modes',
+'background': 'track',
+'services': 'work'
+};
+const SLUG_FOR_PAGE = Object.fromEntries(
+Object.entries(URL_SLUGS).map(([slug, page]) => [page, slug])
+);
+
+function goto(page, opts) {
+opts = opts || {};
+const targetEl = document.getElementById('page-' + page);
+if (!targetEl) { goto('home', opts); return; }
 document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-document.getElementById('page-' + page).classList.add('active');
+targetEl.classList.add('active');
 let navKey = page;
 if (page.startsWith('post-')) navKey = 'journal';
 else if (page.startsWith('engagement-')) navKey = 'work';
@@ -3417,7 +3696,36 @@ a.classList.toggle('active', a.dataset.page === navKey);
 });
 window.scrollTo({ top: 0, behavior: 'instant' });
 updateRailVisibility();
+
+if (!opts.skipUrl) {
+const slug = SLUG_FOR_PAGE[page] || (page === 'home' ? '' : page);
+const newHash = slug ? '#' + slug : '';
+if (window.location.hash !== newHash) {
+// pushState throws SecurityError inside sandboxed iframes (e.g. some preview
+// environments). Navigation still works; only the URL update is skipped.
+try {
+history.pushState({ page: page }, '', window.location.pathname + window.location.search + newHash);
+} catch (err) { /* sandboxed: ignore */ }
 }
+}
+}
+
+function resolvePageFromHash() {
+let raw = '';
+try { raw = window.location.hash.replace(/^#/, '').trim(); } catch (err) { /* sandboxed */ }
+if (!raw) return 'home';
+// Slug? Long-form page key? Either is accepted.
+if (URL_SLUGS[raw]) return URL_SLUGS[raw];
+if (document.getElementById('page-' + raw)) return raw;
+return 'home';
+}
+
+window.addEventListener('popstate', () => {
+goto(resolvePageFromHash(), { skipUrl: true });
+});
+window.addEventListener('hashchange', () => {
+goto(resolvePageFromHash(), { skipUrl: true });
+});
 
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
@@ -3427,30 +3735,34 @@ updateRailActive();
 
 const rails = [
 { el: document.getElementById('track-rail'), pageId: 'page-track' },
-{ el: document.getElementById('work-rail'),  pageId: 'page-work'  }
+{ el: document.getElementById('work-rail'),  pageId: 'page-work'  },
+{ el: document.getElementById('tlc-rail'),   pageId: 'page-engagement-tlc' }
 ].filter(r => r.el);
+
+// Hrefless anchors lose tab-focus and Enter/Space activation. Restore both.
+function activateScrollTarget(link, e) {
+e.preventDefault();
+const target = document.getElementById(link.dataset.target);
+if (!target) return;
+const y = target.getBoundingClientRect().top + window.scrollY - 80;
+window.scrollTo({ top: y, behavior: 'smooth' });
+}
+document.querySelectorAll('a[data-target]').forEach(link => {
+if (!link.hasAttribute('tabindex')) link.setAttribute('tabindex', '0');
+link.addEventListener('keydown', (e) => {
+if (e.key === 'Enter' || e.key === ' ') activateScrollTarget(link, e);
+});
+});
 
 rails.forEach(r => {
 r.links = Array.from(r.el.querySelectorAll('a'));
 r.links.forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-const target = document.getElementById(link.dataset.target);
-if (!target) return;
-const y = target.getBoundingClientRect().top + window.scrollY - 80;
-window.scrollTo({ top: y, behavior: 'smooth' });
-});
+link.addEventListener('click', (e) => activateScrollTarget(link, e));
 });
 });
 
 document.querySelectorAll('.mobile-jump a[data-target]').forEach(link => {
-link.addEventListener('click', (e) => {
-e.preventDefault();
-const target = document.getElementById(link.dataset.target);
-if (!target) return;
-const y = target.getBoundingClientRect().top + window.scrollY - 80;
-window.scrollTo({ top: y, behavior: 'smooth' });
-});
+link.addEventListener('click', (e) => activateScrollTarget(link, e));
 });
 
 function updateRailVisibility() {
@@ -3479,6 +3791,12 @@ link.classList.toggle('active', link.dataset.target === activeId);
 }
 
 updateRailVisibility();
+
+// Boot into the right page if the URL has a deep-link hash (e.g. /#tlc).
+(function bootFromUrl() {
+const page = resolvePageFromHash();
+if (page !== 'home') goto(page, { skipUrl: true });
+})();
 
 const navToggle = document.getElementById('navToggle');
 const navList = document.getElementById('navList');
