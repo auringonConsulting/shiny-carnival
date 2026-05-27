@@ -159,6 +159,27 @@ padding: 100px 0 120px;
 border-bottom: 1px solid var(--rule);
 }
 
+/* ——— Snap-scroll pacing on the home page only ———
+   Each major section is a snap point. The page softly settles on
+   the next section when the user scrolls near a transition. Proximity
+   mode (not mandatory) means the user is never forced — they can flick
+   past freely. The effect makes the reader land on each section for a
+   beat, giving the writing a moment to breathe.
+
+   Scoped via :has() to only engage when the home page is the active
+   page in this single-page-app site. The scroll-snap-stop on each
+   section is normal (not always) so fast scrolling can pass through. */
+html:has(#page-home.active) {
+scroll-snap-type: y proximity;
+scroll-padding-top: var(--nav-height, 70px);
+}
+#page-home .hero,
+#page-home section.block,
+#page-home .home-contact {
+scroll-snap-align: start;
+scroll-snap-stop: normal;
+}
+
 .hero h1 {
 font-family: 'Instrument Serif', Georgia, serif;
 font-weight: 400;
@@ -331,6 +352,36 @@ padding-left: 40px;
 padding-right: 40px;
 }
 
+/* Sun-accent — used on the phrase that names the metaphor. The deeper
+   terracotta variant of the brand orange, since the warmer --orange
+   doesn't read well against paper-cream at this text weight. */
+.sun-accent { color: var(--terracotta); }
+
+/* Inverted section — dark ink background, paper text.
+   Used once on the home page for "The problem" to give the garage-door
+   reveal a visible destination. Bleeds to the viewport edges via main's
+   horizontal padding being negated. */
+section.block--invert {
+background: var(--ink);
+color: var(--paper);
+margin: 0 -40px;
+padding-left: 40px;
+padding-right: 40px;
+border-bottom-color: rgba(241, 242, 218, 0.08);
+}
+section.block--invert .colkicker {
+color: rgba(241, 242, 218, 0.7);
+}
+section.block--invert p {
+color: var(--paper);
+}
+section.block--invert p em {
+color: var(--paper);
+}
+section.block--invert p .aside {
+color: rgba(241, 242, 218, 0.55);
+}
+
 /* Two-column (label on left, content on right) — DML move */
 .two-col {
 display: grid;
@@ -349,6 +400,25 @@ position: sticky;
 top: 96px;
 }
 .two-col > div:last-child > :first-child { margin-top: 0; }
+
+/* Editorial section labels (serif italic) — used on the editorial
+   pages where colkickers act as section markers. Scoped per-page so
+   UI-style colkickers elsewhere (e.g. Contact and the Subscribe block
+   on Journal) keep the small-caps treatment. */
+#page-home .two-col .colkicker,
+#page-about .two-col .colkicker {
+font-family: 'Instrument Serif', Georgia, serif;
+font-style: italic;
+font-size: 22px;
+letter-spacing: 0;
+text-transform: none;
+font-weight: 400;
+color: var(--ink);
+line-height: 1.2;
+}
+#page-home section.block--invert .two-col .colkicker {
+color: var(--paper);
+}
 
 /* ——— Who we work with (simple definition list) ——— */
 .who-list {
@@ -1209,7 +1279,32 @@ letter-spacing: 0.16em;
 text-transform: uppercase;
 color: var(--muted);
 font-weight: 500;
-margin-bottom: 24px;
+margin-bottom: 16px;
+}
+.subscribe-dek {
+font-family: 'Instrument Serif', Georgia, serif;
+font-style: italic;
+font-size: 18px;
+line-height: 1.5;
+color: var(--ink-soft);
+max-width: 540px;
+margin: 0 auto 28px;
+}
+.subscribe-thanks {
+max-width: 520px;
+margin: 0 auto;
+}
+.subscribe-thanks-line {
+font-family: 'Instrument Serif', Georgia, serif;
+font-size: 24px;
+line-height: 1.3;
+color: var(--ink);
+margin-bottom: 6px;
+}
+.subscribe-thanks-line em { font-style: italic; }
+.subscribe-thanks-sub {
+font-size: 15px;
+color: var(--muted);
 }
 .subscribe form {
 display: flex;
@@ -1565,6 +1660,64 @@ color: var(--muted);
 margin-bottom: 1.5em;
 max-width: 680px;
 }
+
+/* ——— Editorial breaks ——— */
+/* Pull quote — large serif, indented, soft terracotta rule.
+   One per piece, placed at the natural pivot. */
+.post-body .pullquote {
+font-family: 'Instrument Serif', Georgia, serif;
+font-style: italic;
+font-size: 30px;
+line-height: 1.25;
+color: var(--ink);
+letter-spacing: -0.005em;
+margin: 1.8em 0 1.8em -8px;
+padding: 4px 0 4px 24px;
+border-left: 2px solid var(--terracotta);
+max-width: 620px;
+}
+@media (max-width: 800px) {
+.post-body .pullquote { font-size: 24px; padding-left: 18px; margin-left: 0; }
+}
+
+/* Callout — oversized serif line, full breathing room.
+   For the rare "this is the point" sentence. Use sparingly. */
+.post-body .callout {
+font-family: 'Instrument Serif', Georgia, serif;
+font-size: 34px;
+line-height: 1.18;
+letter-spacing: -0.01em;
+color: var(--ink);
+margin: 2.2em 0;
+max-width: 640px;
+}
+.post-body .callout em { font-style: italic; }
+@media (max-width: 800px) {
+.post-body .callout { font-size: 26px; margin: 1.6em 0; }
+}
+
+/* Drop cap — first letter of the first paragraph after the lede.
+   Editorial signal. One per piece. */
+.post-body p.dropcap::first-letter {
+font-family: 'Instrument Serif', Georgia, serif;
+font-size: 4.2em;
+line-height: 0.9;
+float: left;
+padding: 0.08em 0.08em 0 0;
+color: var(--ink);
+font-weight: 400;
+}
+
+/* Section kicker — small all-caps label above an h2, optional. */
+.post-body .sec-kicker {
+font-size: 12px;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--muted);
+margin-top: 2.4em;
+margin-bottom: -0.6em;
+}
+.post-body .sec-kicker + h2 { margin-top: 0.4em; }
 
 .post-footer {
 max-width: 680px;
@@ -2311,6 +2464,7 @@ footer.site .footer-bottom { flex-direction: column; align-items: flex-start; ga
 .work-hero { padding: 64px 0 56px; }
 .cases { padding: 56px 24px; margin: 0 -24px; }
 section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
+section.block--invert { margin: 0 -24px; padding-left: 24px; padding-right: 24px; }
 }
 
 /* ═══════════════ CONTACT PAGE — RESPONSIVE ═══════════════ */
@@ -2426,9 +2580,9 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <!-- New marks -->
 
 <symbol id="m-problem" viewBox="0 0 140 90">
-<line x1="10" y1="62" x2="50" y2="62" stroke="#3a3a3a" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="90" y1="62" x2="130" y2="62" stroke="#3a3a3a" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M52,60 C46,48 58,38 70,40 C82,42 90,50 88,60 C86,66 58,68 52,60 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round"/>
+<line x1="10" y1="62" x2="50" y2="62" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+<line x1="90" y1="62" x2="130" y2="62" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M52,60 C46,48 58,38 70,40 C82,42 90,50 88,60 C86,66 58,68 52,60 Z" fill="#7b9da3" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
 </symbol>
 
 <symbol id="m-startups-ran" viewBox="0 0 200 120">
@@ -2726,8 +2880,8 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 <ul id="navList">
 <li><a data-page="home" onclick="goto('home')" class="active">Home</a></li>
 <li><a data-page="work" onclick="goto('work')">Services</a></li>
-<li><a data-page="about" onclick="goto('about')">How I Work</a></li>
-<li><a data-page="track" onclick="goto('track')">Background</a></li>
+<li><a data-page="about" onclick="goto('about')">Approach</a></li>
+<li><a data-page="track" onclick="goto('track')">About</a></li>
 <li><a data-page="journal" onclick="goto('journal')">Journal</a></li>
 <li><a data-page="contact" onclick="goto('contact')">Contact</a></li>
 </ul>
@@ -2740,8 +2894,8 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 
 <section class="hero">
 <div class="wrap">
-<div class="kicker">Jonathan Internicola's consulting practice for urban systems · <span style="text-transform: none; letter-spacing: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 15px; color: var(--ink-soft);">Auringon · OW-ring-gon</span></div>
-<h1>Urban innovation fails in execution. <em>I work in that gap.</em></h1>
+<div class="kicker">Jonathan Internicola's consulting practice for urban systems</div>
+<h1>Bridging <em>the gap.</em></h1>
 <p class="hero-sub">Building the teams, processes, and platforms that turn intent into operation.</p>
 <div class="hero-illo">
 <svg viewBox="0 0 600 200"><use href="#m-hero-gap"/></svg>
@@ -2749,7 +2903,7 @@ section.block--tint { margin: 0 -24px; padding-left: 24px; padding-right: 24px; 
 </div>
 </section>
 
-<section class="block">
+<section class="block block--invert">
 <div class="wrap two-col">
 <div class="colkicker">
 <span class="mark"><svg><use href="#m-problem"/></svg></span>
@@ -2783,18 +2937,29 @@ What Auringon does
 </div>
 </section>
 
+<section class="block block--tint">
+<div class="wrap two-col">
+<div class="colkicker">
+<span class="mark"><svg><use href="#m-about-name"/></svg></span>
+The name
+</div>
+<div>
+<p><em>Auringon</em> (OW-ring-gon) — Finnish for <em class="sun-accent">of the sun</em>. <strong>Present, steady, shaped to whatever the engagement needs.</strong></p>
+</div>
+</div>
+</section>
+
 <section class="block">
 <div class="wrap two-col">
 <div class="colkicker">Who I work with</div>
 <div class="who-list">
-<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 8px; max-width: 620px;">Direct engagements with startups, small businesses, and nonprofits. For government, foundations, and larger organizations, I sub in through partner firms that hold the contract.</p>
 <div class="who-entry">
 <div class="label"><span class="mark"><svg><use href="#m-startups"/></svg></span>Direct: startups, small businesses, nonprofits</div>
-<p>Post-revenue, pre-scale. You have customers, traction, a product or program that's working. What you don't have is an operation that runs without you in every room.</p>
+<p>Post-revenue, pre-scale.</p>
 </div>
 <div class="who-entry">
 <div class="label"><span class="mark"><svg><use href="#m-gov"/></svg></span>Through primes: government, foundations, larger organizations</div>
-<p>A "prime" is the firm that holds the contract with the buyer. For larger organizations whose procurement rules require working through an established firm, I sub in on the prime's team. The work is the same — building the team and systems to turn intent into operation — but contracted through them. I bring deep operational experience and urban-systems pattern recognition on engagements where that specialized depth helps.</p>
+<p>I sub in on the prime's team.</p>
 </div>
 </div>
 </div>
@@ -2862,24 +3027,16 @@ Example of my work
 <path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="0.7" stroke-linejoin="round"/>
 <path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="0.9" stroke-linejoin="round"/>
 </svg></div>
-<p>I joined the NYC Taxi and Limousine Commission as Director of Analytics — hired to bring data discipline to the agency that regulates every taxi, Uber, and Lyft in the city. What I argued for, built, and left behind was something larger: a ten-person product practice inside a six-hundred-person regulator that had never had one.</p>
-<p>By the time I left, the agency had stood up its first Chief Product Officer role to keep it going.</p>
+<p>Hired to run analytics for the agency that regulates NYC's taxi industry. Left behind a product practice — the first the agency had.</p>
 <a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
 </div>
-</div>
-</section>
-
-<section class="closing">
-<div class="wrap">
-<h2>The space between ambition and reality. <em>That's where I work.</em></h2>
-<a class="link" onclick="goto('work')">See how the work takes shape <span>→</span></a>
 </div>
 </section>
 
 <section class="home-contact">
 <div class="wrap">
 <div class="home-contact-header">
-<div class="kicker">Or skip ahead</div>
+<div class="kicker">Get in touch</div>
 <h2>If you'd rather just <em>talk</em>.</h2>
 </div>
 <div class="home-contact-body">
@@ -2891,7 +3048,6 @@ Example of my work
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
 <a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
-<a class="home-contact-more" onclick="goto('contact')">More about what to expect <span>→</span></a>
 </div>
 </div>
 </div>
@@ -3024,7 +3180,7 @@ Example of my work
 
 <section class="work-hero">
 <div class="wrap">
-<div class="kicker">Background</div>
+<div class="kicker">About</div>
 <div class="hero-row">
 <div class="hero-text">
 <h1>Auringon is the practice of <em>Jonathan Internicola</em>—built around a decade of operational work across urban systems.</h1>
@@ -3153,7 +3309,7 @@ Example of my work
 
 <section class="about-hero">
 <div class="wrap">
-<div class="kicker">How I Work</div>
+<div class="kicker">Approach</div>
 <h1>A small practice for <em>urban systems</em>.</h1>
 </div>
 </section>
@@ -3228,22 +3384,10 @@ Approach
 </div>
 </section>
 
-<section class="about-block">
-<div class="wrap two-col">
-<div class="colkicker">
-<span class="mark"><svg><use href="#m-about-name"/></svg></span>
-The name
-</div>
-<div>
-<p><em>Auringon</em> (OW-ring-gon) is Finnish — the genitive of <em>aurinko</em>, sun. The word points to the sun's particular role in the Finnish landscape: a presence that shifts its work with the season but shows up in every one of them.</p>
-</div>
-</div>
-</section>
-
 <section class="closing">
 <div class="wrap">
-<h2>The longer version is on the <em>Background</em> page.</h2>
-<a class="link" onclick="goto('track')">See the background <span>→</span></a>
+<h2>The longer version is on the <em>About</em> page.</h2>
+<a class="link" onclick="goto('track')">More about Jonathan <span>→</span></a>
 </div>
 </section>
 
@@ -3270,11 +3414,11 @@ The name
 
 <header class="post-header">
 <h1><span class="role-kicker">Director of Analytics · NYC Taxi & Limousine Commission</span>Building a product practice inside a regulator</h1>
-<div class="post-meta"><span class="read-time">8 min read</span><span class="meta-sep">·</span><span>6 chapters</span></div>
+<div class="post-meta"><span class="read-time">3 min read</span><span class="meta-sep">·</span><span>6 chapters</span></div>
 </header>
 
 <div class="post-body">
-<p class="lede">The work was introducing product thinking to a regulator that had never had a seat for it.</p>
+<p class="lede">Hired to run analytics for a regulator. Left behind a product practice — the first one the agency had.</p>
 
 <nav class="mobile-jump" aria-label="Chapters">
 <div class="mj-label">In this piece</div>
@@ -3290,61 +3434,49 @@ The name
 
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></div>
 
-<p>The gap I saw in my first ninety days at TLC was less about data than about discipline. Systems were built to operationalize the law, and there wasn't yet a shared practice for asking the next set of questions: who actually uses this, what are they trying to do, and is the system helping them or just processing them. I'd been hired as Director of Analytics to bring data discipline to the agency — which regulates New York City's for-hire vehicle industry, the vehicles, the drivers, and the businesses behind them. What I argued for, built out, and ultimately left behind was something larger: a product practice, inside a regulator that had never had one. I wrote the diagnosis into a proposal — a team, a way of working, a theory of where the discipline should sit — and pitched it to a few commissioners. They bought in.</p>
+<p class="dropcap">The agency didn't need more data. It needed a discipline for knowing what the data was for. That took about ninety days to see clearly, and another five years to build. I wrote a proposal — a team, a way of working, a place to put it — and a few commissioners took the bet.</p>
 
 <h2 id="tlc-team">Building the team</h2>
 
-<p>I started by upskilling the analysts who were already there. The agency had inherited talented people who hadn't been given new tools or methods, and the institutional knowledge they carried was the asset I had the least appetite to throw away. Familiar faces using new techniques opened doors that an outside team would have spent a year trying to open.</p>
+<p>The analysts already there were the first hires, in a sense. They knew the agency — its history, its quirks, its people — and that kind of knowledge is most of the job in a regulator. Throwing it out to bring in an outside team would have cost a year I didn't have. Familiar faces using new methods opened doors a transplant couldn't.</p>
 
-<p>The first wave of external hires came next: a data scientist, a data engineer, a more senior analyst. None had worked in government. They were chosen specifically to do work that would move a visible needle quickly, because credibility in this kind of agency is bought one delivered improvement at a time. Once we had a few of those wins, I brought in a deputy director who'd run the data group as a data product manager, then a designer and a researcher. By that point I'd shifted into a true product role and we could start looking at problems no one had yet thought of as product problems.</p>
-
-<p>The sequence — trust first, capability second, full discipline third — is the part I'd repeat anywhere. The institution rejects transplants. It accepts grafts.</p>
+<p>The outside hires came in a deliberate order. A data scientist, an engineer, a senior analyst — people who could ship something visible inside of a quarter. Then, once we'd banked enough credibility to spend, a deputy director who'd run data as a product, a designer, a researcher. <strong>By then we weren't an analytics team anymore.</strong></p>
 
 <h2 id="tlc-priorities">Choosing what to work on</h2>
 
-<p>The harder question — and the one I think is hardest to get right — is <em>what to work on at all</em>. When I joined, prioritization happened the way it often does in operationally-stretched organizations: feature-by-feature, request-by-request, anecdote-by-anecdote. A commissioner heard a complaint and a project got launched. A legacy system's quirk caused enough pain to escalate and a fix went into the backlog. The work got done, but the connection between any given output and an outcome the agency actually cared about was rarely examined.</p>
+<p>Prioritization at TLC worked the way it does most places that are operationally stretched. A commissioner heard a complaint at a community board. A project got launched. Whether anyone could later say what number it moved was a question that rarely got asked, and when it did it tended to be retrospective.</p>
 
-<p>We changed that. Once the team had enough credibility to insist on it, our posture was that we wouldn't take on a project unless we could forecast a quantitative outcome it would move. Wait times. Application processing time. Resolution rates. Repeat-contact volume. Before scoping anything, we asked: if we do this work and it succeeds, what number changes, and by roughly how much? Projects that couldn't answer that question got pushed back on. Projects that could — even when the forecasted lift was modest — got prioritized over flashier work with vaguer outcomes.</p>
-
-<p>This is the part of product thinking I think is hardest to import into a regulatory environment. Regulators are built to deliver features specified in advance — by laws, by contracts, by political commitments — and the originating request usually carries real authority behind it. Asking what outcome a piece of work will move can read as questioning that authority, even when it isn't meant to. It's a question agencies aren't always structured to entertain mid-stream. The way we made it stick was by always answering the question first, ourselves, before asking it of anyone else — bringing forecasts to scoping conversations rather than asking stakeholders to justify their requests. That single shift reshaped the team's mandate over time more than any individual project did.</p>
+<p>We changed the posture: nothing got scoped without a forecast attached. If we do this and it works, what changes, and by how much. Wait times. Processing days. Resolution rates. The trick wasn't asking the question — it was answering it ourselves, in advance, and bringing the answer to the conversation. <strong>Asking stakeholders to justify their requests would have gone over badly. Showing up with a forecast didn't.</strong></p>
 
 <h2 id="tlc-shipped">What the team actually shipped</h2>
 
-<p>The work I'd point to first is what we did with customer service. TLC had multiple contact channels — a call center, a web portal, an email inbox, and a walk-in center that operated like a DMV — managed separately, instrumented differently, and sharing no view of who was contacting the agency or why. The team pooled the data across all of them.</p>
+<div class="pullquote">The pattern was invisible inside any one channel and obvious across all four.</div>
 
-<p>What surfaced was a pattern that was invisible inside any single channel and obvious once you could see across them: people were getting bounced between <em>units</em> — the same person showing up across the call center and the email queue and the walk-in center, working on what was effectively one issue, never reaching resolution. It wasn't that the channels were handing people off badly. It was that the units behind the channels weren't talking to each other, and the only place that pattern showed up was in the data once you looked at it together.</p>
+<p>Customer service is the one I'd point to first. TLC had a call center, a web portal, an email inbox, and a walk-in center that felt like a DMV. Four channels, four sets of dashboards, no shared view of who was contacting the agency or why. We pooled the data.</p>
 
-<p>We could see it because we'd pooled the data. More importantly, because we'd built the team with a designer, a researcher, and a deputy who could think in product terms, we could do something about it. We prototyped fixes — single-owner cases for repeat contacts, shared customer history across units, clearer routing. We tested the changes. We worked with the operating units to roll them out. Wait times improved. The bounce pattern reduced.</p>
+<p>What surfaced was the same person, working on what was effectively one issue, bouncing between units for weeks. Nobody was handing off badly. The units behind the channels just weren't talking to each other, and the only place that showed up was in the data once it sat in the same place.</p>
 
-<p>An analytics team alone could have surfaced the pattern. A product team alone wouldn't have had the data to find it. A traditional procurement-led approach would have spent two years writing a requirements document for unified case management. The discipline we'd built found the problem, prototyped against it, and operationalized the fix without restructuring the agency.</p>
+<p>Because the team had a designer and a researcher by then, we could do something with what we'd found. Single-owner cases. Shared history across units. Cleaner routing. <strong>Wait times dropped. The bounce pattern thinned out.</strong> None of it required restructuring the agency.</p>
 
-<p>The customer service work also produced something I didn't plan for. As other operating units saw what was possible, they started asking for help with problems that weren't on the team's original mandate. One of those asks became the distribution methodology for the Medallion Relief Fund — the city's response to driver debt during the medallion market collapse. We weren't chartered for that work. We got pulled into it because the credibility we'd built doing the unglamorous customer service work made us the team people thought of when something big and outside-the-box needed to be figured out.</p>
+<div class="callout">That work pulled us into work no one had chartered us for.</div>
+
+<p>One ask became the distribution methodology for the Medallion Relief Fund, the city's response to driver debt during the medallion market collapse. We weren't the obvious team for it. <strong>We were the team people thought of.</strong></p>
 
 <h2 id="tlc-resistance">The resistance, and how it resolved</h2>
 
-<p>Not everyone was on board. The pushback I heard most often was a version of why are you asking so many questions, just build the thing. In an institution wired for execution, discovery work reads as overhead.</p>
-
-<p>It didn't resolve through argument. It resolved through delivery. The closest-in operating units — the ones we worked with first — started seeing improvements they couldn't have specified up front. Their wait times dropped. Their backlogs cleared. Once those teams were vocal advocates, the request pattern flipped: instead of us pitching the discipline, other parts of the agency started asking when we could come help them.</p>
+<p>The pushback, when it came, was always a version of <em>why are you asking so many questions, just build the thing</em>. Fair enough. In an institution wired for execution, discovery looks like overhead, and the people pushing back weren't wrong to notice. It didn't resolve through argument. <strong>It resolved through wait times going down.</strong> Once a few operating units were quietly telling other units we were worth the trouble, the request pattern flipped.</p>
 
 <h2 id="tlc-decision">The decision I still think about</h2>
 
-<p>The team lived in an operating division. Not in IT. Not in the commissioner's office.</p>
+<p>The team lived in an operating division. Not IT, not the commissioner's office. I'd love to say that was strategic. It wasn't — operations was where the sponsor with budget and appetite happened to sit, and government windows close fast.</p>
 
-<p>I'd love to tell you this was a deliberate strategic choice. It wasn't. The opening was in operations — that's where the sponsor with budget and appetite happened to sit — and I took the opening because government windows are short and you take what's available. In retrospect, it's the most important thing about how the team turned out, even though I didn't fully appreciate that going in.</p>
-
-<p>Living in operations meant we were close to the work. Down the hall from the people whose jobs we were trying to make easier. We earned trust because we showed up where the work was happening, not where it was being decided about.</p>
-
-<p>Placed in the commissioner's office, the team would have had more authority and been treated by the rest of the agency as an inspectorate — a group whose questions implied judgment. Operators wouldn't have shown us the messy parts. The team's home shaped what kind of work it was structurally able to do — that's the part I think about.</p>
+<p>It turned out to be the most consequential choice in the whole story. <strong>Down the hall from the people whose jobs we were trying to make easier, we saw the messy parts.</strong> Two floors up, we'd have been treated as an inspectorate, and shown the version of the work that was ready for inspection.</p>
 
 <h2 id="tlc-travels">What survived, and what travels</h2>
 
-<p>When I left, my role was split. One of the pieces became the agency's first chief product officer. The seat wasn't planned when I joined; it emerged because the work the team did, over years, demonstrated there was a discipline worth giving an executive home to.</p>
+<p>When I left, the role was split, and one of the pieces became the agency's first chief product officer — a seat that didn't exist when I started and emerged because the work had made it obvious one should.</p>
 
-<p>The pattern from this engagement — discipline introduced opportunistically, earning trust through visible delivery, getting pulled into work no one had originally chartered it for, surviving as a permanent function once it had proven itself — is the same pattern I've watched play out in every operationally-mature engagement I've worked on since. In startups closing the gap between sold and shipped. In agencies trying to modernize without breaking the trust they run on. In foundations whose grantees need an operating discipline the funder didn't budget for.</p>
-
-<p>If you're standing up something like this elsewhere, three things travel from TLC. Place the team close to operations, and if the opening is somewhere close to operations, take it — even if a tidier org chart would put you elsewhere. Sequence the team's growth around credibility, not capability. And expect discovery work to read as overhead until you have a portfolio of delivered wins to point to.</p>
-
-<p>The seat at the table doesn't get built by declaring it should exist. It gets built by doing the work that makes it obvious one should.</p>
+<p>Three things travel. Take the opening that's close to operations, even when a tidier org chart would put you elsewhere. Sequence the team around credibility, not capability. And expect discovery to read as overhead until you have a portfolio of wins to point at — then it reads as the reason the wins happened.</p>
 </div>
 
 <footer class="post-footer">
@@ -3384,54 +3516,49 @@ The name
 
 <header class="post-header">
 <h1><span class="role-kicker">COO · Bandwagon</span>Shipping a new service line in chaos</h1>
+<div class="post-meta"><span class="read-time">3 min read</span></div>
 </header>
 
 <div class="post-body">
-<p class="lede">The work was building a new product fast enough to create the conversations the company needed to have.</p>
+<p class="lede">A van-sharing pilot, built in weeks, to change the conversations the company could be in.</p>
 
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-bandwagon"/></svg></div>
 
-<p>Bandwagon was a shared-mobility startup focused on splitting taxi rides across riders heading the same direction from New York's transportation hubs — JFK, LaGuardia, Newark, the Port Authority, Penn Station. The product addressed a real coordination failure. Hub-bound riders heading to the same neighborhood were each taking individual taxis while the queues at peak times ran forty-five minutes and empty cabs sat one curb over. The underlying problem was the absence of a viable shared option for those last-mile trips — a gap public transit didn't fill at the hubs in question, and that the taxi system was structurally unable to fill on its own. Bandwagon's pooling tech was an attempt to close part of that gap inside the constraints of the system that actually existed.</p>
+<p class="dropcap">Bandwagon was a shared-mobility startup splitting taxi rides between riders heading the same way from New York's transportation hubs. The product worked. The strategic problem was who could buy us. The natural exits — TNCs, taxi vendors — all had their own pooling tech or were building it. <strong>We were a feature, not a company, from those buyers' point of view.</strong> Vans were the angle we picked to get into a different conversation.</p>
 
-<p>The strategic problem wasn't the product. It was who could buy us. The natural exits — TNCs (Uber, Lyft, Via) and taxi vendors (Curb, Arro) — all had their own pooling tech or were building it. We were a feature, not a company, from those buyers' point of view. We needed a different angle to be in a different conversation. Vans were the angle we picked.</p>
-
-<p>The work I'm writing about here is what we did next — a partnership with Transdev to launch a van-sharing pilot called Bandwagon Transit, built and deployed in a matter of weeks, designed to do something more specific than test whether van-sharing worked.</p>
+<p>What I want to write about is what we did next — a partnership with Transdev to launch a van-sharing pilot called Bandwagon Transit, built and deployed in weeks, designed to do something more specific than test whether van-sharing worked.</p>
 
 <h2>What the pilot was actually for</h2>
 
-<p>Chariot was building momentum at the time as a commuter-van service, and the category was open enough that a credible van-pooling play could put a new kind of buyer at our table — different from the TNCs and taxi vendors we'd already exhausted. The pilot wasn't really a market test of van-sharing. It was a vehicle, in both senses, for being in a conversation we hadn't been able to get into.</p>
+<p>Chariot was building momentum as a commuter-van service, and the category was open enough that a credible van play could put a new kind of buyer at our table. The pilot wasn't really a market test. <strong>It was a vehicle, in both senses, for being in a conversation we hadn't been able to get into.</strong></p>
 
-<p>That changes what "ship" had to mean. We didn't need to optimize the route, refine the pricing, or scale the operation. We needed something real enough to generate press, conversations, and a credible claim that we operated in this space. Anything beyond that was deferrable until and unless one of those conversations turned into something.</p>
+<p>That changes what "ship" had to mean. We didn't need to optimize the route, refine the pricing, or scale the operation. We needed something real enough to generate press, conversations, and a credible claim that we operated in this space. Anything else was deferrable until one of those conversations turned into something.</p>
 
 <h2>How we shipped it fast</h2>
 
-<p>Transdev provided the drivers and the Mercedes Sprinter vans. That single decision saved us months — we weren't building a fleet, hiring drivers, or wrangling commercial insurance. We were a software and operations layer on top of someone else's transportation infrastructure.</p>
+<p>Transdev provided the drivers and the Mercedes Sprinter vans. That single decision saved us months — we weren't building a fleet, hiring drivers, or wrangling commercial insurance. We were a software and operations layer on top of someone else's infrastructure.</p>
 
-<p>For the brand and customer-facing layer, we repurposed almost everything Bandwagon already had. The on-the-ground sales staff who'd been working the airport queues moved to the new pilot. Existing signage and palm cards got light edits and a fresh visual treatment. We bought swag online with the new branding.</p>
+<p>For the customer-facing layer, we repurposed almost everything Bandwagon already had. The on-the-ground sales staff working the airport queues moved to the new pilot. Existing signage and palm cards got light edits and a fresh visual treatment. We bought swag online.</p>
 
-<p>We dodged the biggest regulatory time-sink — fare collection licensing — by making the rides donation-based. That call did two things. It got us operating without months of permitting, and it doubled as a willingness-to-pay test that gave us real information about how riders valued the service when they had the choice not to pay at all.</p>
+<div class="pullquote">We dodged fare-collection licensing by making the rides donation-based — which doubled as a willingness-to-pay test.</div>
 
-<p>For the route, we analyzed gaps in the MTA's bus and subway network and picked Penn Station to Grand Central — a corridor where a meaningful number of trips weren't well-served by the existing transfer-heavy subway connection between the two stations, and where a direct cross-midtown van had a clear use case for riders making that specific trip.</p>
+<p>That single call got us operating without months of permitting, and the donation data told us what riders actually valued the service at when they had the choice not to pay at all. For the route, we analyzed gaps in the MTA's network and picked Penn Station to Grand Central — a corridor where a meaningful number of trips weren't well-served by the existing transfer-heavy subway connection.</p>
 
-<p>The whole stack — vans, drivers, brand, signage, route, regulatory posture — was assembled in weeks. It wasn't beautiful. It was real, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</p>
+<p>The whole stack — vans, drivers, brand, signage, route, regulatory posture — was assembled in weeks. It wasn't beautiful. <strong>It was real, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</strong></p>
 
 <h2>What the work was, and what the company was</h2>
 
-<p>The pilot did what it was built to do. The press coverage landed. The conversations we'd built it to create happened. We sat at tables with the partners we hadn't been able to reach before.</p>
+<p>The pilot did what it was built to do. The press landed. The conversations we'd built it to create happened. We sat at tables with partners we hadn't been able to reach before. Those conversations didn't ultimately convert into the deal that would have saved the company. Bandwagon didn't make it.</p>
 
-<p>Those conversations didn't ultimately convert into the deal that would have saved the company. Bandwagon didn't make it.</p>
+<div class="callout">The work was good. The company didn't make it. Those are two different sentences and they belong in different paragraphs.</div>
 
-<p>I want to be clear about how I think about that. The pilot was the right move and it succeeded at the thing it was designed to do. The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category or whether our pilot had been well-executed. Conflating those two — claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better — would be dishonest in either direction. <strong>The work was good. The company didn't make it. Those are two different sentences and they belong in different paragraphs.</strong></p>
-
-<p>What I took from it isn't a startup-survival story. It's a muscle.</p>
+<p>Conflating those — claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better — would be dishonest in either direction. The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category. What I took from it isn't a startup-survival story. It's a muscle.</p>
 
 <h2>What travels</h2>
 
-<p>The thing Bandwagon Transit taught me, and the thing I've used in nearly every job since, is that if the conversation you're hoping for isn't presenting itself, you can build something to create it. Not a deck. Not a strategic memo. Something real, on the ground, that changes the facts on which the conversation is based.</p>
+<p>If the conversation you're hoping for isn't presenting itself, you can build something to create it. Not a deck. Not a memo. Something real, on the ground, that changes the facts the conversation is based on.</p>
 
-<p>This is the muscle that gets least respected in formal planning environments — where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many transit decisions get made top-down and committed to permanently, when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver.</p>
-
-<p>Building fast doesn't mean building badly. It means building enough — clearly, honestly, with the right partners — to put yourself in a different conversation than the one you'd have had otherwise. That's a craft, and it travels well beyond startups.</p>
+<p>This is the muscle that gets least respected in formal planning environments, where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many decisions get made top-down and committed to permanently when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver. <strong>Building fast doesn't mean building badly. It means building enough to put yourself in a different conversation than the one you'd have had otherwise.</strong></p>
 </div>
 
 <footer class="post-footer">
@@ -3477,40 +3604,47 @@ The name
 
 <header class="post-header">
 <h1><span class="role-kicker">Mentor · Technologists for the Public Good</span>Sharpening the case a data professional was already making</h1>
+<div class="post-meta"><span class="read-time">3 min read</span></div>
 </header>
 
 <div class="post-body">
-<p class="lede">The work was helping a strong individual contributor turn a pile of good artifacts into a coherent case the right people could act on.</p>
+<p class="lede">Turning a pile of good artifacts into a coherent case the right people could act on.</p>
 
-<p class="context">Mentoring and coaching has been a through-line for a decade — managing and developing teams at Ad Hoc and TLC, and advising early-career technologists for five years through Coding it Forward and Technologists for the Public Good. The engagement below is one written-up example of that work.</p>
+<p class="context">Mentoring has been a through-line for a decade — managing teams at Ad Hoc and TLC, advising early-career technologists through Coding it Forward and Technologists for the Public Good. This is one written-up example.</p>
 
 <div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-mentor"/></svg></div>
 
-<p>Technologists for the Public Good runs a mentoring program that pairs senior practitioners with people working in civic tech and government — across organizations, outside the reporting line. The engagement I want to write about here is with an early-career data professional inside a major regional transportation authority, working at the intersection of city planning, data infrastructure, and public-sector strategy. Engineering undergrad, master's from a strong urban planning program, several years of analytical work before the current role. He'd shipped real things — a fare-evasion dashboard pulling 100M+ rows from five different sources, a federal funding allocation tool. The kind of work that's hard to fake.</p>
+<p class="dropcap">The mentee was an early-career data professional inside a major regional transportation authority. Engineering undergrad, master's from a strong urban planning program, several years of analytical work. He'd shipped real things — a fare-evasion dashboard pulling 100M+ rows from five sources, a federal funding allocation tool. The kind of work that's hard to fake.</p>
 
-<p>The premise of a lot of mentoring writing is that the mentor brought something the mentee didn't have. That's not what happened here. The substance was already there — decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. Some were quite good. But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him. The gap wasn't engineering. It was narrative and delivery — the thing that turns a portfolio of good thinking into something a director can champion upward, an IT team can plan against, and an intern can be onboarded into without a month of catch-up.</p>
+<p>The premise of most mentoring writing is that the mentor brought something the mentee didn't have. That's not what happened here. The substance was already there — decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. <strong>But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him.</strong> The gap wasn't engineering. It was the framing that turns a portfolio of good thinking into something a director can champion upward.</p>
 
 <h2>The advisory work</h2>
 
-<p>The first move was refusing to start where he wanted to start. He came in with a goal stated as <em>build the data warehouse</em> and a question about how to pitch it. I held us on the prior question — <em>what is the warehouse for, and what does landing it actually get you</em> — for longer than was comfortable. By the end of that conversation the goal had been restated as: <em>build a case that gets me the team and the IT relationship I need to do this kind of work for the next decade, and the warehouse is one piece of evidence in that case.</em> Those are different goals. The first ends when the artifact ships. The second treats the artifact as instrumental. The same work products serve both — but the order you build them in, and the audiences you write them for, are different.</p>
+<p>The first move was refusing to start where he wanted to start. He came in with a goal stated as <em>build the data warehouse</em> and a question about how to pitch it. I held us on the prior question — <em>what is the warehouse for, and what does landing it actually get you</em> — for longer than was comfortable.</p>
 
-<p>From there the work organized itself around three deliverables, each pointed at a different audience. A <strong>data operations document</strong> — the technical operating manual, written for him, his interns, the IT team, and any future data hire — that defined how data flowed through the department as a system rather than as a series of one-off projects. A <strong>data strategy one-pager</strong>, written for his Assistant Director and Director, that translated the technical reality into a leadership story: what data capacity existed today, where it was going, and what was needed to get there. And a <strong>management framework</strong> for the interns — collaborative goal-setting, a 1:1 cadence, a retrospective process — designed to be tested with the unpaid undergraduate intern starting in February and refined for the paid graduate hire arriving in June.</p>
+<div class="pullquote">The same work products serve both goals — but the order you build them in, and the audiences you write them for, are different.</div>
 
-<p>The artifacts weren't new ideas. The work was deciding which audience each one was for, what each one had to do, and in what order they got built. The ops doc could go deep because the people reading it would go deep with it. The strategy one-pager couldn't — its job was to be a thing the Assistant Director could pick up and use to make the case upward without further translation. The management framework had to be lightweight enough that an intern could be onboarded into it in a week, not handed a binder, and it had to surface what worked and what didn't in time for the summer hire's framework to be a revised v2 rather than a rerun.</p>
+<p>By the end of that conversation the goal had been restated: <em>build the case that gets me the team and the IT relationship I need to do this kind of work for the next decade. The warehouse is one piece of evidence in that case.</em></p>
+
+<p>From there the work organized itself around three deliverables, each pointed at a different audience. A <strong>data operations document</strong> — the technical operating manual, written for him, his interns, the IT team, any future data hire — that defined how data flowed through the department as a system rather than a series of one-off projects. A <strong>data strategy one-pager</strong>, written for his Assistant Director and Director, that translated the technical reality into a leadership story. And a <strong>management framework</strong> for the interns — collaborative goal-setting, a 1:1 cadence, a retrospective process — designed to be tested with the unpaid undergraduate intern starting in February and refined for the paid graduate hire arriving in June.</p>
+
+<p>The artifacts weren't new ideas. The work was deciding which audience each one was for, what each had to do, and in what order they got built.</p>
 
 <h2>What changed</h2>
 
-<p>The reframe of the goal was the move that opened everything else. Once <em>build the warehouse</em> became <em>build the case the warehouse sits inside</em>, sequencing decisions stopped being arbitrary. The strategy one-pager had to come before the warehouse pitch, because the IT team couldn't be asked to plan against the warehouse without leadership having committed to the broader investment first. The management framework had to be tested in the spring, not the summer, because the paid graduate hire was the higher-stakes engagement and shouldn't be the one the framework was being figured out on. The IT relationship had to be approached through the Assistant Director, not directly, because IT was the bottleneck and IT bottlenecks don't unblock for analysts — they unblock for the directors analysts work for.</p>
+<p>Once <em>build the warehouse</em> became <em>build the case the warehouse sits inside</em>, sequencing decisions stopped being arbitrary. The strategy one-pager had to come before the warehouse pitch, because IT couldn't be asked to plan against the warehouse without leadership having committed to the broader investment first. The management framework had to be tested in the spring, not the summer, because the paid graduate hire was the higher-stakes engagement. <strong>The IT relationship had to be approached through the Assistant Director, not directly, because IT bottlenecks don't unblock for analysts — they unblock for the directors analysts work for.</strong></p>
 
-<p>None of those sequencing calls were obvious from inside the work. They became obvious once the goal had been restated, and we spent the rest of the engagement working backward from the restated goal to the order things needed to happen in.</p>
+<p>None of those calls were obvious from inside the work. They became obvious once the goal had been restated.</p>
 
 <h2>Where it landed</h2>
 
-<p>He's actively pitching the case to leadership now. The strategy one-pager exists. The ops doc is in draft. The undergraduate intern is onboarded against the management framework, and the framework will get its revision before the summer hire arrives. The substance was always going to come from him. What the engagement did was compress the time between "I have the pieces" and "I have a case I can take to leadership." Government windows are short. An analyst who arrives at a coherent pitch six months later than they could have, often arrives after the moment to make it has closed.</p>
+<p>He's actively pitching the case to leadership now. The strategy one-pager exists. The ops doc is in draft. The undergraduate intern is onboarded against the management framework, which will get its revision before the summer hire arrives. The substance was always going to come from him. What the engagement did was compress the time between "I have the pieces" and "I have a case I can take to leadership." Government windows are short. An analyst who arrives at a coherent pitch six months later than they could have, often arrives after the moment to make it has closed.</p>
 
 <h2>What travels</h2>
 
-<p>The pattern from this engagement isn't about data infrastructure, or government, or early career. It's the gap that shows up wherever someone technically capable is making an institutional case for the first time. The artifacts they have are usually fine. What's missing is the audience-specific framing that turns artifacts into a case. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't — restate the goal, map the audiences, sequence the deliverables, write each one for the audience it's actually for. Most strong ICs are sitting on more material than they need. The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order.</p>
+<div class="callout">Most strong ICs are sitting on more material than they need.</div>
+
+<p>The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order. The pattern isn't about data, or government, or early career — it's the gap that shows up wherever someone technically capable is making an institutional case for the first time. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't.</p>
 </div>
 
 <footer class="post-footer">
@@ -3590,12 +3724,12 @@ The name
 <div class="post-meta">
 <span>Cases</span>
 <span class="dot">·</span>
-<span>5 min read</span>
+<span>4 min read</span>
 <span class="dot">·</span>
 <span>April 2026</span>
 </div>
 <h3>Container moves, and <em>what lives underneath them</em></h3>
-<p class="post-dek">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia that's been rebuilt twice. Three cases, and what they show about the gap between structure and function.</p>
+<p class="post-dek">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia. Three cases, and the gap between structure and function.</p>
 </div>
 </article>
 <article class="post-item" onclick="goto('post-urban-systems')">
@@ -3615,14 +3749,19 @@ The name
 </div>
 </section>
 
-<section class="subscribe">
+<section class="subscribe" id="subscribe">
 <div class="colkicker">Subscribe</div>
-<form action="https://formspree.io/f/xgodpvew" method="POST">
+<p class="subscribe-dek">A short piece each month on the operational layer — implementation stories, field cases, the machinery underneath. Unsubscribe anytime.</p>
+<form action="https://formspree.io/f/xgodpvew" method="POST" id="subscribe-form">
 <input type="hidden" name="_subject" value="New Auringon journal subscriber">
 <input type="hidden" name="_next" value="https://auringon.com/?subscribed=1#journal">
 <input type="email" name="email" placeholder="your@email.com" required>
 <button type="submit">Subscribe</button>
 </form>
+<div class="subscribe-thanks" id="subscribe-thanks" hidden>
+<p class="subscribe-thanks-line"><em>Thanks — you're on the list.</em></p>
+<p class="subscribe-thanks-sub">The next piece will land in your inbox when it's published.</p>
+</div>
 </section>
 </div>
 
@@ -3653,17 +3792,21 @@ The name
 <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg>
 <figcaption class="caption">The working layer — between policy above and infrastructure below.</figcaption>
 </figure>
-<p>Ask someone what a city does, and they'll usually describe the visible parts: the buildings, the streets, the dining, the parks. The harder question is what enables all of it. Water has to come out of the tap. Waste has to leave the building. Buses have to show up. Benefits have to reach the people eligible for them. Kids have to get to school on time. Permits have to clear. None of it happens by itself.</p>
+<p class="dropcap">Ask someone what a city does, and they'll usually describe the visible parts: the buildings, the streets, the dining, the parks. The harder question is what enables all of it. Water has to come out of the tap. Waste has to leave the building. Buses have to show up. Benefits have to reach the people eligible for them. Kids have to get to school on time. Permits have to clear. <strong>None of it happens by itself.</strong></p>
 
 <p>That's the working layer I mean when I talk about urban systems — the systems a city has to operate, day in and day out, for it to function at all. Some are literal: water, waste, food, energy. Some are logistical: transport, housing, health, emergency response. Some are social: education, workforce, economic mobility. The list isn't ordered or exhaustive. It's the territory.</p>
 
-<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem — often with different authority, different incentives, and different time horizons. That's what makes the work hard. Not any single piece of it. The coordination.</p>
+<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem — often with different authority, different incentives, and different time horizons. <strong>That's what makes the work hard. Not any single piece of it. The coordination.</strong></p>
 
-<p>Perhaps the clearest illustration comes from a specific moment. In 2018, the NYC Taxi and Limousine Commission capped the number of for-hire vehicles on the road for the first time. Uber and Lyft had grown unchecked for most of a decade, and the consequences had arrived all at once: congestion, emissions, wage collapse, a medallion market in freefall, a wave of driver suicides. The cap was the headline. The cap was also the easy part.</p>
+<div class="pullquote">The cap was the headline. The cap was also the easy part.</div>
+
+<p>The clearest illustration comes from a specific moment. In 2018, the NYC Taxi and Limousine Commission capped the number of for-hire vehicles on the road for the first time. Uber and Lyft had grown unchecked for most of a decade, and the consequences had arrived all at once: congestion, emissions, wage collapse, a medallion market in freefall, a wave of driver suicides.</p>
 
 <p>The real work was underneath. Rules had to become logic a system could enforce. New data had to be collected, and new analysis stood up, so the agency could tell whether any of it was working. Operations had to be redesigned. Teams had to be restructured. Every change had to be walked through with the industry while it was still being built. All of it had to happen at once, without breaking the service millions of New Yorkers depended on every day.</p>
 
-<p>That's the layer this Journal is about. Not the policy debates above it. Not the infrastructure underneath it. The operational one in between — where approvals become programs, and plans become things that actually run.</p>
+<div class="callout">Where approvals become programs, and plans become things that actually run.</div>
+
+<p>That's the layer this Journal is about. Not the policy debates above it. Not the infrastructure underneath it. The operational one in between.</p>
 
 <p>If that's the layer you work in too, you're in the right place.</p>
 </div>
@@ -3713,7 +3856,7 @@ The name
 <div class="post-meta">
 <span>Cases</span>
 <span class="dot">·</span>
-<span>5 min read</span>
+<span>3 min read</span>
 <span class="dot">·</span>
 <span>April 2026</span>
 </div>
@@ -3725,51 +3868,47 @@ The name
 <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"/></svg>
 <figcaption class="caption">Three vessels, three contents — the container shapes what fits, but doesn't do the work itself.</figcaption>
 </figure>
-<p class="lede">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia that's been rebuilt twice. Three cases, and what they show about the gap between structure and function.</p>
+<p class="lede">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia. Three cases — and the gap between structure and function.</p>
 
-<p>There's a move that urban systems people love to talk about, and it's worth taking seriously. Call it the container move. You find the right legal, financial, or governance vehicle — a joint-powers authority, a split entity, an income-based rate structure — and you reshape what's possible downstream. Not the app. Not the pilot. The container.</p>
+<p class="dropcap">There's a move that urban systems people love to talk about, and it's worth taking seriously. Call it the container move. You find the right legal, financial, or governance vehicle — a joint-powers authority, a split entity, an income-based rate structure — and you reshape what's possible downstream. Not the app. Not the pilot. <strong>The container.</strong></p>
 
 <p>The move is real. It's also not sufficient. What you put inside the container, and how the machinery actually runs, determines whether the container does any work at all. Three cases make the point.</p>
 
 <h2>Cal-ITP — the state as a platform</h2>
 
-<p>California has more than three hundred independent public transit agencies. Each runs its own fare system, publishes its own schedule data in its own format, manages its own reduced-fare program. A rider can't cross from one to another without learning a new system. A small agency can't afford to modernize any of it alone.</p>
+<p>California has more than three hundred independent public transit agencies. Each runs its own fare system, schedule data, reduced-fare program. A small agency can't afford to modernize any of it alone.</p>
 
-<p>The California Integrated Travel Project's move wasn't a super-app. It was the paperwork. Cal-ITP stood up master service agreements the state runs once, which any transit agency in California — or, as of 2022, any agency nationally — can buy off of without running their own procurement. It standardized schedule data so journey-planning apps can consume any feed consistently, pushed contactless fare payments onto the bank-card rails already in every rider's wallet, and built an identity-verification layer to tie reduced-fare eligibility to the card itself.</p>
+<p>The California Integrated Travel Project's move wasn't a super-app. It was the paperwork. Cal-ITP stood up master service agreements the state runs once, which any agency in California — or, as of 2022, any agency nationally — can buy off of without running their own procurement. Standardized schedule data. Contactless fare payments on the bank-card rails already in every rider's wallet.</p>
 
-<p>The container here is governance. The state becomes a platform of reusable civic modules. Local agencies plug in when they're ready. Humboldt Transit modernizes without hiring a procurement team. Capitol Corridor becomes the first intercity rail line in the US where a bank card taps you through. The small agencies benefit the most, which is usually how you can tell the container is doing real work.</p>
-
-<p>Cal-ITP works because the machinery underneath matches the container. The MSAs are real procurements with real vendors. The standards are maintained and enforced. The technical assistance team exists and is staffed. The container on its own would have been a press release; what makes it function is that the state actually built the operation behind it.</p>
+<p><strong>The container here is governance. The state becomes a platform of reusable civic modules.</strong> Humboldt Transit modernizes without hiring a procurement team. Capitol Corridor becomes the first intercity rail line in the US where a bank card taps you through. The small agencies benefit the most, which is usually how you can tell the container is doing real work.</p>
 
 <h2>Sanergy — changing the legal vessel</h2>
 
 <p>Ninety percent of the sanitation waste from Nairobi's informal settlements gets dumped untreated. Sanergy closed the loop with a franchise-like network of Fresh Life toilets operated by local entrepreneurs, plus a centralized plant turning waste into organic fertilizer and insect-based animal feed.</p>
 
-<p>For a decade, the model ran as one organization, and for a decade, it strained against itself. The sanitation service needed patient, concessional capital. The agriproducts business needed growth capital and moved at investor speed. Philanthropic funders wanted to back the toilets. Commercial investors wanted to back the outputs. Both had to hold their nose when the other part of the organization showed up in the pitch deck.</p>
+<p>For a decade, the model ran as one organization, and for a decade, it strained against itself. The sanitation service needed patient, concessional capital. The agriproducts business needed growth capital and moved at investor speed. Philanthropic funders wanted to back the toilets. Commercial investors wanted to back the outputs. <strong>Both had to hold their nose when the other part of the organization showed up in the pitch deck.</strong></p>
 
-<p>In 2022, Sanergy split in two. <em>Fresh Life</em>, the nonprofit, runs the toilets and waste collection. <em>Regen Organics</em>, the for-profit, runs the processing and product sales. Both sit under an umbrella that keeps the value chain intact operationally but separates the legal and financial containers. One chain, two balance sheets.</p>
-
-<p>This is a container move in its purest form. The tension that had constrained the model for a decade got resolved by changing the legal vessel, not the operations. But what makes it work isn't just the restructure. It's that by 2022 the underlying operations were mature enough to survive the split. The container move was right at the right time — earlier, and it would have split a fragile operation; later, and the tension would have constrained growth on both sides for longer than it needed to.</p>
+<p>In 2022, Sanergy split in two. <em>Fresh Life</em>, the nonprofit, runs the toilets and waste collection. <em>Regen Organics</em>, the for-profit, runs the processing and product sales. One chain, two balance sheets. The container move was right at the right time — earlier, and it would have split a fragile operation; later, and the tension would have constrained growth on both sides for longer than it needed to.</p>
 
 <h2>Philadelphia TAP — when the container fights the machinery</h2>
 
-<p>Philadelphia's Tiered Assistance Program, launched in 2017, was the talk of the water affordability world. Instead of charging everyone the same rate and offering discounts to customers who can't pay, TAP caps participating customers' bills at a percentage of their income. First program of its kind in the United States. Press coverage. Advocacy groups holding it up as the model.</p>
+<div class="pullquote">The container is philosophically clean. For the first six years, the machinery didn't match it.</div>
 
-<p>The container is philosophically clean. If you were designing water affordability policy from first principles, TAP is close to what you'd draw up. For the first six years, the machinery didn't match it. Participation stalled at about 28% of eligible customers. Nearly half of applications got rejected. Renewal paperwork drove drop-off — and the paperwork couldn't be simplified without undermining the income-verification logic the rate structure required. Administrative costs ran at roughly 50% of benefits delivered. Researcher Manny Teodoro showed in 2023 that because the program was funded by a surcharge on all non-participant water bills, the majority of low-income Philadelphians — the 70% who were eligible but not enrolled — were paying more for water under TAP than they would have without it.</p>
+<p>Philadelphia's Tiered Assistance Program, launched in 2017, caps participating customers' water bills at a percentage of their income. First program of its kind in the US. If you were designing water affordability from first principles, TAP is close to what you'd draw up.</p>
 
-<p>Then in 2024, the city pivoted. Philadelphia Water Revenue partnered with the city's Office of Integrated Data for Evidence and Action and started auto-enrolling customers who had already been income-verified by other city programs. In one year, enrollment went from about 22,000 to more than 60,000.</p>
+<p>And yet. Participation stalled at about 28% of eligible customers. Renewal paperwork drove drop-off — and the paperwork couldn't be simplified without undermining the income-verification logic the rate structure required. Researcher Manny Teodoro showed in 2023 that because the program was funded by a surcharge on non-participant water bills, the majority of low-income Philadelphians — the 70% eligible but not enrolled — were paying <em>more</em> for water under TAP than they would have without it.</p>
 
-<p>The move was operational, not structural. The container didn't change. The machinery underneath it did. The part of the machinery doing all the damage — the individualized income verification required to set an individualized rate — got offloaded onto a data pipeline that other agencies had already built. TAP as a rate structure stayed the same; TAP as an administrative process is now a different program than it was. What matters is whether the organization behind the container can find a way to make the machinery underneath it actually work — and that sometimes takes years of operating a broken version before the right fix becomes visible.</p>
+<p>In 2024, the city pivoted. Philadelphia Water Revenue partnered with the city's Office of Integrated Data for Evidence and Action and started auto-enrolling customers already income-verified by other programs. <strong>Enrollment went from about 22,000 to more than 60,000 in a year.</strong></p>
+
+<p>The move was operational, not structural. The container didn't change. The damaging part of the machinery — individualized income verification — got offloaded onto a data pipeline other agencies had already built.</p>
 
 <h2>What the three cases have in common</h2>
 
-<p>Cal-ITP works because the machinery matched the container from the start. Sanergy works because the operations were mature enough to survive splitting the container when the time came. Philadelphia TAP is still working through it — the container surfaced an operational problem the utility couldn't solve alone, and a fix is emerging now from a part of the city that wasn't even in the room when TAP was designed.</p>
+<p>Cal-ITP works because the machinery matched the container from the start. Sanergy works because the operations were mature enough to survive splitting the container when the time came. Philadelphia TAP is still working through it — the container surfaced an operational problem the utility couldn't solve alone, and the fix is emerging from a part of the city that wasn't even in the room when TAP was designed.</p>
 
-<p>The container move is real. Finding the right legal, financial, or governance vehicle genuinely is the high-leverage play in a lot of urban systems work. But the container doesn't do the work. The container makes the work possible. What determines whether the work actually happens is the operation that lives inside it — and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</p>
+<p>The container move is real. Finding the right legal, financial, or governance vehicle is the high-leverage play in a lot of urban systems work. But the container doesn't do the work. The container makes the work possible. <strong>What determines whether the work actually happens is the operation that lives inside it — and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</strong></p>
 
-<p>This matters because the container move is what gets the press. New authority formed. New entity launched. New rate structure approved. What doesn't make the headlines, and what determines almost everything about the outcome, is whether the organization behind the container can actually run what's inside it — through the second year and the fifth year and the year the founding champion moves on.</p>
-
-<p>Most urban innovation debates happen at the level of the container. Most urban innovation outcomes are determined one level down.</p>
+<div class="callout">Most urban innovation debates happen at the level of the container. Most urban innovation outcomes are determined one level down.</div>
 </div>
 
 <footer class="post-footer">
@@ -3831,19 +3970,21 @@ The name
 </figure>
 <p class="lede">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
 
-<p>These aren't the failures the trade press writes about. Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind. Those are the ones I get called in on. After enough reps — startup side, agency side, foundation side, vendor side — four of them show up more than the rest.</p>
+<p class="dropcap">These aren't the failures the trade press writes about. Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind. Those are the ones I get called in on. <strong>After enough reps — startup, agency, foundation, vendor — four of them show up more than the rest.</strong></p>
 
 <h2>"The plan assumed someone would build it."</h2>
 
 <p>The most common one. A board approves a strategy. A council passes a program. A foundation commits a grant. Everyone celebrates. Then the strategy goes into a folder and the work of turning it into a functioning operation never actually starts.</p>
 
-<p>I've seen it at startups that closed enterprise deals before they had the onboarding capacity to serve them — the contract gets signed, the CEO moves on to the next deal, and two months later the customer is wondering why nothing is live. I've seen it in agencies that got budget for a new program without getting the hiring authority or procurement runway to stand it up. I've seen it at foundations where the grant cleared and the grantee assumed the foundation had an implementation plan, and the foundation assumed the grantee did.</p>
+<p>I've seen it at startups that closed enterprise deals before they had the onboarding capacity to serve them. I've seen it in agencies that got budget for a new program without the hiring authority or procurement runway to stand it up. I've seen it at foundations where the grant cleared and the grantee assumed the foundation had an implementation plan, and the foundation assumed the grantee did.</p>
 
-<p>The diagnostic question isn't <em>what's the strategy</em>. It's <em>who wakes up on Monday owning the build</em>. If no one can answer that, the program doesn't exist yet — no matter what the vote count was.</p>
+<div class="pullquote">The diagnostic isn't <em>what's the strategy</em>. It's <em>who wakes up on Monday owning the build</em>.</div>
+
+<p>If no one can answer that, the program doesn't exist yet — no matter what the vote count was.</p>
 
 <h2>"The old process got copied into the new system."</h2>
 
-<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better — because the broken processes the old technology had calcified got faithfully reproduced in the new one. The tech changed. The work didn't.</p>
+<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better — because the broken processes the old technology had calcified got faithfully reproduced in the new one. <strong>The tech changed. The work didn't.</strong></p>
 
 <p>The tell is usually in the RFP. If the requirements document was written by the people whose job is to protect the existing process, the modernization will deliver exactly what it asked for — which is the problem. The real work of modernization isn't the migration. It's refusing to rebuild the bad processes the old technology was hiding. That refusal is political, not technical, which is why most modernization vendors avoid it.</p>
 
@@ -3851,15 +3992,17 @@ The name
 
 <p>Urban work requires coalitions — agencies, vendors, funders, community groups, operators — and coalitions are usually strongest the day they launch and weakest the day the first handoff happens. Someone leaves. A commissioner turns over. A grant cycle ends. An election shifts. The coalition was held together by three specific people and two of them are gone.</p>
 
-<p>This hits foundations especially hard, because philanthropic initiatives often depend on a single program officer who personally convened everyone in the room. When that program officer moves on, the coalition discovers it was a relationship, not an institution. The fix isn't "hire better people." It's building durability infrastructure into the initiative from the start — explicit governance, documented commitments, institutional anchors that outlast the individuals.</p>
+<p>This hits foundations especially hard, because philanthropic initiatives often depend on a single program officer who personally convened everyone in the room. <strong>When that program officer moves on, the coalition discovers it was a relationship, not an institution.</strong> The fix isn't "hire better people." It's building durability infrastructure into the initiative from the start — explicit governance, documented commitments, institutional anchors that outlast the individuals.</p>
 
 <h2>"Everything runs through one person and that person is exhausted."</h2>
 
-<p>The last pattern is the most human. A founder, an executive director, a commissioner, a program lead — someone has become the single point of coordination for a program that's outgrown them. Every question routes to them. Every decision waits for them. The organization is technically bigger than one person but operationally isn't. They know it. They'll tell you over coffee. Nobody has figured out how to unblock it.</p>
+<p>The last pattern is the most human. A founder, an executive director, a commissioner, a program lead — someone has become the single point of coordination for a program that's outgrown them. Every question routes to them. Every decision waits for them. The organization is technically bigger than one person but operationally isn't. They know it. They'll tell you over coffee.</p>
 
-<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives. They don't need another direct report. They need the system around them to work without them in every room.</p>
+<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. <strong>It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives.</strong> They don't need another direct report. They need the system around them to work without them in every room.</p>
 
-<p>These four don't cover every way urban work fails. They cover most of the ones I get hired to fix. The pattern that connects them is that none of them are strategy problems. They're operational problems that look like strategy problems from a distance — and the longer you sit in one, the more expensive it gets to fix.</p>
+<div class="callout">None of these are strategy problems. They're operational problems that look like strategy problems from a distance.</div>
+
+<p>The longer you sit in one, the more expensive it gets to fix.</p>
 </div>
 
 <footer class="post-footer">
@@ -3998,7 +4141,13 @@ const URL_SLUGS = {
 'urban-systems': 'post-urban-systems',
 'container-moves': 'post-container-moves',
 'failure-modes': 'post-failure-modes',
+// Legacy slugs — kept so old links keep working. Listed first so the
+// inversion below treats the newer slugs as canonical.
 'background': 'track',
+'how-i-work': 'about',
+// Canonical slugs (these win in SLUG_FOR_PAGE).
+'about': 'track',
+'approach': 'about',
 'services': 'work'
 };
 const SLUG_FOR_PAGE = Object.fromEntries(
@@ -4157,6 +4306,26 @@ updateRailVisibility();
 (function bootFromUrl() {
 const page = resolvePageFromHash();
 if (page !== 'home') goto(page, { skipUrl: true });
+})();
+
+// Subscribe confirmation: after Formspree redirects back with ?subscribed=1,
+// swap the form for a thank-you and clean the URL so a refresh shows the
+// normal form again.
+(function showSubscribeThanksIfNeeded() {
+let params;
+try { params = new URLSearchParams(window.location.search); } catch (err) { return; }
+if (params.get('subscribed') !== '1') return;
+const form = document.getElementById('subscribe-form');
+const thanks = document.getElementById('subscribe-thanks');
+if (form && thanks) {
+form.hidden = true;
+thanks.hidden = false;
+}
+// Strip the param while keeping the hash (so we stay on #journal).
+try {
+const cleanUrl = window.location.pathname + window.location.hash;
+history.replaceState({}, '', cleanUrl);
+} catch (err) { /* sandboxed: ignore */ }
 })();
 
 const navToggle = document.getElementById('navToggle');
