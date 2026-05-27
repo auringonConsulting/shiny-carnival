@@ -159,23 +159,25 @@ padding: 100px 0 120px;
 border-bottom: 1px solid var(--rule);
 }
 
-/* ——— Snap-scroll pacing on the home page only ———
+/* ——— Snap-scroll pacing on the home and Services pages ———
    Each major section is a snap point. The page softly settles on
    the next section when the user scrolls near a transition. Proximity
    mode (not mandatory) means the user is never forced — they can flick
    past freely. The effect makes the reader land on each section for a
    beat, giving the writing a moment to breathe.
 
-   Scoped via :has() to only engage when the home page is the active
-   page in this single-page-app site. The scroll-snap-stop on each
-   section is normal (not always) so fast scrolling can pass through. */
-html:has(#page-home.active) {
+   Scoped via :has() so snap only engages on these specific pages.
+   scroll-snap-stop: normal allows fast scrolling to pass through. */
+html:has(#page-home.active),
+html:has(#page-work.active) {
 scroll-snap-type: y proximity;
 scroll-padding-top: var(--nav-height, 70px);
 }
 #page-home .hero,
 #page-home section.block,
-#page-home .home-contact {
+#page-home .home-contact,
+#page-work .work-hero,
+#page-work .offering {
 scroll-snap-align: start;
 scroll-snap-stop: normal;
 }
