@@ -675,36 +675,27 @@ transition: color 0.2s ease;
    have a gap between them. Applies to pages whose last block is tinted. */
 main:has(#page-home.active) + footer.site,
 main:has(#page-work.active) + footer.site,
-main:has(#page-primes.active) + footer.site { margin-top: 0; }
+main:has(#page-primes.active) + footer.site,
+main:has(#page-engagement-tlc.active) + footer.site,
+main:has(#page-engagement-bandwagon.active) + footer.site,
+main:has(#page-engagement-mentor.active) + footer.site { margin-top: 0; }
 
-/* Primes page — the "How it works" section is a supporting paragraph,
-   not a fresh group of engagement cards. Compress the transition from
-   the third capability into the supporting paragraph and the closing CTA. */
+/* Engagement pages now end in a full-width tinted closing section instead
+   of an in-flow post-footer, so the post-body's bottom border and bulky
+   bottom padding no longer make sense — the article should breathe a bit
+   and then hand off to the tinted CTA without a stray rule between them. */
+#page-engagement-tlc .post-body,
+#page-engagement-bandwagon .post-body,
+#page-engagement-mentor .post-body {
+border-bottom: none;
+padding-bottom: 48px;
+}
 
-/* Remove the bottom border on the last capability card so it doesn't
-   read as a hard stop with a gap after it. */
+/* Primes page — remove the bottom border on the last capability card so
+   it doesn't read as a hard stop with a gap after it before the tinted
+   closing CTA. */
 #page-primes .offerings-group:first-of-type .offering:last-child {
 border-bottom: none;
-padding-bottom: 32px;
-}
-
-/* Tighten the gap between the capabilities group and How it works. */
-#page-primes .offerings-group:first-of-type {
-margin-bottom: 0;
-}
-#page-primes .offerings-group:first-of-type .offerings {
-padding-bottom: 0;
-}
-
-/* Make the How it works label sit closer to what came before. */
-#page-primes #pr-how .offerings-group-label {
-padding-top: 24px;
-margin-top: 0;
-}
-
-/* Trim the bottom of the How it works section. */
-#page-primes #pr-how {
-margin-bottom: 24px;
 }
 
 @media (max-width: 880px) {
@@ -1809,7 +1800,8 @@ display: inline-flex;
 margin-top: 56px;
 }
 
-/* Compact contact CTA at bottom of engagement detail pages */
+/* Compact contact CTA at bottom of journal post pages (legacy — engagement
+   detail pages now use the standard section.closing.closing--tint pattern). */
 .post-footer .footer-contact {
 margin-top: 56px;
 padding-top: 40px;
@@ -3293,7 +3285,6 @@ Example of my work
 <li><a data-target="pr-build">Lead the build</a></li>
 <li><a data-target="pr-diagnose">Connect the dots</a></li>
 <li><a data-target="pr-embedded">Know how government runs</a></li>
-<li><a data-target="pr-how">How it works</a></li>
 </ul>
 </nav>
 
@@ -3317,7 +3308,7 @@ Example of my work
 <h3>"We need someone who can <em>connect the dots</em>."</h3>
 </div>
 <p class="tagline">Data product thinking, applied to the client's operation.</p>
-<p>You've taken on an engagement where the client has analytical muscle but the picture of their own operation is fragmented across data sources, teams, and tools. Your team can do the analysis — what's missing is someone who can bridge the data, the operation, and the product or service decisions that should follow. I work between those layers: making sense of the data the client already has, joining it to how the operation actually runs, and turning that into a useful picture your team can act on.</p>
+<p>You've taken on an engagement where your team has the technical bench but the picture of the client's operation is fragmented across data sources, teams, and tools. Your team can do the analysis — what's missing is someone who can bridge the data, the operation, and the product or service decisions that should follow. I work between those layers: making sense of the data the client already has, joining it to how the operation actually runs, and turning that into a useful picture your team can act on.</p>
 </div>
 
 <div class="offering" id="pr-embedded">
@@ -3331,11 +3322,6 @@ Example of my work
 </div>
 
 </div>
-</div>
-
-<div class="offerings-group" id="pr-how">
-<div class="offerings-group-label">How it works</div>
-<p style="font-size: 18px; line-height: 1.6; color: var(--ink); max-width: 720px;">Embedded with your team, on your engagement, with you in the lead — not subbing wholesale or acting as a contracting shell. Day rate, fixed fee, or W-2 through your firm, whichever your contract requires. Time commitments from a few weeks to a few months. Direct client contact when it helps, behind the scenes when it doesn't. Documentation and handoff are non-negotiable. I'll tell you what other work I'm on and decline engagements that conflict with yours.</p>
 </div>
 
 </div>
@@ -3663,30 +3649,17 @@ Principles
 <p>Three things travel. Take the opening that's close to operations, even when a tidier org chart would put you elsewhere. Sequence the team around credibility, not capability. And expect discovery to read as overhead until you have a portfolio of wins to point at — then it reads as the reason the wins happened.</p>
 </div>
 
-<footer class="post-footer">
-<p class="eng-tiles-label">Other examples</p>
-<div class="eng-tiles">
-<div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
-<div class="eng-tile-meta">Coming soon</div>
-<h4>More engagements <em>on the way</em></h4>
-<p class="eng-tile-dek">Additional case studies in development.</p>
 </div>
-</div>
-<div class="footer-contact">
-<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
-<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
-<span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
-</div>
-<a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Services
-</a>
-</footer>
-
 </div>
 
+<section class="closing closing--tint">
+<div class="wrap">
+<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
+<a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
+</section>
+
 </div>
 
 <!-- ═══════════════ ENGAGEMENT: BANDWAGON ═══════════════ -->
@@ -3745,36 +3718,17 @@ Principles
 <p>This is the muscle that gets least respected in formal planning environments, where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many decisions get made top-down and committed to permanently when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver. <strong>Building fast doesn't mean building badly. It means building enough to put yourself in a different conversation than the one you'd have had otherwise.</strong></p>
 </div>
 
-<footer class="post-footer">
-<p class="eng-tiles-label">Other examples</p>
-<div class="eng-tiles">
-<a class="eng-tile" onclick="goto('engagement-tlc')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
-<div class="eng-tile-meta">NYC TLC · Build</div>
-<h4>Building a product practice inside a <em>regulator</em></h4>
-<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
-</a>
-<div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
-<div class="eng-tile-meta">Coming soon</div>
-<h4>More engagements <em>on the way</em></h4>
-<p class="eng-tile-dek">Additional case studies in development.</p>
 </div>
-</div>
-<div class="footer-contact">
-<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
-<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
-<span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
-</div>
-<a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Services
-</a>
-</footer>
-
 </div>
 
+<section class="closing closing--tint">
+<div class="wrap">
+<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
+<a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
+</section>
+
 </div>
 
 <!-- ═══════════════ ENGAGEMENT: MENTOR ═══════════════ -->
@@ -3831,36 +3785,17 @@ Principles
 <p>The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order. The pattern isn't about data, or government, or early career — it's the gap that shows up wherever someone technically capable is making an institutional case for the first time. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't.</p>
 </div>
 
-<footer class="post-footer">
-<p class="eng-tiles-label">Other examples</p>
-<div class="eng-tiles">
-<a class="eng-tile" onclick="goto('engagement-tlc')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
-<div class="eng-tile-meta">NYC TLC · Build</div>
-<h4>Building a product practice inside a <em>regulator</em></h4>
-<p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
-</a>
-<div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
-<div class="eng-tile-meta">Coming soon</div>
-<h4>More engagements <em>on the way</em></h4>
-<p class="eng-tile-dek">Additional case studies in development.</p>
 </div>
-</div>
-<div class="footer-contact">
-<p class="footer-contact-lede">Working through something <em>similar</em>?</p>
-<a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
-<span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
-</div>
-<a class="post-back-bottom" onclick="goto('work')">
-<span>←</span> Back to Services
-</a>
-</footer>
-
 </div>
 
+<section class="closing closing--tint">
+<div class="wrap">
+<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
+<a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
+</section>
+
 </div>
 
 <!-- ═══════════════ JOURNAL ═══════════════ -->
