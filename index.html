@@ -170,6 +170,7 @@ border-bottom: 1px solid var(--rule);
    scroll-snap-stop: normal allows fast scrolling to pass through. */
 html:has(#page-home.active),
 html:has(#page-work.active),
+html:has(#page-primes.active),
 html:has(#page-about.active) {
 scroll-snap-type: y proximity;
 /* Offset = top nav + chip nav (when visible on mobile) + a little breathing room.
@@ -181,6 +182,8 @@ scroll-padding-top: calc(var(--nav-height, 70px) + var(--chip-nav-height, 0px) +
 #page-home .home-contact,
 #page-work .work-hero,
 #page-work .offering,
+#page-primes .work-hero,
+#page-primes .offering,
 #page-about .about-hero,
 #page-about .about-block {
 scroll-snap-align: start;
@@ -671,7 +674,38 @@ transition: color 0.2s ease;
 /* Tinted sections that butt directly against the dark footer should not
    have a gap between them. Applies to pages whose last block is tinted. */
 main:has(#page-home.active) + footer.site,
-main:has(#page-work.active) + footer.site { margin-top: 0; }
+main:has(#page-work.active) + footer.site,
+main:has(#page-primes.active) + footer.site { margin-top: 0; }
+
+/* Primes page — the "How it works" section is a supporting paragraph,
+   not a fresh group of engagement cards. Compress the transition from
+   the third capability into the supporting paragraph and the closing CTA. */
+
+/* Remove the bottom border on the last capability card so it doesn't
+   read as a hard stop with a gap after it. */
+#page-primes .offerings-group:first-of-type .offering:last-child {
+border-bottom: none;
+padding-bottom: 32px;
+}
+
+/* Tighten the gap between the capabilities group and How it works. */
+#page-primes .offerings-group:first-of-type {
+margin-bottom: 0;
+}
+#page-primes .offerings-group:first-of-type .offerings {
+padding-bottom: 0;
+}
+
+/* Make the How it works label sit closer to what came before. */
+#page-primes #pr-how .offerings-group-label {
+padding-top: 24px;
+margin-top: 0;
+}
+
+/* Trim the bottom of the How it works section. */
+#page-primes #pr-how {
+margin-bottom: 24px;
+}
 
 @media (max-width: 880px) {
 .home-contact { padding: 72px 40px 88px; }
@@ -2693,6 +2727,47 @@ section.block--invert { margin: 0 -24px; padding-left: 24px; padding-right: 24px
 <path d="M142,92 C138,82 148,76 158,76 C170,76 176,82 174,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
 </symbol>
 
+<!-- Primes page marks: the sun sits with someone else's team, joining their work. -->
+
+<!-- Lead the build: a row of blue-gray stones (the prime's team) with a terracotta
+     build piece in the middle, and the sun positioned right above the work — embedded
+     with the team rather than arriving from outside. -->
+<symbol id="m-primes-build" viewBox="0 0 200 120">
+<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<path d="M20,92 C16,82 26,76 36,76 C48,76 54,82 52,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M58,92 C54,82 64,76 74,76 C86,76 92,82 90,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M96,92 C92,72 110,60 124,62 C140,64 146,76 142,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M150,92 C146,82 156,76 166,76 C178,76 184,82 182,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="118" cy="34" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+</symbol>
+
+<!-- Connect the dots: scattered nodes joined by lines into a coherent network, with
+     the sun positioned as the connecting node that completes the picture. -->
+<symbol id="m-primes-connect" viewBox="0 0 200 120">
+<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<line x1="40" y1="70" x2="100" y2="46" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
+<line x1="100" y1="46" x2="160" y2="68" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
+<line x1="40" y1="70" x2="76" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
+<line x1="160" y1="68" x2="128" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
+<line x1="76" y1="84" x2="128" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
+<circle cx="40" cy="70" r="7" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.75"/>
+<circle cx="160" cy="68" r="7" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.75"/>
+<circle cx="76" cy="84" r="6" fill="#808268" stroke="#3a3a3a" stroke-width="1.75"/>
+<circle cx="128" cy="84" r="6" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.75"/>
+<circle cx="100" cy="46" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+</symbol>
+
+<!-- Know how government runs: a row of institutional shapes at the baseline,
+     with the sun as a peer in the row rather than a visitor — sat in enough
+     of the seats to belong in the line. -->
+<symbol id="m-primes-inside" viewBox="0 0 200 120">
+<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<path d="M16,92 C12,78 24,68 36,68 C50,68 58,78 56,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M62,92 C58,60 76,46 92,48 C108,50 116,62 114,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<circle cx="140" cy="76" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<path d="M164,92 C162,80 172,72 180,72 C190,72 194,80 192,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+</symbol>
+
 <symbol id="m-whatwedo" viewBox="0 0 200 120">
 <line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
 <circle cx="100" cy="24" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
@@ -3169,10 +3244,106 @@ Example of my work
 
 </div>
 
+<!-- ═══════════ For primes ═══════════
+     Audience: partners at larger consulting firms, digital agencies,
+     urban consultancies, and AEC firms who hold the contract and need
+     specialized depth on their team. The goto('primes') link below is
+     a placeholder for the dedicated /primes page that will exist after
+     the planned site split. -->
+<section class="closing" style="padding: 80px 0 100px; border-top: 1px solid rgba(0,0,0,0.08);">
+<div class="wrap">
+<div class="kicker" style="margin-bottom: 16px;"><em>For larger consulting and consulting-adjacent firms.</em></div>
+<h2 style="font-size: clamp(28px, 3.2vw, 40px); margin-bottom: 24px;">Holding the contract? <em>I sub in through you.</em></h2>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 640px; margin: 0 0 32px;">If your firm holds the contract and needs senior depth on the team for an engagement that touches government or public institutions, the engagements above are also available subbed in through you.</p>
+<a class="link" onclick="goto('primes')">More on subbing through primes <span>→</span></a>
+</div>
+</section>
+
 <section class="closing closing--tint">
 <div class="wrap">
 <h2>Not sure which shape this is? <em>Let's figure it out.</em></h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">If it's a fit, we'll scope it together. If not, you'll hear that—and usually a pointer to someone who can help.</p>
+<a class="link" onclick="goto('contact')">Start a conversation <span>→</span></a>
+</div>
+</section>
+
+</div>
+
+<!-- ═══════════════ FOR PRIMES ═══════════════
+     Dedicated page for partners at larger consulting firms, digital
+     agencies, urban consultancies, and AEC firms who hold the contract
+     and need specialized depth on their team. Reached via the block at
+     the bottom of the Services page, footer link, and direct URL. Not
+     in main nav by design — secondary audience. -->
+<div class="page" id="page-primes">
+
+<section class="work-hero">
+<div class="wrap">
+<div class="kicker">For primes</div>
+<h1>Specialized depth, <em>on your contract, on your team.</em></h1>
+<p class="lede">I sub through primes on engagements where my operational depth and experience working inside government add something the firm's bench doesn't already cover. The work is the same work the rest of this site describes. It's just contracted through you.</p>
+</div>
+</section>
+
+<div class="wrap">
+
+<nav class="mobile-jump" aria-label="Jump to section">
+<div class="mj-label">Jump to</div>
+<ul>
+<li><a data-target="pr-build">Lead the build</a></li>
+<li><a data-target="pr-diagnose">Connect the dots</a></li>
+<li><a data-target="pr-embedded">Know how government runs</a></li>
+<li><a data-target="pr-how">How it works</a></li>
+</ul>
+</nav>
+
+<div class="offerings-group">
+<div class="offerings-group-label">Three shapes the work takes</div>
+<div class="offerings">
+
+<div class="offering" id="pr-build">
+<div class="offering-head">
+<span class="mark"><svg><use href="#m-primes-build"/></svg></span>
+<h3>"We need someone who can <em>lead the build</em>."</h3>
+</div>
+<p class="tagline">Embedded with your team to run a defined piece of the engagement.</p>
+<p>You've taken on an engagement where part of the deliverable is a working pilot, a service redesign, or a new operational capability — and your team is strong on strategy or design but doesn't have a senior operator who's built that kind of thing inside that kind of institution before. I embed with your team to lead that specific build.</p>
+<a class="offering-example" onclick="goto('engagement-tlc')">Example: Building a product practice inside a regulator (NYC TLC) <span>→</span></a>
+</div>
+
+<div class="offering" id="pr-diagnose">
+<div class="offering-head">
+<span class="mark"><svg><use href="#m-primes-connect"/></svg></span>
+<h3>"We need someone who can <em>connect the dots</em>."</h3>
+</div>
+<p class="tagline">Data product thinking, applied to the client's operation.</p>
+<p>You've taken on an engagement where the client has analytical muscle but the picture of their own operation is fragmented across data sources, teams, and tools. Your team can do the analysis — what's missing is someone who can bridge the data, the operation, and the product or service decisions that should follow. I work between those layers: making sense of the data the client already has, joining it to how the operation actually runs, and turning that into a useful picture your team can act on.</p>
+</div>
+
+<div class="offering" id="pr-embedded">
+<div class="offering-head">
+<span class="mark"><svg><use href="#m-primes-inside"/></svg></span>
+<h3>"We need someone who knows <em>how government actually runs</em>."</h3>
+</div>
+<p class="tagline">An operator who's been inside, embedded with your team.</p>
+<p>You've taken on an engagement where the institutional dynamics matter as much as the technical scope. Your team has the substantive expertise but lacks someone who's actually run things inside government — and the client conversations are going to require that perspective in the room, on the deliverables, and in the prep before key meetings. You bring me onto the engagement for the duration. I sit in client meetings, review deliverables for institutional realism, advise your team on what will and won't land, and help shape the approach so it works for the agency.</p>
+<a class="offering-example" onclick="goto('track')">More on the background <span>→</span></a>
+</div>
+
+</div>
+</div>
+
+<div class="offerings-group" id="pr-how">
+<div class="offerings-group-label">How it works</div>
+<p style="font-size: 18px; line-height: 1.6; color: var(--ink); max-width: 720px;">Embedded with your team, on your engagement, with you in the lead — not subbing wholesale or acting as a contracting shell. Day rate, fixed fee, or W-2 through your firm, whichever your contract requires. Time commitments from a few weeks to a few months. Direct client contact when it helps, behind the scenes when it doesn't. Documentation and handoff are non-negotiable. I'll tell you what other work I'm on and decline engagements that conflict with yours.</p>
+</div>
+
+</div>
+
+<section class="closing closing--tint">
+<div class="wrap">
+<h2>Have a contract that fits? <em>Let's talk.</em></h2>
+<p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 600px; margin: 0 0 32px;">Send a redacted scope of work in advance if you have one. I'll come to the call with thoughts on whether and how I'd be useful, and we can sort the structure from there.</p>
 <a class="link" onclick="goto('contact')">Start a conversation <span>→</span></a>
 </div>
 </section>
@@ -4161,7 +4332,8 @@ const URL_SLUGS = {
 // Canonical slugs (these win in SLUG_FOR_PAGE).
 'about': 'track',
 'approach': 'about',
-'services': 'work'
+'services': 'work',
+'primes': 'primes'
 };
 const SLUG_FOR_PAGE = Object.fromEntries(
 Object.entries(URL_SLUGS).map(([slug, page]) => [page, slug])
