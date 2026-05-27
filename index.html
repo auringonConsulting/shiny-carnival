@@ -169,15 +169,20 @@ border-bottom: 1px solid var(--rule);
    Scoped via :has() so snap only engages on these specific pages.
    scroll-snap-stop: normal allows fast scrolling to pass through. */
 html:has(#page-home.active),
-html:has(#page-work.active) {
+html:has(#page-work.active),
+html:has(#page-about.active) {
 scroll-snap-type: y proximity;
-scroll-padding-top: var(--nav-height, 70px);
+/* Offset = top nav + chip nav (when visible on mobile) + a little breathing room.
+   --chip-nav-height is 0 on desktop and on pages without a chip nav, set by JS. */
+scroll-padding-top: calc(var(--nav-height, 70px) + var(--chip-nav-height, 0px) + 12px);
 }
 #page-home .hero,
 #page-home section.block,
 #page-home .home-contact,
 #page-work .work-hero,
-#page-work .offering {
+#page-work .offering,
+#page-about .about-hero,
+#page-about .about-block {
 scroll-snap-align: start;
 scroll-snap-stop: normal;
 }
@@ -3363,7 +3368,7 @@ Focus
 <div class="wrap two-col">
 <div class="colkicker">
 <span class="mark"><svg><use href="#m-about-approach"/></svg></span>
-Approach
+Principles
 </div>
 <div>
 <h2>Three things I <em>don't compromise</em> on.</h2>
@@ -4209,11 +4214,24 @@ function updateNavHeight() {
 const h = nav.getBoundingClientRect().height;
 document.documentElement.style.setProperty('--nav-height', h + 'px');
 }
+
+// Measure the currently-visible chip nav (if any) and expose it as a CSS
+// variable so scroll-snap padding clears it on mobile. 0 when the chip nav
+// is hidden (desktop, or pages without one) — so home stays untouched.
+function updateChipNavHeight() {
+const chips = document.querySelector('.page.active .mobile-jump');
+const h = (chips && getComputedStyle(chips).display !== 'none')
+? chips.getBoundingClientRect().height : 0;
+document.documentElement.style.setProperty('--chip-nav-height', h + 'px');
+}
+
 updateNavHeight();
+updateChipNavHeight();
 window.addEventListener('resize', updateNavHeight, { passive: true });
+window.addEventListener('resize', updateChipNavHeight, { passive: true });
 // Also re-measure after fonts load, since they can change nav height slightly
 if (document.fonts && document.fonts.ready) {
-document.fonts.ready.then(updateNavHeight);
+document.fonts.ready.then(() => { updateNavHeight(); updateChipNavHeight(); });
 }
 
 window.addEventListener('scroll', () => {
@@ -4265,6 +4283,7 @@ const onPage = document.getElementById(r.pageId).classList.contains('active');
 r.el.classList.toggle('visible', onPage);
 });
 updateRailActive();
+updateChipNavHeight();
 }
 
 function updateRailActive() {
