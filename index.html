@@ -2534,6 +2534,50 @@ section.block--invert { margin: 0 -24px; padding-left: 24px; padding-right: 24px
 .fit-col h4 { font-size: 20px; margin-bottom: 10px; }
 .fit-col li { padding: 8px 0; font-size: 15px; }
 }
+/* ——— Finishing polish ———
+   Additive micro-refinements only — no existing rule is touched, so layout
+   is unchanged. These are the small craft details that read as "finished":
+   balanced headings, no widowed last words, sharper serif rendering, an
+   on-brand text selection, and a visible keyboard-focus state. */
+
+/* Headings settle into evenly-weighted lines instead of leaving one
+   orphaned word on the last line. Progressive enhancement: ignored where
+   unsupported, only ever improves the wrap where supported. */
+h1, h2, h3 { text-wrap: balance; }
+
+/* Body and intro copy avoid single-word last lines. */
+p, .lede, .hero-sub, .post-dek { text-wrap: pretty; }
+
+/* Crisper kerning and ligatures, mainly for the Instrument Serif display type. */
+body { text-rendering: optimizeLegibility; }
+.serif, .hero h1, h1, h2 { font-feature-settings: "kern", "liga"; }
+
+/* Selecting text reads as a deliberate brand moment, not the default browser blue. */
+::selection { background: rgba(188, 97, 49, 0.20); }
+::-moz-selection { background: rgba(188, 97, 49, 0.20); }
+
+/* A quiet, on-brand focus ring for keyboard navigation — finish and accessibility
+   in one. Mouse clicks don't trigger it (:focus-visible), so it never intrudes. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+outline: 2px solid var(--terracotta);
+outline-offset: 3px;
+border-radius: 2px;
+}
+
+/* Small inline text link that sits inside a sentence (e.g. the primes path
+   in 'Who I work with'). Subtle terracotta, darkens to ink on hover. */
+.inline-link {
+color: var(--terracotta);
+text-decoration: none;
+white-space: nowrap;
+cursor: pointer;
+transition: color 0.2s ease;
+}
+.inline-link:hover { color: var(--ink); }
+
 </style>
 </head>
 <body>
@@ -2975,8 +3019,8 @@ section.block--invert { margin: 0 -24px; padding-left: 24px; padding-right: 24px
 <section class="hero">
 <div class="wrap">
 <div class="kicker">Jonathan Internicola's consulting practice for urban systems</div>
-<h1>Bridging <em>the gap.</em></h1>
-<p class="hero-sub">Building the teams, processes, and platforms that turn intent into operation.</p>
+<h1>From intent to <em>operation.</em></h1>
+<p class="hero-sub">Building the teams, processes, and platforms that make urban systems run in the real world, not just on paper.</p>
 <div class="hero-illo">
 <svg viewBox="0 0 600 200"><use href="#m-hero-gap"/></svg>
 </div>
@@ -3005,26 +3049,14 @@ The problem
 </div>
 </section>
 
-<section class="block">
+<section class="block block--tint">
 <div class="wrap two-col">
 <div class="colkicker">
 <span class="mark"><svg><use href="#m-whatwedo"/></svg></span>
 What Auringon does
 </div>
 <div>
-<p>Auringon operationalizes urban systems. The teams, processes, and platforms that turn intent into operation.</p>
-</div>
-</div>
-</section>
-
-<section class="block block--tint">
-<div class="wrap two-col">
-<div class="colkicker">
-<span class="mark"><svg><use href="#m-about-name"/></svg></span>
-The name
-</div>
-<div>
-<p><em>Auringon</em> (OW-ring-gon) — Finnish for <em class="sun-accent">of the sun</em>. <strong>Present, steady, shaped to whatever the engagement needs.</strong></p>
+<p>Auringon <em style="color:var(--terracotta)">(OW-ring-gon)</em> builds the machinery underneath—the operations, the numbers people can trust, the moving parts that have to work for a commitment to actually hold.</p>
 </div>
 </div>
 </section>
@@ -3034,12 +3066,16 @@ The name
 <div class="colkicker">Who I work with</div>
 <div class="who-list">
 <div class="who-entry">
-<div class="label"><span class="mark"><svg><use href="#m-startups"/></svg></span>Direct: startups, small businesses, nonprofits</div>
-<p>Post-revenue, pre-scale.</p>
+<div class="label"><span class="mark"><svg><use href="#m-startups"/></svg></span>Startups building into cities</div>
+<p>Post-revenue, pre-scale. I help you build product and operations that fit how cities actually work—and hold up once you're live.</p>
 </div>
 <div class="who-entry">
-<div class="label"><span class="mark"><svg><use href="#m-gov"/></svg></span>Through primes: government, foundations, larger organizations</div>
-<p>I sub in on the prime's team.</p>
+<div class="label"><span class="mark"><svg><use href="#m-nonprofits"/></svg></span>Mission-driven organizations</div>
+<p>You won the grant; now the program has to run. I stand it up and leave your team able to keep it—and help you show the funder it's working.</p>
+</div>
+<div class="who-entry">
+<div class="label"><span class="mark"><svg><use href="#m-gov"/></svg></span>Through primes: government and larger institutions</div>
+<p>I sub in on the prime's team—the senior operator who strengthens the bid and de-risks delivery. <a class="inline-link" onclick="goto('primes')">If you hold the contract →</a></p>
 </div>
 </div>
 </div>
@@ -3225,7 +3261,7 @@ Example of my work
 <span class="mark"><svg><use href="#m-gut"/></svg></span>
 <h3>"I just need a <em>gut check</em>."</h3>
 </div>
-<p class="tagline">Applied pattern recognition, not pure advice.</p>
+<p class="tagline">Someone who's worked through it before, not just an opinion.</p>
 <p>You keep running things — I'm someone to think out loud with before you commit. Standing calls and email access with someone who's worked through similar decisions from the operator's seat. Useful when you're the most senior person in the room on a specific problem and want a check from someone who's been there.</p>
 <div class="meta"><span>Standing advisory</span><span>Async plus scheduled calls</span><span>Ongoing</span></div>
 <a class="offering-example" onclick="goto('engagement-mentor')">Example: Sharpening the case a data professional was already making <span>→</span></a>
@@ -3354,7 +3390,7 @@ Example of my work
 <div class="hero-row">
 <div class="hero-text">
 <h1>Auringon is the practice of <em>Jonathan Internicola</em>—built around a decade of operational work across urban systems.</h1>
-<p class="lede">Startup COO. City agency executive. Government-tech consultant. Standards-body contributor. The same operational work, seen from every seat it shows up in. The pattern that work revealed is what the practice is built around.</p>
+<p class="lede">Startup COO. City agency executive. Government-tech consultant. Standards-body contributor. The same operational work, seen from every seat it shows up in. What those seats have in common is what the practice is built on.</p>
 </div>
 <aside class="hero-portrait">
 <div class="portrait-frame">
@@ -3507,7 +3543,7 @@ The practice
 <div>
 <h2>A practice for urban systems—<em>small by design</em>.</h2>
 <p>Auringon is the practice of Jonathan Internicola. For most engagements, that's who you're working with: a senior operator who's done the work from multiple seats — startup COO, city agency executive, standards-body contributor.</p>
-<p>Direct engagements are typically with startups, small businesses, and nonprofits. For government, foundations, and larger organizations, I work through partner firms — augmenting the prime's team with deep operational experience and urban-systems pattern recognition on engagements where that specialized depth helps.</p>
+<p>Direct engagements are typically with startups building into cities and mission-driven organizations standing up funded programs—often work a grant pays for but the team can't yet execute. For government and larger institutions, I work through partner firms, adding senior operational depth and a feel for how urban systems actually behave where that helps the prime's team.</p>
 </div>
 </div>
 </section>
@@ -3815,8 +3851,8 @@ Principles
 </svg>
 </div>
 <h1>The <em>Urbanist Operator</em></h1>
-<p class="lede">For people who operationalize urban systems—not policy wonks or tech evangelists. The unglamorous reality of making things work.</p>
-<p class="lede">Implementation stories. Vendor landscape. Field cases. Policy-to-operations translation. The machinery nobody talks about. Written by Jonathan.</p>
+<p class="lede">For people who make urban systems work—not policy wonks or tech evangelists, but the ones who have to run the thing after everyone's gone home.</p>
+<p class="lede">Implementation stories, field cases, and the kind of policy-to-operations translation nobody else writes down. Written by Jonathan.</p>
 </div>
 </section>
 
@@ -4243,6 +4279,7 @@ Principles
 </div>
 <div class="footer-links">
 <a href="mailto:hello@auringon.com">hello@auringon.com</a>
+<a onclick="goto('primes')">For primes</a>
 <a href="https://www.linkedin.com/in/jonathaninternicola/" target="_blank" rel="noopener noreferrer">Jonathan on LinkedIn</a>
 <a href="https://www.linkedin.com/company/auringon" target="_blank" rel="noopener noreferrer">Auringon on LinkedIn</a>
 </div>
