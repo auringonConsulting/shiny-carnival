@@ -1,31 +1,29 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Auringon — Consulting for urban systems</title>
-<meta name="description" content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation.">
-<meta name="author" content="Jonathan Internicola">
-<link rel="canonical" href="https://www.auringon.com/">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Auringon: Consulting for urban systems</title>
+<meta content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation." name="description"/>
+<meta content="Jonathan Internicola" name="author"/>
+<link href="https://www.auringon.com/" rel="canonical"/>
+<link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
 <!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Auringon">
-<meta property="og:title" content="Auringon — Consulting for urban systems">
-<meta property="og:description" content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation.">
-<meta property="og:url" content="https://www.auringon.com/">
-<meta property="og:image" content="https://www.auringon.com/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Auringon">
-
+<meta content="website" property="og:type"/>
+<meta content="Auringon" property="og:site_name"/>
+<meta content="Auringon — Consulting for urban systems" property="og:title"/>
+<meta content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation." property="og:description"/>
+<meta content="https://www.auringon.com/" property="og:url"/>
+<meta content="https://www.auringon.com/og-image.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="Auringon" property="og:image:alt"/>
 <!-- Twitter / X -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Auringon — Consulting for urban systems">
-<meta name="twitter:description" content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation.">
-<meta name="twitter:image" content="https://www.auringon.com/og-image.png">
-
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Auringon — Consulting for urban systems" name="twitter:title"/>
+<meta content="Jonathan Internicola's consulting practice for urban systems. Building the teams, processes, and platforms that turn intent into operation." name="twitter:description"/>
+<meta content="https://www.auringon.com/og-image.png" name="twitter:image"/>
 <!-- Structured data for search engines / AI -->
 <script type="application/ld+json">
 {
@@ -43,9 +41,9 @@
   "serviceType": "Operations consulting for urban systems"
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
 --paper: #f1f2da;
@@ -325,9 +323,9 @@ max-width: 720px;
 
 .block p {
 font-size: 19px;
-line-height: 1.6;
+line-height: 1.65;
 max-width: 680px;
-margin-bottom: 1em;
+margin-bottom: 1.2em;
 color: var(--ink);
 }
 .block p:last-child { margin-bottom: 0; }
@@ -464,7 +462,7 @@ margin-top: 4px;
 .who-entry .label .mark svg { width: 100%; height: 100%; }
 .who-entry p {
 font-size: 18px;
-line-height: 1.55;
+line-height: 1.6;
 color: var(--ink-soft);
 margin: 0;
 max-width: 620px;
@@ -978,10 +976,10 @@ max-width: 720px;
 
 .offering p {
 font-size: 18px;
-line-height: 1.6;
+line-height: 1.65;
 color: var(--ink-soft);
 max-width: 720px;
-margin-bottom: 20px;
+margin-bottom: 24px;
 padding-left: 96px;
 }
 
@@ -1654,9 +1652,9 @@ margin: 8px 0 28px 0;
 }
 .post-body p {
 font-size: 19px;
-line-height: 1.65;
+line-height: 1.7;
 color: var(--ink);
-margin-bottom: 1.2em;
+margin-bottom: 1.4em;
 }
 .post-body p:last-child { margin-bottom: 0; }
 .post-body p em {
@@ -2578,431 +2576,388 @@ transition: color 0.2s ease;
 }
 .inline-link:hover { color: var(--ink); }
 
+/* Honor a reader's reduced-motion preference: no smooth scroll, no snap pacing,
+   transitions collapse to instant. Invisible unless the OS asks for it. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-snap-type: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
-
 <!-- Brand marks (from brand guide) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<svg aria-hidden="true" height="0" style="position:absolute" width="0">
 <defs>
 <!-- Client types -->
-<symbol id="m-startups" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M80,92 C74,72 92,60 112,62 C124,64 128,76 122,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="56" cy="82" r="10" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-startups" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M80,92 C74,72 92,60 112,62 C124,64 128,76 122,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="56" cy="82" fill="#e39b48" r="10" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-gov" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M70,92 C66,82 76,74 88,74 C102,74 108,82 106,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M72,74 C70,66 78,60 88,60 C100,60 106,66 104,74 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M74,60 C72,52 80,48 88,48 C98,48 102,52 100,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M112,92 C108,82 120,76 130,76 C142,76 148,82 146,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M152,92 C148,84 158,80 166,80 C176,80 180,84 178,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M24,92 C22,86 28,82 36,82 C44,82 48,86 46,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<circle cx="88" cy="28" r="9" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<line x1="88" y1="38" x2="88" y2="46" stroke="#e39b48" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
+<symbol id="m-gov" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M70,92 C66,82 76,74 88,74 C102,74 108,82 106,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M72,74 C70,66 78,60 88,60 C100,60 106,66 104,74 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M74,60 C72,52 80,48 88,48 C98,48 102,52 100,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M112,92 C108,82 120,76 130,76 C142,76 148,82 146,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M152,92 C148,84 158,80 166,80 C176,80 180,84 178,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M24,92 C22,86 28,82 36,82 C44,82 48,86 46,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<circle cx="88" cy="28" fill="#e39b48" r="9" stroke="#3a3a3a" stroke-width="2"></circle>
+<line opacity="0.5" stroke="#e39b48" stroke-dasharray="2,2" stroke-width="1" x1="88" x2="88" y1="38" y2="46"></line>
 </symbol>
-
-<symbol id="m-foundations" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="100" cy="30" r="12" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<line x1="100" y1="42" x2="100" y2="58" stroke="#e39b48" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-<path d="M40,92 C38,84 44,80 52,80 C62,80 66,84 64,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M78,92 C72,74 86,62 102,62 C120,62 130,74 126,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M138,92 C136,84 144,80 152,80 C162,80 166,84 164,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<symbol id="m-foundations" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<circle cx="100" cy="30" fill="#e39b48" r="12" stroke="#3a3a3a" stroke-width="2"></circle>
+<line opacity="0.5" stroke="#e39b48" stroke-dasharray="2,2" stroke-width="1" x1="100" x2="100" y1="42" y2="58"></line>
+<path d="M40,92 C38,84 44,80 52,80 C62,80 66,84 64,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M78,92 C72,74 86,62 102,62 C120,62 130,74 126,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M138,92 C136,84 144,80 152,80 C162,80 166,84 164,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 </symbol>
-
 <!-- Engagement modes -->
-<symbol id="m-mandate" viewBox="0 0 200 140">
-<circle cx="42" cy="80" r="18" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M68,114 C62,110 64,98 78,94 C92,92 104,98 108,110 C110,114 70,116 68,114 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M110,114 C106,106 114,94 126,96 L138,104 C140,110 138,114 134,114 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<symbol id="m-mandate" viewbox="0 0 200 140">
+<circle cx="42" cy="80" fill="#e39b48" r="18" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M68,114 C62,110 64,98 78,94 C92,92 104,98 108,110 C110,114 70,116 68,114 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M110,114 C106,106 114,94 126,96 L138,104 C140,110 138,114 134,114 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <g transform="rotate(-8 98 86)">
-<path d="M88,94 C84,86 92,80 102,82 C112,84 112,90 108,94 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M88,94 C84,86 92,80 102,82 C112,84 112,90 108,94 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 </g>
-<path d="M162,56 C162,44 164,36 167,36 C170,36 172,44 172,56 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round"/>
+<path d="M162,56 C162,44 164,36 167,36 C170,36 172,44 172,56 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 </symbol>
-
-<symbol id="m-break" viewBox="0 0 200 120">
-<circle cx="156" cy="34" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M40,92 C34,68 56,54 80,54 C108,54 124,68 120,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M82,56 L78,70 L84,82 L80,92" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-linecap="round"/>
+<symbol id="m-break" viewbox="0 0 200 120">
+<circle cx="156" cy="34" fill="#e39b48" r="11" stroke="#3a3a3a" stroke-width="2"></circle>
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M40,92 C34,68 56,54 80,54 C108,54 124,68 120,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M82,56 L78,70 L84,82 L80,92" fill="none" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.5"></path>
 </symbol>
-
-<symbol id="m-ship" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M26,88 L34,88" stroke="#3a3a3a" stroke-width="1.2" stroke-linecap="round" opacity="0.25"/>
-<path d="M40,90 L50,90" stroke="#3a3a3a" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
-<path d="M56,88 L66,88" stroke="#3a3a3a" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
-<path d="M76,92 C68,76 92,66 108,68 C122,70 128,82 122,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="168" cy="60" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-ship" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M26,88 L34,88" opacity="0.25" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M40,90 L50,90" opacity="0.4" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M56,88 L66,88" opacity="0.6" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.2"></path>
+<path d="M76,92 C68,76 92,66 108,68 C122,70 128,82 122,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="168" cy="60" fill="#e39b48" r="13" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-vendor" viewBox="0 0 200 120">
-<line x1="10" y1="60" x2="190" y2="60" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M34,60 C30,46 44,36 62,36 C80,36 88,46 86,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M114,60 C110,74 124,84 142,84 C160,84 168,74 166,60 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="100" cy="60" r="8" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-vendor" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="60" y2="60"></line>
+<path d="M34,60 C30,46 44,36 62,36 C80,36 88,46 86,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M114,60 C110,74 124,84 142,84 C160,84 168,74 166,60 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="100" cy="60" fill="#e39b48" r="8" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-share" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M22,50 C18,44 24,40 36,40 L172,48 C182,48 188,52 186,58 C184,62 24,54 22,50 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M84,92 C80,72 94,58 108,58 C124,58 132,72 130,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="40" cy="24" r="9" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-share" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M22,50 C18,44 24,40 36,40 L172,48 C182,48 188,52 186,58 C184,62 24,54 22,50 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M84,92 C80,72 94,58 108,58 C124,58 132,72 130,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="40" cy="24" fill="#e39b48" r="9" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-gut" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="142" cy="70" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M30,92 C22,84 20,72 24,62 C28,54 38,50 48,54 C58,58 64,68 62,80 C60,88 56,92 50,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-gut" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<circle cx="142" cy="70" fill="#e39b48" r="16" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M30,92 C22,84 20,72 24,62 C28,54 38,50 48,54 C58,58 64,68 62,80 C60,88 56,92 50,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- New marks -->
-
-<symbol id="m-problem" viewBox="0 0 140 90">
-<line x1="10" y1="62" x2="50" y2="62" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-<line x1="90" y1="62" x2="130" y2="62" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M52,60 C46,48 58,38 70,40 C82,42 90,50 88,60 C86,66 58,68 52,60 Z" fill="#7b9da3" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+<symbol id="m-problem" viewbox="0 0 140 90">
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2.5" x1="10" x2="50" y1="62" y2="62"></line>
+<line stroke="currentColor" stroke-linecap="round" stroke-width="2.5" x1="90" x2="130" y1="62" y2="62"></line>
+<path d="M52,60 C46,48 58,38 70,40 C82,42 90,50 88,60 C86,66 58,68 52,60 Z" fill="#7b9da3" stroke="currentColor" stroke-linejoin="round" stroke-width="2.5"></path>
 </symbol>
-
-<symbol id="m-startups-ran" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M20,92 C18,88 22,86 26,86 C32,86 34,88 32,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round" opacity="0.25"/>
-<path d="M46,92 C42,86 50,82 56,82 C64,82 68,86 66,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round" opacity="0.45"/>
-<path d="M78,92 C74,82 84,74 94,74 C106,74 112,82 110,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round" opacity="0.7"/>
-<path d="M122,92 C118,72 136,60 152,62 C166,64 172,76 168,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="180" cy="54" r="10" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-startups-ran" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M20,92 C18,88 22,86 26,86 C32,86 34,88 32,92 Z" fill="#7b9da3" opacity="0.25" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M46,92 C42,86 50,82 56,82 C64,82 68,86 66,92 Z" fill="#7b9da3" opacity="0.45" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M78,92 C74,82 84,74 94,74 C106,74 112,82 110,92 Z" fill="#7b9da3" opacity="0.7" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M122,92 C118,72 136,60 152,62 C166,64 172,76 168,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="180" cy="54" fill="#e39b48" r="10" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-builtin-gov" viewBox="0 0 140 90">
-<path d="M14,70 C8,54 24,32 50,30 C82,26 118,34 128,54 C132,66 120,76 88,78 C58,80 22,80 14,70 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="72" cy="54" r="14" fill="#e39b48" stroke="#3a3a3a" stroke-width="2.5"/>
+<symbol id="m-builtin-gov" viewbox="0 0 140 90">
+<path d="M14,70 C8,54 24,32 50,30 C82,26 118,34 128,54 C132,66 120,76 88,78 C58,80 22,80 14,70 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="72" cy="54" fill="#e39b48" r="14" stroke="#3a3a3a" stroke-width="2.5"></circle>
 </symbol>
-
-<symbol id="m-rules" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#bc6131" stroke-width="2"/>
-<line x1="186" y1="66" x2="194" y2="66" stroke="#e39b48" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
-<circle cx="168" cy="66" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M34,92 C30,80 42,72 54,72 C68,72 76,80 74,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M80,92 C76,80 88,72 100,72 C114,72 122,80 120,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M126,92 C122,80 134,72 146,72 C160,72 168,80 166,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-rules" viewbox="0 0 200 120">
+<line stroke="#bc6131" stroke-width="2" x1="10" x2="190" y1="92" y2="92"></line>
+<line opacity="0.5" stroke="#e39b48" stroke-linecap="round" stroke-width="1.5" x1="186" x2="194" y1="66" y2="66"></line>
+<circle cx="168" cy="66" fill="#e39b48" r="11" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M34,92 C30,80 42,72 54,72 C68,72 76,80 74,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M80,92 C76,80 88,72 100,72 C114,72 122,80 120,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M126,92 C122,80 134,72 146,72 C160,72 168,80 166,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
-<symbol id="m-nonprofits" viewBox="0 0 200 120">
-<circle cx="100" cy="64" r="24" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M50,92 C46,68 80,58 100,58 C122,58 154,68 150,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-nonprofits" viewbox="0 0 200 120">
+<circle cx="100" cy="64" fill="#e39b48" r="24" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M50,92 C46,68 80,58 100,58 C122,58 154,68 150,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
 </symbol>
-
-<symbol id="m-hero-gap" viewBox="0 0 600 200">
-<line x1="0" y1="170" x2="600" y2="170" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M40,170 Q28,110 80,94 Q138,82 180,100 Q200,130 192,170 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round"/>
-<path d="M400,170 Q388,72 456,60 Q540,52 570,94 Q580,130 574,170 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="300" cy="50" r="22" fill="#e39b48" stroke="#3a3a3a" stroke-width="2.5"/>
+<symbol id="m-hero-gap" viewbox="0 0 600 200">
+<line stroke="#3a3a3a" stroke-width="2" x1="0" x2="600" y1="170" y2="170"></line>
+<path d="M40,170 Q28,110 80,94 Q138,82 180,100 Q200,130 192,170 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M400,170 Q388,72 456,60 Q540,52 570,94 Q580,130 574,170 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="300" cy="50" fill="#e39b48" r="22" stroke="#3a3a3a" stroke-width="2.5"></circle>
 </symbol>
-
-<symbol id="m-urbanist" viewBox="0 0 200 140">
-<line x1="10" y1="112" x2="190" y2="112" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="86" cy="70" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M26,112 L26,92 Q26,88 30,88 L46,88 Q50,88 50,92 L50,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M56,112 L56,74 Q56,68 62,68 L76,68 Q82,68 82,74 L82,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M92,112 L92,50 Q92,42 100,42 L116,42 Q124,42 124,50 L124,112 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M130,112 L130,82 Q130,76 136,76 L148,76 Q154,76 154,82 L154,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M160,112 L160,64 Q160,58 166,58 L178,58 Q184,58 184,64 L184,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-urbanist" viewbox="0 0 200 140">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="112" y2="112"></line>
+<circle cx="86" cy="70" fill="#e39b48" r="16" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M26,112 L26,92 Q26,88 30,88 L46,88 Q50,88 50,92 L50,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M56,112 L56,74 Q56,68 62,68 L76,68 Q82,68 82,74 L82,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M92,112 L92,50 Q92,42 100,42 L116,42 Q124,42 124,50 L124,112 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M130,112 L130,82 Q130,76 136,76 L148,76 Q154,76 154,82 L154,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M160,112 L160,64 Q160,58 166,58 L178,58 Q184,58 184,64 L184,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
-<symbol id="m-about-gap" viewBox="0 0 200 120">
-<line x1="0" y1="104" x2="200" y2="104" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M14,104 Q12,76 30,66 Q52,58 70,68 Q80,78 76,104 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M130,104 Q126,58 152,50 Q180,44 190,64 Q194,84 190,104 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="102" cy="30" r="10" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-about-gap" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="0" x2="200" y1="104" y2="104"></line>
+<path d="M14,104 Q12,76 30,66 Q52,58 70,68 Q80,78 76,104 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M130,104 Q126,58 152,50 Q180,44 190,64 Q194,84 190,104 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="102" cy="30" fill="#e39b48" r="10" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-thesis" viewBox="0 0 200 120">
-<line x1="0" y1="104" x2="200" y2="104" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M20,104 Q18,82 34,74 Q54,68 68,76 Q76,84 72,104 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M132,104 Q128,66 154,58 Q184,52 192,74 Q194,90 190,104 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M96,104 C92,94 102,88 112,88 C124,88 130,94 128,104 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<circle cx="104" cy="40" r="9" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-thesis" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="0" x2="200" y1="104" y2="104"></line>
+<path d="M20,104 Q18,82 34,74 Q54,68 68,76 Q76,84 72,104 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M132,104 Q128,66 154,58 Q184,52 192,74 Q194,90 190,104 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M96,104 C92,94 102,88 112,88 C124,88 130,94 128,104 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<circle cx="104" cy="40" fill="#e39b48" r="9" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-about-studio" viewBox="0 0 200 120">
-<circle cx="100" cy="42" r="14" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M70,92 C66,78 82,70 100,70 C118,70 134,78 130,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-about-studio" viewbox="0 0 200 120">
+<circle cx="100" cy="42" fill="#e39b48" r="14" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M70,92 C66,78 82,70 100,70 C118,70 134,78 130,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
 </symbol>
-
-<symbol id="m-about-focus" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="100" cy="24" r="10" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M22,92 C20,86 26,82 32,82 C40,82 42,86 40,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M72,92 C68,78 82,68 96,68 C112,68 120,78 116,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M160,92 C158,86 164,82 170,82 C178,82 180,86 178,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<symbol id="m-about-focus" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<circle cx="100" cy="24" fill="#e39b48" r="10" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M22,92 C20,86 26,82 32,82 C40,82 42,86 40,92 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M72,92 C68,78 82,68 96,68 C112,68 120,78 116,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M160,92 C158,86 164,82 170,82 C178,82 180,86 178,92 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 </symbol>
-
-<symbol id="m-about-name" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="100" cy="56" r="18" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-about-name" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<circle cx="100" cy="56" fill="#e39b48" r="18" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-about-approach" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M22,92 C20,84 26,78 34,78 C44,78 48,84 46,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M64,92 C60,82 72,74 82,74 C94,74 100,82 98,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M112,92 C108,82 120,74 130,74 C142,74 148,82 146,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M158,92 C154,76 170,66 180,68 C192,70 196,82 192,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-about-approach" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M22,92 C20,84 26,78 34,78 C44,78 48,84 46,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M64,92 C60,82 72,74 82,74 C94,74 100,82 98,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M112,92 C108,82 120,74 130,74 C142,74 148,82 146,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M158,92 C154,76 170,66 180,68 C192,70 196,82 192,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
-<symbol id="m-range" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M30,92 C26,80 38,70 50,70 C64,70 72,80 70,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M84,92 C78,74 94,62 108,62 C124,62 132,74 128,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M142,92 C138,82 148,76 158,76 C170,76 176,82 174,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-range" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M30,92 C26,80 38,70 50,70 C64,70 72,80 70,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M84,92 C78,74 94,62 108,62 C124,62 132,74 128,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M142,92 C138,82 148,76 158,76 C170,76 176,82 174,92 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- Primes page marks: the sun sits with someone else's team, joining their work. -->
-
 <!-- Lead the build: a row of blue-gray stones (the prime's team) with a terracotta
      build piece in the middle, and the sun positioned right above the work — embedded
      with the team rather than arriving from outside. -->
-<symbol id="m-primes-build" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M20,92 C16,82 26,76 36,76 C48,76 54,82 52,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M58,92 C54,82 64,76 74,76 C86,76 92,82 90,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M96,92 C92,72 110,60 124,62 C140,64 146,76 142,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M150,92 C146,82 156,76 166,76 C178,76 184,82 182,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="118" cy="34" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-primes-build" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M20,92 C16,82 26,76 36,76 C48,76 54,82 52,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M58,92 C54,82 64,76 74,76 C86,76 92,82 90,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M96,92 C92,72 110,60 124,62 C140,64 146,76 142,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M150,92 C146,82 156,76 166,76 C178,76 184,82 182,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="118" cy="34" fill="#e39b48" r="13" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
 <!-- Connect the dots: scattered nodes joined by lines into a coherent network, with
      the sun positioned as the connecting node that completes the picture. -->
-<symbol id="m-primes-connect" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<line x1="40" y1="70" x2="100" y2="46" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
-<line x1="100" y1="46" x2="160" y2="68" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
-<line x1="40" y1="70" x2="76" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
-<line x1="160" y1="68" x2="128" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
-<line x1="76" y1="84" x2="128" y2="84" stroke="#3a3a3a" stroke-width="1.25" opacity="0.55"/>
-<circle cx="40" cy="70" r="7" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.75"/>
-<circle cx="160" cy="68" r="7" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.75"/>
-<circle cx="76" cy="84" r="6" fill="#808268" stroke="#3a3a3a" stroke-width="1.75"/>
-<circle cx="128" cy="84" r="6" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.75"/>
-<circle cx="100" cy="46" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-primes-connect" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<line opacity="0.55" stroke="#3a3a3a" stroke-width="1.25" x1="40" x2="100" y1="70" y2="46"></line>
+<line opacity="0.55" stroke="#3a3a3a" stroke-width="1.25" x1="100" x2="160" y1="46" y2="68"></line>
+<line opacity="0.55" stroke="#3a3a3a" stroke-width="1.25" x1="40" x2="76" y1="70" y2="84"></line>
+<line opacity="0.55" stroke="#3a3a3a" stroke-width="1.25" x1="160" x2="128" y1="68" y2="84"></line>
+<line opacity="0.55" stroke="#3a3a3a" stroke-width="1.25" x1="76" x2="128" y1="84" y2="84"></line>
+<circle cx="40" cy="70" fill="#7b9da3" r="7" stroke="#3a3a3a" stroke-width="1.75"></circle>
+<circle cx="160" cy="68" fill="#7b9da3" r="7" stroke="#3a3a3a" stroke-width="1.75"></circle>
+<circle cx="76" cy="84" fill="#808268" r="6" stroke="#3a3a3a" stroke-width="1.75"></circle>
+<circle cx="128" cy="84" fill="#bc6131" r="6" stroke="#3a3a3a" stroke-width="1.75"></circle>
+<circle cx="100" cy="46" fill="#e39b48" r="11" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
 <!-- Know how government runs: a row of institutional shapes at the baseline,
      with the sun as a peer in the row rather than a visitor — sat in enough
      of the seats to belong in the line. -->
-<symbol id="m-primes-inside" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M16,92 C12,78 24,68 36,68 C50,68 58,78 56,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M62,92 C58,60 76,46 92,48 C108,50 116,62 114,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="140" cy="76" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M164,92 C162,80 172,72 180,72 C190,72 194,80 192,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-primes-inside" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M16,92 C12,78 24,68 36,68 C50,68 58,78 56,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M62,92 C58,60 76,46 92,48 C108,50 116,62 114,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="140" cy="76" fill="#e39b48" r="16" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M164,92 C162,80 172,72 180,72 C190,72 194,80 192,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
-<symbol id="m-whatwedo" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="100" cy="24" r="11" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M26,92 C22,80 34,72 44,72 C58,72 66,80 64,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M140,92 C136,80 148,72 158,72 C172,72 180,80 178,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M86,80 C82,70 94,64 102,64 C112,64 120,70 118,80 C118,84 88,84 86,80 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<line x1="92" y1="86" x2="92" y2="92" stroke="#3a3a3a" stroke-width="1" stroke-dasharray="2,2"/>
-<line x1="112" y1="86" x2="112" y2="92" stroke="#3a3a3a" stroke-width="1" stroke-dasharray="2,2"/>
+<symbol id="m-whatwedo" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<circle cx="100" cy="24" fill="#e39b48" r="11" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M26,92 C22,80 34,72 44,72 C58,72 66,80 64,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M140,92 C136,80 148,72 158,72 C172,72 180,80 178,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M86,80 C82,70 94,64 102,64 C112,64 120,70 118,80 C118,84 88,84 86,80 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<line stroke="#3a3a3a" stroke-dasharray="2,2" stroke-width="1" x1="92" x2="92" y1="86" y2="92"></line>
+<line stroke="#3a3a3a" stroke-dasharray="2,2" stroke-width="1" x1="112" x2="112" y1="86" y2="92"></line>
 </symbol>
-
-<symbol id="m-contact" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M30,92 C22,78 30,58 52,58 C72,58 78,78 72,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<circle cx="148" cy="72" r="18" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<symbol id="m-contact" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M30,92 C22,78 30,58 52,58 C72,58 78,78 72,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<circle cx="148" cy="72" fill="#e39b48" r="18" stroke="#3a3a3a" stroke-width="2"></circle>
 </symbol>
-
-<symbol id="m-contact-hero" viewBox="0 0 600 200">
-<line x1="0" y1="170" x2="600" y2="170" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M80,170 Q50,110 120,70 Q200,42 240,78 Q260,118 240,170 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2.5" stroke-linejoin="round"/>
-<circle cx="450" cy="110" r="60" fill="#e39b48" stroke="#3a3a3a" stroke-width="2.5"/>
+<symbol id="m-contact-hero" viewbox="0 0 600 200">
+<line stroke="#3a3a3a" stroke-width="2" x1="0" x2="600" y1="170" y2="170"></line>
+<path d="M80,170 Q50,110 120,70 Q200,42 240,78 Q260,118 240,170 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="450" cy="110" fill="#e39b48" r="60" stroke="#3a3a3a" stroke-width="2.5"></circle>
 </symbol>
-
-<symbol id="m-side" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M18,92 C16,86 22,82 28,82 C36,82 40,86 38,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M44,92 C40,80 50,70 60,70 C72,70 78,80 76,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M82,92 C80,84 86,78 94,78 C102,78 106,84 104,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<circle cx="122" cy="84" r="8" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M140,92 C136,82 146,74 156,74 C166,74 172,82 170,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M178,92 C174,86 180,80 184,80 C190,80 192,86 190,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<symbol id="m-side" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M18,92 C16,86 22,82 28,82 C36,82 40,86 38,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M44,92 C40,80 50,70 60,70 C72,70 78,80 76,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M82,92 C80,84 86,78 94,78 C102,78 106,84 104,92 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<circle cx="122" cy="84" fill="#e39b48" r="8" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M140,92 C136,82 146,74 156,74 C166,74 172,82 170,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M178,92 C174,86 180,80 184,80 C190,80 192,86 190,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 </symbol>
-
-<symbol id="m-voices" viewBox="0 0 200 120">
-<line x1="10" y1="92" x2="190" y2="92" stroke="#3a3a3a" stroke-width="1.5"/>
-<path d="M28,92 C24,76 36,62 52,62 C70,62 80,76 76,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M88,92 C84,72 100,56 116,56 C134,56 144,72 140,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M152,92 C148,80 158,68 168,68 C180,68 186,80 182,92 Z" fill="#808268" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<symbol id="m-voices" viewbox="0 0 200 120">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="92" y2="92"></line>
+<path d="M28,92 C24,76 36,62 52,62 C70,62 80,76 76,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M88,92 C84,72 100,56 116,56 C134,56 144,72 140,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M152,92 C148,80 158,68 168,68 C180,68 186,80 182,92 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- Engagement card marks — follow site color grammar:
      orange sun = Auringon/me, terracotta = the focus of the engagement,
      sky blue = the supporting context/setting, green = secondary -->
-
 <!-- TLC: sun above, terracotta stone (the discipline) settled inside a dashed zone (the agency), with sky-blue companion stones (the rest of the team/agency) -->
-<symbol id="m-eng-tlc" viewBox="0 0 240 160">
-<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-eng-tlc" viewbox="0 0 240 160">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="20" x2="220" y1="124" y2="124"></line>
 <!-- defined zone: the agency, where the discipline took root -->
-<path d="M50,124 Q44,62 120,54 Q196,50 200,124 Z" fill="none" stroke="#3a3a3a" stroke-width="1.5" stroke-dasharray="3,3" opacity="0.55"/>
+<path d="M50,124 Q44,62 120,54 Q196,50 200,124 Z" fill="none" opacity="0.55" stroke="#3a3a3a" stroke-dasharray="3,3" stroke-width="1.5"></path>
 <!-- sun: me/Auringon, sitting above and slightly off-center -->
-<circle cx="156" cy="38" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<circle cx="156" cy="38" fill="#e39b48" r="13" stroke="#3a3a3a" stroke-width="2"></circle>
 <!-- supporting sky-blue stones: the rest of the team/agency -->
-<path d="M62,124 C58,114 68,108 76,108 C86,108 90,114 88,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-<path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M62,124 C58,114 68,108 76,108 C86,108 90,114 88,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <!-- terracotta: the focus — the discipline that was introduced -->
-<path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- Bandwagon: sun pulling forward, terracotta stone in motion (the shipped service line),
      sky-blue trailing context including a ghosted form (what didn't make it) -->
-<symbol id="m-eng-bandwagon" viewBox="0 0 240 160">
-<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-eng-bandwagon" viewbox="0 0 240 160">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="20" x2="220" y1="124" y2="124"></line>
 <!-- sun ahead, pulling the work forward -->
-<circle cx="200" cy="40" r="12" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<circle cx="200" cy="40" fill="#e39b48" r="12" stroke="#3a3a3a" stroke-width="2"></circle>
 <!-- ghosted sky-blue stone, trailing — the company that didn't survive -->
-<path d="M30,124 C26,108 38,98 52,98 C68,98 76,108 72,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.4"/>
+<path d="M30,124 C26,108 38,98 52,98 C68,98 76,108 72,124 Z" fill="#7b9da3" opacity="0.4" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 <!-- motion trails: getting longer/more solid as we move toward the action -->
-<path d="M82,118 L94,118" stroke="#3a3a3a" stroke-width="1.25" stroke-linecap="round" opacity="0.35"/>
-<path d="M100,116 L116,116" stroke="#3a3a3a" stroke-width="1.25" stroke-linecap="round" opacity="0.55"/>
-<path d="M122,114 L140,114" stroke="#3a3a3a" stroke-width="1.25" stroke-linecap="round" opacity="0.75"/>
+<path d="M82,118 L94,118" opacity="0.35" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.25"></path>
+<path d="M100,116 L116,116" opacity="0.55" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.25"></path>
+<path d="M122,114 L140,114" opacity="0.75" stroke="#3a3a3a" stroke-linecap="round" stroke-width="1.25"></path>
 <!-- terracotta: the focus — the new service line being shipped, in motion -->
-<path d="M148,118 C140,90 168,72 188,76 C200,80 204,98 198,118 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M148,118 C140,90 168,72 188,76 C200,80 204,98 198,118 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- Mentoring: sun above (me), terracotta stone (the mentee — the focus),
      sky-blue stone (the institution/context they sit inside) -->
-<symbol id="m-eng-mentor" viewBox="0 0 240 160">
-<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-eng-mentor" viewbox="0 0 240 160">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="20" x2="220" y1="124" y2="124"></line>
 <!-- sun: me/Auringon, present but not centered — mentorship is about the other person -->
-<circle cx="60" cy="44" r="12" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
+<circle cx="60" cy="44" fill="#e39b48" r="12" stroke="#3a3a3a" stroke-width="2"></circle>
 <!-- sky-blue stone, larger and set back: the institution/context the mentee works inside -->
-<path d="M86,124 C76,86 124,68 152,72 C180,76 188,94 184,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M86,124 C76,86 124,68 152,72 C180,76 188,94 184,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 <!-- terracotta stone, smaller and forward: the mentee, coming into their own -->
-<path d="M150,124 C144,104 164,92 178,94 C194,96 200,108 196,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M150,124 C144,104 164,92 178,94 C194,96 200,108 196,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </symbol>
-
 <!-- Coming soon: sun rising over an empty horizon — work not yet landed -->
-<symbol id="m-eng-coming" viewBox="0 0 240 160">
-<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="1.5"/>
+<symbol id="m-eng-coming" viewbox="0 0 240 160">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="20" x2="220" y1="124" y2="124"></line>
 <!-- sun, low on the horizon, suggesting "rising" / "not yet" -->
-<circle cx="120" cy="100" r="14" fill="#e39b48" stroke="#3a3a3a" stroke-width="2" opacity="0.55"/>
+<circle cx="120" cy="100" fill="#e39b48" opacity="0.55" r="14" stroke="#3a3a3a" stroke-width="2"></circle>
 <!-- dashed ghost stones — placeholders for engagements not yet written up -->
-<path d="M60,124 C56,114 66,108 74,108 C84,108 88,114 86,124 Z" fill="none" stroke="#3a3a3a" stroke-width="1.25" stroke-dasharray="3,3" opacity="0.4"/>
-<path d="M170,124 C166,114 176,108 184,108 C194,108 198,114 196,124 Z" fill="none" stroke="#3a3a3a" stroke-width="1.25" stroke-dasharray="3,3" opacity="0.4"/>
+<path d="M60,124 C56,114 66,108 74,108 C84,108 88,114 86,124 Z" fill="none" opacity="0.4" stroke="#3a3a3a" stroke-dasharray="3,3" stroke-width="1.25"></path>
+<path d="M170,124 C166,114 176,108 184,108 C194,108 198,114 196,124 Z" fill="none" opacity="0.4" stroke="#3a3a3a" stroke-dasharray="3,3" stroke-width="1.25"></path>
 </symbol>
-
 <!-- Editorial illustrations for journal posts -->
-
 <!-- Urban systems: three horizon bands (policy / working layer / infrastructure), sun above, stones living in the middle layer -->
-<symbol id="illo-urban-systems" viewBox="0 0 320 280">
+<symbol id="illo-urban-systems" viewbox="0 0 320 280">
 <!-- sun, high -->
-<circle cx="240" cy="46" r="18" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<line x1="240" y1="68" x2="240" y2="78" stroke="#e39b48" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-
+<circle cx="240" cy="46" fill="#e39b48" r="18" stroke="#3a3a3a" stroke-width="2"></circle>
+<line opacity="0.5" stroke="#e39b48" stroke-dasharray="2,2" stroke-width="1" x1="240" x2="240" y1="68" y2="78"></line>
 <!-- upper horizon (policy layer, lighter, distant) -->
-<line x1="20" y1="118" x2="300" y2="118" stroke="#3a3a3a" stroke-width="1" opacity="0.45"/>
-<path d="M40,118 C36,108 50,102 64,102 C80,102 88,108 86,118 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.55"/>
-<path d="M180,118 C176,110 188,106 198,106 C210,106 216,110 214,118 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.55"/>
-
+<line opacity="0.45" stroke="#3a3a3a" stroke-width="1" x1="20" x2="300" y1="118" y2="118"></line>
+<path d="M40,118 C36,108 50,102 64,102 C80,102 88,108 86,118 Z" fill="#7b9da3" opacity="0.55" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
+<path d="M180,118 C176,110 188,106 198,106 C210,106 216,110 214,118 Z" fill="#7b9da3" opacity="0.55" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 <!-- middle horizon (working layer, where the action is) -->
-<line x1="10" y1="180" x2="310" y2="180" stroke="#3a3a3a" stroke-width="1.75"/>
+<line stroke="#3a3a3a" stroke-width="1.75" x1="10" x2="310" y1="180" y2="180"></line>
 <!-- stones on middle horizon: a working system -->
-<path d="M30,180 C26,168 38,160 50,160 C64,160 72,168 70,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M82,180 C76,158 96,144 116,146 C138,148 148,162 144,180 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M156,180 C152,170 164,162 176,162 C190,162 198,170 196,180 Z" fill="#808268" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M210,180 C204,164 222,152 238,154 C256,156 264,168 260,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M272,180 C268,170 278,164 286,164 C296,164 302,170 300,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-
+<path d="M30,180 C26,168 38,160 50,160 C64,160 72,168 70,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M82,180 C76,158 96,144 116,146 C138,148 148,162 144,180 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M156,180 C152,170 164,162 176,162 C190,162 198,170 196,180 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M210,180 C204,164 222,152 238,154 C256,156 264,168 260,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M272,180 C268,170 278,164 286,164 C296,164 302,170 300,180 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <!-- lower horizon (infrastructure beneath) -->
-<line x1="20" y1="240" x2="300" y2="240" stroke="#3a3a3a" stroke-width="1" opacity="0.4"/>
-<path d="M60,240 C58,232 64,228 70,228 C78,228 80,232 78,240 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.55"/>
-<path d="M150,240 C146,228 158,222 170,222 C184,222 190,228 188,240 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.55"/>
-<path d="M240,240 C236,232 246,226 254,226 C264,226 268,232 266,240 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round" opacity="0.55"/>
+<line opacity="0.4" stroke="#3a3a3a" stroke-width="1" x1="20" x2="300" y1="240" y2="240"></line>
+<path d="M60,240 C58,232 64,228 70,228 C78,228 80,232 78,240 Z" fill="#808268" opacity="0.55" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
+<path d="M150,240 C146,228 158,222 170,222 C184,222 190,228 188,240 Z" fill="#808268" opacity="0.55" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
+<path d="M240,240 C236,232 246,226 254,226 C264,226 268,232 266,240 Z" fill="#808268" opacity="0.55" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 </symbol>
-
 <!-- Container moves: three rounded vessels on a horizon, each holding a small stone — different scales, different colors -->
-<symbol id="illo-containers" viewBox="0 0 320 280">
+<symbol id="illo-containers" viewbox="0 0 320 280">
 <!-- sun, high right -->
-<circle cx="248" cy="50" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-
+<circle cx="248" cy="50" fill="#e39b48" r="16" stroke="#3a3a3a" stroke-width="2"></circle>
 <!-- horizon -->
-<line x1="10" y1="232" x2="310" y2="232" stroke="#3a3a3a" stroke-width="1.5"/>
-
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="310" y1="232" y2="232"></line>
 <!-- container 1 (left, small, sky) — like a low arch -->
-<path d="M28,232 L28,156 Q28,138 50,138 L78,138 Q100,138 100,156 L100,232 Z" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M28,232 L28,156 Q28,138 50,138 L78,138 Q100,138 100,156 L100,232 Z" fill="none" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 <!-- stone inside -->
-<path d="M44,232 C40,220 50,212 60,212 C72,212 78,220 76,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
-
+<path d="M44,232 C40,220 50,212 60,212 C72,212 78,220 76,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <!-- container 2 (middle, large, terracotta accent) — a taller vessel -->
-<path d="M120,232 L120,98 Q120,76 148,76 L184,76 Q212,76 212,98 L212,232 Z" fill="none" stroke="#3a3a3a" stroke-width="2.25" stroke-linejoin="round"/>
+<path d="M120,232 L120,98 Q120,76 148,76 L184,76 Q212,76 212,98 L212,232 Z" fill="none" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
 <!-- stone inside, larger, terracotta -->
-<path d="M138,232 C132,210 152,194 168,196 C188,198 196,212 192,232 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M138,232 C132,210 152,194 168,196 C188,198 196,212 192,232 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 <!-- second smaller stone in same container -->
-<path d="M196,232 C194,224 200,220 204,220 C210,220 212,224 210,232 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round"/>
-
+<path d="M196,232 C194,224 200,220 204,220 C210,220 212,224 210,232 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 <!-- container 3 (right, medium) — fragmenting/split, with gap in top edge -->
-<path d="M232,232 L232,138 Q232,124 246,122" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<path d="M268,122 Q282,124 282,138 L282,232" fill="none" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M232,232 L232,138 Q232,124 246,122" fill="none" stroke="#3a3a3a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M268,122 Q282,124 282,138 L282,232" fill="none" stroke="#3a3a3a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 <!-- bottom edge of container 3 -->
-<line x1="232" y1="232" x2="282" y2="232" stroke="#3a3a3a" stroke-width="2"/>
+<line stroke="#3a3a3a" stroke-width="2" x1="232" x2="282" y1="232" y2="232"></line>
 <!-- stone inside -->
-<path d="M244,232 C240,222 250,214 258,214 C268,214 274,222 272,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M244,232 C240,222 250,214 258,214 C268,214 274,222 272,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 </symbol>
-
 <!-- Failure modes: a gap between two larger forms with four small stones falling/sitting in the space -->
-<symbol id="illo-failure" viewBox="0 0 320 280">
+<symbol id="illo-failure" viewbox="0 0 320 280">
 <!-- horizon -->
-<line x1="10" y1="232" x2="310" y2="232" stroke="#3a3a3a" stroke-width="1.5"/>
-
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="310" y1="232" y2="232"></line>
 <!-- left mass: large stone form (the mandate) -->
-<path d="M20,232 Q14,158 56,140 Q104,128 122,150 Q132,168 126,232 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2.25" stroke-linejoin="round"/>
-
+<path d="M20,232 Q14,158 56,140 Q104,128 122,150 Q132,168 126,232 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
 <!-- right mass: another large form (the desired outcome) -->
-<path d="M218,232 Q210,142 252,128 Q296,118 304,150 Q308,182 302,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2.25" stroke-linejoin="round"/>
-
+<path d="M218,232 Q210,142 252,128 Q296,118 304,150 Q308,182 302,232 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
 <!-- the gap between them — four small stones, each at a slightly different height -->
 <!-- stone 1: closer to left, mid-height -->
-<path d="M138,232 C134,222 142,216 150,216 C160,216 164,222 162,232 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M138,232 C134,222 142,216 150,216 C160,216 164,222 162,232 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <!-- stone 2: small, lower -->
-<path d="M168,232 C166,226 170,222 176,222 C182,222 184,226 182,232 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round"/>
+<path d="M168,232 C166,226 170,222 176,222 C182,222 184,226 182,232 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 <!-- stone 3: tilted, mid -->
-<path d="M186,232 C182,220 192,214 200,214 C210,214 214,220 212,232 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.5" stroke-linejoin="round"/>
+<path d="M186,232 C182,220 192,214 200,214 C210,214 214,220 212,232 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
 <!-- stone 4: tiny, almost touching right form -->
-<path d="M214,232 C212,228 216,224 218,224 C222,224 224,228 222,232 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.25" stroke-linejoin="round"/>
-
+<path d="M214,232 C212,228 216,224 218,224 C222,224 224,228 222,232 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.25"></path>
 <!-- small sun, low and central, suggesting the gap is where the work shows up -->
-<circle cx="172" cy="92" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<line x1="172" y1="106" x2="172" y2="118" stroke="#e39b48" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
+<circle cx="172" cy="92" fill="#e39b48" r="13" stroke="#3a3a3a" stroke-width="2"></circle>
+<line opacity="0.5" stroke="#e39b48" stroke-dasharray="2,2" stroke-width="1" x1="172" x2="172" y1="106" y2="118"></line>
 </symbol>
-
 </defs>
 </svg>
-
 <nav class="top" id="nav">
-<a class="wordmark" onclick="goto('home')" aria-label="Auringon">
-<svg viewBox="0 0 951.11 153.43" xmlns="http://www.w3.org/2000/svg">
-<path d="M262.49,101.37h-38.69c-.49,0-.93.31-1.1.77l-6.8,18.63c-.17.46-.61.77-1.1.77h-18.75c-.82,0-1.39-.83-1.09-1.6l35.9-92.72c.17-.45.61-.75,1.09-.75h22.88c.48,0,.92.3,1.09.75l36.21,92.72c.3.77-.27,1.6-1.09,1.6h-19.55c-.49,0-.93-.31-1.1-.77l-6.8-18.63c-.17-.46-.61-.77-1.1-.77ZM230.74,84.89h24.98c.81,0,1.38-.81,1.1-1.57l-12.42-34.15c-.37-1.03-1.82-1.03-2.2,0l-12.56,34.15c-.28.76.28,1.58,1.1,1.58Z"/>
-<path d="M308.43,26.47h16.54c1.04,0,1.89.85,1.89,1.89v55.72c0,16.96,7.84,22.09,20.16,22.09,6.27,0,10.89-.51,15.21-1.18.92-.14,1.59-.94,1.59-1.87V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v88.7c0,.85-.55,1.6-1.37,1.82-8.82,2.38-24.53,4.25-35.76,4.25-21.61,0-40.49-8.16-40.49-34.89V28.36c0-1.04.85-1.89,1.89-1.89Z"/>
-<path d="M428.69,121.54h-16.38c-1.04,0-1.89-.85-1.89-1.89V28.42c0-.93.67-1.74,1.6-1.87,6.84-.99,17.31-1.67,25.45-1.67,24.65,0,39.69,10.72,39.69,32.01,0,12.89-6.88,22.27-16.16,27.22-1,.53-1.25,1.86-.58,2.77l23.46,31.66c.93,1.25.03,3.02-1.52,3.02h-19.27c-.61,0-1.19-.3-1.54-.8l-21.59-30.42c-.35-.5-.93-.8-1.54-.8h-5.93c-1.04,0-1.89.85-1.89,1.89v28.23c0,1.04-.85,1.89-1.89,1.89ZM430.58,70.99c0,1.04.85,1.89,1.89,1.89h4.99c11.52,0,19.05-4.32,19.05-15.36,0-10.24-7.36-15.05-19.05-15.05-1.36,0-3.44.08-5.11.18-1,.06-1.77.89-1.77,1.89v26.44Z"/>
-<path d="M523.29,121.54h-16.54c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89Z"/>
-<path d="M614.81,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"/>
-<path d="M931.58,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"/>
-<path d="M705.89,105.69c3.66,0,7.21-.34,9.87-1.13.8-.24,1.34-.98,1.34-1.81v-23.33c0-1.04.85-1.89,1.89-1.89h16.06c1.04,0,1.89.85,1.89,1.89v35.44c0,.67-.34,1.3-.92,1.64-7.6,4.43-19.69,6.64-30.45,6.64-30.25,0-50.09-18.89-50.09-49.13s20.49-49.13,49.29-49.13c10.53,0,19.78,2.12,27.23,6.36.89.5,1.41,1.46,1.41,2.48,0,3.31,0,10.85,0,15.52,0,1.53-1.73,2.42-2.96,1.52-6.55-4.82-15.32-7.8-24.57-7.8-17.6,0-29.61,12.32-29.61,31.05s12.64,31.69,29.61,31.69Z"/>
-<path d="M800.81,24.87c27.53,0,49.45,20.16,49.45,49.13s-21.93,49.13-49.45,49.13-49.45-20.16-49.45-49.13,21.93-49.13,49.45-49.13ZM800.81,43.12c-16.33,0-28.65,12.16-28.65,30.89s12.32,30.89,28.65,30.89,28.65-12.16,28.65-30.89-12.32-30.89-28.65-30.89Z"/>
-<path d="M76.71,0C34.35,0,0,34.35,0,76.71s34.35,76.71,76.71,76.71,76.71-34.35,76.71-76.71S119.08,0,76.71,0ZM57.91,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99ZM70.91,66.11v2.81c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75c-1.58,0-3.08-.32-4.45-.9s-2.6-1.42-3.63-2.45c-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45s2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v.94ZM76.81,50.09h0c-1.84,0-3.59-.37-5.18-1.05-1.59-.67-3.03-1.65-4.23-2.85-1.2-1.2-2.18-2.64-2.85-4.23-.67-1.59-1.05-3.34-1.05-5.18h0c0-1.84.37-3.59,1.05-5.18.67-1.59,1.65-3.03,2.85-4.23,1.2-1.2,2.64-2.18,4.23-2.85,1.59-.67,3.34-1.05,5.18-1.05h0c1.84,0,3.59.37,5.18,1.05,1.59.67,3.03,1.65,4.23,2.85,1.2,1.2,2.18,2.64,2.85,4.23.67,1.59,1.05,3.34,1.05,5.18h0c0,1.84-.37,3.59-1.05,5.18-.67,1.59-1.65,3.03-2.85,4.23-1.2,1.2-2.64,2.18-4.23,2.85-1.59.67-3.34,1.05-5.18,1.05ZM94.14,80.36c-1.58,0-3.08-.32-4.45-.9-1.37-.58-2.6-1.42-3.63-2.45-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45,1.37-.58,2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v3.75c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75ZM122.05,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99Z"/>
+<a aria-label="Auringon" class="wordmark" onclick="goto('home')">
+<svg viewbox="0 0 951.11 153.43" xmlns="http://www.w3.org/2000/svg">
+<path d="M262.49,101.37h-38.69c-.49,0-.93.31-1.1.77l-6.8,18.63c-.17.46-.61.77-1.1.77h-18.75c-.82,0-1.39-.83-1.09-1.6l35.9-92.72c.17-.45.61-.75,1.09-.75h22.88c.48,0,.92.3,1.09.75l36.21,92.72c.3.77-.27,1.6-1.09,1.6h-19.55c-.49,0-.93-.31-1.1-.77l-6.8-18.63c-.17-.46-.61-.77-1.1-.77ZM230.74,84.89h24.98c.81,0,1.38-.81,1.1-1.57l-12.42-34.15c-.37-1.03-1.82-1.03-2.2,0l-12.56,34.15c-.28.76.28,1.58,1.1,1.58Z"></path>
+<path d="M308.43,26.47h16.54c1.04,0,1.89.85,1.89,1.89v55.72c0,16.96,7.84,22.09,20.16,22.09,6.27,0,10.89-.51,15.21-1.18.92-.14,1.59-.94,1.59-1.87V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v88.7c0,.85-.55,1.6-1.37,1.82-8.82,2.38-24.53,4.25-35.76,4.25-21.61,0-40.49-8.16-40.49-34.89V28.36c0-1.04.85-1.89,1.89-1.89Z"></path>
+<path d="M428.69,121.54h-16.38c-1.04,0-1.89-.85-1.89-1.89V28.42c0-.93.67-1.74,1.6-1.87,6.84-.99,17.31-1.67,25.45-1.67,24.65,0,39.69,10.72,39.69,32.01,0,12.89-6.88,22.27-16.16,27.22-1,.53-1.25,1.86-.58,2.77l23.46,31.66c.93,1.25.03,3.02-1.52,3.02h-19.27c-.61,0-1.19-.3-1.54-.8l-21.59-30.42c-.35-.5-.93-.8-1.54-.8h-5.93c-1.04,0-1.89.85-1.89,1.89v28.23c0,1.04-.85,1.89-1.89,1.89ZM430.58,70.99c0,1.04.85,1.89,1.89,1.89h4.99c11.52,0,19.05-4.32,19.05-15.36,0-10.24-7.36-15.05-19.05-15.05-1.36,0-3.44.08-5.11.18-1,.06-1.77.89-1.77,1.89v26.44Z"></path>
+<path d="M523.29,121.54h-16.54c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89Z"></path>
+<path d="M614.81,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"></path>
+<path d="M931.58,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"></path>
+<path d="M705.89,105.69c3.66,0,7.21-.34,9.87-1.13.8-.24,1.34-.98,1.34-1.81v-23.33c0-1.04.85-1.89,1.89-1.89h16.06c1.04,0,1.89.85,1.89,1.89v35.44c0,.67-.34,1.3-.92,1.64-7.6,4.43-19.69,6.64-30.45,6.64-30.25,0-50.09-18.89-50.09-49.13s20.49-49.13,49.29-49.13c10.53,0,19.78,2.12,27.23,6.36.89.5,1.41,1.46,1.41,2.48,0,3.31,0,10.85,0,15.52,0,1.53-1.73,2.42-2.96,1.52-6.55-4.82-15.32-7.8-24.57-7.8-17.6,0-29.61,12.32-29.61,31.05s12.64,31.69,29.61,31.69Z"></path>
+<path d="M800.81,24.87c27.53,0,49.45,20.16,49.45,49.13s-21.93,49.13-49.45,49.13-49.45-20.16-49.45-49.13,21.93-49.13,49.45-49.13ZM800.81,43.12c-16.33,0-28.65,12.16-28.65,30.89s12.32,30.89,28.65,30.89,28.65-12.16,28.65-30.89-12.32-30.89-28.65-30.89Z"></path>
+<path d="M76.71,0C34.35,0,0,34.35,0,76.71s34.35,76.71,76.71,76.71,76.71-34.35,76.71-76.71S119.08,0,76.71,0ZM57.91,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99ZM70.91,66.11v2.81c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75c-1.58,0-3.08-.32-4.45-.9s-2.6-1.42-3.63-2.45c-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45s2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v.94ZM76.81,50.09h0c-1.84,0-3.59-.37-5.18-1.05-1.59-.67-3.03-1.65-4.23-2.85-1.2-1.2-2.18-2.64-2.85-4.23-.67-1.59-1.05-3.34-1.05-5.18h0c0-1.84.37-3.59,1.05-5.18.67-1.59,1.65-3.03,2.85-4.23,1.2-1.2,2.64-2.18,4.23-2.85,1.59-.67,3.34-1.05,5.18-1.05h0c1.84,0,3.59.37,5.18,1.05,1.59.67,3.03,1.65,4.23,2.85,1.2,1.2,2.18,2.64,2.85,4.23.67,1.59,1.05,3.34,1.05,5.18h0c0,1.84-.37,3.59-1.05,5.18-.67,1.59-1.65,3.03-2.85,4.23-1.2,1.2-2.64,2.18-4.23,2.85-1.59.67-3.34,1.05-5.18,1.05ZM94.14,80.36c-1.58,0-3.08-.32-4.45-.9-1.37-.58-2.6-1.42-3.63-2.45-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45,1.37-.58,2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v3.75c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75ZM122.05,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99Z"></path>
 </svg>
 </a>
-<button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+<button aria-expanded="false" aria-label="Toggle menu" class="nav-toggle" id="navToggle">Menu</button>
 <ul id="navList">
-<li><a data-page="home" onclick="goto('home')" class="active">Home</a></li>
+<li><a class="active" data-page="home" onclick="goto('home')">Home</a></li>
 <li><a data-page="work" onclick="goto('work')">Services</a></li>
 <li><a data-page="about" onclick="goto('about')">Approach</a></li>
 <li><a data-page="track" onclick="goto('track')">About</a></li>
@@ -3010,27 +2965,23 @@ transition: color 0.2s ease;
 <li><a data-page="contact" onclick="goto('contact')">Contact</a></li>
 </ul>
 </nav>
-
 <main>
-
 <!-- ═══════════════ HOME ═══════════════ -->
 <div class="page active" id="page-home">
-
 <section class="hero">
 <div class="wrap">
 <div class="kicker">Jonathan Internicola's consulting practice for urban systems</div>
-<h1>From intent to <em>operation.</em></h1>
+<h1>From intent to operation.</h1>
 <p class="hero-sub">Building the teams, processes, and platforms that make urban systems run in the real world, not just on paper.</p>
 <div class="hero-illo">
-<svg viewBox="0 0 600 200"><use href="#m-hero-gap"/></svg>
+<svg viewbox="0 0 600 200"><use href="#m-hero-gap"></use></svg>
 </div>
 </div>
 </section>
-
 <section class="block block--invert">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-problem"/></svg></span>
+<span class="mark"><svg><use href="#m-problem"></use></svg></span>
 The problem
 </div>
 <div>
@@ -3048,11 +2999,10 @@ The problem
 </div>
 </div>
 </section>
-
 <section class="block block--tint">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-whatwedo"/></svg></span>
+<span class="mark"><svg><use href="#m-whatwedo"></use></svg></span>
 What Auringon does
 </div>
 <div>
@@ -3060,27 +3010,25 @@ What Auringon does
 </div>
 </div>
 </section>
-
 <section class="block">
 <div class="wrap two-col">
 <div class="colkicker">Who I work with</div>
 <div class="who-list">
 <div class="who-entry">
-<div class="label"><span class="mark"><svg><use href="#m-startups"/></svg></span>Startups building into cities</div>
+<div class="label"><span class="mark"><svg><use href="#m-startups"></use></svg></span>Startups building into cities</div>
 <p>Post-revenue, pre-scale. I help you build product and operations that fit how cities actually work, and hold up once you're live.</p>
 </div>
 <div class="who-entry">
-<div class="label"><span class="mark"><svg><use href="#m-nonprofits"/></svg></span>Mission-driven organizations</div>
+<div class="label"><span class="mark"><svg><use href="#m-nonprofits"></use></svg></span>Mission-driven organizations</div>
 <p>You won the grant; now the program has to run. I stand it up, leave your team able to keep it, and help you show the funder it's working.</p>
 </div>
 <div class="who-entry">
-<div class="label"><span class="mark"><svg><use href="#m-gov"/></svg></span>Through primes: government and larger institutions</div>
+<div class="label"><span class="mark"><svg><use href="#m-gov"></use></svg></span>Through primes: government and larger institutions</div>
 <p>I sub in on the prime's team, the senior operator who strengthens the bid and makes delivery less risky. <a class="inline-link" onclick="goto('primes')">If you hold the contract →</a></p>
 </div>
 </div>
 </div>
 </section>
-
 <section class="block block--tint">
 <div class="wrap two-col">
 <div class="colkicker">How engagements start</div>
@@ -3088,111 +3036,103 @@ What Auringon does
 <div class="engage-entry">
 <div class="quote">"We have a mandate but no machine."</div>
 <div class="answer-pair">
-<span class="mark"><svg><use href="#m-mandate"/></svg></span>
+<span class="mark"><svg><use href="#m-mandate"></use></svg></span>
 <div class="answer">Let's build it.</div>
 </div>
 </div>
 <div class="engage-entry">
 <div class="quote">"Something's off and no one can tell us what."</div>
 <div class="answer-pair">
-<span class="mark"><svg><use href="#m-break"/></svg></span>
+<span class="mark"><svg><use href="#m-break"></use></svg></span>
 <div class="answer">Let's find it.</div>
 </div>
 </div>
 <div class="engage-entry">
 <div class="quote">"We need to ship this thing."</div>
 <div class="answer-pair">
-<span class="mark"><svg><use href="#m-ship"/></svg></span>
+<span class="mark"><svg><use href="#m-ship"></use></svg></span>
 <div class="answer">Let's launch it.</div>
 </div>
 </div>
 <div class="engage-entry">
 <div class="quote">"Everything runs through me and I'm drowning."</div>
 <div class="answer-pair">
-<span class="mark"><svg><use href="#m-share"/></svg></span>
+<span class="mark"><svg><use href="#m-share"></use></svg></span>
 <div class="answer">Let's share the load.</div>
 </div>
 </div>
 <div class="engage-entry">
 <div class="quote">"I just need a gut check."</div>
 <div class="answer-pair">
-<span class="mark"><svg><use href="#m-gut"/></svg></span>
+<span class="mark"><svg><use href="#m-gut"></use></svg></span>
 <div class="answer">Let's talk through it.</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-
 <section class="block">
 <div class="wrap two-col">
 <div class="colkicker is-featured">
-<span class="mark mark-tlc"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></span>
+<span class="mark mark-tlc"><svg viewbox="0 0 240 160"><use href="#m-eng-tlc"></use></svg></span>
 Example of my work
 </div>
 <div>
 <a class="example-title-link" onclick="goto('engagement-tlc')">
-<div class="example-role">Director of Analytics · NYC Taxi & Limousine Commission</div>
-<h3 class="example-title">Building a product practice inside a <em>regulator</em></h3>
+<div class="example-role">Director of Analytics · NYC Taxi &amp; Limousine Commission</div>
+<h3 class="example-title">Building a product practice inside a regulator</h3>
 </a>
-<div class="example-mark-mobile" aria-hidden="true"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
-<line x1="20" y1="124" x2="220" y2="124" stroke="#3a3a3a" stroke-width="0.7"/>
-<path d="M50,124 Q44,62 120,54 Q196,50 200,124 Z" fill="none" stroke="#3a3a3a" stroke-width="0.7" stroke-dasharray="3,3" opacity="0.55"/>
-<circle cx="156" cy="38" r="13" fill="#e39b48" stroke="#3a3a3a" stroke-width="0.9"/>
-<path d="M62,124 C58,114 68,108 76,108 C86,108 90,114 88,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="0.7" stroke-linejoin="round"/>
-<path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="0.9" stroke-linejoin="round"/>
+<div aria-hidden="true" class="example-mark-mobile"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#3a3a3a" stroke-width="0.7" x1="20" x2="220" y1="124" y2="124"></line>
+<path d="M50,124 Q44,62 120,54 Q196,50 200,124 Z" fill="none" opacity="0.55" stroke="#3a3a3a" stroke-dasharray="3,3" stroke-width="0.7"></path>
+<circle cx="156" cy="38" fill="#e39b48" r="13" stroke="#3a3a3a" stroke-width="0.9"></circle>
+<path d="M62,124 C58,114 68,108 76,108 C86,108 90,114 88,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="0.7"></path>
+<path d="M168,124 C164,114 174,108 182,108 C192,108 196,114 194,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="0.7"></path>
+<path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="0.9"></path>
 </svg></div>
 <p>Hired to run analytics for the agency that regulates NYC's taxi industry. Left behind a product practice, the first the agency had.</p>
 <a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
 </div>
 </div>
 </section>
-
 <section class="home-contact">
 <div class="wrap">
 <div class="home-contact-header">
 <div class="kicker">Get in touch</div>
-<h2>If you'd rather just <em>talk</em>.</h2>
+<h2>If you'd rather just talk.</h2>
 </div>
 <div class="home-contact-body">
-<div class="home-contact-illo" aria-hidden="true">
-<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg"><use href="#m-contact-hero"/></svg>
+<div aria-hidden="true" class="home-contact-illo">
+<svg viewbox="0 0 600 200" xmlns="http://www.w3.org/2000/svg"><use href="#m-contact-hero"></use></svg>
 </div>
 <div class="home-contact-paths">
 <p class="home-contact-tag">Thirty minutes. No pitch, no proposal, just honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
-<a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
+<a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
 </div>
 </div>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ WORK ═══════════════ -->
 <div class="page" id="page-work">
-
-<aside class="track-rail rail--sky" id="work-rail" aria-label="Section navigation">
+<aside aria-label="Section navigation" class="track-rail rail--sky" id="work-rail">
 <a data-target="wk-mandate"><span class="dot"></span>Build</a>
 <a data-target="wk-diagnose"><span class="dot"></span>Diagnose</a>
 <a data-target="wk-ship"><span class="dot"></span>Launch</a>
 <a data-target="wk-fractional"><span class="dot"></span>Fractional</a>
 <a data-target="wk-advisory"><span class="dot"></span>Advisory</a>
 </aside>
-
 <section class="work-hero">
 <div class="wrap">
 <div class="kicker">Services</div>
-<h1>Every engagement is different. <em>The work underneath isn't.</em></h1>
+<h1>Every engagement is different. The work underneath isn't.</h1>
 <p class="lede">Five shapes the work takes: three scoped engagements with defined deliverables, and two ongoing relationships. A first conversation usually sorts out which one you're in.</p>
 </div>
 </section>
-
 <div class="wrap">
-
-<nav class="mobile-jump" aria-label="Jump to section">
+<nav aria-label="Jump to section" class="mobile-jump">
 <div class="mj-label">Jump to</div>
 <ul>
 <li><a data-target="wk-mandate">Build</a></li>
@@ -3202,76 +3142,65 @@ Example of my work
 <li><a data-target="wk-advisory">Advisory</a></li>
 </ul>
 </nav>
-
 <div class="offerings-group">
 <div class="offerings-group-label">Scoped engagements</div>
 <div class="offerings">
-
 <div class="offering" id="wk-mandate">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-mandate"/></svg></span>
-<h3>"We have a mandate but <em>no machine</em>."</h3>
+<span class="mark"><svg><use href="#m-mandate"></use></svg></span>
+<h3>"We have a mandate but no machine."</h3>
 </div>
 <p class="tagline">Build the team and systems to run it.</p>
 <p>You have the approval (funding, a policy, a board decision) but nothing built yet. I design what needs to exist from scratch: the team, the processes, the systems. Then build it with you, so it keeps running after the engagement ends.</p>
 <div class="meta"><span>Scoped build</span><span>Embedded with your team</span><span>Typically 8–12 weeks</span></div>
 <a class="offering-example" onclick="goto('engagement-tlc')">Example: Building a product practice inside a regulator (NYC TLC) <span>→</span></a>
 </div>
-
 <div class="offering" id="wk-diagnose">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-break"/></svg></span>
-<h3>"Something's <em>off</em> and no one can tell us what."</h3>
+<span class="mark"><svg><use href="#m-break"></use></svg></span>
+<h3>"Something's off and no one can tell us what."</h3>
 </div>
 <p class="tagline">Find the real problem, not the obvious one.</p>
 <p>Costs climbing, service degrading, customers leaving, but the root cause isn't clear. I work through your operations, systems, and data to find where it's actually breaking, then hand back a clear path forward.</p>
 <div class="meta"><span>Focused diagnostic</span><span>Findings and a plan</span><span>Typically 3–4 weeks</span></div>
 </div>
-
 <div class="offering" id="wk-ship">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-ship"/></svg></span>
-<h3>"We need to <em>ship</em> this thing."</h3>
+<span class="mark"><svg><use href="#m-ship"></use></svg></span>
+<h3>"We need to ship this thing."</h3>
 </div>
 <p class="tagline">Own the build, hit the deadline, hand it off.</p>
 <p>There's a specific thing that needs to exist inside your operation (a feature, a pilot, a system) and a date it needs to exist by. I embed with your team, own the build, and step back once it's live. Not restructuring how you work, just delivering one piece and moving on.</p>
 <div class="meta"><span>Bounded delivery</span><span>Hands on keyboard</span><span>Typically 6–16 weeks</span></div>
 <a class="offering-example" onclick="goto('engagement-bandwagon')">Example: Shipping a new service line fast (Bandwagon) <span>→</span></a>
 </div>
-
 </div>
 </div>
-
 <div class="offerings-group">
 <div class="offerings-group-label">Ongoing engagements</div>
 <div class="offerings">
-
 <div class="offering" id="wk-fractional">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-share"/></svg></span>
-<h3>"Everything runs through me and I'm <em>drowning</em>."</h3>
+<span class="mark"><svg><use href="#m-share"></use></svg></span>
+<h3>"Everything runs through me and I'm drowning."</h3>
 </div>
 <p class="tagline">Senior operator in the room, part-time.</p>
 <p>I step in as a temporary COO, CPO, or Chief of Staff, whatever the gap is. You get a senior operator who picks up context quickly, handles what comes up across the business, and improves how things run while they're there. At the end of the engagement, you have a stronger team, not a hole where the role was.</p>
 <div class="meta"><span>Fractional role</span><span>In the room</span><span>Six-month minimum, typically ongoing</span></div>
 </div>
-
 <div class="offering" id="wk-advisory">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-gut"/></svg></span>
-<h3>"I just need a <em>gut check</em>."</h3>
+<span class="mark"><svg><use href="#m-gut"></use></svg></span>
+<h3>"I just need a gut check."</h3>
 </div>
 <p class="tagline">Someone who's worked through it before, not just an opinion.</p>
 <p>You keep running things. I'm someone to think out loud with before you commit. Standing calls and email access with someone who's worked through similar decisions from the operator's seat. Useful when you're the most senior person in the room on a specific problem and want a check from someone who's been there.</p>
 <div class="meta"><span>Standing advisory</span><span>Async plus scheduled calls</span><span>Ongoing</span></div>
 <a class="offering-example" onclick="goto('engagement-mentor')">Example: Sharpening the case a data professional was already making <span>→</span></a>
 </div>
-
 </div>
 </div>
-
 </div>
-
 <!-- ═══════════ For primes ═══════════
      Audience: partners at larger consulting firms, digital agencies,
      urban consultancies, and AEC firms who hold the contract and need
@@ -3281,22 +3210,19 @@ Example of my work
 <section class="closing" style="padding: 80px 0 100px; border-top: 1px solid rgba(0,0,0,0.08);">
 <div class="wrap">
 <div class="kicker" style="margin-bottom: 16px;"><em>For larger consulting and consulting-adjacent firms.</em></div>
-<h2 style="font-size: clamp(28px, 3.2vw, 40px); margin-bottom: 24px;">Holding the contract? <em>I sub in through you.</em></h2>
+<h2 style="font-size: clamp(28px, 3.2vw, 40px); margin-bottom: 24px;">Holding the contract? I sub in through you.</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 640px; margin: 0 0 32px;">If your firm holds the contract and needs senior depth on the team for an engagement that touches government or public institutions, the engagements above are also available subbed in through you.</p>
 <a class="link" onclick="goto('primes')">More on subbing through primes <span>→</span></a>
 </div>
 </section>
-
 <section class="closing closing--tint">
 <div class="wrap">
-<h2>Not sure which shape this is? <em>Let's figure it out.</em></h2>
+<h2>Not sure which shape this is? Let's figure it out.</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">If it's a fit, we'll scope it together. If not, you'll hear that, and usually a pointer to someone who can help.</p>
 <a class="link" onclick="goto('contact')">Start a conversation <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ FOR PRIMES ═══════════════
      Dedicated page for partners at larger consulting firms, digital
      agencies, urban consultancies, and AEC firms who hold the contract
@@ -3304,18 +3230,15 @@ Example of my work
      the bottom of the Services page, footer link, and direct URL. Not
      in main nav by design — secondary audience. -->
 <div class="page" id="page-primes">
-
 <section class="work-hero">
 <div class="wrap">
 <div class="kicker">For primes</div>
-<h1>Specialized depth, <em>on your contract, on your team.</em></h1>
-<p class="lede">I sub through primes on engagements where my operational depth and experience working inside government add something the firm's bench doesn't already cover. The work is the same work the rest of this site describes. It's just contracted through you.</p>
+<h1>Specialized depth, on your contract, on your team.</h1>
+<p class="lede">I sub through primes on engagements where my operational depth and experience working inside government add something the firm's bench doesn't already cover. The work is the same work the rest of this site describes, just contracted through you.</p>
 </div>
 </section>
-
 <div class="wrap">
-
-<nav class="mobile-jump" aria-label="Jump to section">
+<nav aria-label="Jump to section" class="mobile-jump">
 <div class="mj-label">Jump to</div>
 <ul>
 <li><a data-target="pr-build">Lead the build</a></li>
@@ -3323,59 +3246,49 @@ Example of my work
 <li><a data-target="pr-embedded">Know how government runs</a></li>
 </ul>
 </nav>
-
 <div class="offerings-group">
 <div class="offerings-group-label">Three shapes the work takes</div>
 <div class="offerings">
-
 <div class="offering" id="pr-build">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-primes-build"/></svg></span>
-<h3>"We need someone who can <em>lead the build</em>."</h3>
+<span class="mark"><svg><use href="#m-primes-build"></use></svg></span>
+<h3>"We need someone who can lead the build."</h3>
 </div>
 <p class="tagline">Embedded with your team to run a defined piece of the engagement.</p>
 <p>Part of the deliverable is a working pilot, a service redesign, or a new operational capability. Your team is strong on strategy or design, but doesn't have a senior operator who's built that kind of thing inside a public institution before. I embed with your team and lead that specific build.</p>
 <a class="offering-example" onclick="goto('engagement-tlc')">Example: Building a product practice inside a regulator (NYC TLC) <span>→</span></a>
 </div>
-
 <div class="offering" id="pr-diagnose">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-primes-connect"/></svg></span>
-<h3>"We need someone who can <em>connect the dots</em>."</h3>
+<span class="mark"><svg><use href="#m-primes-connect"></use></svg></span>
+<h3>"We need someone who can connect the dots."</h3>
 </div>
 <p class="tagline">Data product thinking, applied to the client's operation.</p>
 <p>Your team has the technical bench, but the picture of the client's operation is fragmented across data sources, teams, and tools. They can do the analysis. What's missing is someone to bridge the data, the operation, and the decisions that should follow. I work between those layers: making sense of the data the client already has, joining it to how the operation runs, and turning that into a picture your team can act on.</p>
 </div>
-
 <div class="offering" id="pr-embedded">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-primes-inside"/></svg></span>
-<h3>"We need someone who knows <em>how government actually runs</em>."</h3>
+<span class="mark"><svg><use href="#m-primes-inside"></use></svg></span>
+<h3>"We need someone who knows how government actually runs."</h3>
 </div>
 <p class="tagline">An operator who's been inside, embedded with your team.</p>
 <p>The institutional dynamics matter as much as the technical scope. Your team has the substantive expertise but lacks someone who's actually run things inside government, and that perspective has to be in the room. You bring me on for the duration: I sit in client meetings, review deliverables for institutional realism, advise your team on what will and won't land, and help shape the approach so it works for the agency.</p>
 <a class="offering-example" onclick="goto('track')">More on the background <span>→</span></a>
 </div>
-
 </div>
 </div>
-
 </div>
-
 <section class="closing closing--tint">
 <div class="wrap">
-<h2>Have a contract that fits? <em>Let's talk.</em></h2>
+<h2>Have a contract that fits? Let's talk.</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 600px; margin: 0 0 32px;">Send a redacted scope of work in advance if you have one. I'll come to the call with thoughts on whether and how I'd be useful, and we can sort the structure from there.</p>
 <a class="link" onclick="goto('contact')">Start a conversation <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ BACKGROUND ═══════════════ -->
 <div class="page" id="page-track">
-
-<aside class="track-rail rail--green" id="track-rail" aria-label="Section navigation">
+<aside aria-label="Section navigation" class="track-rail rail--green" id="track-rail">
 <a data-target="tr-startups"><span class="dot"></span>Startups</a>
 <a data-target="tr-gov"><span class="dot"></span>Government</a>
 <a data-target="tr-consulting"><span class="dot"></span>Consulting</a>
@@ -3383,31 +3296,28 @@ Example of my work
 <a data-target="tr-community"><span class="dot"></span>Community</a>
 <a data-target="tr-testimonials"><span class="dot"></span>References</a>
 </aside>
-
 <section class="work-hero">
 <div class="wrap">
 <div class="kicker">About</div>
 <div class="hero-row">
 <div class="hero-text">
-<h1>Auringon is the practice of <em>Jonathan Internicola</em>, built around a decade of operational work across urban systems.</h1>
+<h1>Auringon is the practice of Jonathan Internicola, built around a decade of operational work across urban systems.</h1>
 <p class="lede">Startup COO. City agency executive. Government-tech consultant. Standards-body contributor. The same operational work, seen from every seat it shows up in. What those seats have in common is what the practice is built on.</p>
 </div>
 <aside class="hero-portrait">
 <div class="portrait-frame">
-<img src="jonathan.jpg" alt="Jonathan Internicola, photographed on a hillside overlooking the Columbia River" loading="lazy">
+<img alt="Jonathan Internicola, photographed on a hillside overlooking the Columbia River" loading="lazy" src="jonathan.jpg"/>
 </div>
 <div class="portrait-meta">
 <span class="portrait-caption">Jonathan Internicola</span>
-<a class="portrait-link" href="https://www.linkedin.com/in/jonathaninternicola/" target="_blank" rel="noopener noreferrer">Jonathan on LinkedIn <span class="arrow">→</span></a>
+<a class="portrait-link" href="https://www.linkedin.com/in/jonathaninternicola/" rel="noopener noreferrer" target="_blank">Jonathan on LinkedIn <span class="arrow">→</span></a>
 </div>
 </aside>
 </div>
 </div>
 </section>
-
 <div class="wrap">
-
-<nav class="mobile-jump" aria-label="Jump to section">
+<nav aria-label="Jump to section" class="mobile-jump">
 <div class="mj-label">Jump to</div>
 <ul>
 <li><a data-target="tr-startups">Startups</a></li>
@@ -3418,160 +3328,140 @@ Example of my work
 <li><a data-target="tr-testimonials">References</a></li>
 </ul>
 </nav>
-
 <div class="offerings">
-
 <div class="offering" id="tr-startups">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-startups-ran"/></svg></span>
-<h3>On the <em>startup</em> side.</h3>
+<span class="mark"><svg><use href="#m-startups-ran"></use></svg></span>
+<h3>On the startup side.</h3>
 </div>
 <p>As COO at Bandwagon, a shared-mobility startup matching riders headed the same way from NYC transit hubs, I joined fresh out of grad school, just after the team had been furloughed. Demand was real, sometimes 60-minute taxi queues at the hubs, but the operation was thin: every match needed a sales agent working the software, and support was an inbox no one watched. I automated the matching, built a 24/7 support center, and led a rebrand. That bought a second wind: enough operational health to land funding from operators like Transdev and open serious acquisition talks. The company didn't make it. The capability did: taking an operation that works roughly and making it run well.</p>
 <p>Most recently at Fleet, a commuter-benefits platform spanning transit, rideshare, micromobility, and parking. I joined as Head of Ops and Product, was promoted to COO, and held the role from seed through Series A. The work was what the title suggests and what it doesn't: product direction, customer operations, and the unglamorous financial plumbing (payroll integrations, invoicing, deduction rails) that makes a multi-sided product work for enterprise buyers.</p>
 <div class="meta"><span>Bandwagon</span><span>Fleet</span></div>
 </div>
-
 <div class="offering" id="tr-gov">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-builtin-gov"/></svg></span>
-<h3>Two tenures at <em>NYC TLC</em>.</h3>
+<span class="mark"><svg><use href="#m-builtin-gov"></use></svg></span>
+<h3>Two tenures at NYC TLC.</h3>
 </div>
 <p>The NYC Taxi and Limousine Commission regulates every for-hire vehicle in the city: taxis, Uber, Lyft, and more than two hundred thousand licensees. I joined first as Director of Analytics. In practice, the role became building a ten-person product practice inside a six-hundred-person agency that had never had one. Analytics was the entry point, but the discipline that emerged was broader. The team's work shaped regulatory and budget decisions, and built the distribution methodology for the Medallion Relief Fund, the city's response to driver debt during the medallion market collapse.</p>
-<p>I returned later as Chief Experience and Transformation Officer, a nine-month engagement to set up the agency's first major technology modernization in decades. No direct reports, full accountability for outcomes. The job was coordination across divisions with incompatible incentives. The real work wasn't replacing legacy systems; it was refusing to rebuild the bad processes the old technology had calcified.</p>
+<p>I returned later as Chief Experience and Transformation Officer, a nine-month engagement to set up the agency's first major technology modernization in decades. No direct reports, full accountability for outcomes. The job was coordination across divisions with incompatible incentives, and the real work was refusing to rebuild the bad processes the old technology had calcified, not just replacing the legacy systems.</p>
 <div class="meta"><span>Director of Analytics</span><span>CXTO</span></div>
 </div>
-
 <div class="offering" id="tr-consulting">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-vendor"/></svg></span>
-<h3>A stint on the <em>vendor side</em>.</h3>
+<span class="mark"><svg><use href="#m-vendor"></use></svg></span>
+<h3>A stint on the vendor side.</h3>
 </div>
 <p>Between the TLC tenures, I spent a year and a half at Ad Hoc, a government-technology consultancy, as a Principal Product Manager. The engagements included a pilot with the Office of Personnel Management and contributions to CDC data modernization work on interoperability frameworks.</p>
 <p>The value of that seat wasn't another line on the résumé. It was learning the vendor side of the vendor-to-government relationship from the inside, after years of sitting on the government side of the same table.</p>
 <div class="meta"><span>Ad Hoc</span><span>OPM · CDC</span></div>
 </div>
-
 <div class="offering" id="tr-standards">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-rules"/></svg></span>
-<h3>Helping write <em>the rules</em>.</h3>
+<span class="mark"><svg><use href="#m-rules"></use></svg></span>
+<h3>Helping write the rules.</h3>
 </div>
 <p>I led NYC's contribution to the Mobility Data Specification, the global standard for how cities and mobility providers communicate, through the Open Mobility Foundation's board and steering committee. 160+ cities. 200+ operators. What started as a tool for managing scooters now covers taxis, ride-hail, car share, delivery robots, and autonomous vehicles.</p>
 <p>Saw ride-hail go from unregulated to structured: in the room when the rules got written, and in the building when they had to work.</p>
 <div class="meta"><span>OMF</span><span>MDS</span></div>
 </div>
-
 <div class="offering" id="tr-community">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-side"/></svg></span>
-<h3>Mentoring, advising, and <em>community building</em>.</h3>
+<span class="mark"><svg><use href="#m-side"></use></svg></span>
+<h3>Mentoring, advising, and community building.</h3>
 </div>
 <p>Mentoring and coaching has been a through-line for a decade. Inside organizations, it's looked like building teams by developing the people in them: practice-managing PMs and data analysts at Ad Hoc, and at TLC, building a community of practice the team grew inside. Outside organizations, five years of volunteer mentoring early-career technologists in public-interest work, through Coding it Forward, and this year through Technologists for the Public Good.</p>
 <p>I'm also the founder of <em>Civic Tech'ish</em>, a network of more than 1,000 technologists in NYC that bridges public-interest, civic, and urban tech. It brings together government, startups, big tech, nonprofits, and consultants. It's the kind of cross-sector room that rarely exists on its own, and has to be built on purpose.</p>
 <div class="meta"><span>Civic Tech'ish</span><span>Coding it Forward</span><span>Technologists for the Public Good</span></div>
 </div>
-
 </div>
 </div>
-
 <section class="testimonials" id="tr-testimonials">
 <div class="wrap">
 <div class="offering-head">
-<span class="mark"><svg><use href="#m-voices"/></svg></span>
-<h3>On working with <em>Jonathan</em>.</h3>
+<span class="mark"><svg><use href="#m-voices"></use></svg></span>
+<h3>On working with Jonathan.</h3>
 </div>
 <div class="testimonials-list">
-
 <div class="testimonial">
 <blockquote>"Jonathan joined our business during a time of extreme growth and chaos. His incredibly calm demeanor and thoughtful, strategic approach were instrumental in getting our group focused on the right things."</blockquote>
 <cite><strong>Nancy Whittier</strong> Former VP, Ad Hoc</cite>
 </div>
-
 <div class="testimonial">
 <blockquote>"A talented, visionary director who over and over again was able to operationalize strategies that furthered the mission of the agency while demonstrating the value of human-centered design and advanced analytics."</blockquote>
 <cite><strong>Elizabeth Ferguson</strong> Design Researcher, formerly at NYC TLC</cite>
 </div>
-
 <div class="testimonial">
 <blockquote>"Jonathan's business acumen is unparalleled and refined to provide immediate and comprehensive results for TLC staff and customers. His technical knowledge and ability to explain new concepts in plain language were insightful for senior management."</blockquote>
 <cite><strong>Amit Agarwal</strong> Chief Information Officer, NYC Taxi and Limousine Commission</cite>
 </div>
-
 </div>
 </div>
 </section>
-
 <section class="closing">
 <div class="wrap">
-<h2>Want the full story on any of these? <em>Let's talk.</em></h2>
+<h2>Want the full story on any of these? Let's talk.</h2>
 <a class="link" onclick="goto('contact')">Start a conversation <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ ABOUT ═══════════════ -->
 <div class="page" id="page-about">
-
 <section class="about-hero">
 <div class="wrap">
 <div class="kicker">Approach</div>
-<h1>A small practice for <em>urban systems</em>.</h1>
+<h1>A small practice for urban systems.</h1>
 </div>
 </section>
-
 <section class="about-block">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-about-gap"/></svg></span>
+<span class="mark"><svg><use href="#m-about-gap"></use></svg></span>
 The gap
 </div>
 <div>
-<h2>You've sat in the room when the policy passed and thought: <em>now what?</em></h2>
+<h2>You've sat in the room when the policy passed and thought: now what?</h2>
 <p>So have I. On the startup side, building product and ops from nothing. Inside city agencies, standing up teams with no playbook. In standards bodies, shaping specs that have been adopted globally. At the table when it stalled, and when it didn't.</p>
 <p>That's the context I bring to engagements.</p>
 </div>
 </div>
 </section>
-
 <section class="about-block">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-about-studio"/></svg></span>
+<span class="mark"><svg><use href="#m-about-studio"></use></svg></span>
 The practice
 </div>
 <div>
-<h2>A practice for urban systems, <em>small by design</em>.</h2>
+<h2>A practice for urban systems, small by design.</h2>
 <p>Auringon is the practice of Jonathan Internicola. For most engagements, that's who you're working with: a senior operator who's done the work from multiple seats: startup COO, city agency executive, standards-body contributor.</p>
 <p>Direct engagements are typically with startups building into cities and mission-driven organizations standing up funded programs, often work a grant pays for but the team can't yet execute. For government and larger institutions, I work through partner firms, adding senior operational depth and a feel for how urban systems actually behave where that helps the prime's team.</p>
 </div>
 </div>
 </section>
-
 <section class="about-block about-block--tint">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-about-focus"/></svg></span>
+<span class="mark"><svg><use href="#m-about-focus"></use></svg></span>
 Focus
 </div>
 <div>
-<h2>A method that <em>travels across domains</em>.</h2>
+<h2>A method that travels across domains.</h2>
 <p>The domain where I've run the most reps is urban mobility: for-hire vehicle regulation, commuter benefits, shared mobility, and the standards that hold it together. That's where the pattern-recognition was earned.</p>
 <p>But the work isn't really about mobility. It's a method: diagnose where the system is breaking, design change that fits the resources available, navigate the stakeholders whose buy-in it depends on. Do that well and the domain is almost beside the point.</p>
-<p>The outcomes show up wherever urban systems have to function, from food to water to waste. Same underlying work, different subject matter.</p>
+<p>The outcomes show up wherever urban systems have to function, from food to water to waste.</p>
 <p>What stays constant is the room. Agencies, private operators, standards bodies, community groups, and vendors all have to land on the same problem, with different authority and different time horizons. That's the environment I know how to work in.</p>
 </div>
 </div>
 </section>
-
 <section class="about-block">
 <div class="wrap two-col">
 <div class="colkicker">
-<span class="mark"><svg><use href="#m-about-approach"/></svg></span>
+<span class="mark"><svg><use href="#m-about-approach"></use></svg></span>
 Principles
 </div>
 <div>
-<h2>Three things I <em>don't compromise</em> on.</h2>
+<h2>Three things I don't compromise on.</h2>
 <div class="about-principles">
 <div class="principle">
 <h3>Who you meet is who you get.</h3>
@@ -3585,25 +3475,20 @@ Principles
 <h3>You keep it when the engagement ends.</h3>
 <p>Documentation, training, handoffs. The goal is your ability to own it.</p>
 </div>
-
 </div>
 </div>
 </div>
 </section>
-
 <section class="closing">
 <div class="wrap">
-<h2>The decade of work behind <em>this practice</em>.</h2>
+<h2>The decade of work behind this practice.</h2>
 <a class="link" onclick="goto('track')">Read the background <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ ENGAGEMENT: TLC ═══════════════ -->
 <div class="page" id="page-engagement-tlc">
-
-<aside class="track-rail" id="tlc-rail" aria-label="Chapters">
+<aside aria-label="Chapters" class="track-rail" id="tlc-rail">
 <a data-target="tlc-team"><span class="dot"></span>Team</a>
 <a data-target="tlc-priorities"><span class="dot"></span>Priorities</a>
 <a data-target="tlc-shipped"><span class="dot"></span>Shipped</a>
@@ -3611,23 +3496,18 @@ Principles
 <a data-target="tlc-decision"><span class="dot"></span>Decision</a>
 <a data-target="tlc-travels"><span class="dot"></span>Travels</a>
 </aside>
-
 <div class="wrap">
-
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
 <span>←</span> Services
 </a>
-
 <header class="post-header">
-<h1><span class="role-kicker">Director of Analytics · NYC Taxi & Limousine Commission</span>Building a product practice inside a regulator</h1>
+<h1><span class="role-kicker">Director of Analytics · NYC Taxi &amp; Limousine Commission</span>Building a product practice inside a regulator</h1>
 <div class="post-meta"><span class="read-time">3 min read</span><span class="meta-sep">·</span><span>6 chapters</span></div>
 </header>
-
 <div class="post-body">
 <p class="lede">Hired to run analytics for a regulator. Left behind a product practice, the first one the agency had.</p>
-
-<nav class="mobile-jump" aria-label="Chapters">
+<nav aria-label="Chapters" class="mobile-jump">
 <div class="mj-label">In this piece</div>
 <ul>
 <li><a data-target="tlc-team">Building the team</a></li>
@@ -3638,230 +3518,149 @@ Principles
 <li><a data-target="tlc-travels">What survived, what travels</a></li>
 </ul>
 </nav>
-
-<div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-tlc"/></svg></div>
-
+<div class="engagement-mark"><svg viewbox="0 0 240 160"><use href="#m-eng-tlc"></use></svg></div>
 <p class="dropcap">The agency didn't need more data. It needed a discipline for knowing what the data was for. That took about ninety days to see clearly, and another five years to build. I wrote a proposal (a team, a way of working, a place to put it) and a few commissioners took the bet.</p>
-
 <h2 id="tlc-team">Building the team</h2>
-
 <p>The analysts already there were the first hires, in a sense. They knew the agency (its history, its quirks, its people) and that kind of knowledge is most of the job in a regulator. Throwing it out to bring in an outside team would have cost a year I didn't have. Familiar faces using new methods opened doors a transplant couldn't.</p>
-
-<p>The outside hires came in a deliberate order. A data scientist, an engineer, a senior analyst: people who could ship something visible inside of a quarter. Then, once we'd banked enough credibility to spend, a deputy director who'd run data as a product, a designer, a researcher. <strong>By then we weren't an analytics team anymore.</strong></p>
-
+<p>The outside hires came in a deliberate order. A data scientist, an engineer, a senior analyst: people who could ship something visible inside of a quarter. Then, once we'd banked enough credibility to spend, a deputy director who'd run data as a product, a designer, a researcher. By then we weren't an analytics team anymore.</p>
 <h2 id="tlc-priorities">Choosing what to work on</h2>
-
 <p>Prioritization at TLC worked the way it does most places that are operationally stretched. A commissioner heard a complaint at a community board. A project got launched. Whether anyone could later say what number it moved was a question that rarely got asked, and when it did it tended to be retrospective.</p>
-
-<p>We changed the posture: nothing got scoped without a forecast attached. If we do this and it works, what changes, and by how much. Wait times. Processing days. Resolution rates. The trick wasn't asking the question. It was answering it ourselves, in advance, and bringing the answer to the conversation. <strong>Asking stakeholders to justify their requests would have gone over badly. Showing up with a forecast didn't.</strong></p>
-
+<p>We changed the posture: nothing got scoped without a forecast attached. If we do this and it works, what changes, and by how much. Wait times. Processing days. Resolution rates. The trick was answering the question ourselves, in advance, and bringing the answer to the conversation. Asking stakeholders to justify their requests would have gone over badly, but showing up with a forecast didn't.</p>
 <h2 id="tlc-shipped">What the team actually shipped</h2>
-
 <div class="pullquote">The pattern was invisible inside any one channel and obvious across all four.</div>
-
 <p>Customer service is the one I'd point to first. TLC had a call center, a web portal, an email inbox, and a walk-in center that felt like a DMV. Four channels, four sets of dashboards, no shared view of who was contacting the agency or why. We pooled the data.</p>
-
 <p>What surfaced was the same person, working on what was effectively one issue, bouncing between units for weeks. Nobody was handing off badly. The units behind the channels just weren't talking to each other, and the only place that showed up was in the data once it sat in the same place.</p>
-
-<p>Because the team had a designer and a researcher by then, we could do something with what we'd found. Single-owner cases. Shared history across units. Cleaner routing. <strong>Wait times dropped. The bounce pattern thinned out.</strong> None of it required restructuring the agency.</p>
-
+<p>Because the team had a designer and a researcher by then, we could do something with what we'd found. Single-owner cases. Shared history across units. Cleaner routing. Wait times dropped. The bounce pattern thinned out. None of it required restructuring the agency.</p>
 <div class="callout">That work pulled us into work no one had chartered us for.</div>
-
-<p>One ask became the distribution methodology for the Medallion Relief Fund, the city's response to driver debt during the medallion market collapse. We weren't the obvious team for it. <strong>We were the team people thought of.</strong></p>
-
+<p>One ask became the distribution methodology for the Medallion Relief Fund, the city's response to driver debt during the medallion market collapse. We weren't the obvious team for it, but we were the one people thought of.</p>
 <h2 id="tlc-resistance">The resistance, and how it resolved</h2>
-
-<p>The pushback, when it came, was always a version of <em>why are you asking so many questions, just build the thing</em>. Fair enough. In an institution wired for execution, discovery looks like overhead, and the people pushing back weren't wrong to notice. It didn't resolve through argument. <strong>It resolved through wait times going down.</strong> Once a few operating units were quietly telling other units we were worth the trouble, the request pattern flipped.</p>
-
+<p>The pushback, when it came, was always a version of <em>why are you asking so many questions, just build the thing</em>. Fair enough. In an institution wired for execution, discovery looks like overhead, and the people pushing back weren't wrong to notice. It didn't resolve through argument. It resolved through wait times going down. Once a few operating units were quietly telling other units we were worth the trouble, the request pattern flipped.</p>
 <h2 id="tlc-decision">The decision I still think about</h2>
-
-<p>The team lived in an operating division. Not IT, not the commissioner's office. I'd love to say that was strategic. It wasn't. Operations was where the sponsor with budget and appetite happened to sit, and government windows close fast.</p>
-
-<p>It turned out to be the most consequential choice in the whole story. <strong>Down the hall from the people whose jobs we were trying to make easier, we saw the messy parts.</strong> Two floors up, we'd have been treated as an inspectorate, and shown the version of the work that was ready for inspection.</p>
-
+<p>The team lived in an operating division. Not IT, not the commissioner's office. I'd love to say that was strategic, but it wasn't: operations was where the sponsor with budget and appetite happened to sit, and government windows close fast.</p>
+<p>It turned out to be the most consequential choice in the whole story. Down the hall from the people whose jobs we were trying to make easier, we saw the messy parts. Two floors up, we'd have been treated as an inspectorate, and shown the version of the work that was ready for inspection.</p>
 <h2 id="tlc-travels">What survived, and what travels</h2>
-
 <p>When I left, the role was split, and one of the pieces became the agency's first chief product officer, a seat that didn't exist when I started and emerged because the work had made it obvious one should.</p>
-
 <p>Three things travel. Take the opening that's close to operations, even when a tidier org chart would put you elsewhere. Sequence the team around credibility, not capability. And expect discovery to read as overhead until you have a portfolio of wins to point at. Then it reads as the reason the wins happened.</p>
 </div>
-
 </div>
 </div>
-
 <section class="closing closing--tint">
 <div class="wrap">
-<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<h2>Looking for the right shape for your engagement?</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
 <a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ ENGAGEMENT: BANDWAGON ═══════════════ -->
 <div class="page" id="page-engagement-bandwagon">
 <div class="wrap">
-
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
 <span>←</span> Services
 </a>
-
 <header class="post-header">
 <h1><span class="role-kicker">COO · Bandwagon</span>Shipping a new service line in chaos</h1>
 <div class="post-meta"><span class="read-time">3 min read</span></div>
 </header>
-
 <div class="post-body">
 <p class="lede">A van-sharing pilot, built in weeks, to change the conversations the company could be in.</p>
-
-<div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-bandwagon"/></svg></div>
-
-<p class="dropcap">Bandwagon was a shared-mobility startup splitting taxi rides between riders heading the same way from New York's transportation hubs. The product worked. The strategic problem was who could buy us. The natural exits — TNCs, taxi vendors — all had their own pooling tech or were building it. <strong>We were a feature, not a company, from those buyers' point of view.</strong> Vans were the angle we picked to get into a different conversation.</p>
-
-<p>What I want to write about is what we did next — a partnership with Transdev to launch a van-sharing pilot called Bandwagon Transit, built and deployed in weeks, designed to do something more specific than test whether van-sharing worked.</p>
-
+<div class="engagement-mark"><svg viewbox="0 0 240 160"><use href="#m-eng-bandwagon"></use></svg></div>
+<p class="dropcap">Bandwagon was a shared-mobility startup splitting taxi rides between riders heading the same way from New York's transportation hubs. The product worked. The strategic problem was who could buy us. The natural exits (TNCs, taxi vendors) all had their own pooling tech or were building it. We were a feature, not a company, from those buyers' point of view. Vans were the angle we picked to get into a different conversation.</p>
+<p>What I want to write about is what we did next: a partnership with Transdev to launch a van-sharing pilot called Bandwagon Transit, built and deployed in weeks, designed to do something more specific than test whether van-sharing worked.</p>
 <h2>What the pilot was actually for</h2>
-
-<p>Chariot was building momentum as a commuter-van service, and the category was open enough that a credible van play could put a new kind of buyer at our table. The pilot wasn't really a market test. <strong>It was a vehicle, in both senses, for being in a conversation we hadn't been able to get into.</strong></p>
-
+<p>Chariot was building momentum as a commuter-van service, and the category was open enough that a credible van play could put a new kind of buyer at our table. The pilot wasn't really a market test, but a way into a conversation we hadn't been able to get into.</p>
 <p>That changes what "ship" had to mean. We didn't need to optimize the route, refine the pricing, or scale the operation. We needed something real enough to generate press, conversations, and a credible claim that we operated in this space. Anything else was deferrable until one of those conversations turned into something.</p>
-
 <h2>How we shipped it fast</h2>
-
-<p>Transdev provided the drivers and the Mercedes Sprinter vans. That single decision saved us months — we weren't building a fleet, hiring drivers, or wrangling commercial insurance. We were a software and operations layer on top of someone else's infrastructure.</p>
-
+<p>Transdev provided the drivers and the Mercedes Sprinter vans. That single decision saved us months: we weren't building a fleet, hiring drivers, or wrangling commercial insurance. We were a software and operations layer on top of someone else's infrastructure.</p>
 <p>For the customer-facing layer, we repurposed almost everything Bandwagon already had. The on-the-ground sales staff working the airport queues moved to the new pilot. Existing signage and palm cards got light edits and a fresh visual treatment. We bought swag online.</p>
-
-<div class="pullquote">We dodged fare-collection licensing by making the rides donation-based — which doubled as a willingness-to-pay test.</div>
-
-<p>That single call got us operating without months of permitting, and the donation data told us what riders actually valued the service at when they had the choice not to pay at all. For the route, we analyzed gaps in the MTA's network and picked Penn Station to Grand Central — a corridor where a meaningful number of trips weren't well-served by the existing transfer-heavy subway connection.</p>
-
-<p>The whole stack — vans, drivers, brand, signage, route, regulatory posture — was assembled in weeks. It wasn't beautiful. <strong>It was real, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</strong></p>
-
+<div class="pullquote">We dodged fare-collection licensing by making the rides donation-based, which doubled as a willingness-to-pay test.</div>
+<p>That single call got us operating without months of permitting, and the donation data told us what riders actually valued the service at when they had the choice not to pay at all. For the route, we analyzed gaps in the MTA's network and picked Penn Station to Grand Central, a corridor where a meaningful number of trips weren't well-served by the existing transfer-heavy subway connection.</p>
+<p>The whole stack (vans, drivers, brand, signage, route, regulatory posture) was assembled in weeks. It wasn't beautiful, but it was real, and the difference between "we have a deck about a van service" and "we have vans running between Penn and Grand Central, here's the press" was the entire point.</p>
 <h2>What the work was, and what the company was</h2>
-
 <p>The pilot did what it was built to do. The press landed. The conversations we'd built it to create happened. We sat at tables with partners we hadn't been able to reach before. Those conversations didn't ultimately convert into the deal that would have saved the company. Bandwagon didn't make it.</p>
-
-<div class="callout">The work was good. The company didn't make it. Those are two different sentences and they belong in different paragraphs.</div>
-
-<p>Conflating those — claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better — would be dishonest in either direction. The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category. What I took from it isn't a startup-survival story. It's a muscle.</p>
-
+<p>Conflating those (claiming the pilot failed because the company didn't survive, or claiming the company would have survived if the pilot had been better) would be dishonest in either direction. The deal that didn't close was a separate decision, made by another company, on factors that had little to do with whether van-sharing was a viable category. What I took from it isn't a startup-survival story: it's a muscle.</p>
 <h2>What travels</h2>
-
-<p>If the conversation you're hoping for isn't presenting itself, you can build something to create it. Not a deck. Not a memo. Something real, on the ground, that changes the facts the conversation is based on.</p>
-
-<p>This is the muscle that gets least respected in formal planning environments, where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many decisions get made top-down and committed to permanently when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver. <strong>Building fast doesn't mean building badly. It means building enough to put yourself in a different conversation than the one you'd have had otherwise.</strong></p>
-</div>
-
+<p>If the conversation you're hoping for isn't presenting itself, you can build something to create it. Not a deck or a memo, but something real, on the ground, that changes the facts the conversation is based on.</p>
+<p>This is the muscle that gets least respected in formal planning environments, where the default is to study, model, propose, debate, approve, plan, and only then deploy. I wish more transit planning worked the way Bandwagon Transit was built. Too many decisions get made top-down and committed to permanently when the right move would be a six-week pilot that generates real ridership data, real operational learning, and real political room to maneuver. Building fast doesn't mean building badly, just building enough to put yourself in a different conversation than the one you'd have had otherwise.</p>
 </div>
 </div>
-
+</div>
 <section class="closing closing--tint">
 <div class="wrap">
-<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<h2>Looking for the right shape for your engagement?</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
 <a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ ENGAGEMENT: MENTOR ═══════════════ -->
 <div class="page" id="page-engagement-mentor">
 <div class="wrap">
-
 <div class="engagement-page">
 <a class="post-back" onclick="goto('work')">
 <span>←</span> Services
 </a>
-
 <header class="post-header">
 <h1><span class="role-kicker">Mentor · Technologists for the Public Good</span>Sharpening the case a data professional was already making</h1>
 <div class="post-meta"><span class="read-time">3 min read</span></div>
 </header>
-
 <div class="post-body">
 <p class="lede">Turning a pile of good artifacts into a coherent case the right people could act on.</p>
-
-<p class="context">Mentoring has been a through-line for a decade — managing teams at Ad Hoc and TLC, advising early-career technologists through Coding it Forward and Technologists for the Public Good. This is one written-up example.</p>
-
-<div class="engagement-mark"><svg viewBox="0 0 240 160"><use href="#m-eng-mentor"/></svg></div>
-
-<p class="dropcap">The mentee was an early-career data professional inside a major regional transportation authority. Engineering undergrad, master's from a strong urban planning program, several years of analytical work. He'd shipped real things — a fare-evasion dashboard pulling 100M+ rows from five sources, a federal funding allocation tool. The kind of work that's hard to fake.</p>
-
-<p>The premise of most mentoring writing is that the mentor brought something the mentee didn't have. That's not what happened here. The substance was already there — decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. <strong>But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him.</strong> The gap wasn't engineering. It was the framing that turns a portfolio of good thinking into something a director can champion upward.</p>
-
+<p class="context">Mentoring has been a through-line for a decade: managing teams at Ad Hoc and TLC, advising early-career technologists through Coding it Forward and Technologists for the Public Good. This is one written-up example.</p>
+<div class="engagement-mark"><svg viewbox="0 0 240 160"><use href="#m-eng-mentor"></use></svg></div>
+<p class="dropcap">The mentee was an early-career data professional inside a major regional transportation authority. Engineering undergrad, master's from a strong urban planning program, several years of analytical work. He'd shipped real things: a fare-evasion dashboard pulling 100M+ rows from five sources, a federal funding allocation tool. The kind of work that's hard to fake.</p>
+<p>The premise of most mentoring writing is that the mentor brought something the mentee didn't have. That's not what happened here. The substance was already there: decks, system diagrams, intern templates, ideas about how the team he wanted to build should operate. None of these were bad. But they were a pile of artifacts rather than a case, and they were pitched at a level of technical detail that wouldn't move the people who could actually unlock resources for him. The gap wasn't engineering but the framing that turns a portfolio of good thinking into something a director can champion upward.</p>
 <h2>The advisory work</h2>
-
-<p>The first move was refusing to start where he wanted to start. He came in with a goal stated as <em>build the data warehouse</em> and a question about how to pitch it. I held us on the prior question — <em>what is the warehouse for, and what does landing it actually get you</em> — for longer than was comfortable.</p>
-
-<div class="pullquote">The same work products serve both goals — but the order you build them in, and the audiences you write them for, are different.</div>
-
+<p>The first move was refusing to start where he wanted to start. He came in with a goal stated as <em>build the data warehouse</em> and a question about how to pitch it. I held us on the prior question (<em>what is the warehouse for, and what does landing it actually get you</em>) for longer than was comfortable.</p>
+<div class="pullquote">The same work products serve both goals, but the order you build them in, and the audiences you write them for, are different.</div>
 <p>By the end of that conversation the goal had been restated: <em>build the case that gets me the team and the IT relationship I need to do this kind of work for the next decade. The warehouse is one piece of evidence in that case.</em></p>
-
-<p>From there the work organized itself around three deliverables, each pointed at a different audience. A <strong>data operations document</strong> — the technical operating manual, written for him, his interns, the IT team, any future data hire — that defined how data flowed through the department as a system rather than a series of one-off projects. A <strong>data strategy one-pager</strong>, written for his Assistant Director and Director, that translated the technical reality into a leadership story. And a <strong>management framework</strong> for the interns — collaborative goal-setting, a 1:1 cadence, a retrospective process — designed to be tested with the unpaid undergraduate intern starting in February and refined for the paid graduate hire arriving in June.</p>
-
+<p>From there the work organized itself around three deliverables, each pointed at a different audience. A data operations document (the technical operating manual, written for him, his interns, the IT team, any future data hire) that defined how data flowed through the department as a system rather than a series of one-off projects. A data strategy one-pager, written for his Assistant Director and Director, that translated the technical reality into a leadership story. And a management framework for the interns (collaborative goal-setting, a 1:1 cadence, a retrospective process) designed to be tested with the unpaid undergraduate intern starting in February and refined for the paid graduate hire arriving in June.</p>
 <p>The artifacts weren't new ideas. The work was deciding which audience each one was for, what each had to do, and in what order they got built.</p>
-
 <h2>What changed</h2>
-
-<p>Once <em>build the warehouse</em> became <em>build the case the warehouse sits inside</em>, sequencing decisions stopped being arbitrary. The strategy one-pager had to come before the warehouse pitch, because IT couldn't be asked to plan against the warehouse without leadership having committed to the broader investment first. The management framework had to be tested in the spring, not the summer, because the paid graduate hire was the higher-stakes engagement. <strong>The IT relationship had to be approached through the Assistant Director, not directly, because IT bottlenecks don't unblock for analysts — they unblock for the directors analysts work for.</strong></p>
-
+<p>Once <em>build the warehouse</em> became <em>build the case the warehouse sits inside</em>, sequencing decisions stopped being arbitrary. The strategy one-pager had to come before the warehouse pitch, because IT couldn't be asked to plan against the warehouse without leadership having committed to the broader investment first. The management framework had to be tested in the spring, not the summer, because the paid graduate hire was the higher-stakes engagement. The IT relationship had to be approached through the Assistant Director, not directly, because IT bottlenecks don't unblock for analysts, only for the directors those analysts work for.</p>
 <p>None of those calls were obvious from inside the work. They became obvious once the goal had been restated.</p>
-
 <h2>Where it landed</h2>
-
 <p>He's actively pitching the case to leadership now. The strategy one-pager exists. The ops doc is in draft. The undergraduate intern is onboarded against the management framework, which will get its revision before the summer hire arrives. The substance was always going to come from him. What the engagement did was compress the time between "I have the pieces" and "I have a case I can take to leadership." Government windows are short. An analyst who arrives at a coherent pitch six months later than they could have, often arrives after the moment to make it has closed.</p>
-
 <h2>What travels</h2>
-
 <div class="callout">Most strong ICs are sitting on more material than they need.</div>
-
-<p>The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order. The pattern isn't about data, or government, or early career — it's the gap that shows up wherever someone technically capable is making an institutional case for the first time. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes. The shape of the work doesn't.</p>
-</div>
-
+<p>The case isn't landing because the artifacts are pointed at the wrong audience, in the wrong order. The pattern isn't about data, or government, or early career, but the gap that shows up wherever someone technically capable is making an institutional case for the first time. I've done close to the same exercise with a startup CEO trying to get a board on board with a pivot, and with a foundation officer trying to get a program approved internally. The setting changes, but the shape of the work doesn't.</p>
 </div>
 </div>
-
+</div>
 <section class="closing closing--tint">
 <div class="wrap">
-<h2>Looking for the right shape for your <em>engagement</em>?</h2>
+<h2>Looking for the right shape for your engagement?</h2>
 <p style="font-size: 18px; line-height: 1.55; color: var(--ink-soft); max-width: 560px; margin: 0 0 32px;">See the five shapes the work takes, and which one fits the situation you're in.</p>
 <a class="link" onclick="goto('work')">See the engagement shapes <span>→</span></a>
 </div>
 </section>
-
 </div>
-
 <!-- ═══════════════ JOURNAL ═══════════════ -->
 <div class="page" id="page-journal">
-
 <section class="journal-hero">
 <div class="wrap">
 <div class="journal-glyph">
-<svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
-<line x1="10" y1="112" x2="190" y2="112" stroke="#3a3a3a" stroke-width="1.5"/>
-<circle cx="86" cy="70" r="16" fill="#e39b48" stroke="#3a3a3a" stroke-width="2"/>
-<path d="M26,112 L26,92 Q26,88 30,88 L46,88 Q50,88 50,92 L50,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M56,112 L56,74 Q56,68 62,68 L76,68 Q82,68 82,74 L82,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M92,112 L92,50 Q92,42 100,42 L116,42 Q124,42 124,50 L124,112 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M130,112 L130,82 Q130,76 136,76 L148,76 Q154,76 154,82 L154,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
-<path d="M160,112 L160,64 Q160,58 166,58 L178,58 Q184,58 184,64 L184,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="2" stroke-linejoin="round"/>
+<svg viewbox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="10" x2="190" y1="112" y2="112"></line>
+<circle cx="86" cy="70" fill="#e39b48" r="16" stroke="#3a3a3a" stroke-width="2"></circle>
+<path d="M26,112 L26,92 Q26,88 30,88 L46,88 Q50,88 50,92 L50,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M56,112 L56,74 Q56,68 62,68 L76,68 Q82,68 82,74 L82,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M92,112 L92,50 Q92,42 100,42 L116,42 Q124,42 124,50 L124,112 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M130,112 L130,82 Q130,76 136,76 L148,76 Q154,76 154,82 L154,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M160,112 L160,64 Q160,58 166,58 L178,58 Q184,58 184,64 L184,112 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </div>
-<h1>The <em>Urbanist Operator</em></h1>
+<h1>The Urbanist Operator</h1>
 <p class="lede">For people who make urban systems work: not policy wonks or tech evangelists, but the ones who have to run the thing after everyone's gone home.</p>
 <p class="lede">Implementation stories, field cases, and the kind of policy-to-operations translation nobody else writes down. Written by Jonathan.</p>
 </div>
 </section>
-
 <div class="wrap">
 <section class="posts">
 <div class="post-list">
 <article class="post-item" onclick="goto('post-failure-modes')">
-<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"/></svg></div>
+<div class="post-illo-thumb"><svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"></use></svg></div>
 <div>
 <div class="post-meta">
 <span>Patterns</span>
@@ -3870,12 +3669,12 @@ Principles
 <span class="dot">·</span>
 <span>May 2026</span>
 </div>
-<h3>Four ways urban work fails <em>after the approval</em></h3>
+<h3>Four ways urban work fails after the approval</h3>
 <p class="post-dek">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
 </div>
 </article>
 <article class="post-item" onclick="goto('post-container-moves')">
-<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"/></svg></div>
+<div class="post-illo-thumb"><svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"></use></svg></div>
 <div>
 <div class="post-meta">
 <span>Cases</span>
@@ -3884,12 +3683,12 @@ Principles
 <span class="dot">·</span>
 <span>April 2026</span>
 </div>
-<h3>Container moves, and <em>what lives underneath them</em></h3>
+<h3>Container moves, and what lives underneath them</h3>
 <p class="post-dek">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia. Three cases, and the gap between structure and function.</p>
 </div>
 </article>
 <article class="post-item" onclick="goto('post-urban-systems')">
-<div class="post-illo-thumb"><svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg></div>
+<div class="post-illo-thumb"><svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"></use></svg></div>
 <div>
 <div class="post-meta">
 <span>Framing</span>
@@ -3898,40 +3697,35 @@ Principles
 <span class="dot">·</span>
 <span>March 2026</span>
 </div>
-<h3>What I mean when I say <em>urban systems</em></h3>
+<h3>What I mean when I say urban systems</h3>
 <p class="post-dek">Defining the working layer, between the policy debates above it and the infrastructure underneath it, where cities actually run.</p>
 </div>
 </article>
 </div>
 </section>
-
 <section class="subscribe" id="subscribe">
 <div class="colkicker">Subscribe</div>
 <p class="subscribe-dek">A short piece each month on the operational layer: implementation stories, field cases, the machinery underneath. Unsubscribe anytime.</p>
-<form action="https://formspree.io/f/xgodpvew" method="POST" id="subscribe-form">
-<input type="hidden" name="_subject" value="New Auringon journal subscriber">
-<input type="hidden" name="_next" value="https://auringon.com/?subscribed=1#journal">
-<input type="email" name="email" placeholder="your@email.com" required>
+<form action="https://formspree.io/f/xgodpvew" id="subscribe-form" method="POST">
+<input name="_subject" type="hidden" value="New Auringon journal subscriber"/>
+<input name="_next" type="hidden" value="https://auringon.com/?subscribed=1#journal"/>
+<input name="email" placeholder="your@email.com" required="" type="email"/>
 <button type="submit">Subscribe</button>
 </form>
-<div class="subscribe-thanks" id="subscribe-thanks" hidden>
+<div class="subscribe-thanks" hidden="" id="subscribe-thanks">
 <p class="subscribe-thanks-line"><em>Thanks, you're on the list.</em></p>
 <p class="subscribe-thanks-sub">The next piece will land in your inbox when it's published.</p>
 </div>
 </section>
 </div>
-
 </div>
-
 <!-- ═══════════════ POST: URBAN SYSTEMS ═══════════════ -->
 <div class="page" id="page-post-urban-systems">
 <div class="wrap">
-
 <div class="post-page">
 <a class="post-back" onclick="goto('journal')">
 <span>←</span> The Urbanist Operator
 </a>
-
 <header class="post-header">
 <div class="post-meta">
 <span>Framing</span>
@@ -3940,44 +3734,34 @@ Principles
 <span class="dot">·</span>
 <span>March 2026</span>
 </div>
-<h1>What I mean when I say <em>urban systems</em></h1>
+<h1>What I mean when I say urban systems</h1>
 </header>
-
 <div class="post-body">
 <figure class="post-illo">
-<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"/></svg>
+<svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-urban-systems"></use></svg>
 <figcaption class="caption">The working layer: between policy above and infrastructure below.</figcaption>
 </figure>
-<p class="dropcap">Ask someone what a city does, and they'll usually describe the visible parts: the buildings, the streets, the dining, the parks. The harder question is what enables all of it. Water has to come out of the tap. Waste has to leave the building. Buses have to show up. Benefits have to reach the people eligible for them. Kids have to get to school on time. Permits have to clear. <strong>None of it happens by itself.</strong></p>
-
+<p class="dropcap">Ask someone what a city does, and they'll usually describe the visible parts: the buildings, the streets, the dining, the parks. The harder question is what enables all of it. Water has to come out of the tap. Waste has to leave the building. Buses have to show up. Benefits have to reach the people eligible for them. Kids have to get to school on time. Permits have to clear. None of it happens by itself.</p>
 <p>That's the working layer I mean when I talk about urban systems: the systems a city has to operate, day in and day out, for it to function at all. Some are literal: water, waste, food, energy. Some are logistical: transport, housing, health, emergency response. Some are social: education, workforce, economic mobility. The list isn't ordered or exhaustive. It's the territory.</p>
-
-<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem, often with different authority, different incentives, and different time horizons. <strong>That's what makes the work hard. Not any single piece of it. The coordination.</strong></p>
-
-<div class="pullquote">The cap was the headline. The cap was also the easy part.</div>
-
+<p>What makes these systems distinctive is that they're part-organic and part-designed. They grew up over decades in response to whoever was living there, and they're also governed by codes, contracts, and agencies with formal authority. Agencies, private operators, standards bodies, community organizations, and vendors all have to land in the same room on the same problem, often with different authority, different incentives, and different time horizons. What makes the work hard is the coordination, not any single piece of it.</p>
+<div class="pullquote">The cap made the headlines, but it was the easy part.</div>
 <p>The clearest illustration comes from a specific moment. In 2018, the NYC Taxi and Limousine Commission capped the number of for-hire vehicles on the road for the first time. Uber and Lyft had grown unchecked for most of a decade, and the consequences had arrived all at once: congestion, emissions, wage collapse, a medallion market in freefall, a wave of driver suicides.</p>
-
 <p>The real work was underneath. Rules had to become logic a system could enforce. New data had to be collected, and new analysis stood up, so the agency could tell whether any of it was working. Operations had to be redesigned. Teams had to be restructured. Every change had to be walked through with the industry while it was still being built. All of it had to happen at once, without breaking the service millions of New Yorkers depended on every day.</p>
-
 <div class="callout">Where approvals become programs, and plans become things that actually run.</div>
-
-<p>That's the layer this Journal is about. Not the policy debates above it. Not the infrastructure underneath it. The operational one in between.</p>
-
+<p>That's the layer this Journal is about. Not the policy debates above it or the infrastructure underneath it, but the operational layer in between.</p>
 <p>If that's the layer you work in too, you're in the right place.</p>
 </div>
-
 <footer class="post-footer">
 <p class="eng-tiles-label">Examples of this work</p>
 <div class="eng-tiles">
 <a class="eng-tile" onclick="goto('engagement-tlc')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"></use></svg></div>
 <div class="eng-tile-meta">NYC TLC · Build</div>
 <h4>Building a product practice inside a <em>regulator</em></h4>
 <p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
 </a>
 <div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"></use></svg></div>
 <div class="eng-tile-meta">Coming soon</div>
 <h4>More engagements <em>on the way</em></h4>
 <p class="eng-tile-dek">Additional case studies in development.</p>
@@ -3987,27 +3771,22 @@ Principles
 <p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
 <a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank">book a 30-minute call →</a>
 </div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
 </footer>
-
-</div>
-
 </div>
 </div>
-
+</div>
 <!-- ═══════════════ POST: CONTAINER MOVES ═══════════════ -->
 <div class="page" id="page-post-container-moves">
 <div class="wrap">
-
 <div class="post-page">
 <a class="post-back" onclick="goto('journal')">
 <span>←</span> The Urbanist Operator
 </a>
-
 <header class="post-header">
 <div class="post-meta">
 <span>Cases</span>
@@ -4016,68 +3795,46 @@ Principles
 <span class="dot">·</span>
 <span>April 2026</span>
 </div>
-<h1>Container moves, and <em>what lives underneath them</em></h1>
+<h1>Container moves, and what lives underneath them</h1>
 </header>
-
 <div class="post-body">
 <figure class="post-illo">
-<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"/></svg>
+<svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-containers"></use></svg>
 <figcaption class="caption">Three vessels, three contents: the container shapes what fits, but doesn't do the work itself.</figcaption>
 </figure>
 <p class="lede">A transit-payments platform in California. A split-entity restructure in Nairobi. A water affordability program in Philadelphia. Three cases, and the gap between structure and function.</p>
-
-<p class="dropcap">There's a move that urban systems people love to talk about, and it's worth taking seriously. Call it the container move. You find the right legal, financial, or governance vehicle (a joint-powers authority, a split entity, an income-based rate structure) and you reshape what's possible downstream. Not the app. Not the pilot. <strong>The container.</strong></p>
-
-<p>The move is real. It's also not sufficient. What you put inside the container, and how the machinery actually runs, determines whether the container does any work at all. Three cases make the point.</p>
-
+<p class="dropcap">There's a move that urban systems people love to talk about, and it's worth taking seriously. Call it the container move. You find the right legal, financial, or governance vehicle (a joint-powers authority, a split entity, an income-based rate structure) and you reshape what's possible downstream. Not the app or the pilot, but the container.</p>
+<p>The move is real, but it isn't sufficient on its own. What you put inside the container, and how the machinery actually runs, determines whether the container does any work at all. Three cases make the point.</p>
 <h2>Cal-ITP: the state as a platform</h2>
-
 <p>California has more than three hundred independent public transit agencies. Each runs its own fare system, schedule data, reduced-fare program. A small agency can't afford to modernize any of it alone.</p>
-
 <p>The California Integrated Travel Project's move wasn't a super-app. It was the paperwork. Cal-ITP stood up master service agreements the state runs once, which any agency in California (or, as of 2022, any agency nationally) can buy off of without running their own procurement. Standardized schedule data. Contactless fare payments on the bank-card rails already in every rider's wallet.</p>
-
-<p><strong>The container here is governance. The state becomes a platform of reusable civic modules.</strong> Humboldt Transit modernizes without hiring a procurement team. Capitol Corridor becomes the first intercity rail line in the US where a bank card taps you through. The small agencies benefit the most, which is usually how you can tell the container is doing real work.</p>
-
+<p>The container here is governance. The state becomes a platform of reusable civic modules. Humboldt Transit modernizes without hiring a procurement team. Capitol Corridor becomes the first intercity rail line in the US where a bank card taps you through. The small agencies benefit the most, which is usually how you can tell the container is doing real work.</p>
 <h2>Sanergy: changing the legal vessel</h2>
-
 <p>Ninety percent of the sanitation waste from Nairobi's informal settlements gets dumped untreated. Sanergy closed the loop with a franchise-like network of Fresh Life toilets operated by local entrepreneurs, plus a centralized plant turning waste into organic fertilizer and insect-based animal feed.</p>
-
-<p>For a decade, the model ran as one organization, and for a decade, it strained against itself. The sanitation service needed patient, concessional capital. The agriproducts business needed growth capital and moved at investor speed. Philanthropic funders wanted to back the toilets. Commercial investors wanted to back the outputs. <strong>Both had to hold their nose when the other part of the organization showed up in the pitch deck.</strong></p>
-
+<p>For a decade, the model ran as one organization, and for a decade, it strained against itself. The sanitation service needed patient, concessional capital. The agriproducts business needed growth capital and moved at investor speed. Philanthropic funders wanted to back the toilets. Commercial investors wanted to back the outputs. Both had to hold their nose when the other part of the organization showed up in the pitch deck.</p>
 <p>In 2022, Sanergy split in two. <em>Fresh Life</em>, the nonprofit, runs the toilets and waste collection. <em>Regen Organics</em>, the for-profit, runs the processing and product sales. One chain, two balance sheets. The container move was right at the right time: earlier, and it would have split a fragile operation; later, and the tension would have constrained growth on both sides for longer than it needed to.</p>
-
 <h2>Philadelphia TAP: when the container fights the machinery</h2>
-
-<div class="pullquote">The container is philosophically clean. For the first six years, the machinery didn't match it.</div>
-
+<div class="pullquote">The container is philosophically clean, but for the first six years the machinery didn't match it.</div>
 <p>Philadelphia's Tiered Assistance Program, launched in 2017, caps participating customers' water bills at a percentage of their income. First program of its kind in the US. If you were designing water affordability from first principles, TAP is close to what you'd draw up.</p>
-
 <p>And yet. Participation stalled at about 28% of eligible customers. Renewal paperwork drove drop-off, and the paperwork couldn't be simplified without undermining the income-verification logic the rate structure required. Researcher Manny Teodoro showed in 2023 that because the program was funded by a surcharge on non-participant water bills, the majority of low-income Philadelphians (the 70% eligible but not enrolled) were paying <em>more</em> for water under TAP than they would have without it.</p>
-
-<p>In 2024, the city pivoted. Philadelphia Water Revenue partnered with the city's Office of Integrated Data for Evidence and Action and started auto-enrolling customers already income-verified by other programs. <strong>Enrollment went from about 22,000 to more than 60,000 in a year.</strong></p>
-
+<p>In 2024, the city pivoted. Philadelphia Water Revenue partnered with the city's Office of Integrated Data for Evidence and Action and started auto-enrolling customers already income-verified by other programs. Enrollment went from about 22,000 to more than 60,000 in a year.</p>
 <p>The move was operational, not structural. The container didn't change. The damaging part of the machinery (individualized income verification) got offloaded onto a data pipeline other agencies had already built.</p>
-
 <h2>What the three cases have in common</h2>
-
 <p>Cal-ITP works because the machinery matched the container from the start. Sanergy works because the operations were mature enough to survive splitting the container when the time came. Philadelphia TAP is still working through it: the container surfaced an operational problem the utility couldn't solve alone, and the fix is emerging from a part of the city that wasn't even in the room when TAP was designed.</p>
-
-<p>The container move is real. Finding the right legal, financial, or governance vehicle is the high-leverage play in a lot of urban systems work. But the container doesn't do the work. The container makes the work possible. <strong>What determines whether the work actually happens is the operation that lives inside it, and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</strong></p>
-
-<div class="callout">Most urban innovation debates happen at the level of the container. Most urban innovation outcomes are determined one level down.</div>
+<p>The container move is real. Finding the right legal, financial, or governance vehicle is the high-leverage play in a lot of urban systems work. But the container doesn't do the work. The container makes the work possible. What determines whether the work actually happens is the operation that lives inside it, and whether the organization running that operation is willing to keep rebuilding the machinery until the container functions.</p>
+<div class="callout">Most urban innovation debates happen at the level of the container, but the outcomes are decided one level down.</div>
 </div>
-
 <footer class="post-footer">
 <p class="eng-tiles-label">Examples of this work</p>
 <div class="eng-tiles">
 <a class="eng-tile" onclick="goto('engagement-tlc')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"></use></svg></div>
 <div class="eng-tile-meta">NYC TLC · Build</div>
 <h4>Building a product practice inside a <em>regulator</em></h4>
 <p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
 </a>
 <div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"></use></svg></div>
 <div class="eng-tile-meta">Coming soon</div>
 <h4>More engagements <em>on the way</em></h4>
 <p class="eng-tile-dek">Additional case studies in development.</p>
@@ -4087,27 +3844,22 @@ Principles
 <p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
 <a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank">book a 30-minute call →</a>
 </div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
 </footer>
-
-</div>
-
 </div>
 </div>
-
+</div>
 <!-- ═══════════════ POST: FAILURE MODES ═══════════════ -->
 <div class="page" id="page-post-failure-modes">
 <div class="wrap">
-
 <div class="post-page">
 <a class="post-back" onclick="goto('journal')">
 <span>←</span> The Urbanist Operator
 </a>
-
 <header class="post-header">
 <div class="post-meta">
 <span>Patterns</span>
@@ -4116,62 +3868,43 @@ Principles
 <span class="dot">·</span>
 <span>May 2026</span>
 </div>
-<h1>Four ways urban work fails <em>after the approval</em></h1>
+<h1>Four ways urban work fails after the approval</h1>
 </header>
-
 <div class="post-body">
 <figure class="post-illo">
-<svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"/></svg>
+<svg viewbox="0 0 320 280" xmlns="http://www.w3.org/2000/svg"><use href="#illo-failure"></use></svg>
 <figcaption class="caption">Mandate on one side, outcome on the other, and the small things that fall between.</figcaption>
 </figure>
 <p class="lede">The gap between mandate and machinery has a shape. After enough reps, you can see it coming.</p>
-
-<p class="dropcap">These aren't the failures the trade press writes about. Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind. Those are the ones I get called in on. <strong>After enough reps (startup, agency, foundation, vendor) four of them show up more than the rest.</strong></p>
-
+<p class="dropcap">These aren't the failures the trade press writes about. Nobody writes about initiatives that never quite launched, programs that technically exist but don't really run, or pilots that finished on paper and left nothing behind. Those are the ones I get called in on. After enough reps (startup, agency, foundation, vendor) four of them show up more than the rest.</p>
 <h2>"The plan assumed someone would build it."</h2>
-
 <p>The most common one. A board approves a strategy. A council passes a program. A foundation commits a grant. Everyone celebrates. Then the strategy goes into a folder and the work of turning it into a functioning operation never actually starts.</p>
-
 <p>I've seen it at startups that closed enterprise deals before they had the onboarding capacity to serve them. I've seen it in agencies that got budget for a new program without the hiring authority or procurement runway to stand it up. I've seen it at foundations where the grant cleared and the grantee assumed the foundation had an implementation plan, and the foundation assumed the grantee did.</p>
-
-<div class="pullquote">The diagnostic isn't <em>what's the strategy</em>. It's <em>who wakes up on Monday owning the build</em>.</div>
-
+<div class="pullquote">The real diagnostic is who wakes up on Monday owning the build.</div>
 <p>If no one can answer that, the program doesn't exist yet, no matter what the vote count was.</p>
-
 <h2>"The old process got copied into the new system."</h2>
-
-<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better, because the broken processes the old technology had calcified got faithfully reproduced in the new one. <strong>The tech changed. The work didn't.</strong></p>
-
+<p>Particular to modernization work, and the most expensive kind of failure because everyone thinks it's a success until they realize it isn't. A legacy system gets replaced. The new platform goes live. The KPIs look clean. But six months in, nothing has actually gotten better, because the broken processes the old technology had calcified got faithfully reproduced in the new one. The tech changed, but the work didn't.</p>
 <p>The tell is usually in the RFP. If the requirements document was written by the people whose job is to protect the existing process, the modernization will deliver exactly what it asked for, which is the problem. The real work of modernization isn't the migration. It's refusing to rebuild the bad processes the old technology was hiding. That refusal is political, not technical, which is why most modernization vendors avoid it.</p>
-
 <h2>"The coalition held until the first handoff."</h2>
-
 <p>Urban work requires coalitions (agencies, vendors, funders, community groups, operators) and coalitions are usually strongest the day they launch and weakest the day the first handoff happens. Someone leaves. A commissioner turns over. A grant cycle ends. An election shifts. The coalition was held together by three specific people and two of them are gone.</p>
-
-<p>This hits foundations especially hard, because philanthropic initiatives often depend on a single program officer who personally convened everyone in the room. <strong>When that program officer moves on, the coalition discovers it was a relationship, not an institution.</strong> The fix isn't "hire better people." It's building durability infrastructure into the initiative from the start: explicit governance, documented commitments, institutional anchors that outlast the individuals.</p>
-
+<p>This hits foundations especially hard, because philanthropic initiatives often depend on a single program officer who personally convened everyone in the room. When that program officer moves on, the coalition discovers it was a relationship, not an institution. The fix isn't "hire better people." It's building durability infrastructure into the initiative from the start: explicit governance, documented commitments, institutional anchors that outlast the individuals.</p>
 <h2>"Everything runs through one person and that person is exhausted."</h2>
-
 <p>The last pattern is the most human. A founder, an executive director, a commissioner, a program lead: someone has become the single point of coordination for a program that's outgrown them. Every question routes to them. Every decision waits for them. The organization is technically bigger than one person but operationally isn't. They know it. They'll tell you over coffee.</p>
-
-<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. <strong>It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives.</strong> They don't need another direct report. They need the system around them to work without them in every room.</p>
-
-<div class="callout">None of these are strategy problems. They're operational problems that look like strategy problems from a distance.</div>
-
-<p>The longer you sit in one, the more expensive it gets to fix.</p>
+<p>I've been that person. I've worked with that person. The fix is almost never what the person thinks it is. It's rarely a hire. It's usually a redesign of how decisions get made and information flows, so the person at the top isn't the only place context lives. They don't need another direct report. They need the system around them to work without them in every room.</p>
+<div class="callout">Every one of these is an operational problem that looks like a strategy problem from a distance.</div>
+<p>They only get more expensive the longer you wait to fix them.</p>
 </div>
-
 <footer class="post-footer">
 <p class="eng-tiles-label">Examples of this work</p>
 <div class="eng-tiles">
 <a class="eng-tile" onclick="goto('engagement-tlc')">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-tlc"></use></svg></div>
 <div class="eng-tile-meta">NYC TLC · Build</div>
 <h4>Building a product practice inside a <em>regulator</em></h4>
 <p class="eng-tile-dek">A ten-person product practice inside a six-hundred-person agency that had never had one. Trust first, capability second, discipline third.</p>
 </a>
 <div class="eng-tile is-placeholder">
-<div class="eng-tile-illo"><svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"/></svg></div>
+<div class="eng-tile-illo"><svg viewbox="0 0 240 160" xmlns="http://www.w3.org/2000/svg"><use href="#m-eng-coming"></use></svg></div>
 <div class="eng-tile-meta">Coming soon</div>
 <h4>More engagements <em>on the way</em></h4>
 <p class="eng-tile-dek">Additional case studies in development.</p>
@@ -4181,30 +3914,25 @@ Principles
 <p class="footer-contact-lede">Want to talk through something <em>like this</em>?</p>
 <a class="footer-contact-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="footer-contact-or">or</span>
-<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer">book a 30-minute call →</a>
+<a class="footer-contact-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank">book a 30-minute call →</a>
 </div>
 <a class="post-back-bottom" onclick="goto('journal')">
 <span>←</span> Back to The Urbanist Operator
 </a>
 </footer>
-
-</div>
-
 </div>
 </div>
-
+</div>
 <!-- ═══════════════ CONTACT ═══════════════ -->
 <div class="page" id="page-contact">
-
 <section class="contact-hero">
 <div class="wrap">
 <div class="kicker">Contact</div>
-<h1>Start a <em>conversation</em>.</h1>
+<h1>Start a conversation.</h1>
 <p class="lede">Thirty minutes. No pitch, no proposal, just honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
-<div class="contact-mark"><svg viewBox="0 0 600 200"><use href="#m-contact-hero"/></svg></div>
+<div class="contact-mark"><svg viewbox="0 0 600 200"><use href="#m-contact-hero"></use></svg></div>
 </div>
 </section>
-
 <div class="wrap">
 <div class="contact-pair">
 <section class="contact-block">
@@ -4212,10 +3940,9 @@ Principles
 <div class="contact-paths">
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <p class="path-or">or</p>
-<a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" target="_blank" rel="noopener noreferrer"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
+<a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
 </div>
 </section>
-
 <section class="contact-expect">
 <div class="colkicker">What to expect</div>
 <div>
@@ -4227,7 +3954,6 @@ Principles
 </div>
 </section>
 </div>
-
 <section class="contact-fit">
 <div class="colkicker">Is this the right call?</div>
 <div class="fit-grid">
@@ -4252,25 +3978,22 @@ Principles
 </div>
 </section>
 </div>
-
 </div>
-
 </main>
-
 <footer class="site">
 <div class="wrap">
 <div class="footer-top">
-<a class="footer-logo" onclick="goto('home')" aria-label="Auringon home">
-<svg viewBox="0 0 951.11 153.43" xmlns="http://www.w3.org/2000/svg">
-<path d="M262.49,101.37h-38.69c-.49,0-.93.31-1.1.77l-6.8,18.63c-.17.46-.61.77-1.1.77h-18.75c-.82,0-1.39-.83-1.09-1.6l35.9-92.72c.17-.45.61-.75,1.09-.75h22.88c.48,0,.92.3,1.09.75l36.21,92.72c.3.77-.27,1.6-1.09,1.6h-19.55c-.49,0-.93-.31-1.1-.77l-6.8-18.63c-.17-.46-.61-.77-1.1-.77ZM230.74,84.89h24.98c.81,0,1.38-.81,1.1-1.57l-12.42-34.15c-.37-1.03-1.82-1.03-2.2,0l-12.56,34.15c-.28.76.28,1.58,1.1,1.58Z"/>
-<path d="M308.43,26.47h16.54c1.04,0,1.89.85,1.89,1.89v55.72c0,16.96,7.84,22.09,20.16,22.09,6.27,0,10.89-.51,15.21-1.18.92-.14,1.59-.94,1.59-1.87V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v88.7c0,.85-.55,1.6-1.37,1.82-8.82,2.38-24.53,4.25-35.76,4.25-21.61,0-40.49-8.16-40.49-34.89V28.36c0-1.04.85-1.89,1.89-1.89Z"/>
-<path d="M428.69,121.54h-16.38c-1.04,0-1.89-.85-1.89-1.89V28.42c0-.93.67-1.74,1.6-1.87,6.84-.99,17.31-1.67,25.45-1.67,24.65,0,39.69,10.72,39.69,32.01,0,12.89-6.88,22.27-16.16,27.22-1,.53-1.25,1.86-.58,2.77l23.46,31.66c.93,1.25.03,3.02-1.52,3.02h-19.27c-.61,0-1.19-.3-1.54-.8l-21.59-30.42c-.35-.5-.93-.8-1.54-.8h-5.93c-1.04,0-1.89.85-1.89,1.89v28.23c0,1.04-.85,1.89-1.89,1.89ZM430.58,70.99c0,1.04.85,1.89,1.89,1.89h4.99c11.52,0,19.05-4.32,19.05-15.36,0-10.24-7.36-15.05-19.05-15.05-1.36,0-3.44.08-5.11.18-1,.06-1.77.89-1.77,1.89v26.44Z"/>
-<path d="M523.29,121.54h-16.54c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89Z"/>
-<path d="M614.81,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"/>
-<path d="M931.58,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"/>
-<path d="M705.89,105.69c3.66,0,7.21-.34,9.87-1.13.8-.24,1.34-.98,1.34-1.81v-23.33c0-1.04.85-1.89,1.89-1.89h16.06c1.04,0,1.89.85,1.89,1.89v35.44c0,.67-.34,1.3-.92,1.64-7.6,4.43-19.69,6.64-30.45,6.64-30.25,0-50.09-18.89-50.09-49.13s20.49-49.13,49.29-49.13c10.53,0,19.78,2.12,27.23,6.36.89.5,1.41,1.46,1.41,2.48,0,3.31,0,10.85,0,15.52,0,1.53-1.73,2.42-2.96,1.52-6.55-4.82-15.32-7.8-24.57-7.8-17.6,0-29.61,12.32-29.61,31.05s12.64,31.69,29.61,31.69Z"/>
-<path d="M800.81,24.87c27.53,0,49.45,20.16,49.45,49.13s-21.93,49.13-49.45,49.13-49.45-20.16-49.45-49.13,21.93-49.13,49.45-49.13ZM800.81,43.12c-16.33,0-28.65,12.16-28.65,30.89s12.32,30.89,28.65,30.89,28.65-12.16,28.65-30.89-12.32-30.89-28.65-30.89Z"/>
-<path d="M76.71,0C34.35,0,0,34.35,0,76.71s34.35,76.71,76.71,76.71,76.71-34.35,76.71-76.71S119.08,0,76.71,0ZM57.91,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99ZM70.91,66.11v2.81c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75c-1.58,0-3.08-.32-4.45-.9s-2.6-1.42-3.63-2.45c-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45s2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v.94ZM76.81,50.09h0c-1.84,0-3.59-.37-5.18-1.05-1.59-.67-3.03-1.65-4.23-2.85-1.2-1.2-2.18-2.64-2.85-4.23-.67-1.59-1.05-3.34-1.05-5.18h0c0-1.84.37-3.59,1.05-5.18.67-1.59,1.65-3.03,2.85-4.23,1.2-1.2,2.64-2.18,4.23-2.85,1.59-.67,3.34-1.05,5.18-1.05h0c1.84,0,3.59.37,5.18,1.05,1.59.67,3.03,1.65,4.23,2.85,1.2,1.2,2.18,2.64,2.85,4.23.67,1.59,1.05,3.34,1.05,5.18h0c0,1.84-.37,3.59-1.05,5.18-.67,1.59-1.65,3.03-2.85,4.23-1.2,1.2-2.64,2.18-4.23,2.85-1.59.67-3.34,1.05-5.18,1.05ZM94.14,80.36c-1.58,0-3.08-.32-4.45-.9-1.37-.58-2.6-1.42-3.63-2.45-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45,1.37-.58,2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v3.75c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75ZM122.05,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99Z"/>
+<a aria-label="Auringon home" class="footer-logo" onclick="goto('home')">
+<svg viewbox="0 0 951.11 153.43" xmlns="http://www.w3.org/2000/svg">
+<path d="M262.49,101.37h-38.69c-.49,0-.93.31-1.1.77l-6.8,18.63c-.17.46-.61.77-1.1.77h-18.75c-.82,0-1.39-.83-1.09-1.6l35.9-92.72c.17-.45.61-.75,1.09-.75h22.88c.48,0,.92.3,1.09.75l36.21,92.72c.3.77-.27,1.6-1.09,1.6h-19.55c-.49,0-.93-.31-1.1-.77l-6.8-18.63c-.17-.46-.61-.77-1.1-.77ZM230.74,84.89h24.98c.81,0,1.38-.81,1.1-1.57l-12.42-34.15c-.37-1.03-1.82-1.03-2.2,0l-12.56,34.15c-.28.76.28,1.58,1.1,1.58Z"></path>
+<path d="M308.43,26.47h16.54c1.04,0,1.89.85,1.89,1.89v55.72c0,16.96,7.84,22.09,20.16,22.09,6.27,0,10.89-.51,15.21-1.18.92-.14,1.59-.94,1.59-1.87V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v88.7c0,.85-.55,1.6-1.37,1.82-8.82,2.38-24.53,4.25-35.76,4.25-21.61,0-40.49-8.16-40.49-34.89V28.36c0-1.04.85-1.89,1.89-1.89Z"></path>
+<path d="M428.69,121.54h-16.38c-1.04,0-1.89-.85-1.89-1.89V28.42c0-.93.67-1.74,1.6-1.87,6.84-.99,17.31-1.67,25.45-1.67,24.65,0,39.69,10.72,39.69,32.01,0,12.89-6.88,22.27-16.16,27.22-1,.53-1.25,1.86-.58,2.77l23.46,31.66c.93,1.25.03,3.02-1.52,3.02h-19.27c-.61,0-1.19-.3-1.54-.8l-21.59-30.42c-.35-.5-.93-.8-1.54-.8h-5.93c-1.04,0-1.89.85-1.89,1.89v28.23c0,1.04-.85,1.89-1.89,1.89ZM430.58,70.99c0,1.04.85,1.89,1.89,1.89h4.99c11.52,0,19.05-4.32,19.05-15.36,0-10.24-7.36-15.05-19.05-15.05-1.36,0-3.44.08-5.11.18-1,.06-1.77.89-1.77,1.89v26.44Z"></path>
+<path d="M523.29,121.54h-16.54c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h16.54c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89Z"></path>
+<path d="M614.81,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"></path>
+<path d="M931.58,86.76V28.36c0-1.04.85-1.89,1.89-1.89h15.74c1.04,0,1.89.85,1.89,1.89v91.28c0,1.04-.85,1.89-1.89,1.89h-16.33c-.62,0-1.2-.3-1.55-.81l-41.54-59.45c-.64-.91-2.07-.46-2.07.65v57.72c0,1.04-.85,1.89-1.89,1.89h-15.74c-1.04,0-1.89-.85-1.89-1.89V28.36c0-1.04.85-1.89,1.89-1.89h17.58c.63,0,1.22.31,1.57.84l40.25,60.08c.62.93,2.08.49,2.08-.63Z"></path>
+<path d="M705.89,105.69c3.66,0,7.21-.34,9.87-1.13.8-.24,1.34-.98,1.34-1.81v-23.33c0-1.04.85-1.89,1.89-1.89h16.06c1.04,0,1.89.85,1.89,1.89v35.44c0,.67-.34,1.3-.92,1.64-7.6,4.43-19.69,6.64-30.45,6.64-30.25,0-50.09-18.89-50.09-49.13s20.49-49.13,49.29-49.13c10.53,0,19.78,2.12,27.23,6.36.89.5,1.41,1.46,1.41,2.48,0,3.31,0,10.85,0,15.52,0,1.53-1.73,2.42-2.96,1.52-6.55-4.82-15.32-7.8-24.57-7.8-17.6,0-29.61,12.32-29.61,31.05s12.64,31.69,29.61,31.69Z"></path>
+<path d="M800.81,24.87c27.53,0,49.45,20.16,49.45,49.13s-21.93,49.13-49.45,49.13-49.45-20.16-49.45-49.13,21.93-49.13,49.45-49.13ZM800.81,43.12c-16.33,0-28.65,12.16-28.65,30.89s12.32,30.89,28.65,30.89,28.65-12.16,28.65-30.89-12.32-30.89-28.65-30.89Z"></path>
+<path d="M76.71,0C34.35,0,0,34.35,0,76.71s34.35,76.71,76.71,76.71,76.71-34.35,76.71-76.71S119.08,0,76.71,0ZM57.91,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99ZM70.91,66.11v2.81c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75c-1.58,0-3.08-.32-4.45-.9s-2.6-1.42-3.63-2.45c-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45s2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v.94ZM76.81,50.09h0c-1.84,0-3.59-.37-5.18-1.05-1.59-.67-3.03-1.65-4.23-2.85-1.2-1.2-2.18-2.64-2.85-4.23-.67-1.59-1.05-3.34-1.05-5.18h0c0-1.84.37-3.59,1.05-5.18.67-1.59,1.65-3.03,2.85-4.23,1.2-1.2,2.64-2.18,4.23-2.85,1.59-.67,3.34-1.05,5.18-1.05h0c1.84,0,3.59.37,5.18,1.05,1.59.67,3.03,1.65,4.23,2.85,1.2,1.2,2.18,2.64,2.85,4.23.67,1.59,1.05,3.34,1.05,5.18h0c0,1.84-.37,3.59-1.05,5.18-.67,1.59-1.65,3.03-2.85,4.23-1.2,1.2-2.64,2.18-4.23,2.85-1.59.67-3.34,1.05-5.18,1.05ZM94.14,80.36c-1.58,0-3.08-.32-4.45-.9-1.37-.58-2.6-1.42-3.63-2.45-1.03-1.03-1.87-2.27-2.45-3.63-.58-1.37-.9-2.87-.9-4.45v-3.75c0-1.58.32-3.08.9-4.45.58-1.37,1.42-2.6,2.45-3.63,1.03-1.03,2.27-1.87,3.63-2.45,1.37-.58,2.87-.9,4.45-.9h3.75c1.58,0,3.08.32,4.45.9s2.6,1.42,3.63,2.45c1.03,1.03,1.87,2.27,2.45,3.63.58,1.37.9,2.87.9,4.45v3.75c0,1.58-.32,3.08-.9,4.45-.58,1.37-1.42,2.6-2.45,3.63-1.03,1.03-2.27,1.87-3.63,2.45s-2.87.9-4.45.9h-3.75ZM122.05,100.87v7.99c0,1.46-.59,2.78-1.55,3.73-.95.95-2.27,1.55-3.73,1.55h-15.98c-1.46,0-2.78-.59-3.73-1.55-.95-.95-1.55-2.27-1.55-3.73v-15.98c0-1.46.59-2.78,1.55-3.73.95-.95,2.27-1.55,3.73-1.55h15.98c1.46,0,2.78.59,3.73,1.55.95.95,1.55,2.27,1.55,3.73v7.99Z"></path>
 </svg>
 </a>
 </div>
@@ -4281,13 +4004,12 @@ Principles
 <div class="footer-links">
 <a href="mailto:hello@auringon.com">hello@auringon.com</a>
 <a onclick="goto('primes')">For primes</a>
-<a href="https://www.linkedin.com/in/jonathaninternicola/" target="_blank" rel="noopener noreferrer">Jonathan on LinkedIn</a>
-<a href="https://www.linkedin.com/company/auringon" target="_blank" rel="noopener noreferrer">Auringon on LinkedIn</a>
+<a href="https://www.linkedin.com/in/jonathaninternicola/" rel="noopener noreferrer" target="_blank">Jonathan on LinkedIn</a>
+<a href="https://www.linkedin.com/company/auringon" rel="noopener noreferrer" target="_blank">Auringon on LinkedIn</a>
 </div>
 </div>
 </div>
 </footer>
-
 <script>
 // Short URL slugs → full page keys. Used for deep-linking (e.g. /#tlc).
 // Long-form keys (engagement-tlc, post-failure-modes) still work too.
@@ -4530,6 +4252,5 @@ navToggle.setAttribute('aria-expanded', 'false');
 });
 }
 </script>
-
 </body>
 </html>
