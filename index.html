@@ -2616,6 +2616,73 @@ transition: color 0.2s ease;
 }
 .inline-link:hover { color: var(--ink); }
 
+/* ——— Editorial polish ———
+   Hanging punctuation: the opening quote mark sits in the margin so the
+   words stay optically aligned with everything above and below. Native
+   hanging-punctuation where supported (Safari); negative indent elsewhere. */
+.engage-entry .quote,
+.offering-head h3 {
+text-indent: -0.42em;
+}
+@supports (hanging-punctuation: first) {
+.engage-entry .quote,
+.offering-head h3 {
+text-indent: 0;
+hanging-punctuation: first;
+}
+}
+
+/* Third-party voice attached to the homepage proof point */
+.example-quote {
+margin: 28px 0 26px;
+padding-left: 20px;
+border-left: 2px solid var(--orange);
+max-width: 560px;
+}
+.example-quote p {
+font-family: 'Instrument Serif', Georgia, serif;
+font-style: italic;
+font-size: 19px;
+line-height: 1.5;
+color: var(--ink-soft);
+text-indent: -0.42em;
+}
+@supports (hanging-punctuation: first) {
+.example-quote p { text-indent: 0; hanging-punctuation: first; }
+}
+.example-quote cite {
+display: block;
+margin-top: 10px;
+font-style: normal;
+font-size: 12px;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+/* Heading rag control and branded selection — quiet, site-wide */
+h1, h2, h3 { text-wrap: balance; }
+.hero-sub, .lede, .tagline, .engage-entry .quote { text-wrap: pretty; }
+::selection { background: var(--orange); color: var(--ink); }
+
+/* One orchestrated moment: the hero settles in on load. Covered by the
+   reduced-motion block below, and scoped here as well for clarity. */
+@media (prefers-reduced-motion: no-preference) {
+.hero .kicker,
+.hero h1,
+.hero .hero-sub,
+.hero-illo {
+animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero h1 { animation-delay: 0.08s; }
+.hero .hero-sub { animation-delay: 0.18s; }
+.hero-illo { animation-delay: 0.3s; }
+}
+@keyframes heroRise {
+from { opacity: 0; transform: translateY(14px); }
+to { opacity: 1; transform: none; }
+}
+
 /* Honor a reader's reduced-motion preference: no smooth scroll, no snap pacing,
    transitions collapse to instant. Invisible unless the OS asks for it. */
 @media (prefers-reduced-motion: reduce) {
@@ -3023,43 +3090,43 @@ transition: color 0.2s ease;
 <div class="colkicker">How engagements start</div>
 <div>
 <div class="engage-list">
-<a class="engage-entry" onclick="gotoSection('work','wk-mandate')">
-<div class="quote">"We have a mandate but no machine."</div>
+<a aria-label="We have a mandate but no machine — go to the Build engagement" class="engage-entry" onclick="gotoSection('work','wk-mandate')">
+<div class="quote">“We have a mandate but no machine.”</div>
 <div class="answer-pair">
 <span class="mark"><svg><use href="#m-mandate"></use></svg></span>
-<div class="answer">Let's build it.<span aria-hidden="true" class="go"> →</span></div>
+<div class="answer">Let’s build it.<span aria-hidden="true" class="go"> →</span></div>
 </div>
 </a>
-<a class="engage-entry" onclick="gotoSection('work','wk-diagnose')">
-<div class="quote">"Something's off and no one can tell us what."</div>
+<a aria-label="Something’s off and no one can tell us what — go to the Diagnose engagement" class="engage-entry" onclick="gotoSection('work','wk-diagnose')">
+<div class="quote">“Something’s off and no one can tell us what.”</div>
 <div class="answer-pair">
 <span class="mark"><svg><use href="#m-break"></use></svg></span>
-<div class="answer">Let's find it.<span aria-hidden="true" class="go"> →</span></div>
+<div class="answer">Let’s find it.<span aria-hidden="true" class="go"> →</span></div>
 </div>
 </a>
-<a class="engage-entry" onclick="gotoSection('work','wk-ship')">
-<div class="quote">"We need to ship this thing."</div>
+<a aria-label="We need to ship this thing — go to the Launch engagement" class="engage-entry" onclick="gotoSection('work','wk-ship')">
+<div class="quote">“We need to ship this thing.”</div>
 <div class="answer-pair">
 <span class="mark"><svg><use href="#m-ship"></use></svg></span>
-<div class="answer">Let's launch it.<span aria-hidden="true" class="go"> →</span></div>
+<div class="answer">Let’s launch it.<span aria-hidden="true" class="go"> →</span></div>
 </div>
 </a>
-<a class="engage-entry" onclick="gotoSection('work','wk-fractional')">
-<div class="quote">"Everything runs through me and I'm drowning."</div>
+<a aria-label="Everything runs through me — go to the Fractional engagement" class="engage-entry" onclick="gotoSection('work','wk-fractional')">
+<div class="quote">“Everything runs through me and I’m drowning.”</div>
 <div class="answer-pair">
 <span class="mark"><svg><use href="#m-share"></use></svg></span>
-<div class="answer">Let's share the load.<span aria-hidden="true" class="go"> →</span></div>
+<div class="answer">Let’s share the load.<span aria-hidden="true" class="go"> →</span></div>
 </div>
 </a>
-<a class="engage-entry" onclick="gotoSection('work','wk-advisory')">
-<div class="quote">"I just need a gut check."</div>
+<a aria-label="I just need a gut check — go to the Advisory engagement" class="engage-entry" onclick="gotoSection('work','wk-advisory')">
+<div class="quote">“I just need a gut check.”</div>
 <div class="answer-pair">
 <span class="mark"><svg><use href="#m-gut"></use></svg></span>
-<div class="answer">Let's talk through it.<span aria-hidden="true" class="go"> →</span></div>
+<div class="answer">Let’s talk through it.<span aria-hidden="true" class="go"> →</span></div>
 </div>
 </a>
 </div>
-<p class="engage-aside">Consulting firm holding the contract? The same work subs in through you. <a class="inline-link" onclick="goto('primes')">For primes →</a></p>
+<p class="engage-aside">Consulting firm holding the contract? I sub in through you. <a class="inline-link" onclick="goto('primes')">For primes →</a></p>
 </div>
 </div>
 </section>
@@ -3083,6 +3150,10 @@ Example of my work
 <path d="M94,124 C86,96 108,78 130,80 C152,82 164,98 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="0.9"></path>
 </svg></div>
 <p>Hired to run analytics for the agency that regulates NYC's taxi industry. Left behind a product practice, the first the agency had.</p>
+<blockquote class="example-quote">
+<p>“His technical knowledge and ability to explain new concepts in plain language were insightful for senior management.”</p>
+<cite>Amit Agarwal · Chief Information Officer, NYC TLC</cite>
+</blockquote>
 <a class="feature-link" onclick="goto('engagement-tlc')">Read the full story <span>→</span></a>
 </div>
 </div>
@@ -3091,14 +3162,14 @@ Example of my work
 <div class="wrap">
 <div class="home-contact-header">
 <div class="kicker">Get in touch</div>
-<h2>If you'd rather just talk.</h2>
+<h2>If you’d rather just talk.</h2>
 </div>
 <div class="home-contact-body">
 <div aria-hidden="true" class="home-contact-illo">
 <svg viewbox="0 0 600 200" xmlns="http://www.w3.org/2000/svg"><use href="#m-contact-hero"></use></svg>
 </div>
 <div class="home-contact-paths">
-<p class="home-contact-tag">Thirty minutes. No pitch, no proposal, just honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
+<p class="home-contact-tag">Thirty minutes. No pitch, no proposal, just honest talk about whether there’s a fit, and a pointer elsewhere if there isn’t.</p>
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
 <a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
@@ -3140,7 +3211,7 @@ Example of my work
 <div class="offering" id="wk-mandate">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-mandate"></use></svg></span>
-<h3>"We have a mandate but no machine."</h3>
+<h3>“We have a mandate but no machine.”</h3>
 </div>
 <p class="tagline">Build the team and systems to run it.</p>
 <p>You have the approval (funding, a policy, a board decision) but nothing built yet. I design what needs to exist from scratch: the team, the processes, the systems. Then build it with you, so it keeps running after the engagement ends.</p>
@@ -3150,7 +3221,7 @@ Example of my work
 <div class="offering" id="wk-diagnose">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-break"></use></svg></span>
-<h3>"Something's off and no one can tell us what."</h3>
+<h3>“Something’s off and no one can tell us what.”</h3>
 </div>
 <p class="tagline">Find the real problem, not the obvious one.</p>
 <p>Costs climbing, service degrading, customers leaving, but the root cause isn't clear. I work through your operations, systems, and data to find where it's actually breaking, then hand back a clear path forward.</p>
@@ -3159,7 +3230,7 @@ Example of my work
 <div class="offering" id="wk-ship">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-ship"></use></svg></span>
-<h3>"We need to ship this thing."</h3>
+<h3>“We need to ship this thing.”</h3>
 </div>
 <p class="tagline">Own the build, hit the deadline, hand it off.</p>
 <p>There's a specific thing that needs to exist inside your operation (a feature, a pilot, a system) and a date it needs to exist by. I embed with your team, own the build, and step back once it's live. Not restructuring how you work, just delivering one piece and moving on.</p>
@@ -3174,7 +3245,7 @@ Example of my work
 <div class="offering" id="wk-fractional">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-share"></use></svg></span>
-<h3>"Everything runs through me and I'm drowning."</h3>
+<h3>“Everything runs through me and I’m drowning.”</h3>
 </div>
 <p class="tagline">Senior operator in the room, part-time.</p>
 <p>I step in as a temporary COO, CPO, or Chief of Staff, whatever the gap is. You get a senior operator who picks up context quickly, handles what comes up across the business, and improves how things run while they're there. At the end of the engagement, you have a stronger team, not a hole where the role was.</p>
@@ -3183,7 +3254,7 @@ Example of my work
 <div class="offering" id="wk-advisory">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-gut"></use></svg></span>
-<h3>"I just need a gut check."</h3>
+<h3>“I just need a gut check.”</h3>
 </div>
 <p class="tagline">Someone who's worked through it before, not just an opinion.</p>
 <p>You keep running things. I'm someone to think out loud with before you commit. Standing calls and email access with someone who's worked through similar decisions from the operator's seat. Useful when you're the most senior person in the room on a specific problem and want a check from someone who's been there.</p>
@@ -3244,7 +3315,7 @@ Example of my work
 <div class="offering" id="pr-build">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-primes-build"></use></svg></span>
-<h3>"We need someone who can lead the build."</h3>
+<h3>“We need someone who can lead the build.”</h3>
 </div>
 <p class="tagline">Embedded with your team to run a defined piece of the engagement.</p>
 <p>Part of the deliverable is a working pilot, a service redesign, or a new operational capability. Your team is strong on strategy or design, but doesn't have a senior operator who's built that kind of thing inside a public institution before. I embed with your team and lead that specific build.</p>
@@ -3253,7 +3324,7 @@ Example of my work
 <div class="offering" id="pr-diagnose">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-primes-connect"></use></svg></span>
-<h3>"We need someone who can connect the dots."</h3>
+<h3>“We need someone who can connect the dots.”</h3>
 </div>
 <p class="tagline">Data product thinking, applied to the client's operation.</p>
 <p>Your team has the technical bench, but the picture of the client's operation is fragmented across data sources, teams, and tools. They can do the analysis. What's missing is someone to bridge the data, the operation, and the decisions that should follow. I work between those layers: making sense of the data the client already has, joining it to how the operation runs, and turning that into a picture your team can act on.</p>
@@ -3261,7 +3332,7 @@ Example of my work
 <div class="offering" id="pr-embedded">
 <div class="offering-head">
 <span class="mark"><svg><use href="#m-primes-inside"></use></svg></span>
-<h3>"We need someone who knows how government actually runs."</h3>
+<h3>“We need someone who knows how government actually runs.”</h3>
 </div>
 <p class="tagline">An operator who's been inside, embedded with your team.</p>
 <p>The institutional dynamics matter as much as the technical scope. Your team has the substantive expertise but lacks someone who's actually run things inside government, and that perspective has to be in the room. You bring me on for the duration: I sit in client meetings, review deliverables for institutional realism, advise your team on what will and won't land, and help shape the approach so it works for the agency.</p>
@@ -3921,7 +3992,7 @@ Principles
 <div class="wrap">
 <div class="kicker">Contact</div>
 <h1>Start a conversation.</h1>
-<p class="lede">Thirty minutes. No pitch, no proposal, just honest talk about whether there's a fit, and a pointer elsewhere if there isn't.</p>
+<p class="lede">Thirty minutes. No pitch, no proposal, just honest talk about whether there’s a fit, and a pointer elsewhere if there isn’t.</p>
 <div class="contact-mark"><svg viewbox="0 0 600 200"><use href="#m-contact-hero"></use></svg></div>
 </div>
 </section>
