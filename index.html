@@ -514,6 +514,25 @@ white-space: nowrap;
 a.engage-entry {
 text-decoration: none;
 cursor: pointer;
+position: relative;
+z-index: 0;
+}
+/* Soft row wash on hover: a faint terracotta field behind the whole row,
+   bleeding slightly past the text column. Sits beneath the text via
+   negative z-index inside the entry's own stacking context. */
+a.engage-entry::before {
+content: '';
+position: absolute;
+inset: 0 -20px;
+background: var(--terracotta);
+opacity: 0;
+transition: opacity 0.2s ease;
+pointer-events: none;
+z-index: -1;
+}
+a.engage-entry:hover::before,
+a.engage-entry:focus-visible::before {
+opacity: 0.06;
 }
 a.engage-entry .answer .go {
 display: inline-block;
