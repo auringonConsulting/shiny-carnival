@@ -2655,8 +2655,8 @@ body { text-rendering: optimizeLegibility; }
 .serif, .hero h1, h1, h2 { font-feature-settings: "kern", "liga"; }
 
 /* Selecting text reads as a deliberate brand moment, not the default browser blue. */
-::selection { background: rgba(188, 97, 49, 0.20); }
-::-moz-selection { background: rgba(188, 97, 49, 0.20); }
+::selection { background: rgba(188, 97, 49, 0.12); }
+::-moz-selection { background: rgba(188, 97, 49, 0.12); }
 
 /* A quiet, on-brand focus ring for keyboard navigation — finish and accessibility
    in one. Mouse clicks don't trigger it (:focus-visible), so it never intrudes. */
@@ -2679,6 +2679,10 @@ cursor: pointer;
 transition: color 0.2s ease;
 }
 .inline-link:hover { color: var(--ink); }
+/* The journal-line link is a full article title — far too long to hold on
+   one line on phones. Let it wrap; the nowrap above stays for the short
+   inline links it was designed for (e.g. "I sub in through you."). */
+.journal-line .inline-link { white-space: normal; }
 
 /* ——— Editorial polish ———
    Hanging punctuation: the opening quote mark sits in the margin so the
@@ -2728,7 +2732,11 @@ color: var(--muted);
 /* Heading rag control and branded selection — quiet, site-wide */
 h1, h2, h3 { text-wrap: balance; }
 .hero-sub, .lede, .tagline, .engage-entry .quote { text-wrap: pretty; }
-::selection { background: var(--orange); color: var(--ink); }
+/* Selection: the same faint terracotta wash as the engagement-row hover,
+   nudged up slightly in alpha so a selection stays findable on the page
+   (the hover's 6% reads fine as a row field but vanishes word-by-word). */
+::selection { background: rgba(188, 97, 49, 0.12); }
+::-moz-selection { background: rgba(188, 97, 49, 0.12); }
 
 /* One orchestrated moment: the hero settles in on load. Covered by the
    reduced-motion block below, and scoped here as well for clarity. */
