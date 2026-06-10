@@ -422,7 +422,7 @@ letter-spacing: 0;
 text-transform: none;
 font-weight: 400;
 color: var(--ink);
-line-height: 1.2;
+line-height: 28px;
 }
 #page-home section.block--invert .two-col .colkicker {
 color: var(--paper);
@@ -473,8 +473,7 @@ max-width: 620px;
 max-width: 820px;
 }
 .engage-entry {
-padding: 34px 0;
-border-bottom: 1px solid var(--rule);
+padding: 22px 0;
 display: grid;
 grid-template-columns: 1fr auto;
 gap: 32px;
@@ -534,10 +533,11 @@ a.engage-entry:hover::before,
 a.engage-entry:focus-visible::before {
 opacity: 0.06;
 }
-/* First and last rows carry no outer padding (list alignment), so their
-   washes extend outward to match the middle rows' cell proportions. */
-a.engage-entry:first-child::before { top: -30px; }
-a.engage-entry:last-child::before { bottom: -30px; }
+/* Edge rows carry no outer padding (list alignment), so their washes
+   extend outward to match the middle rows' cell proportions. */
+a.engage-entry:first-child::before { top: -22px; }
+a.engage-entry:last-child::before { bottom: -22px; }
+
 a.engage-entry .answer .go {
 display: inline-block;
 opacity: 0;
@@ -566,9 +566,7 @@ line-height: 1.5;
 color: var(--muted);
 }
 .engage-aside {
-border-top: 1px dotted rgba(58, 58, 58, 0.35);
-padding-top: 18px;
-margin-top: 44px;
+margin-top: 40px;
 font-size: 15px;
 line-height: 1.5;
 color: var(--muted);
@@ -2676,13 +2674,11 @@ transition: color 0.2s ease;
    Hanging punctuation: the opening quote mark sits in the margin so the
    words stay optically aligned with everything above and below. Native
    hanging-punctuation where supported (Safari); negative indent elsewhere. */
-.engage-entry .quote,
 .offering-head h3,
 h2.hq {
 text-indent: -0.42em;
 }
 @supports (hanging-punctuation: first) {
-.engage-entry .quote,
 .offering-head h3,
 h2.hq {
 text-indent: 0;
@@ -3195,7 +3191,7 @@ to { opacity: 1; transform: none; }
 </div>
 </a>
 </div>
-<p class="engage-aside">Consulting firm holding the contract? I sub in through you. <a class="inline-link" onclick="goto('primes')">For primes →</a></p>
+<p class="engage-aside">Consulting firm holding the contract? <a class="inline-link" onclick="goto('primes')">I sub in through you.</a></p>
 </div>
 </div>
 </section>
