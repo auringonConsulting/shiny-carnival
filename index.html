@@ -2687,15 +2687,13 @@ h1, h2, h3 { text-wrap: balance; }
 /* One orchestrated moment: the hero settles in on load. Covered by the
    reduced-motion block below, and scoped here as well for clarity. */
 @media (prefers-reduced-motion: no-preference) {
-.hero .kicker,
 .hero h1,
 .hero .hero-sub,
 .hero-illo {
 animation: heroRise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-.hero h1 { animation-delay: 0.08s; }
-.hero .hero-sub { animation-delay: 0.18s; }
-.hero-illo { animation-delay: 0.3s; }
+.hero .hero-sub { animation-delay: 0.1s; }
+.hero-illo { animation-delay: 0.22s; }
 }
 @keyframes heroRise {
 from { opacity: 0; transform: translateY(14px); }
@@ -3096,9 +3094,8 @@ to { opacity: 1; transform: none; }
 <div class="page active" id="page-home">
 <section class="hero">
 <div class="wrap">
-<div class="kicker">Jonathan Internicola's consulting practice for urban systems</div>
 <h1>From intent to operation.</h1>
-<p class="hero-sub">Auringon <em class="pronounce">(OW&#8209;ring&#8209;gon)</em> builds the machinery underneath: the teams, processes, and platforms that make urban systems run in the real world, not just on paper.</p>
+<p class="hero-sub">Auringon <em class="pronounce">(OW&#8209;ring&#8209;gon)</em> is the consulting practice of Jonathan Internicola, building the teams, processes, and platforms that make urban systems run in the real world, not just on paper.</p>
 <div class="hero-illo">
 <svg viewbox="0 0 600 200"><use href="#m-hero-gap"></use></svg>
 </div>
