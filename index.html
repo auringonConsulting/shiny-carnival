@@ -1560,7 +1560,7 @@ html{scroll-behavior:auto;}
 <p class="sub"><span class="brandname">Auringon</span> is the consulting practice of Jonathan Internicola. We build the operation behind the plan, then leave it running without us.</p>
 <p class="seats">Built on a decade as the operator: COO inside startups, executive inside city agencies, vendor inside government, a hand in the standards cities run on.</p>
 </div>
-<button class="cue" onclick="document.getElementById('fork').scrollIntoView({behavior:'smooth',block:'start'})" type="button"><span class="a">↓</span> For founders, funders, and consultancies</button>
+<button class="cue" onclick="scrollBelowNav(document.getElementById('fork'))" type="button"><span class="a">↓</span> For founders, funders, and consultancies</button>
 </section>
 
 <!-- ═══════════ EXAMPLE OF MY WORK ═══════════ -->
@@ -2713,6 +2713,27 @@ btn.setAttribute('aria-expanded',open?'true':'false');
 })();
 
 // Fork: pick one door at a time; its detail opens beneath the row
+// Sticky-nav-aware scrolling: scrollIntoView doesn't know the nav is there,
+// so a target's top can land underneath it (most visible on small screens,
+// where the door panels are taller than the viewport). Same measured-offset
+// idiom as the in-post anchor links.
+function navOffset(){
+var nav=document.getElementById('nav');
+return (nav?nav.getBoundingClientRect().height:70)+16;
+}
+function scrollBelowNav(el){
+window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-navOffset(),behavior:'smooth'});
+}
+// block:'nearest', but with the nav as the true top edge: no scroll if the
+// element is fully visible, minimal scroll otherwise.
+function scrollIntoViewBelowNav(el){
+var r=el.getBoundingClientRect(),top=navOffset();
+if(r.top<top){scrollBelowNav(el);}
+else if(r.bottom>window.innerHeight){
+window.scrollTo({top:window.scrollY+Math.min(r.bottom-window.innerHeight+16,r.top-top),behavior:'smooth'});
+}
+}
+
 function selectDoor(which){
 var card=document.getElementById('card-'+which);
 var detail=document.getElementById('detail-'+which);
@@ -2729,7 +2750,7 @@ if(!wasOpen){
 card.classList.add('selected');
 card.setAttribute('aria-expanded','true');
 detail.classList.add('open');
-requestAnimationFrame(function(){detail.scrollIntoView({behavior:'smooth',block:'nearest'});});
+requestAnimationFrame(function(){scrollIntoViewBelowNav(detail);});
 }
 }
 
@@ -2746,7 +2767,7 @@ setWays();
 // Close a door from the bottom of its panel and return to the fork
 function closeDoor(which){
 selectDoor(which);
-document.getElementById('fork').scrollIntoView({behavior:'smooth',block:'start'});
+scrollBelowNav(document.getElementById('fork'));
 }
 
 // Single-file views: home and offerings (footer-linked)
