@@ -51,7 +51,7 @@ nav.top.scrolled{border-bottom-color:var(--rule);}
    the session. Lives inside #view-home, so it greets arrivals on the
    landing view and leaves the other views' paper clean. Painted by paint_strips.py — same palette and
    glaze math as the OG card. To deploy: upload skywash.jpg next to
-   og-image-2.jpg and swap the data URI below for url("skywash.jpg"). */
+   og-image-2.jpg and swap the data URI below for url("/skywash.jpg"). */
 .arrival-wash{
 position:absolute;top:0;left:0;right:0;height:min(68vh,560px);
 z-index:-1;pointer-events:none;
