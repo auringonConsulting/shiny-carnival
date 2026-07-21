@@ -9,9 +9,9 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
     /about/                                    About
     /offerings/                                Approach & Offerings  (#shapes anchor)
     /journal/                                  The Urbanist Operator
-    /journal/four-ways-urban-work-fails/       Post, May 2026
-    /journal/container-moves/                  Post, April 2026
-    /journal/the-working-layer/                Post, March 2026
+    /journal/four-ways-urban-work-fails/       Post, July 2026
+    /journal/container-moves/                  Post, June 2026
+    /journal/the-working-layer/                Post, May 2026
     /work/building-a-product-practice/         TLC case study
     /work/shipping-a-new-service-line/         Bandwagon case study
     /work/growing-an-account-from-the-inside/  Ad Hoc case study
@@ -46,3 +46,32 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - Add the property to Google Search Console and submit /sitemap.xml.
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
+
+## July 21, 2026 revision
+
+Changes from the feedback round:
+
+- Door cards: hairline borders and a hover lift; the bare arrow became each
+  panel's own question ("Where do you need help?" and kin) with a plus that
+  turns to a × when open. door_open analytics unchanged.
+- Homepage order is now hero → doors → example → contact. The doors section
+  carries the terracotta wash; the example block is back to paper.
+- New page: /work/, a journal-format index of the three case studies, with
+  role lines (Chief Operating Officer · Bandwagon, etc.) as each entry's
+  meta. Footer gained a Work link on every page; sitemap updated.
+- The /work/ hero glyph is an inuksuk that builds course by course on load,
+  sun first. The Ad Hoc engagement mark was redrawn as a two-tone cairn with
+  a squash-and-stretch cycle (shared verbatim between its case page and the
+  index).
+- Offerings: the eight linear shape rows became two 2×2 tile grids (Direct,
+  On team) with four new shape illustrations; same copy, canonical order.
+- Engagement models renamed: "On team" is now "Through a prime" (group
+  head, group line, and the JSON-LD catalog). The second grid renders as a
+  compact reprise: same shapes, no illustrations, half the visual weight.
+
+Voice system, final: we sells outcomes and follows Auringon's name; Jonathan,
+then he, sells the seat (prime-facing surfaces) and tells the record; I
+survives only under a byline (the Journal, and the case studies via "As told
+by Jonathan") and in clients' quoted words. Record is simple past, standing
+experience present perfect, the offer simple present. The COO kicker on the
+Bandwagon case is now spelled out.
