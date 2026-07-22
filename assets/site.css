@@ -1476,7 +1476,9 @@ transition:color .2s ease,border-color .2s ease;
 justify-content:center;
 border-top:none;
 background:rgba(123,157,163,0.10);
-margin:56px -40px 0;
+/* full-bleed from inside the wrap: the case closings sit outside it, so their
+   -40px reaches the viewport; this reaches it from within, at every width */
+margin:56px calc(50% - 50vw) 0;
 padding:44px 40px 42px;
 }
 .footer-contact-glyph{flex:1 1 100%;width:200px;max-width:60%;margin:0 auto 6px;}
@@ -1489,7 +1491,7 @@ padding:44px 40px 42px;
 .footer-contact-glyph svg circle{animation:talkQuietB 6.8s cubic-bezier(0.37,0,0.63,1) infinite both;}
 }
 @media (max-width:800px){
-.post-footer .footer-contact{margin:48px -24px 0;padding:36px 24px 34px;}
+.post-footer .footer-contact{margin-top:48px;padding:36px 24px 34px;}
 }
 
 /* keyboard parity: focus gets what hover and press already get —

@@ -47,6 +47,18 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## July 22, 2026 revision (7)
+
+Journal wash, corrected to a true band: revision (4) matched the case
+closings' bleed numbers (-40px) but not their structural position — the case
+band sits outside the 960 wrap and reaches the viewport at every width; the
+journal wash sits inside it, so above ~1040px it capped at the wrap and read
+as a box floating on paper. The wash now bleeds with margin
+calc(50% - 50vw), which reaches the viewport edges from within the wrap at
+every width; the global overflow-x clip absorbs the scrollbar sliver the
+trick can produce on Windows. Below 1040px nothing changes, which is why the
+box never showed on laptop or phone. Changed: /assets/site.css.
+
 ## July 22, 2026 revision (6)
 
 Accessibility polish, none of it visible to a mouse or a finger: a skip-to-
