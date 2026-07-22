@@ -176,3 +176,10 @@ geometry sentence added to the direct group, Build and Number lines made
 audience-neutral (page and JSON-LD). Sitemap lastmod bumped for / and
 /offerings/. The voice guide's Doors row and funder tone row still need
 updating to match (the guide lives outside this repo).
+Second pass, same day: Read gained its two-week bound, Number its
+"paid on performance" closer, Activation rewritten to the door's build
+commitment and earnings-based pay (page and JSON-LD).
+Group lines extended: the funder geometry sentence on the direct group,
+and the consultancy line now carries the seat's range and the account
+reassurance ("Put me on the bid, the delivery, or the handoff between
+them. The account stays yours.").
