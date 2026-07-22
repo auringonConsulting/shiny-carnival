@@ -3,7 +3,7 @@
 --paper:#f1f2da;
 --ink:#3a3a3a;
 --ink-soft:#4a4a44;
---muted:#6e6f5c;
+--muted:#656654;
 --rule:rgba(58,58,58,0.14);
 --rule-soft:rgba(58,58,58,0.08);
 --terracotta:#bc6131;
@@ -30,6 +30,16 @@ a{color:inherit;}
 ::-moz-selection{background:rgba(188,97,49,0.12);}
 .serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400;}
 p,.hero-sub{text-wrap:pretty;}
+
+/* skip link: off-screen until it's the thing you need */
+.skip-link{
+position:absolute;left:-9999px;top:0;z-index:100;
+background:var(--ink);color:var(--paper);
+font-family:'Instrument Sans',sans-serif;font-size:14px;
+padding:10px 18px;border-radius:0 0 4px 0;text-decoration:none;
+}
+.skip-link:focus{left:0;}
+main:focus{outline:none;}
 
 /* ——— Nav ——— */
 nav.top{
@@ -294,6 +304,12 @@ stroke-linecap:round;transition:transform .3s var(--ease-out);
 .illo-prime .s4{animation:stoneStep 2.8s cubic-bezier(0.37,0,0.63,1) .6s infinite both;animation-play-state:paused;}
 .door-card:hover .stone-top,.door-card:hover .dolmen-sun,
 .door-card:hover .s1,.door-card:hover .s2,.door-card:hover .s3,.door-card:hover .s4{animation-play-state:running;}
+}
+/* on touch there is no hover: site.js marks the door nearest the middle of
+   the screen .in-view, and only that scene runs */
+@media (hover: none) and (prefers-reduced-motion: no-preference){
+.door-card.in-view .stone-top,.door-card.in-view .dolmen-sun,
+.door-card.in-view .s1,.door-card.in-view .s2,.door-card.in-view .s3,.door-card.in-view .s4{animation-play-state:running;}
 }
 
 .door-framing{font-size:18px;line-height:1.6;color:var(--ink);margin-bottom:8px;max-width:680px;}
@@ -1180,6 +1196,9 @@ padding-right: 24px;
 section.closing {
 padding: 120px 0 140px;
 }
+/* the closing sits on the reader's column, not the wrap's edge — every other
+   element on an essay page lives on the centered 680, and so should the goodbye */
+section.closing .wrap { max-width: 680px; }
 section.closing--tint {
 background: rgba(123, 157, 163, 0.10);
 margin: 0 -40px;
@@ -1429,3 +1448,56 @@ html{scroll-behavior:auto;}
 /* spotlight: attention on one entry, the others recede — the doors' rule, on hover */
 .post-list:has(.post-item:hover) .post-item:not(:hover){opacity:.6;}
 .post-list:has(.post-item-link:focus-visible) .post-item:not(:has(.post-item-link:focus-visible)){opacity:.6;}
+
+/* the read-more line: the case-link idiom, decorative — the whole card is already the link */
+.post-item .post-more{
+display:inline-flex;align-items:center;gap:7px;margin-top:14px;
+font-family:'Instrument Sans',sans-serif;font-size:14px;color:var(--muted);
+border-bottom:1px solid var(--rule);padding-bottom:2px;
+transition:color .2s ease,border-color .2s ease;
+}
+.post-item .post-more .arr{transition:transform .25s ease;}
+.post-item:hover .post-more,
+.post-item:active .post-more{color:var(--terracotta);border-color:var(--terracotta);}
+.post-item:hover .post-more .arr,
+.post-item:active .post-more .arr{transform:translateX(3px);}
+/* touch feedback: a press gets what desktop gets on hover */
+.post-item{-webkit-tap-highlight-color:transparent;}
+.post-item:active h3{color:var(--terracotta);}
+.post-list:has(.post-item:active) .post-item:not(:active){opacity:.6;}
+
+/* The closing vignette: a journal post now ends the way the case studies
+   already do — stepping onto the sky ground for the goodbye. The scene is
+   the homepage conversation reused small (same stone, same sun), on the
+   ambient tier: slower and shallower than the homepage's hover version,
+   breathing rather than performing. */
+.post-footer:has(.footer-contact){max-width:none;}
+.post-footer .footer-contact{
+justify-content:center;
+border-top:none;
+background:rgba(123,157,163,0.10);
+margin:56px -40px 0;
+padding:44px 40px 42px;
+}
+.footer-contact-glyph{flex:1 1 100%;width:200px;max-width:60%;margin:0 auto 6px;}
+.footer-contact-glyph svg{width:100%;height:auto;display:block;overflow:visible;}
+.footer-contact-glyph svg path,.footer-contact-glyph svg circle{transform-origin:center;transform-box:fill-box;}
+@keyframes talkQuietA{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+@keyframes talkQuietB{0%,100%{transform:translateY(0);}62%{transform:translateY(-4.5px);}}
+@media (prefers-reduced-motion: no-preference){
+.footer-contact-glyph svg path{animation:talkQuietA 5s cubic-bezier(0.37,0,0.63,1) infinite both;}
+.footer-contact-glyph svg circle{animation:talkQuietB 6.8s cubic-bezier(0.37,0,0.63,1) infinite both;}
+}
+@media (max-width:800px){
+.post-footer .footer-contact{margin:48px -24px 0;padding:36px 24px 34px;}
+}
+
+/* keyboard parity: focus gets what hover and press already get —
+   the terracotta title, the read-more waking, the stones too */
+.post-item:has(.post-item-link:focus-visible) h3{color:var(--terracotta);}
+.post-item:has(.post-item-link:focus-visible) .post-more{color:var(--terracotta);border-color:var(--terracotta);}
+.post-item:has(.post-item-link:focus-visible) .post-more .arr{transform:translateX(3px);}
+.post-item:has(.post-item-link:focus-visible) .th-bob,
+.post-item:has(.post-item-link:focus-visible) .th-step,
+.post-item:has(.post-item-link:focus-visible) .post-illo-thumb .amb,
+.post-item:has(.post-item-link:focus-visible) .post-illo-thumb .sq{animation-play-state:running;}

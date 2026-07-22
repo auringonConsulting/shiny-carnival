@@ -110,6 +110,45 @@ var fork=document.getElementById('fork');
 if(fork)scrollBelowNav(fork);
 }
 
+// Doors on touch: hover can't wake the scenes, so the scroll position does.
+// The door nearest the middle of the screen runs; the others hold still —
+// the doors' rule (attention on one, the rest recede), with the thumb for a
+// cursor. Desktop never attaches the listener; reduced motion is handled in
+// the CSS, where the animations live.
+(function(){
+var hoverless=window.matchMedia('(hover: none)');
+var doors=document.querySelectorAll('.door-card');
+if(!doors.length)return;
+var ticking=false,attached=false;
+function update(){
+ticking=false;
+var vc=window.innerHeight/2,best=null,bestD=Infinity;
+doors.forEach(function(d){
+var r=d.getBoundingClientRect();
+if(r.bottom<=0||r.top>=window.innerHeight){d.classList.remove('in-view');return;}
+var dist=Math.abs((r.top+r.bottom)/2-vc);
+if(dist<bestD){bestD=dist;best=d;}
+});
+doors.forEach(function(d){d.classList.toggle('in-view',d===best);});
+}
+function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(update);}}
+function setSpy(){
+if(hoverless.matches&&!attached){
+attached=true;
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',onScroll,{passive:true});
+update();
+}else if(!hoverless.matches&&attached){
+attached=false;
+window.removeEventListener('scroll',onScroll);
+window.removeEventListener('resize',onScroll);
+doors.forEach(function(d){d.classList.remove('in-view');});
+}
+}
+if(hoverless.addEventListener){hoverless.addEventListener('change',setSpy);}else{hoverless.addListener(setSpy);}
+setSpy();
+})();
+
 // Email + booking: copy the address as a visible fallback (mail handlers are
 // blocked in some previews), and name both moments for analytics.
 (function(){
@@ -159,6 +198,54 @@ else{form.submit();}
 (function(){
 var links=Array.prototype.slice.call(document.querySelectorAll('a[data-target]'));
 if(links.length){
+// Chapter bar: keep the active chip in view. The bar scrolls sideways with
+// its scrollbar hidden, so an off-screen active chip simply vanishes. Center
+// the chip whenever the active chapter changes — but hands off while a
+// finger is on the bar, and no animation for reduced-motion readers.
+// Scrolls the bar element only (never scrollIntoView, which can drag the
+// page along with it).
+var bar=document.querySelector('.mobile-jump ul');
+var barHeld=false,holdT,quietUntil=0;
+// The browser's native smooth scroll is brisk; the bar deserves the site's
+// calmer pace. Glide with a sine ease over a distance-scaled duration, so
+// short nudges stay quick and long moves settle in gently. A newer glide,
+// or a finger on the bar, supersedes the one in flight.
+var glideId=0;
+function glideBar(to){
+var from=bar.scrollLeft,dist=to-from;
+if(Math.abs(dist)<2){bar.scrollLeft=to;return;}
+var dur=Math.min(700,Math.max(320,Math.abs(dist)*1.1));
+var start=null,id=++glideId;
+function step(ts){
+if(id!==glideId)return;
+if(start===null)start=ts;
+var p=Math.min(1,(ts-start)/dur);
+bar.scrollLeft=from+dist*(0.5-0.5*Math.cos(Math.PI*p));
+if(p<1)requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
+}
+if(bar){
+['touchstart','pointerdown'].forEach(function(ev){
+bar.addEventListener(ev,function(){barHeld=true;clearTimeout(holdT);glideId++;},{passive:true});
+});
+['touchend','touchcancel','pointerup','pointercancel'].forEach(function(ev){
+bar.addEventListener(ev,function(){clearTimeout(holdT);holdT=setTimeout(function(){barHeld=false;},400);},{passive:true});
+});
+}
+function centerChip(target,force){
+if(!bar)return;
+if(!force&&(barHeld||Date.now()<quietUntil))return;
+var chip=bar.querySelector('a[data-target="'+target+'"]');
+if(!chip)return;
+var br=bar.getBoundingClientRect(),cr=chip.getBoundingClientRect();
+if(!br.width)return; // bar is display:none (desktop)
+var left=bar.scrollLeft+(cr.left-br.left)-(br.width-cr.width)/2;
+left=Math.max(0,Math.min(left,bar.scrollWidth-bar.clientWidth));
+var smooth=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+if(smooth){glideBar(left);}
+else{bar.scrollLeft=left;}
+}
 function go(link,e){
 if(e)e.preventDefault();
 var t=document.getElementById(link.getAttribute('data-target'));
@@ -167,6 +254,11 @@ var offset=navOffset();
 var jump=document.querySelector('.mobile-jump');
 if(jump&&getComputedStyle(jump).display!=='none')offset+=jump.getBoundingClientRect().height;
 window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-offset,behavior:'smooth'});
+// Center the destination chip now rather than letting the spy chase the
+// page through every chapter in between; keep the spy's hands off the bar
+// while the page glides.
+centerChip(link.getAttribute('data-target'),true);
+quietUntil=Date.now()+900;
 }
 links.forEach(function(l){
 l.setAttribute('tabindex','0');
@@ -174,14 +266,23 @@ l.setAttribute('role','link');
 l.addEventListener('click',function(e){go(l,e);});
 l.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' ')go(l,e);});
 });
-window.addEventListener('scroll',function(){
+var lastActive=null;
+function spy(){
 var trigger=window.innerHeight*0.3,active=null;
 links.forEach(function(l){
 var t=document.getElementById(l.getAttribute('data-target'));
 if(t&&t.getBoundingClientRect().top<=trigger)active=l.getAttribute('data-target');
 });
 links.forEach(function(l){l.classList.toggle('active',l.getAttribute('data-target')===active);});
-},{passive:true});
+if(active!==lastActive){
+lastActive=active;
+if(active)centerChip(active,false);
+}
+}
+window.addEventListener('scroll',spy,{passive:true});
+// Run once on load: a reader arriving mid-page (restored scroll, hash link)
+// should find the bar already pointing at the right chapter.
+spy();
 }
 // Hrefless onclick anchors: keyboard access + link semantics
 document.querySelectorAll('a[onclick]:not([href])').forEach(function(l){
