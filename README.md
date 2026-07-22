@@ -7,7 +7,7 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 
     /                                          Home (doors, example of the work)
     /about/                                    About
-    /offerings/                                Approach & Offerings  (#shapes anchor)
+    /offerings/                                Offerings  (#shapes anchor)
     /journal/                                  The Urbanist Operator
     /journal/four-ways-urban-work-fails/       Post, July 2026
     /journal/container-moves/                  Post, June 2026
@@ -75,3 +75,9 @@ survives only under a byline (the Journal, and the case studies via "As told
 by Jonathan") and in clients' quoted words. Record is simple past, standing
 experience present perfect, the offer simple present. The COO kicker on the
 Bandwagon case is now spelled out.
+- Voice system replaced with the publisher/author model (guide v3): Auringon
+  is the imprint and takes being-verbs only; Jonathan is the sole first-person
+  narrator; "he" retired from prose in favor of bylines; collaborative "we"
+  survives where the client is inside it. Signature line is now "I build the
+  operation behind the plan, then leave it running without me." Work index
+  ledes moved to the pronoun-free Nameplate register.
