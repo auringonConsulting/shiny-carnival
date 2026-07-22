@@ -161,3 +161,18 @@ Bandwagon case is now spelled out.
   survives where the client is inside it. Signature line is now "I build the
   operation behind the plan, then leave it running without me." Work index
   ledes moved to the pronoun-free Nameplate register.
+
+## July 22, 2026 revision (8)
+
+Door repositioning. The funder door now speaks to VC and philanthropic
+funders about the company or grantee they back, not to gov/non-profit
+implementers: "An operation that outlasts the money," a rewritten panel
+intro, and pronouns flipped to their team. Founder headline traded
+"operation" for "company" to keep the nouns distinct; consultancy door
+recentered on the bid-to-delivery seam ("A win that gets delivered," the
+ends named in the opener, "ramp" and the exit added to the scramble
+scenario). Offerings: audience list now the canonical triplet, a funder
+geometry sentence added to the direct group, Build and Number lines made
+audience-neutral (page and JSON-LD). Sitemap lastmod bumped for / and
+/offerings/. The voice guide's Doors row and funder tone row still need
+updating to match (the guide lives outside this repo).
