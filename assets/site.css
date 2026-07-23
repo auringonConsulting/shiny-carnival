@@ -256,6 +256,7 @@ transition:background-color .35s ease;
 }
 .door-illo{display:block;width:100%;max-width:300px;margin:6px auto 30px;}
 .door-illo svg{width:100%;height:auto;display:block;overflow:visible;}
+.door-illo svg *{vector-effect:non-scaling-stroke;stroke-width:1.5px;}
 .door-illo svg path,.door-illo svg circle{transform-origin:center;transform-box:fill-box;}
 .door-card .card-eyebrow{
 display:block;font-family:'Instrument Sans',sans-serif;font-size:12px;
@@ -363,6 +364,9 @@ margin:0;color:var(--ink);
 .home-contact-body{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center;}
 .home-contact-illo{width:100%;max-width:560px;}
 .home-contact-illo svg{width:100%;height:auto;display:block;overflow:visible;}
+/* one pen for every mark on the site: 1.5px screen-space line, matching the
+   seat cards and column kickers — the scene scales, the pen doesn't */
+.home-contact-illo svg *{vector-effect:non-scaling-stroke;stroke-width:1.5px;}
 .home-contact-illo svg path,.home-contact-illo svg circle{transform-origin:center;transform-box:fill-box;}
 @keyframes talkA{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
 @keyframes talkB{0%,100%{transform:translateY(0);}62%{transform:translateY(-9px);}}
@@ -446,6 +450,7 @@ padding:24px 24px 22px;display:flex;flex-direction:column;
 .shape-card--activation{background:#dfe5d2;}
 .shape-illo{margin:2px auto 16px;width:100%;max-width:210px;}
 .shape-illo svg{width:100%;height:auto;display:block;}
+.shape-illo svg *{vector-effect:non-scaling-stroke;stroke-width:1.5px;}
 .shape-name{
 font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:25px;
 line-height:1.1;letter-spacing:-.01em;color:var(--ink);margin-bottom:8px;
@@ -485,6 +490,7 @@ margin: 0 auto 44px;
 .journal-glyph .g-stone{animation:standUp 1s var(--ease-out) .55s both;}
 .journal-glyph .g-sun{animation:standUp 1.1s var(--ease-out) .65s both,breathe 11s ease-in-out 2.4s infinite;}
 .journal-glyph svg { width: 100%; height: 100%; }
+.journal-glyph svg * { vector-effect: non-scaling-stroke; stroke-width: 1.5px; }
 .journal-hero h1 {
 font-family: 'Instrument Serif', serif;
 font-weight: 400;
@@ -1495,6 +1501,9 @@ padding:64px 40px 56px;
 }
 .footer-contact-glyph{flex:1 1 100%;width:200px;max-width:60%;margin:0 auto 16px;}
 .footer-contact-glyph svg{width:100%;height:auto;display:block;overflow:visible;}
+/* same scene as the home closing at a third of the size — non-scaling-stroke
+   plus the site's 1.5px mark weight keeps the pen consistent at any scale */
+.footer-contact-glyph svg *{vector-effect:non-scaling-stroke;stroke-width:1.5px;}
 .footer-contact-glyph svg path,.footer-contact-glyph svg circle{transform-origin:center;transform-box:fill-box;}
 @keyframes talkQuietA{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
 @keyframes talkQuietB{0%,100%{transform:translateY(0);}62%{transform:translateY(-4.5px);}}
