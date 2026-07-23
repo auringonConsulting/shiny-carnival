@@ -925,13 +925,17 @@ gap: 8px 18px;
 }
 .post-footer .footer-contact .footer-contact-lede {
 font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 22px;
+font-style: normal;
+font-weight: 400;
+font-size: clamp(30px, 4.2vw, 42px);
+line-height: 1.12;
+letter-spacing: -0.01em;
 color: var(--ink);
-margin: 0;
+margin: 0 0 10px;
 flex: 1 1 100%;
 }
 .post-footer .footer-contact .footer-contact-lede em {
+font-style: italic;
 color: var(--terracotta);
 font-weight: 500;
 }
@@ -960,7 +964,6 @@ padding: 0;
 .post-footer:has(.footer-contact) .post-back-bottom { margin-top: 40px; }
 
 @media (max-width: 520px) {
-.post-footer .footer-contact .footer-contact-lede { font-size: 19px; }
 .post-footer .footer-contact a { font-size: 18px; }
 }
 
@@ -1194,12 +1197,17 @@ padding-right: 24px;
 }
 
 section.closing {
-padding: 120px 0 140px;
+padding: 96px 0 112px;
 }
 /* the closing sits on the reader's column, not the wrap's edge — every other
    element on an essay page lives on the centered 680, and so should the goodbye */
 section.closing .wrap { max-width: 680px; }
+/* align with .home-contact: the rule sits on the tint's top edge instead of
+   floating in the gap above it, and the essay hands off without the old
+   120px + inset rule of dead air */
+.engagement-page .post-body { padding-bottom: 40px; border-bottom: none; }
 section.closing--tint {
+border-top: 1px solid var(--rule);
 background: rgba(123, 157, 163, 0.10);
 margin: 0 -40px;
 padding-left: 40px;
@@ -1354,7 +1362,7 @@ details.way[open] summary.way-situation::after{content:'\2212';}
 .post-list{padding:8px 0 16px;}
 .subscribe{padding:40px 0;}
 .post-footer{padding:44px 0 72px;}
-section.closing{padding:72px 0 88px;}
+section.closing{padding:64px 0 80px;}
 section.closing--tint{margin:0 -24px;padding-left:24px;padding-right:24px;}
 .about-hero{padding:56px 0 52px;}
 .about-hero .hero-row{display:flex;flex-direction:column;gap:24px;}
@@ -1472,16 +1480,20 @@ transition:color .2s ease,border-color .2s ease;
    ambient tier: slower and shallower than the homepage's hover version,
    breathing rather than performing. */
 .post-footer:has(.footer-contact){max-width:none;}
+/* the essay hands off to the band directly — the tint is the section break,
+   so the old 120px + rule above it read as dead air. Like the home and case
+   closings, the breathing room lives inside the band, under its own header. */
+.post-page:has(.post-footer .footer-contact) .post-body{padding-bottom:0;border-bottom:none;}
 .post-footer .footer-contact{
 justify-content:center;
 border-top:none;
 background:rgba(123,157,163,0.10);
 /* full-bleed from inside the wrap: the case closings sit outside it, so their
    -40px reaches the viewport; this reaches it from within, at every width */
-margin:56px calc(50% - 50vw) 0;
-padding:44px 40px 42px;
+margin:40px calc(50% - 50vw) 0;
+padding:64px 40px 56px;
 }
-.footer-contact-glyph{flex:1 1 100%;width:200px;max-width:60%;margin:0 auto 6px;}
+.footer-contact-glyph{flex:1 1 100%;width:200px;max-width:60%;margin:0 auto 16px;}
 .footer-contact-glyph svg{width:100%;height:auto;display:block;overflow:visible;}
 .footer-contact-glyph svg path,.footer-contact-glyph svg circle{transform-origin:center;transform-box:fill-box;}
 @keyframes talkQuietA{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
@@ -1491,7 +1503,7 @@ padding:44px 40px 42px;
 .footer-contact-glyph svg circle{animation:talkQuietB 6.8s cubic-bezier(0.37,0,0.63,1) infinite both;}
 }
 @media (max-width:800px){
-.post-footer .footer-contact{margin-top:48px;padding:36px 24px 34px;}
+.post-footer .footer-contact{margin-top:32px;padding:52px 24px 44px;}
 }
 
 /* keyboard parity: focus gets what hover and press already get —
