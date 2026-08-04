@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>About · Auringon</title>
-<meta content="Auringon (OW-ring-gon) is the consulting practice of Jonathan Internicola. For a decade I've done the work under other titles. The job never changed: arrive, build the machinery, leave once it runs. Four seats, one job." name="description"/>
+<title>Engagements · Auringon</title>
+<meta content="Auringon is the consulting practice of Jonathan Internicola. I build what the plan still needs, and step out once your team runs it. How an engagement works, and the shapes it takes." name="description"/>
 <meta content="Jonathan Internicola" name="author"/>
 <link href="/favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="https://www.auringon.com/about/" rel="canonical"/>
+<link href="https://www.auringon.com/engagements/" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="Auringon" property="og:site_name"/>
-<meta content="About · Auringon" property="og:title"/>
-<meta content="Auringon (OW-ring-gon) is the consulting practice of Jonathan Internicola. For a decade I've done the work under other titles. The job never changed: arrive, build the machinery, leave once it runs. Four seats, one job." property="og:description"/>
-<meta content="https://www.auringon.com/about/" property="og:url"/>
+<meta content="Engagements · Auringon" property="og:title"/>
+<meta content="Auringon is the consulting practice of Jonathan Internicola. I build what the plan still needs, and step out once your team runs it. How an engagement works, and the shapes it takes." property="og:description"/>
+<meta content="https://www.auringon.com/engagements/" property="og:url"/>
 <meta content="https://www.auringon.com/og-image-2.jpg" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="The Auringon wordmark reversed out of warm terracotta watercolor washes" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="About · Auringon" name="twitter:title"/>
-<meta content="Auringon (OW-ring-gon) is the consulting practice of Jonathan Internicola. For a decade I've done the work under other titles. The job never changed: arrive, build the machinery, leave once it runs. Four seats, one job." name="twitter:description"/>
+<meta content="Engagements · Auringon" name="twitter:title"/>
+<meta content="Auringon is the consulting practice of Jonathan Internicola. I build what the plan still needs, and step out once your team runs it. How an engagement works, and the shapes it takes." name="twitter:description"/>
 <meta content="https://www.auringon.com/og-image-2.jpg" name="twitter:image"/>
 <meta content="The Auringon wordmark reversed out of warm terracotta watercolor washes" name="twitter:image:alt"/>
 <meta content="#f1f2da" name="theme-color"/>
@@ -33,30 +33,48 @@ gtag('config', 'G-P9ZN3YW9J8');
 </script>
 <script type="application/ld+json">
 {
- "@context": "https://schema.org",
- "@graph": [
-  {
-   "@type": "Person",
-   "@id": "https://www.auringon.com/#jonathan",
-   "name": "Jonathan Internicola",
-   "description": "An urban planner turned operations and product consultant. A decade as the operator: Chief Operating Officer at Bandwagon, COO turned Chief Product Officer at Fleet, Director of Analytics and later Chief Experience and Transformation Officer at the NYC Taxi & Limousine Commission, Principal Product Manager at Ad Hoc, and a board member of the Open Mobility Foundation.",
-   "sameAs": [
-    "https://www.linkedin.com/in/jonathaninternicola/"
-   ],
-   "worksFor": {
-    "@id": "https://www.auringon.com/#practice"
-   }
-  },
-  {
-   "@type": "ProfessionalService",
-   "@id": "https://www.auringon.com/#practice",
-   "name": "Auringon",
-   "url": "https://www.auringon.com/",
-   "founder": {
-    "@id": "https://www.auringon.com/#jonathan"
-   }
-  }
- ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.auringon.com/#practice",
+      "name": "Auringon",
+      "url": "https://www.auringon.com/",
+      "founder": {
+        "@id": "https://www.auringon.com/#jonathan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "The shapes an engagement takes",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Read",
+              "description": "A two-week read from the outside. What I find is yours whether you hire me again or not."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Build",
+              "description": "Building what the plan still needs, at whatever size it calls for: a capability, a practice, or the interim seat."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Turn",
+              "description": "Together we set the target and agree on how much latitude I have. I'm paid on performance."
+            }
+          }
+        ]
+      }
+    }
+  ]
 }
 </script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
@@ -83,170 +101,150 @@ gtag('config', 'G-P9ZN3YW9J8');
 <button aria-controls="navList" aria-expanded="false" aria-label="Toggle menu" class="nav-toggle" id="navToggle">Menu</button>
 <ul id="navList">
 <li><a class="navlink" href="/">Home</a></li>
-<li><a class="navlink" href="/engagements/">Engagements</a></li>
+<li><a class="navlink active" aria-current="page" href="/engagements/">Engagements</a></li>
 <li><a class="navlink" href="/work/">Work</a></li>
-<li><a class="navlink active" aria-current="page" href="/about/">About</a></li>
+<li><a class="navlink" href="/about/">About</a></li>
 </ul>
 </nav>
 
 <main id="top" tabindex="-1">
 
+<div id="view-engagements">
 
-<div id="view-about">
-<header class="about-hero heroV8">
-<div class="band">
+<!-- ═══════════ Page head ═══════════ -->
+<header class="page-head">
 <div class="wrap">
-<h1>The practice is new.<br/>The work isn&rsquo;t.</h1>
-</div>
-</div>
-<div class="wrap">
-<div class="under-row">
-<p class="lede"><span class="brandname">Auringon</span> (OW&#8209;ring&#8209;gon) is the consulting practice of Jonathan Internicola. For a decade I&rsquo;ve done the work under other titles. The job never changed: arrive, build the machinery, leave once it runs. Now the work has a name.</p>
-<aside class="hero-portrait">
-<div class="portrait-frame">
-<img alt="Jonathan Internicola, photographed on a hillside overlooking the Columbia River" loading="lazy" src="/jonathan.jpg"/>
-</div>
-<div class="portrait-meta">
-<span class="portrait-caption">Jonathan Internicola</span>
-<a class="portrait-link" href="https://www.linkedin.com/in/jonathaninternicola/" rel="noopener noreferrer" target="_blank">Jonathan on LinkedIn <span class="arrow">→</span></a>
-</div>
-</aside>
-</div>
+<h1>Engagements</h1>
+<p class="lede"><span class="brandname">Auringon</span> is the consulting practice of Jonathan Internicola. I build what the plan still needs, and step out once your team runs it. I work with startup founders, funders, and consultancies. Here&rsquo;s how an engagement works, and the shapes it takes.</p>
 </div>
 </header>
 
+<!-- ═══════════ Approach ═══════════ -->
 <section class="block">
 <div class="wrap two-col">
-<div class="colkicker">The seats</div>
+<div class="colkicker">Approach</div>
 <div>
-<h2 class="section-title">Four seats, one job</h2>
+<h2 class="section-title">How an engagement works</h2>
 <div class="section-body">
-<p>Every role I&rsquo;ve held had the same shape: arrive where the plan is stalling, build the machinery, leave once it runs.</p>
+<p>The first call is two questions: what are you trying to make real, and how big is it. From there I lay out a few ways in: what each involves, what you walk away with. Together, we pick one. Whichever it is, the ending is set on day one: an end date, or the number that ends it.</p>
 </div>
-<div class="seats-grid">
-<div class="seat-card">
-<div class="seat-mark"><svg aria-hidden="true" viewBox="0 0 200 92" xmlns="http://www.w3.org/2000/svg">
-<path d="M80,92 C74,72 92,60 112,62 C124,64 128,76 122,92 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<circle cx="56" cy="82" fill="#e39b48" r="10" stroke="#3a3a3a" stroke-width="2"></circle>
-</svg></div>
-<h3>The startup seat</h3>
-<div class="seat-orgs">Bandwagon · Fleet</div>
-<p>Bandwagon, a shared-mobility startup, made me chief operating officer just after it furloughed the team. I rebuilt the operation into a company worth backing again, and the funding bought it a second wind.</p>
-<p>At Fleet, a commuter-benefits platform, I&rsquo;ve turned ideas and scaffolding into a working product and operation, from seed toward a Series A — first as COO, then as Chief Product Officer.</p>
+</div>
+</div>
+</section>
+
+<!-- ═══════════ The shapes ═══════════ -->
+<section class="block block--tint" id="shapes" style="scroll-margin-top:84px">
+<div class="wrap two-col">
+<div class="colkicker">Read &middot; Build &middot; Turn</div>
+<div>
+<h2 class="section-title">The shapes an engagement takes</h2>
+
+<div class="mode-block">
+<div class="mode-side"><div class="mode-mark"><svg aria-hidden="true" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="16" x2="224" y1="146" y2="146"></line>
+<!-- the sun low, raking the light across -->
+<g class="amb" style="--p:12.5s"><circle cx="46" cy="62" fill="#e39b48" r="14" stroke="#3a3a3a" stroke-width="2"></circle></g>
+<!-- the long shadow: what the light shows you -->
+<path class="shadow-sweep" d="M148,146 Q186,143 218,144 Q222,145 218,146 Z" fill="#3a3a3a" opacity="0.18"></path>
+<!-- the stone being read -->
+<path d="M108,146 C102,114 126,98 146,102 C162,106 168,126 162,146 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path><path class="crack" pathLength="100" d="M137,102 L134,111 Q132,115 136,119 L133,127 Q132,130 135,133 L134,141" fill="none" stroke="#3a3a3a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg></div></div>
+<div class="mode-body">
+<h3 class="offer-group-head">Read</h3>
+<p class="offer-quote">The return that hasn&rsquo;t shown&nbsp;up.</p>
+<p>A two-week read from the outside. Point me at a feature, a team, a program, or the seams between them. I find where it&rsquo;s stuck and what to fix first. Each fix comes sized and assigned: what it takes, and who on your team owns it.</p>
+<p>What I find is yours whether you hire me again or not. If a build follows, it starts from the read.</p>
+</div>
+</div>
+
+<div class="mode-block">
+<div class="mode-side"><div class="mode-mark"><svg aria-hidden="true" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="16" x2="224" y1="146" y2="146"></line>
+<g class="amb" style="--p:10.5s"><circle cx="196" cy="52" fill="#e39b48" r="12" stroke="#3a3a3a" stroke-width="2"></circle></g>
+<!-- the wall, holding by fit -->
+<path d="M52,146 C48,124 62,114 76,116 C88,118 92,130 88,146 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M92,146 C90,128 102,120 114,122 C124,124 128,134 124,146 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M166,146 C162,122 176,112 190,115 C202,118 206,132 200,146 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<!-- the gap, and the stone being set into it -->
+<path class="settle" d="M130,118 C128,102 140,94 152,96 C162,98 166,108 162,120 Q160,126 156,128 Q140,126 132,126 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
+</svg></div></div>
+<div class="mode-body">
+<h3 class="offer-group-head">Build</h3>
+<p class="offer-quote">What the plan still&nbsp;needs.</p>
+<p>I take point on building what you don&rsquo;t have yet, at whatever size the plan calls for. I embed with your team, build it, and leave it running.</p>
+<ul class="mode-range">
+<li><svg class="mode-doodle" style="width:12px" viewBox="0 0 20 14" aria-hidden="true"><path d="M2,13 Q1,4 9,2.5 Q17,1.5 18.5,8 Q19,11 17.5,13 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span><strong>A capability.</strong> A few weeks to automate a support queue or stand up an analytics stack.</span></li>
+<li><svg class="mode-doodle" style="width:15px" viewBox="0 0 20 14" aria-hidden="true"><path d="M2,13 Q1,4 9,2.5 Q17,1.5 18.5,8 Q19,11 17.5,13 Z" fill="#808268" stroke="#3a3a3a" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span><strong>A practice.</strong> A product team or a service line takes months, and most of them go to hiring and habits.</span></li>
+<li><svg class="mode-doodle" style="width:18px" viewBox="0 0 20 14" aria-hidden="true"><path d="M2,13 Q1,4 9,2.5 Q17,1.5 18.5,8 Q19,11 17.5,13 Z" fill="#bc6131" stroke="#3a3a3a" stroke-width="1.3" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg><span><strong>The operation.</strong> The interim seat: chief product or operating officer, with the end date set on day one. I build the team that replaces me.</span></li>
+</ul>
+<a class="case-link" href="/work/building-a-product-practice/">A team of ten, and the agency&rsquo;s first product practice <span>→</span></a>
+</div>
+</div>
+
+<div class="mode-block">
+<div class="mode-side"><div class="mode-mark"><svg aria-hidden="true" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
+<line stroke="#3a3a3a" stroke-width="1.5" x1="16" x2="224" y1="146" y2="146"></line>
+<!-- the pivot -->
+<path d="M138,146 C135,132 145,126 153,127 C161,128 164,136 161,146 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
+<!-- the lever -->
+<g class="lever"><path d="M40,110 Q38,104 50,102 L196,122 Q206,124 205,130 Q204,135 195,134 L48,116 Q40,115 40,110 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
+<!-- the number, lifted -->
+<path d="M42,104 C36,74 62,58 84,62 C102,66 108,86 102,110 Q76,106 50,103 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25"></path>
+<!-- Jonathan, on the short arm -->
+<circle cx="196" cy="110" fill="#e39b48" r="12" stroke="#3a3a3a" stroke-width="2"></circle></g>
+</svg></div></div>
+<div class="mode-body">
+<h3 class="offer-group-head">Turn</h3>
+<p class="offer-quote">The number where it should&nbsp;be.</p>
+<p>Together we set the target, say a satisfaction score or a revenue line, and agree on how much latitude I have. I build across your teams until the number moves. I&rsquo;m paid on performance.</p>
+<p>The number can be one that exists and has to turn around, or new revenue from something you already own, built into a line of business that sits under you. Either way, the engagement ends when the number is where we set it. If it&rsquo;s a new line, you keep what I build, and I&rsquo;m paid on what it earns without me: a share, for a set term, then it&rsquo;s all yours.</p>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ═══════════ Who this is for ═══════════ -->
+<section class="block" id="who">
+<div class="wrap two-col">
+<div class="colkicker">Who this is for</div>
+<div>
+<h2 class="section-title">Founders, funders, and consultancies.</h2>
+
+<div class="offer-group">
+<h3 class="offer-group-head">For founders</h3>
+<div class="offer-body">
+<p>You hire me directly. If you know what you need, name it: the number that has to move, or the capability that&rsquo;s missing. We make it real. If you&rsquo;re not sure, we start with a read and find what&rsquo;s breaking where. The work runs as small as one feature in a short sprint, or as big as the interim seat, building what the company stands on: a team, a system.</p>
 <a class="case-link" href="/work/shipping-a-new-service-line/">Shipping a new service line in chaos <span>→</span></a>
 </div>
-<div class="seat-card">
-<div class="seat-mark"><svg aria-hidden="true" viewBox="0 0 200 92" xmlns="http://www.w3.org/2000/svg">
-<path d="M70,92 C66,82 76,74 88,74 C102,74 108,82 106,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M72,74 C70,66 78,60 88,60 C100,60 106,66 104,74 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M74,60 C72,52 80,48 88,48 C98,48 102,52 100,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M112,92 C108,82 120,76 130,76 C142,76 148,82 146,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M152,92 C148,84 158,80 166,80 C176,80 180,84 178,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
-<path d="M24,92 C22,86 28,82 36,82 C44,82 48,86 46,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
-<circle cx="88" cy="28" fill="#e39b48" r="9" stroke="#3a3a3a" stroke-width="2"></circle>
-<line opacity="0.5" stroke="#e39b48" stroke-dasharray="2,2" stroke-width="1" x1="88" x2="88" y1="38" y2="46"></line>
-</svg></div>
-<h3>The government seat</h3>
-<div class="seat-orgs">NYC TLC</div>
-<p>The Taxi &amp; Limousine Commission brought me on in multiple capacities. First to run analytics, where the role grew into the agency&rsquo;s first product practice.</p>
-<p>Then as Chief Experience and Transformation Officer, standing up a technology overhaul decades overdue. The real work was refusing to re-pour the bad processes the old systems had set in concrete.</p>
-<a class="case-link" href="/work/building-a-product-practice/">Building a product practice inside a regulator <span>→</span></a>
 </div>
-<div class="seat-card seat-card--vendor">
-<div class="seat-mark"><svg aria-hidden="true" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-<path d="M34,60 C30,46 44,36 62,36 C80,36 88,46 86,60 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M114,60 C110,74 124,84 142,84 C160,84 168,74 166,60 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<circle cx="100" cy="60" fill="#e39b48" r="8" stroke="#3a3a3a" stroke-width="2"></circle>
-</svg></div>
-<h3>The vendor seat</h3>
-<div class="seat-orgs">Ad Hoc</div>
-<p>At Ad Hoc, a government-technology consultancy, I worked both ends of the business: coaching delivery teams so the work kept serving the client&rsquo;s mission, and shaping and pitching the engagements that grew the account.</p>
-<p>I&rsquo;ve been the client and the vendor. I know where the handoff between them fails.</p>
+
+<div class="offer-group">
+<h3 class="offer-group-head">For funders</h3>
+<div class="offer-body">
+<p>Venture fund or foundation, you wrote a check for a plan. If something feels off, start with a read: two weeks from the outside, and what I find goes to both of you. If the team is missing a skill the plan needs, I embed with them and help them build what they sold you. Nothing starts unless the team wants it. And what one team needed, the next usually does too: the engagement repeats across a portfolio, one team at a time.</p>
+<a class="case-link" href="/work/building-a-product-practice/">What the money bought: a product practice inside a regulator <span>→</span></a>
+</div>
+</div>
+
+<div class="offer-group">
+<h3 class="offer-group-head">For consultancies</h3>
+<div class="offer-body">
+<p>A subcontracted seat. Put me on the bid, the delivery, or the handoff between them. I bring a decade inside urban and civic tech, from city agencies to govtech vendors. If the bid is live, I help your solution team figure out the one that wins. I&rsquo;ve sat on the evaluating side. If a delivery is stuck, point me at it for a read. The account stays yours. And to grow it, I work from inside the delivery: spotting the next piece of work, shaping it, and getting it in front of the client.</p>
 <a class="case-link" href="/work/growing-an-account-from-the-inside/">Growing an account from the inside <span>→</span></a>
 </div>
-<div class="seat-card seat-card--rules">
-<div class="seat-mark"><svg aria-hidden="true" viewBox="0 0 200 92" xmlns="http://www.w3.org/2000/svg">
-<line opacity="0.5" stroke="#e39b48" stroke-linecap="round" stroke-width="1.5" x1="186" x2="194" y1="66" y2="66"></line>
-<circle cx="168" cy="66" fill="#e39b48" r="11" stroke="#3a3a3a" stroke-width="2"></circle>
-<path d="M34,92 C30,80 42,72 54,72 C68,72 76,80 74,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M80,92 C76,80 88,72 100,72 C114,72 122,80 120,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M126,92 C122,80 134,72 146,72 C160,72 168,80 166,92 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-</svg></div>
-<h3>The standards seat</h3>
-<div class="seat-orgs">Open Mobility Foundation</div>
-<p>I led New York&rsquo;s contribution to the Mobility Data Specification through OMF&rsquo;s board and steering committee. 160-plus cities, 200-plus operators.</p>
 </div>
-</div>
-<div class="about-pull">On paper, four seats, four different jobs. In practice, one engagement, run again and again. Auringon is that engagement, run for&nbsp;you.</div>
+
 </div>
 </div>
 </section>
 
-<section class="block block--tint">
-<div class="wrap two-col">
-<div class="colkicker is-featured">
-<span class="mark mark-lg"><svg aria-hidden="true" viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg">
-<line stroke="#3a3a3a" stroke-width="1.5" x1="16" x2="224" y1="124" y2="124"></line>
-<!-- the sun, low in the north, setting the terms -->
-<g class="amb" style="--p:10.1s"><circle cx="58" cy="92" fill="#e39b48" r="28" stroke="#3a3a3a" stroke-width="2"></circle></g>
-<!-- the landscape arranging itself around it -->
-<path d="M104,124 C100,100 122,88 140,90 C158,94 166,108 160,124 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M172,124 C169,109 182,102 191,102 C202,102 207,110 204,124 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
-<path d="M210,124 C208,116 213,111 217,111 C222,111 224,116 223,124 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="1.5"></path>
-</svg></span>
-Why Auringon
-</div>
-<div>
-<div class="section-body section-body--lead">
-<p>Auringon came from a pattern I kept seeing. The idea was there, and the means to pursue it. What was missing was the operation to run it. Mandates, funding, and strategy are common. The machinery that turns them into something that runs is rare. Each time I built it, it ran.</p>
-<p>The name is Finnish: auringon, of the sun. In the north, it&rsquo;s the sun that brings the landscape back to life. Nothing grows without it. An operation does the same for an idea: it turns intent into something that runs, and gives it room to grow.</p>
-</div>
-</div>
-</div>
-</section>
-
-<section class="block">
-<div class="wrap two-col">
-<div class="colkicker">References</div>
-<div>
-<h2 class="section-title">Working with Jonathan, in other people&rsquo;s words</h2>
-<div class="ref ref--featured">
-<h3>Turns strategy into something that runs.</h3>
-<blockquote class="example-quote">
-<p>&ldquo;A talented, visionary director who over and over again was able to operationalize strategies that furthered the mission of the agency while demonstrating the value of human-centered design and advanced analytics.&rdquo;</p>
-<cite>Elizabeth Ferguson, Design Researcher, US Office of Personnel Management</cite>
-</blockquote>
-</div>
-<div class="refsB">
-<div class="clip">
-<h3>Enters chaos, leaves it better.</h3>
-<blockquote class="example-quote"><p>&ldquo;He joined during a time of extreme growth and chaos. His calm demeanor and strategic approach got our group focused on the right things. He left the organization in a much better place.&rdquo;</p><cite>Nancy Whittier, then Vice President, Ad Hoc</cite></blockquote>
-</div>
-<div class="clip">
-<h3>Rebuilds the process under the tools.</h3>
-<blockquote class="example-quote"><p>&ldquo;Persistent in challenging the old, bureaucratic ways of doing business. He redesigned the processes around them and led a high-performing team through genuinely challenging times.&rdquo;</p><cite>Vincent Chin, then Chief Financial Officer, NYC Taxi &amp; Limousine Commission</cite></blockquote>
-</div>
-<div class="clip">
-<h3>Works the constraint instead of waiting it out.</h3>
-<blockquote class="example-quote"><p>&ldquo;A creative and persistent problem solver. In a resource- and process-constrained environment, he attracted talent that had proven elusive and built workable solutions around the limits. Never one to accept the status quo.&rdquo;</p><cite>Mark S. Lee, Managing Director, NYC Kids RISE</cite></blockquote>
-</div>
-<div class="clip">
-<h3>Builds people who can run it themselves.</h3>
-<blockquote class="example-quote"><p>&ldquo;He challenged me to grow my product within real constraints, structured a plan to advance my career, and coached me through my first managerial role. He continually advocated for me.&rdquo;</p><cite>Amani Farooque, Director of Product, NJ Office of Innovation</cite></blockquote>
-</div>
-<div class="clip">
-<h3>Pulls the bid and the team together.</h3>
-<blockquote class="example-quote"><p>&ldquo;He consistently emerged as a business leader: pulling teams together, orchestrating the turnaround of compelling bid responses, and creating much-needed structure in a fast-growing organization.&rdquo;</p><cite>Dan Munz, Account Director, Ad Hoc</cite></blockquote>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="home-contact">
+<!-- ═══════════ Close / contact ═══════════ -->
+<section class="home-contact" id="talk">
 <div class="wrap">
 <div class="home-contact-header">
-<h2>The full story on any of this is a conversation.</h2>
+<h2>Not sure which one fits?</h2>
 </div>
 <div class="home-contact-body">
 <div aria-hidden="true" class="home-contact-illo">
@@ -257,7 +255,7 @@ Why Auringon
 </svg>
 </div>
 <div class="home-contact-paths">
-<p class="home-contact-tag">Thirty minutes, no pitch.</p>
+<p class="home-contact-tag">That&rsquo;s what the first call is for. Thirty minutes, no pitch.</p>
 <a class="path-email" href="mailto:hello@auringon.com">hello@auringon.com</a>
 <span class="path-or">or</span>
 <a class="path-book" href="https://calendar.app.google/xFJBcX7TyHx97BwL7" rel="noopener noreferrer" target="_blank"><span>book a 30-minute call</span> <span class="arrow">→</span></a>
@@ -265,8 +263,8 @@ Why Auringon
 </div>
 </div>
 </section>
-</div>
 
+</div>
 
 </main>
 

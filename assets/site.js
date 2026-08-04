@@ -5,7 +5,7 @@
 // Anyone holding an old link lands on the new page instead of the homepage hero.
 (function(){
 var LEGACY={
-'about':'/about/','offerings':'/offerings/','journal':'/journal/',
+'about':'/about/','offerings':'/engagements/','journal':'/journal/',
 'post-failure-modes':'/journal/four-ways-urban-work-fails/',
 'post-container-moves':'/journal/container-moves/',
 'post-urban-systems':'/journal/the-working-layer/',
@@ -48,66 +48,11 @@ btn.setAttribute('aria-expanded',open?'true':'false');
 });
 })();
 
-// Sticky-nav-aware scrolling: scrollIntoView doesn't know the nav is there,
-// so a target's top can land underneath it (most visible on small screens,
-// where the door panels are taller than the viewport).
+// Sticky-nav-aware offset: scroll targets need to land below the nav,
+// not underneath it. Used by the post pages' chapter rail.
 function navOffset(){
 var nav=document.getElementById('nav');
 return (nav?nav.getBoundingClientRect().height:70)+16;
-}
-function scrollBelowNav(el){
-window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-navOffset(),behavior:'smooth'});
-}
-// block:'nearest', but with the nav as the true top edge: no scroll if the
-// element is fully visible, minimal scroll otherwise.
-function scrollIntoViewBelowNav(el){
-var r=el.getBoundingClientRect(),top=navOffset();
-if(r.top<top){scrollBelowNav(el);}
-else if(r.bottom>window.innerHeight){
-window.scrollTo({top:window.scrollY+Math.min(r.bottom-window.innerHeight+16,r.top-top),behavior:'smooth'});
-}
-}
-
-// Fork: pick one door at a time; its detail opens beneath the row
-function selectDoor(which){
-var card=document.getElementById('card-'+which);
-var detail=document.getElementById('detail-'+which);
-if(!card||!detail)return;
-var wasOpen=card.classList.contains('selected');
-var grid=card.closest('.doors-grid');
-['founder','funder','prime'].forEach(function(k){
-var c=document.getElementById('card-'+k);
-if(!c)return;
-c.classList.remove('selected');
-c.setAttribute('aria-expanded','false');
-document.getElementById('detail-'+k).classList.remove('open');
-});
-grid.classList.toggle('has-open',!wasOpen);
-if(!wasOpen){
-card.classList.add('selected');
-card.setAttribute('aria-expanded','true');
-detail.classList.add('open');
-track('door_open',{door:which});
-requestAnimationFrame(function(){scrollIntoViewBelowNav(detail);});
-}
-}
-
-// Ways: collapsed on mobile, open on desktop
-(function(){
-var mq=window.matchMedia('(max-width:800px)');
-var ways=document.querySelectorAll('details.way');
-if(!ways.length)return;
-function setWays(){ways.forEach(function(d){d.open=!mq.matches;});}
-ways.forEach(function(d){d.addEventListener('toggle',function(){if(!mq.matches&&!d.open){d.open=true;}});});
-if(mq.addEventListener){mq.addEventListener('change',setWays);}else{mq.addListener(setWays);}
-setWays();
-})();
-
-// Close a door from the bottom of its panel and return to the fork
-function closeDoor(which){
-selectDoor(which);
-var fork=document.getElementById('fork');
-if(fork)scrollBelowNav(fork);
 }
 
 // Doors on touch: hover can't wake the scenes, so the scroll position does.

@@ -7,7 +7,8 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 
     /                                          Home (doors, example of the work)
     /about/                                    About
-    /offerings/                                Offerings  (#shapes anchor)
+    /engagements/                              Engagements  (#shapes anchor)
+    /offerings/                                Redirect stub → /engagements/
     /journal/                                  The Urbanist Operator
     /journal/four-ways-urban-work-fails/       Post, July 2026
     /journal/container-moves/                  Post, June 2026
@@ -46,6 +47,32 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - Add the property to Google Search Console and submit /sitemap.xml.
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
+
+## August 4, 2026 revision
+
+Three housekeeping fixes, none of them copy.
+
+The URL now says what the nav says: /offerings/ became /engagements/. Every
+internal link, the sitemap (lastmod bumped for the moved page), the canonical
+and og:url, and the legacy #offerings hash map point at the new path. A stub
+stays behind at /offerings/ — noindex, canonical to the new URL, and a JS
+redirect that carries the hash so old /offerings/#shapes links still land on
+the shapes; the meta refresh is the no-JS fallback. The 404 footer also said
+"Offerings" where every other footer said "Engagements"; it doesn't anymore.
+The inert view-offerings id came along as view-engagements.
+
+Dead code from the single-file build retired from site.js: selectDoor and
+closeDoor (the doors are plain links now — no card-founder/funder/prime ids
+exist), the details.way block (no <details> anywhere), and the two scroll
+helpers only they called. navOffset stays; the chapter rail uses it. The
+orphaned .has-open rules in site.css were left alone.
+
+jonathan.jpg went from 1.15MB to ~210KB: 1280×1280 resized to 1024×1024
+(the portrait renders at 340px CSS at its widest, so 1024 keeps 3x retina
+covered), re-encoded q80 progressive. Same filename, no markup changes.
+
+Changed: /assets/site.js, /sitemap.xml, /jonathan.jpg, /README.md, every
+page's nav and footer, /engagements/ (moved), /offerings/ (now a stub).
 
 ## July 22, 2026 revision (7)
 
