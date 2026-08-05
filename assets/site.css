@@ -112,10 +112,10 @@ font-size:clamp(38px,5.4vw,86px);line-height:1.0;letter-spacing:-.02em;color:var
 }
 .hero h1 .w1,.hero h1 .w2{display:inline-block;}
 .hero .sub{
-margin-top:18px;font-family:'Instrument Serif',Georgia,serif;font-style:italic;
+margin-top:18px;font-family:'Instrument Sans',system-ui,sans-serif;
 font-size:clamp(15px,1.35vw,19px);line-height:1.55;color:var(--ink-soft);max-width:720px;
 }
-.hero .sub .brandname{font-style:normal;color:var(--terracotta);}
+.hero .sub .brandname{color:var(--terracotta);font-weight:500;}
 .hero .seats{
 margin-top:14px;font-family:'Instrument Sans',sans-serif;
 font-size:15px;line-height:1.6;color:var(--muted);max-width:700px;
@@ -223,7 +223,6 @@ font-family:'Instrument Serif',Georgia,serif;font-weight:400;
 font-size:clamp(32px,4vw,52px);line-height:1.04;letter-spacing:-.015em;
 color:var(--ink);margin-bottom:40px;max-width:760px;
 }
-.fork-head em{font-style:italic;}
 
 /* Doors as a picker: three panels, each with its own ground color and scene.
    Selecting one opens its detail full-width beneath the row. */
@@ -264,7 +263,7 @@ letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
 font-weight:500;margin-bottom:10px;
 }
 .door-card .card-goal{
-display:block;font-family:'Instrument Serif',Georgia,serif;font-style:italic;
+display:block;font-family:'Instrument Serif',Georgia,serif;
 font-size:clamp(24px,2.3vw,30px);line-height:1.12;letter-spacing:-.01em;color:var(--ink);
 transition:color .2s ease;
 }
@@ -323,7 +322,7 @@ border-radius:3px;max-width:680px;
 .asset p{font-size:16px;line-height:1.55;color:var(--ink-soft);margin-bottom:12px;}
 
 .where{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:18px;
+font-family:'Instrument Sans',system-ui,sans-serif;font-size:15px;
 color:var(--muted);margin:28px 0 20px;padding-top:24px;border-top:1px solid var(--rule-soft);
 }
 
@@ -378,18 +377,18 @@ margin:0;color:var(--ink);
 }
 .home-contact-paths{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;}
 .home-contact-tag{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:22px;
+font-family:'Instrument Serif',Georgia,serif;font-size:22px;
 line-height:1.4;color:var(--ink);margin:0 0 12px;flex:1 1 100%;
 }
 .home-contact-paths .path-email{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:20px;color:var(--terracotta);
+font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;color:var(--terracotta);
 text-decoration:none;border-bottom:1px solid var(--terracotta);padding-bottom:2px;letter-spacing:-.01em;
 transition:color .2s ease,border-color .2s ease;
 }
 .home-contact-paths .path-email:hover{color:var(--ink);border-color:var(--ink);}
-.home-contact-paths .path-or{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:14px;color:var(--muted);}
+.home-contact-paths .path-or{font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;color:var(--muted);}
 .home-contact-paths .path-book{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:20px;color:var(--ink);
+font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;color:var(--ink);
 text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:2px;letter-spacing:-.01em;
 display:inline-flex;align-items:center;gap:8px;transition:color .2s ease,border-color .2s ease;
 }
@@ -419,10 +418,10 @@ font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-.02em;color:va
 margin-bottom:22px;
 }
 .page-head .lede{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;
+font-family:'Instrument Sans',system-ui,sans-serif;
 font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:var(--ink-soft);max-width:720px;
 }
-.page-head .lede .brandname{font-style:normal;color:var(--terracotta);}
+.page-head .lede .brandname{color:var(--terracotta);font-weight:500;}
 .section-title{
 font-family:'Instrument Serif',Georgia,serif;font-weight:400;
 font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-.01em;
@@ -435,7 +434,7 @@ color:var(--ink);margin-bottom:22px;max-width:620px;
 .offer-group{margin-top:44px;}
 .offer-group:first-of-type{margin-top:36px;}
 .offer-group-head{
-font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;
+font-family:'Instrument Serif',Georgia,serif;font-weight:400;
 font-size:24px;color:var(--ink);margin-bottom:6px;
 }
 .offer-group-line{font-size:15px;color:var(--muted);margin-bottom:26px;max-width:560px;}
@@ -499,7 +498,6 @@ line-height: 1.02;
 letter-spacing: -0.015em;
 margin-bottom: 40px;
 }
-.journal-hero h1 em { font-style: italic; }
 .journal-hero .lede {
 font-size: 19px;
 line-height: 1.55;
@@ -524,10 +522,8 @@ font-weight: 500;
 margin-bottom: 16px;
 }
 .subscribe-dek {
-font-family: 'Instrument Serif', Georgia, serif;
-font-style: italic;
-font-size: 18px;
-line-height: 1.5;
+font-size: 16px;
+line-height: 1.55;
 color: var(--ink-soft);
 max-width: 540px;
 margin: 0 auto 28px;
@@ -543,7 +539,6 @@ line-height: 1.3;
 color: var(--ink);
 margin-bottom: 6px;
 }
-.subscribe-thanks-line em { font-style: italic; }
 .subscribe-thanks-sub {
 font-size: 15px;
 color: var(--muted);
@@ -567,8 +562,6 @@ color: var(--ink);
 }
 .subscribe input::placeholder {
 color: var(--muted);
-font-family: 'Instrument Serif', serif;
-font-style: italic;
 }
 .subscribe input:focus {
 outline: none;
@@ -600,7 +593,6 @@ margin: 0 auto;
 }
 .posts-empty p {
 font-family: 'Instrument Serif', serif;
-font-style: italic;
 font-size: 22px;
 color: var(--muted);
 line-height: 1.4;
@@ -676,7 +668,6 @@ max-width: 720px;
 color: var(--ink);
 transition: color 0.2s ease;
 }
-.post-item h3 em { font-style: italic; }
 .post-item .post-dek {
 font-size: 18px;
 line-height: 1.5;
@@ -729,7 +720,6 @@ letter-spacing: -0.015em;
 color: var(--ink);
 margin-bottom: 0;
 }
-.post-header h1 em { font-style: italic; }
 
 .post-body {
 max-width: 680px;
@@ -753,10 +743,8 @@ display: block;
 }
 .post-illo svg * { vector-effect: non-scaling-stroke; }
 .post-illo .caption {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
 font-size: 13px;
-line-height: 1.4;
+line-height: 1.5;
 color: var(--muted);
 margin-top: 10px;
 padding-top: 8px;
@@ -780,9 +768,7 @@ margin-bottom: 1.4em;
 }
 .post-body p:last-child { margin-bottom: 0; }
 .post-body p em {
-font-family: 'Instrument Serif', serif;
 font-style: italic;
-font-size: 1.03em;
 }
 .post-body p strong { font-weight: 500; }
 .post-body h2 {
@@ -794,7 +780,6 @@ letter-spacing: -0.01em;
 color: var(--ink);
 margin: 2em 0 0.8em;
 }
-.post-body h2 em { font-style: italic; }
 .post-body h2:first-child { margin-top: 0; }
 .post-body .lede {
 font-size: 22px;
@@ -802,7 +787,6 @@ line-height: 1.5;
 color: var(--ink-soft);
 margin-bottom: 1.5em;
 font-family: 'Instrument Serif', serif;
-font-style: italic;
 }
 
 .post-body .context {
@@ -843,7 +827,6 @@ color: var(--ink);
 margin: 2.2em 0;
 max-width: 640px;
 }
-.post-body .callout em { font-style: italic; }
 @media (max-width: 800px) {
 .post-body .callout { font-size: 26px; margin: 1.6em 0; }
 }
@@ -878,9 +861,7 @@ padding: 72px 0 120px;
 text-align: center;
 }
 .post-footer p {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 18px;
+font-size: 16px;
 color: var(--muted);
 margin-bottom: 24px;
 }
@@ -907,9 +888,7 @@ max-width: 1000px;
 text-align: left;
 }
 .post-footer .eng-tiles-label {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 18px;
+font-size: 15px;
 color: var(--muted);
 margin: 0 0 8px;
 text-align: left;
@@ -940,15 +919,9 @@ color: var(--ink);
 margin: 0 0 10px;
 flex: 1 1 100%;
 }
-.post-footer .footer-contact .footer-contact-lede em {
-font-style: italic;
-color: var(--terracotta);
-font-weight: 500;
-}
 .post-footer .footer-contact a {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 20px;
+font-family: 'Instrument Sans', system-ui, sans-serif;
+font-size: 16px;
 text-decoration: none;
 border-bottom: 1px solid currentColor;
 padding-bottom: 2px;
@@ -958,9 +931,7 @@ transition: color 0.2s ease, border-color 0.2s ease;
 .post-footer .footer-contact .footer-contact-email { color: var(--terracotta); }
 .post-footer .footer-contact .footer-contact-email:hover { color: var(--ink); }
 .post-footer .footer-contact .footer-contact-or {
-font-family: 'Instrument Serif', serif;
-font-style: italic;
-font-size: 14px;
+font-size: 13px;
 color: var(--muted);
 border: none;
 padding: 0;
@@ -968,10 +939,6 @@ padding: 0;
 .post-footer .footer-contact .footer-contact-book { color: var(--ink); }
 .post-footer .footer-contact .footer-contact-book:hover { color: var(--terracotta); border-color: var(--terracotta); }
 .post-footer:has(.footer-contact) .post-back-bottom { margin-top: 40px; }
-
-@media (max-width: 520px) {
-.post-footer .footer-contact a { font-size: 18px; }
-}
 
 @media (max-width: 800px) {
 .post-header { margin-bottom: 40px; }
@@ -1228,7 +1195,6 @@ letter-spacing: -0.01em;
 margin-bottom: 32px;
 max-width: 720px;
 }
-.closing h2 em { font-style: italic; }
 .closing .link {
 display: inline-flex;
 align-items: center;
@@ -1252,8 +1218,8 @@ border-color: var(--terracotta);
 .about-hero{padding:88px 0 72px;border-bottom:1px solid var(--rule);}
 .about-hero .hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:start;}
 .about-hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-.02em;color:var(--ink);margin-bottom:22px;}
-.about-hero .lede{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:clamp(17px,1.5vw,21px);line-height:1.55;color:var(--ink-soft);max-width:620px;}
-.about-hero .lede .brandname{font-style:normal;color:var(--terracotta);}
+.about-hero .lede{font-family:'Instrument Sans',system-ui,sans-serif;font-size:clamp(16px,1.4vw,19px);line-height:1.55;color:var(--ink-soft);max-width:620px;}
+.about-hero .lede .brandname{color:var(--terracotta);font-weight:500;}
 .hero-portrait{width:260px;display:flex;flex-direction:column;gap:14px;margin-top:6px;}
 .portrait-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:rgba(123,157,163,0.10);}
 .portrait-frame::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 55%,rgba(241,242,218,0.18));mix-blend-mode:soft-light;pointer-events:none;z-index:2;}
@@ -1261,12 +1227,12 @@ border-color: var(--terracotta);
 .portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:72% center;display:block;filter:saturate(.92) contrast(.98);transition:filter .6s ease,transform .8s ease;}
 .portrait-frame:hover img{filter:saturate(1) contrast(1);transform:scale(1.015);}
 .portrait-meta{display:flex;flex-direction:column;gap:4px;padding-left:2px;}
-.portrait-caption{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-size:14px;color:var(--muted);line-height:1.4;}
+.portrait-caption{font-family:'Instrument Sans',system-ui,sans-serif;font-size:13px;color:var(--muted);line-height:1.4;}
 .portrait-link{font-size:14px;color:var(--ink-soft);text-decoration:none;display:inline-flex;align-items:baseline;gap:6px;transition:color .2s ease;align-self:flex-start;}
 .portrait-link:hover{color:var(--terracotta);}
 .seat{margin-top:40px;max-width:680px;}
 .seat:first-of-type{margin-top:32px;}
-.seat h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:24px;color:var(--ink);margin-bottom:12px;}
+.seat h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:24px;color:var(--ink);margin-bottom:12px;}
 .seat p{font-size:17px;line-height:1.65;color:var(--ink-soft);margin-bottom:16px;}
 .seat p:last-child{margin-bottom:0;}
 .about-pull{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,3.6vw,44px);line-height:1.18;letter-spacing:-.01em;color:var(--ink);margin:64px 0 8px;max-width:820px;}
@@ -1398,7 +1364,7 @@ html{scroll-behavior:auto;}
 .seat-card .seat-mark svg{display:block;height:52px;width:auto;}
 .seat-card--vendor .seat-mark svg{height:67px;margin-bottom:-33px;}
 .seat-card .seat-mark svg *{vector-effect:non-scaling-stroke;stroke-width:1.5px;}
-.seat-card h3{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;font-size:22px;color:var(--ink);margin-bottom:2px;}
+.seat-card h3{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:22px;color:var(--ink);margin-bottom:2px;}
 .seat-card .seat-orgs{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:14px;}
 .seat-card p{font-size:16.5px;line-height:1.62;color:var(--ink-soft);margin:0 0 16px;}
 .seat-card .case-link{margin-top:auto;align-self:flex-start;}
