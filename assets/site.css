@@ -380,8 +380,8 @@ margin:0;color:var(--ink);
 }
 .home-contact-paths{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px;}
 .home-contact-tag{
-font-family:'Instrument Serif',Georgia,serif;font-size:22px;
-line-height:1.4;color:var(--ink);margin:0 0 12px;flex:1 1 100%;
+font-size:17px;
+line-height:1.55;color:var(--ink-soft);margin:0 0 12px;flex:1 1 100%;
 }
 .home-contact-paths .path-email{
 font-family:'Instrument Sans',system-ui,sans-serif;font-size:16px;color:var(--terracotta-text);
@@ -595,10 +595,9 @@ max-width: 540px;
 margin: 0 auto;
 }
 .posts-empty p {
-font-family: 'Instrument Serif', serif;
-font-size: 22px;
+font-size: 18px;
 color: var(--muted);
-line-height: 1.4;
+line-height: 1.5;
 }
 
 /* Post list (index) */
@@ -785,11 +784,10 @@ margin: 2em 0 0.8em;
 }
 .post-body h2:first-child { margin-top: 0; }
 .post-body .lede {
-font-size: 22px;
-line-height: 1.5;
+font-size: 21px;
+line-height: 1.55;
 color: var(--ink-soft);
 margin-bottom: 1.5em;
-font-family: 'Instrument Serif', serif;
 }
 
 .post-body .context {
