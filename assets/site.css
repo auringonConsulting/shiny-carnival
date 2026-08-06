@@ -118,7 +118,18 @@ font-size:clamp(38px,5.4vw,86px);line-height:1.0;letter-spacing:-.02em;color:var
 margin-top:18px;font-family:'Instrument Sans',system-ui,sans-serif;
 font-size:clamp(15px,1.35vw,19px);line-height:1.55;color:var(--ink-soft);max-width:720px;
 }
-.hero .sub .brandname{color:var(--terracotta-text);font-weight:500;}
+/* ——— Brandname wash ———
+   Auringon carries the sun's pigment: --orange at half strength, laid under
+   ink letters (ink holds 7:1 over the wash; terracotta-text fell to 3.5:1).
+   One treatment everywhere: hero sub and every page-head lede. On the
+   homepage the wash soaks in after the sub arrives; reduced motion and
+   interior pages get it pre-dried. */
+.brandname{
+color:var(--ink);font-weight:500;
+padding:0 2px;margin:0 -2px;
+background-image:linear-gradient(rgba(227,155,72,.5),rgba(227,155,72,.5));
+background-repeat:no-repeat;background-position:0 100%;background-size:100% 42%;
+}
 .hero .seats{
 margin-top:14px;font-family:'Instrument Sans',sans-serif;
 font-size:15px;line-height:1.6;color:var(--muted);max-width:700px;
@@ -135,6 +146,7 @@ display:inline-flex;align-items:center;gap:8px;transition:color .25s ease;
 @keyframes standUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
 @keyframes sunRise{from{transform:translateY(calc(100% + var(--lift,34px) + 60px));}to{transform:translateY(0);}}
 @keyframes soak{from{fill-opacity:0;stroke:rgba(58,58,58,.6);}to{fill-opacity:1;stroke:#3a3a3a;}}
+@keyframes brandSoak{from{background-size:0% 42%;}to{background-size:100% 42%;}}
 @keyframes wordUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
 @keyframes breathe{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
 @keyframes pulseA{0%,100%{transform:translateY(0);}38%{transform:translateY(-3px);}}
@@ -177,6 +189,7 @@ display:inline-flex;align-items:center;gap:8px;transition:color .25s ease;
 .hero h1 .w1{animation:wordUp 1.2s var(--ease-out) 1.15s both;}
 .hero h1 .w2{animation:wordUp 1.2s var(--ease-out) 2.8s both;}
 .hero .sub{animation:wordUp 1.2s var(--ease-out) 3.4s both;}
+.hero .sub .brandname{animation:brandSoak .9s var(--ease-out) 4.3s both;}
 .hero .seats{animation:wordUp 1.2s var(--ease-out) 3.75s both;}
 .hero .cue{animation:cueIn 1.4s ease 4.4s both;}
 }
@@ -423,7 +436,6 @@ margin-bottom:22px;
 font-family:'Instrument Sans',system-ui,sans-serif;
 font-size:clamp(19px,1.5vw,21px);line-height:1.55;color:var(--ink-soft);max-width:720px;
 }
-.page-head .lede .brandname{color:var(--terracotta-text);font-weight:500;}
 .section-title{
 font-family:'Instrument Serif',Georgia,serif;font-weight:400;
 font-size:clamp(28px,3.4vw,40px);line-height:1.1;letter-spacing:-.01em;
@@ -1223,7 +1235,6 @@ border-color: var(--terracotta-text);
 .about-hero .hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:64px;align-items:start;}
 .about-hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-.02em;color:var(--ink);margin-bottom:22px;}
 .about-hero .lede{font-family:'Instrument Sans',system-ui,sans-serif;font-size:clamp(19px,1.5vw,21px);line-height:1.55;color:var(--ink-soft);max-width:620px;}
-.about-hero .lede .brandname{color:var(--terracotta-text);font-weight:500;}
 .hero-portrait{width:260px;display:flex;flex-direction:column;gap:14px;margin-top:6px;}
 .portrait-frame{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:rgba(123,157,163,0.10);}
 .portrait-frame::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 55%,rgba(241,242,218,0.18));mix-blend-mode:soft-light;pointer-events:none;z-index:2;}
