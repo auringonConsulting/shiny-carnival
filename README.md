@@ -48,6 +48,25 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 28, 2026 revision
+
+A fourth case study: /work/building-support-without-a-support-team/. Company
+unnamed on purpose; the kicker is "First business hire · Early-stage startup"
+in place of title · company. Built from the Bandwagon page's template (same
+head, nav, footer, chapter rail, record strip, closing), five chapters, id
+prefix "support". New engagement mark: sun over a ghosted heap (the inbox),
+a terracotta stone (the system, squashing on the shared .sq cycle), and three
+small stones in different colors set down one by one (each customer answered
+for who they are). The same mark is the Work index thumbnail. Revised the same day: no motion trails; the left is six faded pebbles tumbling loose, and the right is the same six stones, solid, sorted by color and built into a three-course pyramid (sky base, olive above), taller than the system stone so the result reads as the grander thing. Mess in, order out, with nothing drawn between them.
+
+Work index: fourth entry added, "Three engagements" became "Four" in the lede,
+meta descriptions, and JSON-LD; ItemList gained position 4. Every other case's
+"More of the work" now links the new one. Sitemap: new URL added, /work/
+lastmod bumped.
+
+Changed: /work/, /work/building-support-without-a-support-team/ (new), the
+three existing case pages, /sitemap.xml, /README.md.
+
 ## August 4, 2026 revision
 
 Three housekeeping fixes, none of them copy.
