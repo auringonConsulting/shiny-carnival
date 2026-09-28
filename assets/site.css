@@ -990,17 +990,6 @@ h2.hq{text-indent:-0.42em;}
 .engagement-page {
 padding: 64px 0 40px;
 }
-.engagement-page .post-header h1 .role-kicker {
-display: block;
-font-family: 'Instrument Sans', sans-serif;
-font-style: normal;
-font-size: 12px;
-letter-spacing: 0.16em;
-text-transform: uppercase;
-color: var(--muted);
-font-weight: 500;
-margin-bottom: 20px;
-}
 
 /* Read time + chapter count below the title */
 .engagement-page .post-meta {
@@ -1396,6 +1385,7 @@ html{scroll-behavior:auto;}
 .heroB .hero-row{grid-template-columns:auto minmax(0,1fr);gap:64px;}
 .heroB .portraitB{width:400px;margin-top:4px;}
 .heroB h1{font-size:clamp(36px,4.6vw,58px);}
+#references{scroll-margin-top:72px;}
 .refsB{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 40px;border-top:1px solid var(--rule-soft);padding-top:30px;}
 .refsB .clip h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:10px;}
 .refsB .example-quote{padding-left:14px;margin:0;}

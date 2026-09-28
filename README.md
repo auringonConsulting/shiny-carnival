@@ -48,6 +48,35 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 28, 2026 revision (3)
+
+References are linkable: the About page's References section has
+id="references", so https://www.auringon.com/about/#references lands on it (a
+72px scroll-margin keeps the heading clear of the sticky nav). Amit Agarwal's
+quote, previously only on the homepage, joins the wall as a sixth clip,
+"Readies the systems for what comes next.", which also evens the three-column
+grid to two full rows.
+
+Changed: /about/, /assets/site.css, /README.md.
+
+## September 28, 2026 revision (2)
+
+A fifth case study: /work/turning-a-rule-into-something-that-runs/, the TLC's
+for-hire wheelchair accessibility rule taken from adopted policy to tracked
+compliance. Same template as the other cases (no role kicker), five chapters, id
+prefix "rule", with the pull quote on forcing decisions (a concrete proposal to argue about). Outcome figures are the
+TLC's own, from its September 2019 FHV wheelchair accessibility compliance
+report. New mark: a dashed outline of a stone (the rule on paper) and the same
+shape in terracotta, real, resting on a bed of five mixed stones (the systems it
+touched); the sun sits between them. Also the Work index thumbnail.
+
+Work index: fifth entry, "Four" became "Five" in the lede, meta descriptions and
+JSON-LD, ItemList position 5. Every case's "More of the work" now lists the
+other four. Sitemap: new URL added.
+
+Changed: /work/, /work/turning-a-rule-into-something-that-runs/ (new), the four
+existing case pages, /sitemap.xml, /README.md.
+
 ## September 28, 2026 revision
 
 A fourth case study: /work/building-support-without-a-support-team/. Company
@@ -64,8 +93,14 @@ meta descriptions, and JSON-LD; ItemList gained position 4. Every other case's
 "More of the work" now links the new one. Sitemap: new URL added, /work/
 lastmod bumped.
 
+Role kickers retired from all four case pages (the small caps "Title · Company"
+line inside each h1). The h1 is now just the headline, which also cleans up what
+screen readers announce. The .role-kicker rule left site.css with them. The Work
+index entries lost their role lines too (the post-meta div above each title), so
+each entry is now illustration, title, dek, read link.
+
 Changed: /work/, /work/building-support-without-a-support-team/ (new), the
-three existing case pages, /sitemap.xml, /README.md.
+three existing case pages, /assets/site.css, /sitemap.xml, /README.md.
 
 ## August 4, 2026 revision
 
