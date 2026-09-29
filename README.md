@@ -48,6 +48,34 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 29, 2026 revision (9)
+
+"The plan" is now "the strategy" sitewide: "plan" read as public-sector
+planning next to the city-agency background. Home hero and its
+meta/OG/Twitter/JSON-LD copies ("the platform the strategy needs"), the
+fork framing ("Whatever the strategy is missing"), the shared Build tagline
+("What the strategy still needs") on Home, Engagements, and all three /for/
+pages, the Engagements lede, meta, JSON-LD, and Build body ("whatever size the
+strategy calls for"), and "arrive where the strategy is stalling" on About and
+Work. Left alone: the journal essay line "The plan assumed someone would build
+it," the Ad Hoc case study's "a partner in the plan," and the hero's
+.stone--plan class (internal only).
+
+Home also gets a second, smaller example under the TLC story: "Building
+support without a support team," eyebrowed "Also, inside a startup," so the
+one featured case doesn't make the practice read as public-sector only. It
+pays off the fork framing's "support queue that needs automating." Kept
+compact on purpose (eyebrow and a linked title only, no dek, no second "Read
+the full story") so the section reads as one story plus a pointer. The home
+title is "Building support for every customer, without hiring a team"; the case study
+page keeps its own title. The TLC example on Home is retitled to land on the
+outcome: "Turning a rule into wheelchair-accessible rides" (its case study page
+stays "Turning a rule into something that runs"). New
+.example-also styles in site.css.
+
+Changed: /, /engagements/, /for/founders/, /for/funders/, /for/consultancies/,
+/about/, /work/, /assets/site.css, /README.md.
+
 ## September 28, 2026 revision (8)
 
 Funders page de-"planned": the word read nonprofit rather than venture. The
