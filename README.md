@@ -48,6 +48,20 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 28, 2026 revision (8)
+
+Funders page de-"planned": the word read nonprofit rather than venture. The
+lede (and its meta/OG/Twitter copies) is now "You wrote the check, and the team
+is out building. When they need something they don't have yet, I'm the operator
+you can offer them." Also: "The team you backed needs one nobody on it has
+yet", "The gap, closed.", "if something's missing, we know an operator", "a
+skill the business needs", "A number they promised you", "everything between
+roadmap and release". The Engagements funder card now opens "Venture fund or
+foundation, you wrote the check." The shared Build tagline ("What the plan
+still needs") is unchanged sitewide.
+
+Changed: /for/funders/, /engagements/, /README.md.
+
 ## September 28, 2026 revision (7)
 
 Accessibility case reframed from monitoring to program design and change
