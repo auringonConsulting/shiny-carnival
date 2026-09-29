@@ -48,6 +48,33 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 28, 2026 revision (5)
+
+Homepage: the "Example of the work" feature is now the accessibility rule
+("Turning a rule into something that runs"), with its mark drawn static like the
+feature mark before it. Amit Agarwal's quote stays with it; it fits this case as
+well as the last one. The product-practice case remains on /work/ and the
+funders page.
+
+Engagements: "Who this is for" moved up to sit right after the page head, so the
+page reads who, how, then the shapes. It takes the tinted band so plain and tint
+still alternate. The page-head sentence lost its inline audience links (the
+cards below now carry them) and reads "Here's who I work with, how an
+engagement works, and the shapes it takes."
+
+Sitemap lastmod bumped for every page changed today.
+
+Changed: /, /engagements/, /sitemap.xml, /README.md.
+
+## September 28, 2026 revision (4)
+
+Work index reordered: accessibility rule first, then Bandwagon, support,
+product practice, Ad Hoc last. Public and private sector alternate, so the two
+TLC cases never sit side by side. JSON-LD ItemList positions follow the new
+order.
+
+Changed: /work/, /README.md.
+
 ## September 28, 2026 revision (3)
 
 References are linkable: the About page's References section has
