@@ -48,6 +48,29 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 28, 2026 revision (7)
+
+Accessibility case reframed from monitoring to program design and change
+management, which is the practice's positioning. The trip-level logic is now
+described as the program itself (a data-driven program: compliance was a
+calculation), and the industry communications and work with industry groups as
+designing adoption in. Lede, meta descriptions, record strip, "The rule on
+paper", "Every system it touched", "Following every trip" and "What travels"
+all updated; Work index dek and homepage example text follow.
+
+Changed: /, /work/, /work/turning-a-rule-into-something-that-runs/, /README.md.
+
+## September 28, 2026 revision (6)
+
+Accessibility case gains a sixth chapter, "Following every trip" (id rule-trips,
+rail label "Trips"): inspection data merged with trip records, a measurement for
+each compliance path (share of trips in accessible vehicles; whether riders who
+needed one could get one), and attribution of trips farmed out between bases.
+The stakes paragraph and the outcome figures moved to close that chapter. The
+record strip's "Built" row now ends on measuring compliance trip by trip.
+
+Changed: /work/turning-a-rule-into-something-that-runs/, /sitemap.xml, /README.md.
+
 ## September 28, 2026 revision (5)
 
 Homepage: the "Example of the work" feature is now the accessibility rule
