@@ -51,7 +51,7 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 ## September 30, 2026: email signature wordmark
 
 Added /assets/auringon-wordmark-email.png, the header wordmark rendered as a
-360 x 58 PNG (charcoal #3a3a3a, mark shapes filled cream #f1f2da, on white)
+360 x 58 PNG (charcoal #3a3a3a, mark shapes filled cream #f1f2da, transparent background)
 for the Gmail signature, which loads it from
 https://www.auringon.com/assets/auringon-wordmark-email.png. Every sent email
 points at that URL, so don't rename, move, or delete the file. No pages
