@@ -48,6 +48,15 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## September 30, 2026: email signature wordmark
+
+Added /assets/auringon-wordmark-email.png, the header wordmark rendered as a
+360 x 58 PNG (charcoal #3a3a3a, mark shapes filled cream #f1f2da, on white)
+for the Gmail signature, which loads it from
+https://www.auringon.com/assets/auringon-wordmark-email.png. Every sent email
+points at that URL, so don't rename, move, or delete the file. No pages
+reference it.
+
 ## September 29, 2026 revision (9)
 
 "The plan" is now "the strategy" sitewide: "plan" read as public-sector
