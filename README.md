@@ -48,6 +48,29 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## October 4, 2026 revision (10)
+
+Copy aligned with the LinkedIn company page.
+
+Home: the seats line under the hero is concrete now. "Chief product and
+operating officer inside startups, executive inside city agencies, vendor
+inside government, shaping the standards cities run on" is now "COO and CPO at
+startups, executive at NYC's Taxi & Limousine Commission, vendor to government
+at Ad Hoc, board member at the Open Mobility Foundation." Meta, OG, Twitter,
+and JSON-LD descriptions don't carry this line, so they're unchanged.
+
+Founders page: the door stays "founders," but the page now speaks to nonprofits
+too. The lede (and its meta/OG/Twitter copies) opens "Early teams run lean,
+startup or nonprofit. Some of what you need next, nobody has time to build"
+(was "Early teams run lean. Some of what the company needs next"). "What
+founders call about" gains a second item: "The new grant. The money came
+through. The operation to deliver it didn't come with it." Nonprofits reached
+through funders are still covered on /for/funders/.
+
+Sitemap lastmod bumped for / and /for/founders/.
+
+Changed: /, /for/founders/, /sitemap.xml, /README.md.
+
 ## September 30, 2026: email signature wordmark
 
 Added /assets/auringon-wordmark-email.png, the header wordmark rendered as a
