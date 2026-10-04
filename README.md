@@ -48,6 +48,60 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## October 4, 2026 revision (12)
+
+Voice pass: announcing lines, "the real work was" setups, and closing
+aphorisms cut sitewide. Nothing restructured; the Read/Build/Turn taglines,
+"call about" lists, record strips, and pull quotes are unchanged.
+
+About: headline is now "The operator behind Auringon." (was "The practice is
+new. The work isn't."). The about-pull under Four seats ("On paper, four
+seats, four different jobs...") is gone; the section title already says it.
+"The real work was refusing to re-pour" is now "Most of the job was refusing
+to re-pour". The Fleet line loses its em dash ("first as COO and then as
+Chief Product Officer"). "Nothing grows without it." cut from the name
+paragraph. The one-line headlines above each reference quote are removed;
+quotes and names stand on their own. The .ref h3 and .refsB .clip h3 styles
+are now unused but left in site.css.
+
+Engagements: "Here's who I work with, how an engagement works, and the shapes
+it takes." cut from the page head, and "We make it real." cut from the
+founders card. Meta copies don't carry either line.
+
+Work: "All of it done before the practice had a name." is now "All of it came
+before Auringon."
+
+Case studies: accessibility drops "The reaction is the review."; support's
+"the real challenge... the part a generic support tool" is now "the hard
+part... what a generic support tool", and "Building in stages is what makes a
+small team's effort count." is cut; Bandwagon's Kept running strip drops "and
+this piece says so"; product practice drops "quietly".
+
+Journal: index lede is now "For the people who have to run public systems
+after everyone else has gone home." (meta unchanged). The working layer drops
+its closer, "If that's the layer you work in too, you're in the right place."
+Four ways' pull quote is now "The diagnostic is simple: who wakes up Monday
+owning the build?"
+
+Sitemap lastmod bumped for every page changed today.
+
+Changed: /about/, /engagements/, /work/, the four case studies above,
+/journal/, /journal/the-working-layer/, /journal/four-ways-urban-work-fails/,
+/sitemap.xml, /README.md.
+
+## October 4, 2026 revision (11)
+
+About page trimmed to match the LinkedIn profile. Two lines cut, nothing added:
+"Now the work has a name." at the end of the intro (it now ends on "leave once
+it runs."), and "Mandates, funding, and strategy are common. The machinery that
+turns them into something that runs is rare." in Why Auringon, which already
+says the same thing in the sentences before it. Meta, OG, Twitter, and JSON-LD
+copies don't carry either line, so they're unchanged.
+
+Sitemap lastmod bumped for /about/.
+
+Changed: /about/, /sitemap.xml, /README.md.
+
 ## October 4, 2026 revision (10)
 
 Copy aligned with the LinkedIn company page.
