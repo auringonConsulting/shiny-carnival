@@ -48,6 +48,26 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## November 22, 2026 revision (7)
+
+From Jonathan's notes. Home: the hero subline now carries the civic and urban
+positioning ("I'm an urban planner who has spent a decade running operations
+and product in civic and urban technology"), and the line under "When to bring
+me in" no longer repeats the heading. "Product team" is "product practice" on
+Engagements and Founders. Founders: "What most founders come for" cut.
+Funders: "The pattern" and the last sentence of "How this works" reworded so
+they don't imply portfolio experience. Government: the "bigger than one
+person" line now uses the same type size as the phases above it.
+
+About, Four seats: rewritten in a more modest register ("We rebuilt the
+operation", "helped turn early ideas into", "redesigning old processes so they
+weren't simply copied into the new systems"). The "arrive, build, leave" line
+is now "come in, build what's missing, and hand it over once it runs", on
+About (meta too) and Work.
+
+Changed: /, /about/, /engagements/, /for/founders/, /for/funders/,
+/for/government/, /work/, /README.md.
+
 ## November 22, 2026 revision (6)
 
 Third voice pass, on the pages the first two left alone. The goal throughout:
