@@ -48,6 +48,80 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## November 22, 2026 revision (3)
+
+Consultancies page rewritten again, in plain staffing language.
+
+/for/consultancies/: the lede now says what I am ("a management consultant
+with a product and operations background") before anything else. "Where I plug
+in" is replaced by "How I work with firms": four named offers with durations
+(Solutioning support, Discovery, Project startup, Recovery assessment) plus a
+Longer roles line. "Where this comes from" is now "Selected experience", four
+entries labeled by type of work; the modernization entry has no link and names
+no vendor. "For your capture team" stays, with the lists updated. Meta
+descriptions carry the lede.
+
+Engagements: the For consultancies card matches. A line under "The shapes an
+engagement takes" says Read/Build/Turn is the founder and funder framing and
+points government and consultancy readers to their own pages.
+
+Convention going forward: two vocabularies, no more. Founders and funders get
+Read/Build/Turn. Government and consultancies get named, scoped offers in the
+buyer's terms (a deliverable, a duration, an end date). A new audience page
+uses one of the two.
+
+/for/government/: the lede now names the role too. "That's the gap I fill. I
+take an initiative..." is now "I'm a management consultant who takes it from
+approved to running, then hands it to your staff." Meta descriptions match. The
+Understand, Design, and Stand it up phases each carry a typical duration
+(3-4 weeks, 6-8 weeks, 3-6 months).
+
+Changed: /for/consultancies/, /for/government/, /engagements/, /README.md.
+
+## November 22, 2026 revision (2)
+
+Consultancies page rewritten around the operational side of government
+modernization work.
+
+/for/consultancies/: new lede, "What firms call about" list, and Approach
+copy. The Read/Build/Turn section (with its three illustrations and the
+fixed-fee and paid-on-growth lines) is replaced by "Where I plug in": In the
+bid, In discovery, In delivery. "What the work looks like" is replaced by
+"Where this comes from" (accessibility program, TLC modernization, Ad Hoc
+account growth) with the Dan Munz quote. New "For your capture team" section:
+services, roles, domain, business facts. First-call line updated. Meta
+descriptions carry the new lede. The TLC paragraph says "technology
+modernization"; no vendor is named.
+
+Engagements: the For consultancies card carries the new positioning.
+
+Sitemap: lastmod bumped for /for/consultancies/.
+
+Changed: /for/consultancies/, /engagements/, /sitemap.xml, /README.md.
+
+## November 22, 2026 revision
+
+Government added as a fourth audience.
+
+New page: /for/government/. Built from the /for/consultancies/ shell (same
+nav, footer, scripts). It does not carry the Read/Build/Turn section the other
+three audience pages have; its Approach section runs Understand, Design, Stand
+it up, Hand it off. Closes with a procurement section (ways to bring me in,
+services, NAICS codes, location). Meta descriptions carry the lede, as on the
+other /for/ pages. The TLC paragraph says "technology modernization"; no
+vendor is named.
+
+Home: "government" added to the audience line under the hero and to the four
+description copies; four terms added to knowsAbout in the JSON-LD.
+
+Engagements: section title is now "Founders, funders, government, and
+consultancies." and a For government card sits between funders and
+consultancies.
+
+Sitemap: /for/government/ added; lastmod bumped for / and /engagements/.
+
+Changed: /, /engagements/, /for/government/ (new), /sitemap.xml, /README.md.
+
 ## October 4, 2026 revision (12)
 
 Voice pass: announcing lines, "the real work was" setups, and closing
