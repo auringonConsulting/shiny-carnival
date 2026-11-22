@@ -48,6 +48,38 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## November 22, 2026 revision (4)
+
+Light voice pass, sitewide. Nothing restructured.
+
+Patterns trimmed: the same idea restated on one page, colon drumrolls,
+setup-then-reveal sentences, spare "actually"s, and "it wasn't X, it was Y"
+where it had become a tic. Read/Build/Turn taglines, "call about" lists,
+record strips, and pull quotes are unchanged.
+
+About: the lede now says "I'm an urban planner by training, and I've spent a
+decade as an operator under other titles." The repeated "same shape" line
+under Four seats is gone. The TLC seat reads as two stints in plain sentences.
+Why Auringon opens with one sentence instead of four.
+
+Home: the line under "What are you trying to make real?" is one sentence.
+
+Engagements: funders card and the second Turn paragraph reworded for flow.
+
+Founders: lede reads "whether you're a startup or a nonprofit" (meta too).
+
+Funders: the three stories are hypothetical, so the section is now "How it
+would go" (kicker "Examples") with a line saying so, and "What funders call
+about" is "When to call". "Side of the table" phrasing replaced twice.
+
+Government: one "actually" and "rather than assumptions" cut.
+
+Case studies and journal: single-word and single-sentence trims only.
+
+Changed: /, /about/, /engagements/, /for/founders/, /for/funders/,
+/for/government/, three /work/ pages, three /journal/ posts, /sitemap.xml,
+/README.md.
+
 ## November 22, 2026 revision (3)
 
 Consultancies page rewritten again, in plain staffing language.
