@@ -78,6 +78,15 @@ call-about list and the first example, the lede's word order), Funders
 ("embed", "what they sold you", two call-about items), and Government ("a new
 role").
 
+"Shapes" is retired as a visible word. Engagements: "The shapes an engagement
+takes" is now "How I work with founders and funders", with a one-line pointer
+for agencies and firms. Founders and Funders: "The shapes it takes" is now
+"Three ways to work with me". The #shapes anchor is unchanged, so old links
+still work.
+
+Case studies: the closing section "What travels" is now "What I'd take from
+it" ("Lessons" in the side navigation). Anchors are unchanged.
+
 Changed: /, /engagements/, /for/founders/, /for/funders/, /work/, all five
 /work/ cases, /journal/ and its three posts, /sitemap.xml, /README.md.
 
