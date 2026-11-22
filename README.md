@@ -48,6 +48,59 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## November 22, 2026 revision (6)
+
+Third voice pass, on the pages the first two left alone. The goal throughout:
+a reader should get what I do without translating house vocabulary.
+
+Accuracy: "Four ways urban work fails" no longer claims first-hand foundation
+experience ("I've seen it at foundations", "the ones I get called in on",
+"foundation" in the list of places). The Bandwagon case says the pilot was
+"kept outside" fare-collection licensing, not that we "dodged" it.
+
+Case studies: all five now close with "Want to talk through something like
+this?" plus email and booking links, the same as journal posts. They used to
+point to the Read/Build/Turn shapes, which are for founders and funders only.
+
+Vocabulary: "the strategy" is "your plan" in the hero and the Engagements
+lede (meta too). "The operator" and "seats" stay on About and are replaced
+elsewhere (hero subline, Founders, Funders, Engagements funders card, Work).
+
+Journal and case studies: shorthand trimmed ("reps", "muscle", "banked",
+"high-leverage play"), and stacked "it isn't X, it's Y" endings rewritten as
+plain statements in "Four ways" and "Container moves". "The real work was
+underneath" is now "Most of the work was underneath."
+
+Changed: /, /engagements/, /for/founders/, /for/funders/, /work/, all five
+/work/ cases, /journal/ and its three posts, /sitemap.xml, /README.md.
+
+## November 22, 2026 revision (5)
+
+Second voice pass, aimed at swagger and shorthand. This one does change the
+Read/Build/Turn taglines, which earlier passes left alone.
+
+Taglines, on Home, Engagements, Founders, and Funders:
+"The return that hasn't shown up." is now "When something isn't working."
+"What the strategy still needs." is now "When something is missing."
+"The number where it should be." is now "When a number has to move."
+
+Home: the section heading "What are you trying to make real?" is now "When to
+bring me in". The three cards and the line above them are reworded in plain
+terms ("I lead the build", "I work inside your team", "paid on the result").
+
+The first-call question is now "what do you need, and how big is it" on Home,
+Engagements, and Founders.
+
+Phrases replaced wherever they appeared: "take point", "embed", "latitude",
+"my pay rides on", "rails", "sized and assigned", "name it / name the thing",
+"ways in", "ground truth", "second wind", "build the machinery".
+
+Not changed: the hero line and the Engagements lede still say "the strategy
+needs".
+
+Changed: /, /about/, /engagements/, /for/founders/, /for/funders/, /work/,
+/README.md.
+
 ## November 22, 2026 revision (4)
 
 Light voice pass, sitewide. Nothing restructured.
