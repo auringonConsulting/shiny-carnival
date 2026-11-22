@@ -71,6 +71,13 @@ Journal and case studies: shorthand trimmed ("reps", "muscle", "banked",
 plain statements in "Four ways" and "Container moves". "The real work was
 underneath" is now "Most of the work was underneath."
 
+Follow-up, same day: awkward sentences fixed on Home (the line under "When to
+bring me in" no longer repeats the hero), Engagements (funders and government
+cards, the Build list, "sits under you"), Founders (dangling fragments in the
+call-about list and the first example, the lede's word order), Funders
+("embed", "what they sold you", two call-about items), and Government ("a new
+role").
+
 Changed: /, /engagements/, /for/founders/, /for/funders/, /work/, all five
 /work/ cases, /journal/ and its three posts, /sitemap.xml, /README.md.
 
