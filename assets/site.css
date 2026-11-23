@@ -1680,13 +1680,13 @@ html.intro-on .hero ~ *,html.intro-on body > footer{opacity:0;}
 html.intro-on .hero{border-bottom-color:transparent;}
 html.intro-on .hero .hline{transform:scaleX(0);transform-origin:left;}
 html.intro-on .hero .stone .tintable{fill-opacity:0;}
-.intro-grain{position:absolute;inset:-64px;pointer-events:none;mix-blend-mode:soft-light;background-size:256px 256px;}
+.intro-grain{position:absolute;inset:-64px;pointer-events:none;background-size:256px 256px;will-change:transform;}
 @media (prefers-reduced-motion: no-preference){.intro-grain{animation:introGrain .5s steps(6) infinite;}}
 @keyframes introGrain{0%{transform:translate(0,0)}17%{transform:translate(-31px,17px)}33%{transform:translate(22px,-40px)}50%{transform:translate(-12px,-23px)}67%{transform:translate(40px,9px)}83%{transform:translate(-45px,-37px)}100%{transform:translate(0,0)}}
 .intro-grain--type{z-index:6;}
 .intro-backer,.intro-glow{position:absolute;pointer-events:none;opacity:0;border-radius:46% 54% 52% 48%/58% 44% 56% 42%;will-change:opacity,transform;}
-.intro-backer{mix-blend-mode:multiply;filter:blur(26px);background:radial-gradient(ellipse at 50% 50%,rgba(122,50,20,.85) 0%,rgba(122,50,20,.5) 42%,rgba(122,50,20,0) 72%);}
-.intro-glow{mix-blend-mode:screen;filter:blur(18px);background:radial-gradient(ellipse at 50% 52%,rgba(255,206,140,.75) 0%,rgba(244,160,84,.38) 38%,rgba(244,160,84,0) 68%);}
+.intro-backer{background:radial-gradient(ellipse at 50% 50%,rgba(92,34,12,.62) 0%,rgba(92,34,12,.42) 25%,rgba(92,34,12,.16) 50%,rgba(92,34,12,.04) 62%,rgba(92,34,12,0) 70%);}
+.intro-glow{background:radial-gradient(ellipse at 50% 52%,rgba(255,216,164,.66) 0%,rgba(252,194,128,.42) 24%,rgba(248,172,102,.18) 46%,rgba(246,170,100,.05) 60%,rgba(246,170,100,0) 69%);}
 .intro-type{position:absolute;inset:0;z-index:5;pointer-events:none;}
 .intro-type span{position:absolute;left:0;right:0;top:var(--ty,44%);margin-top:-.55em;text-align:center;opacity:0;white-space:nowrap;
 font:400 clamp(44px,8.4vw,132px)/1.1 'Instrument Serif',Georgia,serif;letter-spacing:-.02em;color:var(--paper);text-shadow:0 0 .12em rgba(250,196,140,.75),0 0 .38em rgba(242,172,112,.5),0 0 .8em rgba(96,44,18,.5);will-change:opacity,filter;}

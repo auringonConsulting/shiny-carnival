@@ -107,9 +107,9 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
   for(i=0;i<n.length;i++){var z=(n[i]-mean)/sd;z=Math.max(-1.6,Math.min(1.6,z));var Al=Math.min(0.97,alpha*(1+GR*z/1.6*1.15)),beta=Math.max(0,(Al-amin)/(1-amin));
    dd[i*4]=col[0];dd[i*4+1]=col[1];dd[i*4+2]=col[2];dd[i*4+3]=Math.round(beta*255)}
   c.getContext('2d').putImageData(id,0,0);return c}
- function size(){var r=host.getBoundingClientRect();var iw=Math.min(800,Math.max(390,Math.round(r.width*0.62)));
+ function size(){var r=host.getBoundingClientRect();var iw=Math.min(540,Math.max(330,Math.round(r.width*0.37)));
   cv.width=Math.round(iw*1.08);cv.height=Math.round(iw*r.height/r.width*1.08);
-  cv.style.cssText='position:absolute;left:-4%;top:-4%;width:108%;height:108%;filter:blur('+(r.width*BLUR).toFixed(2)+'px)';
+  cv.style.cssText='position:absolute;left:-4%;top:-4%;width:108%;height:108%';  // no CSS blur: the canvas is drawn small and scaled up, which softens it for free
   var sc=Math.max(iw/W,(iw*r.height/r.width)/H0);S=sc;ox=(cv.width-W*sc)/2;oy=(cv.height-H0*sc)*0.4;PADN=Math.ceil(170*S);
   NQ=Math.min(1,560/(W*S+2*PADN));NW=Math.ceil(W*S)+2*PADN;NH=Math.ceil(H0*S)+2*PADN;
   NOISE=WASHES.map(function(w,i){return noise(Math.ceil(NW*NQ),Math.ceil(NH*NQ),w.c,w.alpha,(i+1)*9973)})}
@@ -122,7 +122,9 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
     var x=Math.cos(th)*r*w.rx*sr*S,y=Math.sin(th)*r*w.ry*sr*S,px=x*cr-y*sn+cx,py=x*sn+y*cr+cy;if(j)ctx.lineTo(px,py);else ctx.moveTo(px,py)}
    ctx.closePath();ctx.fillStyle='rgb('+w.c[0]+','+w.c[1]+','+w.c[2]+')';ctx.globalAlpha=Math.min(0.97,w.alpha+w.deepen*deep)*(1-GR);ctx.fill();
    ctx.save();ctx.clip();ctx.globalAlpha=1;ctx.drawImage(NOISE[i],dx*S+ox-PADN,dy*S+oy-PADN,NW,NH);
-   ctx.strokeStyle=ctx.fillStyle;ctx.lineJoin='round';ctx.globalAlpha=w.alpha*0.2;ctx.lineWidth=w.soft*5.2*S;ctx.stroke();ctx.lineWidth=w.soft*2.4*S;ctx.stroke();if(RIM>0){ctx.globalAlpha=w.alpha*RIM;ctx.lineWidth=7*S;ctx.stroke()}ctx.restore()}}
+   ctx.strokeStyle=ctx.fillStyle;ctx.lineJoin='round';ctx.globalAlpha=w.alpha*0.2;ctx.lineWidth=w.soft*5.2*S;ctx.stroke();ctx.lineWidth=w.soft*2.4*S;ctx.stroke();if(RIM>0){ctx.globalAlpha=w.alpha*RIM;ctx.lineWidth=7*S;ctx.stroke()}ctx.restore()}
+  // cheap softening inside the canvas (replaces the CSS blur, which made the browser re-blur the whole screen every frame)
+  if(BLUR>0){ctx.globalCompositeOperation='source-over';var o=Math.max(1,cv.width*BLUR*0.9);ctx.globalAlpha=0.5;ctx.drawImage(cv,o,0);ctx.drawImage(cv,0,o);ctx.globalAlpha=0.34;ctx.drawImage(cv,-o,-o);ctx.globalAlpha=0.25;ctx.drawImage(cv,o,-o)}}
  var WR=rngf(4177),WF=[],WP=[];for(var wi=0;wi<WASHES.length*18;wi++){WF.push(0.55+WR()*1.5);WP.push(WR()*TAU)}
  function wob(i,c,T){var k=(i*9+c)*2;return 0.62*Math.sin(T*WF[k]+WP[k])+0.38*Math.sin(T*WF[k+1]*1.9+WP[k+1])-(0.62*Math.sin(WP[k])+0.38*Math.sin(WP[k+1]))*Math.exp(-T*1.5)}
  var ph=f0,last=0,TL=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
@@ -156,7 +158,7 @@ function logoPath(g){ // the name rises, then glides left; the mark swings from 
 var lobes=[],grain=null,grain2=null,backer=null,glow=null,typeBox=null,pieces=[];
 function grainTile(){var c=d.createElement('canvas');c.width=c.height=256;var x=c.getContext('2d'),im=x.createImageData(256,256),s=7;
  function r(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
- for(var i=0;i<im.data.length;i+=4){var g=(r()+r()+r())/3,v=Math.max(0,Math.min(255,128+(g-0.5)*380));im.data[i]=v;im.data[i+1]=v*0.97;im.data[i+2]=v*0.93;im.data[i+3]=255}
+ for(var i=0;i<im.data.length;i+=4){var g=(r()+r()+r())/3,dv=Math.max(-1,Math.min(1,(g-0.5)*3.0)),lt=dv>0;im.data[i]=lt?255:64;im.data[i+1]=lt?244:42;im.data[i+2]=lt?222:28;im.data[i+3]=Math.abs(dv)*(lt?70:120)}
  x.putImageData(im,0,0);return c.toDataURL()}
 function build(){var g=geom();
  paint=(PAINT==='clip'?clipPaint:livePaint)(wash);
