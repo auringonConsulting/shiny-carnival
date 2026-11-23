@@ -208,7 +208,7 @@ function run(g){t0=performance.now();try{clearTimeout(I.wd)}catch(e){}I.wd=setTi
   A('word',el,[{transform:'translateY('+RISE+'px)'},{transform:'translateY(0)'}],0.7,w[0],'cubic-bezier(.16,1,.3,1)')});
  // the stacked logo: develops in, holds, then travels
  pieces[0].style.transform=p.km[0].transform;pieces[1].style.transform=p.kl[0].transform;
- pieces.forEach(function(e,i){A('word',e,[{opacity:0,filter:'blur(7px) brightness(1.25)'},{opacity:1,filter:'blur(0px) brightness(1)'}],DEV,LOGO_IN);
+ pieces.forEach(function(e,i){A('word',e,[{opacity:0},{opacity:1}],DEV*1.25,LOGO_IN,'cubic-bezier(.3,.1,.3,1)');
   A('fly',e,i?p.kl:p.km,FLY,LIFT);
   [].forEach.call(e.querySelectorAll('path'),function(x){A('fly',x,[{fill:'#f1f2da'},{fill:'#3a3a3a'}],0.12,LIFT+FLY*0.42,'linear')})});
  later(function(){lifted=true},LIFT);

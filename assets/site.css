@@ -1692,5 +1692,5 @@ font:400 clamp(44px,8.4vw,132px)/1.1 'Instrument Serif',Georgia,serif;letter-spa
 .intro-fly{position:fixed;left:0;top:0;z-index:1000;pointer-events:none;transform-origin:0 0;opacity:0;will-change:transform,opacity;}
 .intro-fly svg{display:block;width:100%;height:100%;overflow:visible;}
 .intro-fly path{fill:#f1f2da;}
-.intro-fly svg{filter:drop-shadow(0 0 6px rgba(246,186,128,.5)) drop-shadow(0 0 14px rgba(96,44,18,.4));}
+.intro-fly svg{filter:drop-shadow(0 0 9px rgba(170,104,58,.5));}
 @media (max-width:700px){.intro-type span{font-size:min(16vw,68px);}}
