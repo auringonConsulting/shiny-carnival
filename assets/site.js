@@ -36,7 +36,7 @@ navScrolled();
 // Arrival wash: the sky glaze dries as the stones soak (soak delays run
 // 2.25-3.3s; the dry starts as the first stone drinks). Scrolling remains
 // a quick early exit; once dried, it stays dry.
-setTimeout(function(){document.body.classList.add('wash-dried');},2400);
+setTimeout(function(){document.body.classList.add('wash-dried');},1600);
 
 // Mobile nav toggle
 (function(){

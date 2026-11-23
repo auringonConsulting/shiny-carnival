@@ -2,6 +2,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
+<script>/* Homepage intro (assets/hero.js). To switch it off, change true to false on the next line. */
+var INTRO=true;
+(function(){try{var w=window,d=document.documentElement,c=d.classList,K='auringonIntro';
+if(!INTRO||(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return; /* off, or reduced motion: the plain page */
+if(sessionStorage.getItem(K)){c.add('intro-seen');return} /* already played this session */
+if(document.hidden||location.hash){sessionStorage.setItem(K,'1');c.add('intro-seen');return} /* background tab, or linked to a section: never plays */
+c.add('intro-on');
+var I=w.__intro={skip:false},E=['pointerdown','keydown','wheel','touchstart'],O={passive:true,capture:true};
+function on(){I.skip=true;if(I.onskip)I.onskip()} /* any input skips, from the first instant */
+E.forEach(function(e){w.addEventListener(e,on,O)});
+I.off=function(){E.forEach(function(e){w.removeEventListener(e,on,O)})};
+I.bail=function(){ /* show the settled page, whatever state the intro is in */
+I.dead=true;I.off();c.remove('intro-on');c.add('intro-seen');try{sessionStorage.setItem(K,'1')}catch(e){}
+try{document.getAnimations().forEach(function(a){a.cancel()})}catch(e){}
+try{var n=document.querySelectorAll('.intro-type,.intro-fly,.intro-grain');for(var i=0;i<n.length;i++)n[i].parentNode.removeChild(n[i]);var v=document.querySelector('nav.top');if(v)v.inert=false}catch(e){}};
+setTimeout(function(){if(!I.started&&!I.dead)I.bail()},2500); /* hero.js never arrived */
+I.wd=setTimeout(function(){if(c.contains('intro-on'))I.bail()},9000); /* 9 s after opening, the page is shown no matter what */
+}catch(e){try{document.documentElement.classList.remove('intro-on')}catch(x){}}})();</script>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Auringon — From intent to operation</title>
 <meta content="Auringon is the consulting practice of Jonathan Internicola. I build the team, the process, and the platform your plan needs, then leave them running without me. For founders, funders, government, and consultancies." name="description"/>
@@ -125,22 +143,22 @@ gtag('config', 'G-P9ZN3YW9J8');
 </div></div>
 <div class="hline"></div>
 <div class="stone s1" style="left:24vw;width:8vw;--sd:.5s;--bp:10.3s;--bs:4.7s">
-<svg aria-hidden="true" viewBox="0 0 160 124" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:2.25s" d="M8,120 Q6,56 62,46 Q126,38 148,82 Q156,106 146,120 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 160 124" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:1.6s" d="M8,120 Q6,56 62,46 Q126,38 148,82 Q156,106 146,120 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="stone s2" style="left:34vw;width:13vw;--sd:.62s;--bp:13.7s;--bs:5.9s">
-<svg aria-hidden="true" viewBox="0 0 300 174" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:2.51s" d="M10,170 Q6,78 118,62 Q244,48 288,114 Q296,144 288,170 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 300 174" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:1.78s" d="M10,170 Q6,78 118,62 Q244,48 288,114 Q296,144 288,170 Z" fill="#bc6131" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="stone s3" style="left:49vw;width:6vw;--sd:.74s;--bp:11.3s;--bs:4.3s">
-<svg aria-hidden="true" viewBox="0 0 160 124" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:2.77s" d="M8,120 Q6,56 62,46 Q126,38 148,82 Q156,106 146,120 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 160 124" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:1.96s" d="M8,120 Q6,56 62,46 Q126,38 148,82 Q156,106 146,120 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="stone s4" style="left:57vw;width:16vw;--sd:.86s;--bp:16.9s;--bs:5.2s">
-<svg aria-hidden="true" viewBox="0 0 300 194" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:3.03s" d="M8,190 Q2,88 96,70 Q210,52 268,100 Q296,136 288,190 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 300 194" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:2.14s" d="M8,190 Q2,88 96,70 Q210,52 268,100 Q296,136 288,190 Z" fill="#7b9da3" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="stone stone--plan s5" style="left:75vw;width:5vw;--sd:.98s">
 <svg aria-hidden="true" viewBox="0 0 160 124" xmlns="http://www.w3.org/2000/svg"><path d="M8,120 Q6,56 62,46 Q126,38 148,82 Q156,106 146,120 Z" fill="none" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="stone s6" style="left:82vw;width:13vw;--sd:1.1s;--bp:12.1s;--bs:6.1s">
-<svg aria-hidden="true" viewBox="0 0 300 154" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:3.29s" d="M8,150 Q6,74 110,58 Q240,44 288,100 Q298,130 290,150 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
+<svg aria-hidden="true" viewBox="0 0 300 154" xmlns="http://www.w3.org/2000/svg"><path class="tintable" style="--td:2.32s" d="M8,150 Q6,74 110,58 Q240,44 288,100 Q298,130 290,150 Z" fill="#808268" stroke="#3a3a3a" stroke-linejoin="round" stroke-width="2.25" vector-effect="non-scaling-stroke"></path></svg>
 </div>
 <div class="copy">
 <h1><span class="w1">From intent&nbsp;</span><span class="w2">to operation.</span></h1>
@@ -316,5 +334,6 @@ Example of the work
 </footer>
 
 <script src="/assets/site.js"></script>
+<script src="/assets/hero.js"></script>
 </body>
 </html>

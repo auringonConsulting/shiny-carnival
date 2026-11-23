@@ -48,6 +48,18 @@ Built July 16, 2026 from the single-file index.html. Same design, same copy
 - When a new journal post ships: add its page under /journal/<slug>/, add it to
   the Journal index and the sitemap, and set its datePublished in the JSON-LD.
 
+## November 22, 2026 revision (8)
+
+Home intro animation tightened. Same sequence, shorter gaps: "to operation."
+now follows "From intent" after 0.8s instead of 1.65s, the stones start
+filling at 1.6s instead of 2.25s, and the paragraph under the headline is
+readable by about 3.5s instead of 5s. The watercolor wash starts drying at
+1.6s (was 2.4s) and takes 2.8s (was 3.6s). Timings live in assets/site.css
+(.hero rules), assets/site.js (the wash-dried timer), and the --td values on
+the hero stones in index.html.
+
+Changed: /, /assets/site.css, /assets/site.js, /README.md.
+
 ## November 22, 2026 revision (7)
 
 From Jonathan's notes. Home: the hero subline now carries the civic and urban
