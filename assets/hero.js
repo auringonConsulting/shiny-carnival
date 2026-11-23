@@ -20,17 +20,19 @@ if(!I||I.dead||!root.classList.contains('intro-on'))return;
 
 // ================= SETTINGS: the numbers worth changing =================
 var PAINT='live';      // 'live' = paint drawn in the browser; 'clip' = assets/intro-paint.mp4
-var FLOW=0.035;        // live paint: drift speed while words are up (loops per second): nearly at rest
+var FLOW=0.022;        // live paint: drift speed while words are up (loops per second): nearly at rest
 var SMOOTH=0.15;       // seconds of smoothing on the speed curve (the film uses 0.15)
 var MEANDER=1.0;       // small wandering of each wash on its own slow clock: position, turn, size and the shape of its edge (0 = none)
 var LAG=0.16;          // seconds the heaviest wash trails the lightest when the paint speeds up or settles (0 = all move as one)
-var SURGE=6.5;         // how much faster it moves when no words are up. The launch film runs about
+var SWELL=0.10;        // how much each wash expands during a sweep and draws back in as the words land (0 = none)
+var RECOIL=0.20;       // after each sweep the paint carries a little too far and eases back before it rests (0 = none)
+var SURGE=15;         // how much faster it moves when no words are up. The launch film runs about
                        // 0.26 loops/s between words and 0.03-0.05 under them: a quick sweep, then a pause.
                        // 0 = one steady speed. The words below are spaced so each sweep has room to happen.
-var W1=[0.65,1.55];    // "From intent": [appears, starts to leave], seconds
-var W2=[2.25,3.15];    // "to operation."
-var LOGO_IN=3.90;      // stacked logo appears
-var LIFT=4.75;         // logo lifts off; the handover below is timed from here
+var W1=[0.80,1.70];    // "From intent": [appears, starts to leave], seconds
+var W2=[2.70,3.60];    // "to operation."
+var LOGO_IN=4.60;      // stacked logo appears
+var LIFT=5.45;         // logo lifts off; the handover below is timed from here
 var FLY=1.0;           // logo's travel time to the menu bar
 var RISE=12;            // pixels a phrase rises as it settles (the film uses 22 on a larger frame)
 var DEV=0.40,OUT=0.30; // a phrase's develop-in and fade-out
@@ -85,7 +87,7 @@ var CURVE=null;
 function curves(){var DT=0.01,n=Math.ceil((LIFT+3)/DT),sp=new Float32Array(n),dp=new Float32Array(n),WIN=[[W1[0],W1[1]],[W2[0],W2[1]],[LOGO_IN,LIFT+0.1]];
  function env(t,a,b,tin,tout){if(t<a)return 0;if(t<a+tin){var x=1-(t-a)/tin;return 1-x*x*x*x}if(t<b)return 1;if(t<b+tout){var y=(t-b)/tout;return 1-y*y}return 0}
  for(var i=0;i<n;i++){var t=i*DT,m=0,m2=0;WIN.forEach(function(w){m=Math.max(m,env(t,w[0]-0.08,w[1],0.6,0.45));m2=Math.max(m2,env(t,w[0]-0.5,w[1]+0.3,0.6,0.4))});
-  sp[i]=FLOW*(1+SURGE*Math.pow(1-m,1.5));dp[i]=m2}
+  var rc=0;WIN.forEach(function(w){var z=(t-(w[0]+0.34))/0.13;rc+=Math.exp(-z*z)});sp[i]=FLOW*(1+SURGE*Math.pow(1-m,1.5))-RECOIL*FLOW*SURGE*rc;dp[i]=m2}
  function blur(a,sig){var r=Math.ceil(sig*3),k=[],ks=0,o=new Float32Array(a.length);for(var j=-r;j<=r;j++){var v=Math.exp(-j*j/(2*sig*sig));k.push(v);ks+=v}
   for(var i=0;i<a.length;i++){var acc=0;for(var j=-r;j<=r;j++){var q=i+j;q=q<0?0:q>=a.length?a.length-1:q;acc+=a[q]*k[j+r]}o[i]=acc/ks}return o}
  sp=blur(sp,SMOOTH/DT);dp=blur(dp,0.22/DT);
@@ -113,9 +115,9 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
   var sc=Math.max(iw/W,(iw*r.height/r.width)/H0);S=sc;ox=(cv.width-W*sc)/2;oy=(cv.height-H0*sc)*0.4;PADN=Math.ceil(170*S);
   NQ=Math.min(1,560/(W*S+2*PADN));NW=Math.ceil(W*S)+2*PADN;NH=Math.ceil(H0*S)+2*PADN;
   NOISE=WASHES.map(function(w,i){return noise(Math.ceil(NW*NQ),Math.ceil(NH*NQ),w.c,w.alpha,(i+1)*9973)})}
- function draw(f,deep,T){if(deep==null)deep=1;T=T||0;ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.fillStyle='rgb(241,242,218)';ctx.fillRect(0,0,cv.width,cv.height);ctx.globalCompositeOperation='multiply';
+ function draw(f,deep,T,sw){if(deep==null)deep=1;T=T||0;sw=sw||0;ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.fillStyle='rgb(241,242,218)';ctx.fillRect(0,0,cv.width,cv.height);ctx.globalCompositeOperation='multiply';
   for(var i=0;i<WASHES.length;i++){var w=WASHES[i],tau=TAU*(PH[i]==null?f:PH[i]),osc=function(k,p,a){return a*(Math.sin(k*tau+p)-Math.sin(p))};
-   var mg=MEANDER*(w.deepen?0.5:1),dx=osc(w.k[0],w.p[0],w.drift[0])+mg*15*wob(i,0,T),dy=osc(w.k[1],w.p[1],w.drift[1])+mg*11*wob(i,1,T),sr=1+osc(1,w.p[2],w.breathe)+mg*0.022*wob(i,2,T),rot=w.rot+osc(1,w.p[3],w.spin)+mg*0.045*wob(i,3,T),cr=Math.cos(rot),sn=Math.sin(rot);
+   var mg=MEANDER*(w.deepen?0.5:1),dx=osc(w.k[0],w.p[0],w.drift[0])+mg*15*wob(i,0,T),dy=osc(w.k[1],w.p[1],w.drift[1])+mg*11*wob(i,1,T),sr=1+osc(1,w.p[2],w.breathe*1.5)+mg*0.022*wob(i,2,T)+SWELL*sw*(w.deepen?0.4:0.7+0.6*((i*37)%7)/6),rot=w.rot+osc(1,w.p[3],w.spin)+mg*0.045*wob(i,3,T),cr=Math.cos(rot),sn=Math.sin(rot);
    var cx=(w.cx+dx)*S+ox,cy=(w.cy+dy)*S+oy;ctx.beginPath();
    var cp=[];for(var m=0;m<5;m++)cp[m]=w.phs[m]+w.mph[m]*tau+mg*0.42*wob(i,4+m,T);
    for(var j=0;j<N;j++){var th=TAU*j/N,r=1;for(var m=0;m<5;m++)r+=w.amps[m]*Math.sin(KS[m]*th+cp[m]);
@@ -127,11 +129,11 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
   if(BLUR>0){ctx.globalCompositeOperation='source-over';var o=Math.max(1,cv.width*BLUR*0.9);ctx.globalAlpha=0.5;ctx.drawImage(cv,o,0);ctx.drawImage(cv,0,o);ctx.globalAlpha=0.34;ctx.drawImage(cv,-o,-o);ctx.globalAlpha=0.25;ctx.drawImage(cv,o,-o)}}
  var WR=rngf(4177),WF=[],WP=[];for(var wi=0;wi<WASHES.length*18;wi++){WF.push(0.55+WR()*1.5);WP.push(WR()*TAU)}
  function wob(i,c,T){var k=(i*9+c)*2;return 0.62*Math.sin(T*WF[k]+WP[k])+0.38*Math.sin(T*WF[k+1]*1.9+WP[k+1])-(0.62*Math.sin(WP[k])+0.38*Math.sin(WP[k+1]))*Math.exp(-T*1.5)}
- var ph=f0,last=0,TL=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
+ var ph=f0,last=0,TL=0,SW=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
  var TAUS=WASHES.map(function(w){return 0.03+LAG*Math.sqrt(w.rx*w.ry/AMAX)});WASHES.forEach(function(w,i){PH[i]=f0});CURVE=CURVE||curves();
- var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var dt=Math.min(0.05,(now-last)/1000);last=now;var T=(now-ts)/1000;ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;draw(ph,CURVE.deep(T),T);raf=requestAnimationFrame(loop)});
+ var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var dt=Math.min(0.05,(now-last)/1000);last=now;var T=(now-ts)/1000;ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);raf=requestAnimationFrame(loop)});
  size();draw(f0,0);
- return{ready:Promise.resolve(),start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL)})}}
+ return{ready:Promise.resolve(),start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})}}
 function clipPaint(host){ // a short clip rendered from the launch film's own code
  var v=d.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.preload='auto';
  v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';v.src=window.__introClip||'/assets/intro-paint.mp4';host.appendChild(v);nodes.push(v);
