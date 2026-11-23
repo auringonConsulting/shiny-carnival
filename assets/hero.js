@@ -109,12 +109,13 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
   for(i=0;i<n.length;i++){var z=(n[i]-mean)/sd;z=Math.max(-1.6,Math.min(1.6,z));var Al=Math.min(0.97,alpha*(1+GR*z/1.6*1.15)),beta=Math.max(0,(Al-amin)/(1-amin));
    dd[i*4]=col[0];dd[i*4+1]=col[1];dd[i*4+2]=col[2];dd[i*4+3]=Math.round(beta*255)}
   c.getContext('2d').putImageData(id,0,0);return c}
- function size(){var r=host.getBoundingClientRect();var iw=Math.min(540,Math.max(330,Math.round(r.width*0.37)));
+ function size(lazy){var r=host.getBoundingClientRect();var iw=Math.min(540,Math.max(330,Math.round(r.width*0.37)));
   cv.width=Math.round(iw*1.08);cv.height=Math.round(iw*r.height/r.width*1.08);
   cv.style.cssText='position:absolute;left:-4%;top:-4%;width:108%;height:108%';  // no CSS blur: the canvas is drawn small and scaled up, which softens it for free
   var sc=Math.max(iw/W,(iw*r.height/r.width)/H0);S=sc;ox=(cv.width-W*sc)/2;oy=(cv.height-H0*sc)*0.4;PADN=Math.ceil(170*S);
   NQ=Math.min(1,560/(W*S+2*PADN));NW=Math.ceil(W*S)+2*PADN;NH=Math.ceil(H0*S)+2*PADN;
-  NOISE=WASHES.map(function(w,i){return noise(Math.ceil(NW*NQ),Math.ceil(NH*NQ),w.c,w.alpha,(i+1)*9973)})}
+  NOISE=[];if(!lazy)WASHES.forEach(function(w,i){mk(i)})}
+ function mk(i){var w=WASHES[i];NOISE[i]=noise(Math.ceil(NW*NQ),Math.ceil(NH*NQ),w.c,w.alpha,(i+1)*9973)}
  function draw(f,deep,T,sw){if(deep==null)deep=1;T=T||0;sw=sw||0;ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;ctx.fillStyle='rgb(241,242,218)';ctx.fillRect(0,0,cv.width,cv.height);ctx.globalCompositeOperation='multiply';
   for(var i=0;i<WASHES.length;i++){var w=WASHES[i],tau=TAU*(PH[i]==null?f:PH[i]),osc=function(k,p,a){return a*(Math.sin(k*tau+p)-Math.sin(p))};
    var mg=MEANDER*(w.deepen?0.5:1),dx=osc(w.k[0],w.p[0],w.drift[0])+mg*15*wob(i,0,T),dy=osc(w.k[1],w.p[1],w.drift[1])+mg*11*wob(i,1,T),sr=1+osc(1,w.p[2],w.breathe*1.5)+mg*0.022*wob(i,2,T)+SWELL*sw*(w.deepen?0.4:0.7+0.6*((i*37)%7)/6),rot=w.rot+osc(1,w.p[3],w.spin)+mg*0.045*wob(i,3,T),cr=Math.cos(rot),sn=Math.sin(rot);
@@ -123,17 +124,18 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
    for(var j=0;j<N;j++){var th=TAU*j/N,r=1;for(var m=0;m<5;m++)r+=w.amps[m]*Math.sin(KS[m]*th+cp[m]);
     var x=Math.cos(th)*r*w.rx*sr*S,y=Math.sin(th)*r*w.ry*sr*S,px=x*cr-y*sn+cx,py=x*sn+y*cr+cy;if(j)ctx.lineTo(px,py);else ctx.moveTo(px,py)}
    ctx.closePath();ctx.fillStyle='rgb('+w.c[0]+','+w.c[1]+','+w.c[2]+')';ctx.globalAlpha=Math.min(0.97,w.alpha+w.deepen*deep)*(1-GR);ctx.fill();
-   ctx.save();ctx.clip();ctx.globalAlpha=1;ctx.drawImage(NOISE[i],dx*S+ox-PADN,dy*S+oy-PADN,NW,NH);
-   ctx.strokeStyle=ctx.fillStyle;ctx.lineJoin='round';ctx.globalAlpha=w.alpha*0.2;ctx.lineWidth=w.soft*5.2*S;ctx.stroke();ctx.lineWidth=w.soft*2.4*S;ctx.stroke();if(RIM>0){ctx.globalAlpha=w.alpha*RIM;ctx.lineWidth=7*S;ctx.stroke()}ctx.restore()}
+   ctx.save();ctx.clip();ctx.globalAlpha=1;if(NOISE[i])ctx.drawImage(NOISE[i],dx*S+ox-PADN,dy*S+oy-PADN,NW,NH);
+   ctx.strokeStyle=ctx.fillStyle;ctx.lineJoin='round';ctx.globalAlpha=w.alpha*0.2;ctx.lineWidth=w.soft*5.2*S;ctx.stroke();ctx.lineWidth=w.soft*2.4*S;ctx.stroke();if(RIM>0&&!LITE){ctx.globalAlpha=w.alpha*RIM;ctx.lineWidth=7*S;ctx.stroke()}ctx.restore()}
   // cheap softening inside the canvas (replaces the CSS blur, which made the browser re-blur the whole screen every frame)
-  if(BLUR>0){ctx.globalCompositeOperation='source-over';var o=Math.max(1,cv.width*BLUR*0.9);ctx.globalAlpha=0.5;ctx.drawImage(cv,o,0);ctx.drawImage(cv,0,o);ctx.globalAlpha=0.34;ctx.drawImage(cv,-o,-o);ctx.globalAlpha=0.25;ctx.drawImage(cv,o,-o)}}
+  if(BLUR>0&&!LITE){ctx.globalCompositeOperation='source-over';var o=Math.max(1,cv.width*BLUR*0.9);ctx.globalAlpha=0.5;ctx.drawImage(cv,o,0);ctx.drawImage(cv,0,o);ctx.globalAlpha=0.34;ctx.drawImage(cv,-o,-o);ctx.globalAlpha=0.25;ctx.drawImage(cv,o,-o)}}
  var WR=rngf(4177),WF=[],WP=[];for(var wi=0;wi<WASHES.length*18;wi++){WF.push(0.55+WR()*1.5);WP.push(WR()*TAU)}
  function wob(i,c,T){var k=(i*9+c)*2;return 0.62*Math.sin(T*WF[k]+WP[k])+0.38*Math.sin(T*WF[k+1]*1.9+WP[k+1])-(0.62*Math.sin(WP[k])+0.38*Math.sin(WP[k+1]))*Math.exp(-T*1.5)}
- var ph=f0,last=0,TL=0,SW=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
+ var LITE=false,FN=0,FS=0,ph=f0,last=0,TL=0,SW=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
  var TAUS=WASHES.map(function(w){return 0.03+LAG*Math.sqrt(w.rx*w.ry/AMAX)});WASHES.forEach(function(w,i){PH[i]=f0});CURVE=CURVE||curves();
- var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var dt=Math.min(0.05,(now-last)/1000);last=now;var T=(now-ts)/1000;ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);raf=requestAnimationFrame(loop)});
- size();draw(f0,0);
- return{ready:Promise.resolve(),start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})}}
+ var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var raw=(now-last)/1000,dt=Math.min(0.05,raw);last=now;var T=(now-ts)/1000;if(FN<14){if(FN>1)FS+=raw;if(++FN===14&&FS/12>0.034)LITE=true}ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);raf=requestAnimationFrame(loop)});
+ size(true);
+ var ready=new Promise(function(res,rej){var i=0;(function step(){if(I.dead){res();return}try{mk(i)}catch(e){rej(e);return}if(++i<WASHES.length)setTimeout(step,0);else{try{draw(f0,0)}catch(e){rej(e);return}res()}})()});
+ return{ready:ready,start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})}}
 function clipPaint(host){ // a short clip rendered from the launch film's own code
  var v=d.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.preload='auto';
  v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';v.src=window.__introClip||'/assets/intro-paint.mp4';host.appendChild(v);nodes.push(v);

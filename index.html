@@ -5,7 +5,8 @@
 <script>/* Homepage intro (assets/hero.js). To switch it off, change true to false on the next line. */
 var INTRO=true;
 (function(){try{var w=window,d=document.documentElement,c=d.classList,K='auringonIntro';
-if(!INTRO||(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return; /* off, or reduced motion: the plain page */
+var n=navigator,cn=n.connection;
+if(!INTRO||(w.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)||(cn&&cn.saveData)||n.deviceMemory<=1)return; /* off, reduced motion, data saver or a very low-memory device: the plain page */
 if(sessionStorage.getItem(K)){c.add('intro-seen');return} /* already played this session */
 if(document.hidden||location.hash){sessionStorage.setItem(K,'1');c.add('intro-seen');return} /* background tab, or linked to a section: never plays */
 c.add('intro-on');
