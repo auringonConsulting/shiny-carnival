@@ -43,10 +43,10 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
  function wob(i,c,T){var k=(i*9+c)*2;return 0.62*Math.sin(T*WF[k]+WP[k])+0.38*Math.sin(T*WF[k+1]*1.9+WP[k+1])-(0.62*Math.sin(WP[k])+0.38*Math.sin(WP[k+1]))*Math.exp(-T*1.5)}
  var LITE=false,FN=0,FS=0,ph=f0,last=0,TL=0,SW=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
  var TAUS=WASHES.map(function(w){return 0.03+LAG*Math.sqrt(w.rx*w.ry/AMAX)});WASHES.forEach(function(w,i){PH[i]=f0});CURVE=CURVE||curves();
- var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var raw=(now-last)/1000,dt=Math.min(0.05,raw);last=now;var T=(now-ts)/1000;if(FN<14){if(FN>1)FS+=raw;if(++FN===14&&FS/12>0.034)LITE=true}ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);raf=requestAnimationFrame(loop)});
+ var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var raw=(now-last)/1000,dt=Math.min(0.05,raw);last=now;var T=(now-ts)/1000;if(FN<14){if(FN>1)FS+=raw;if(++FN===14&&FS/12>0.034)LITE=true}ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);if(api.onFrame)api.onFrame(T);raf=requestAnimationFrame(loop)});
  size(true);
  var ready=new Promise(function(res,rej){var i=0;(function step(){if(I.dead){res();return}try{mk(i)}catch(e){rej(e);return}if(++i<WASHES.length)setTimeout(step,0);else{try{draw(f0,0)}catch(e){rej(e);return}res()}})()});
- return{ready:ready,start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})}}
+ var api={canvas:cv,onFrame:null,ready:ready,start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})};return api}
 
 try{var p=livePaint(host);p.ready.then(function(){host.classList.add('is-painted');if(!reduce)p.start()},function(){});
  d.addEventListener('visibilitychange',function(){if(reduce||I.dead)return;if(d.hidden)p.stop();else p.start()});

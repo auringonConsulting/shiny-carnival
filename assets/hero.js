@@ -39,7 +39,7 @@ var DEV=0.40,OUT=0.30; // a phrase's develop-in and fade-out
 // Handover, seconds after LIFT: [start, duration] (stones: [start, gap between stones, duration])
 var H={dry:[0.05,0.85],line:[0.55,0.70],outline:[0.70,0.09,0.45],sun:[0.85,0.95],
        h1:[1.10,0.60],sub:[1.30,0.70],seats:[1.50,0.70],menu:[2.35,0.60],
-       fill:[1.95,0.07,0.45],cue:[2.40,0.70],
+       fill:[1.95,0.08,0.85],cue:[2.40,0.70],
        rest:[2.40,0.70]};  // the page below the hero, hidden while the paint fills the screen
 var TAIL=3.2;          // seconds after LIFT when everything is finished and removed
 var BLUR=0.0030;       // softness over the whole paint, as a share of the width (was 0.0042)
@@ -57,6 +57,12 @@ var LOBES=[ // ph: which phrase; x,y: offset from the centre (shares of the ligh
  {ph:1,x:-0.26,y:-0.16,w:0.44,h:0.70,pk:0.36,d:0.20,tau:0.30,mx:-0.04,my:-0.06,out:0.70,r:'60% 40% 44% 56%/42% 58% 46% 54%'},
  {ph:1,x: 0.02,y: 0.30,w:0.36,h:0.50,pk:0.24,d:0.09,tau:0.42,mx: 0.00,my: 0.07,out:0.00,r:'50% 50% 42% 58%/55% 45% 55% 45%'}];
  LOBES.push({ph:1,x:-0.02,y:0.00,w:0.66,h:0.60,pk:0.42,d:0.05,tau:0.70,mx:-0.01,my:0.01,out:0.20,r:'48% 52% 52% 48%/50% 56% 44% 50%'});  // directly behind the words
+var INTO=true;         // as the paint dries off the page it stays behind inside the stones, is drawn inward, and settles into their color
+var SP={on:[0.10,0.50],   // seconds after LIFT: the paint inside the stones becomes its own layer (invisible at first: it matches the page)
+        pull:[0.40,2.05], // the surrounding paint is drawn in toward each stone's centre
+        s:0.46,           // how far it is drawn in (1 = not at all; smaller = more of the page's paint ends up inside the stone)
+        turn:0.55,        // how much it turns as it is drawn in (radians; alternate stones turn the other way)
+        tint:0.30};       // how far the paint is lightened toward the stone's flat color before the flat color itself arrives
 var GLOW=0.85;         // warm light that swells under each phrase as it develops (0 = none)
 var FONT_WAIT=0.5,PAINT_WAIT=1.0; // longest waits before starting (font) or giving up (paint)
 // ========================================================================
@@ -132,10 +138,10 @@ function livePaint(host){ // seven translucent washes, redrawn every frame at on
  function wob(i,c,T){var k=(i*9+c)*2;return 0.62*Math.sin(T*WF[k]+WP[k])+0.38*Math.sin(T*WF[k+1]*1.9+WP[k+1])-(0.62*Math.sin(WP[k])+0.38*Math.sin(WP[k+1]))*Math.exp(-T*1.5)}
  var LITE=false,FN=0,FS=0,ph=f0,last=0,TL=0,SW=0,PH=[],AMAX=0;WASHES.forEach(function(w){AMAX=Math.max(AMAX,w.rx*w.ry)});
  var TAUS=WASHES.map(function(w){return 0.03+LAG*Math.sqrt(w.rx*w.ry/AMAX)});WASHES.forEach(function(w,i){PH[i]=f0});CURVE=CURVE||curves();
- var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var raw=(now-last)/1000,dt=Math.min(0.05,raw);last=now;var T=(now-ts)/1000;if(FN<14){if(FN>1)FS+=raw;if(++FN===14&&FS/12>0.034)LITE=true}ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);raf=requestAnimationFrame(loop)});
+ var loop=guard(function(now){if(!on)return;if(!ts){ts=now;last=now}var raw=(now-last)/1000,dt=Math.min(0.05,raw);last=now;var T=(now-ts)/1000;if(FN<14){if(FN>1)FS+=raw;if(++FN===14&&FS/12>0.034)LITE=true}ph+=CURVE.speed(T)*dt;for(var i=0;i<PH.length;i++)PH[i]+=(ph-PH[i])*(LAG>0?1-Math.exp(-dt/TAUS[i]):1);TL=T;SW+=((Math.max(-0.3,Math.min(1,(CURVE.speed(T)-FLOW)/(FLOW*SURGE))))-SW)*(1-Math.exp(-dt/0.12));draw(ph,CURVE.deep(T),T,SW);if(api.onFrame)api.onFrame(T);raf=requestAnimationFrame(loop)});
  size(true);
  var ready=new Promise(function(res,rej){var i=0;(function step(){if(I.dead){res();return}try{mk(i)}catch(e){rej(e);return}if(++i<WASHES.length)setTimeout(step,0);else{try{draw(f0,0)}catch(e){rej(e);return}res()}})()});
- return{ready:ready,start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})}}
+ var api={canvas:cv,onFrame:null,ready:ready,start:function(){on=true;raf=requestAnimationFrame(loop)},stop:function(){on=false;cancelAnimationFrame(raf)},resize:guard(function(){size();draw(ph,1,TL,SW)})};return api}
 function clipPaint(host){ // a short clip rendered from the launch film's own code
  var v=d.createElement('video');v.muted=true;v.playsInline=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.preload='auto';
  v.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover';v.src=window.__introClip||'/assets/intro-paint.mp4';host.appendChild(v);nodes.push(v);
@@ -164,6 +170,27 @@ function grainTile(){var c=d.createElement('canvas');c.width=c.height=256;var x=
  function r(){s|=0;s=s+0x6D2B79F5|0;var t=Math.imul(s^s>>>15,1|s);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}
  for(var i=0;i<im.data.length;i+=4){var g=(r()+r()+r())/3,dv=Math.max(-1,Math.min(1,(g-0.5)*3.0)),lt=dv>0;im.data[i]=lt?255:64;im.data[i+1]=lt?244:42;im.data[i+2]=lt?222:28;im.data[i+3]=Math.abs(dv)*(lt?70:120)}
  x.putImageData(im,0,0);return c.toDataURL()}
+// ---------------- paint into the stones ----------------
+var stoneDraw=null,stoneCv=null;
+function stoneLayer(){ // a small canvas over the row of stones; each frame it copies the live paint into each stone's shape
+ if(!INTO||PAINT!=='live'||!paint||!paint.canvas||!window.Path2D)return null;
+ var items=[],x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;
+ qa('.hero .stone .tintable').forEach(function(p){var r=p.getBoundingClientRect(),m=p.getScreenCTM&&p.getScreenCTM();if(!m||r.width<2)return;
+  items.push({d:new Path2D(p.getAttribute('d')),m:m,r:r,c:p.getAttribute('fill')||'#bc6131'});x0=Math.min(x0,r.left);y0=Math.min(y0,r.top);x1=Math.max(x1,r.right);y1=Math.max(y1,r.bottom)});
+ if(!items.length)return null;x0=Math.floor(x0)-3;y0=Math.floor(y0)-3;x1=Math.ceil(x1)+3;y1=Math.ceil(y1)+3;
+ var q=Math.min(2,window.devicePixelRatio||1),op=wash.offsetParent||d.body,o=op.getBoundingClientRect(),R=paint.canvas.getBoundingClientRect(),k=R.width/paint.canvas.width;
+ var c=node('canvas','intro-stonepaint',wash.parentNode),x=c.getContext('2d');wash.parentNode.insertBefore(c,wash.nextSibling);/* directly after the wash, so the rule that hides everything after the hero does not catch it */c.width=Math.ceil((x1-x0)*q);c.height=Math.ceil((y1-y0)*q);
+ c.style.cssText='position:absolute;z-index:-1;pointer-events:none;left:'+(x0-o.left-(op.clientLeft||0))+'px;top:'+(y0-o.top-(op.clientTop||0))+'px;width:'+(x1-x0)+'px;height:'+(y1-y0)+'px';stoneCv=c;
+ return function(tt){x.setTransform(1,0,0,1,0,0);x.clearRect(0,0,c.width,c.height);if(tt<SP.on[0])return;
+  for(var n=0;n<items.length;n++){var it=items[n],dl=n*0.07,a=sstep((tt-dl-SP.on[0])/(SP.on[1]-SP.on[0]));if(a<=0)continue;
+   var u=(tt-dl-SP.pull[0])/(SP.pull[1]-SP.pull[0]);u=ease3(u<0?0:u>1?1:u);var sc=1-(1-SP.s)*u,rot=SP.turn*u*(n%2?-1:1),cx=(it.r.left+it.r.width/2-x0)*q,cy=(it.r.top+it.r.height*0.62-y0)*q;
+   x.save();x.setTransform(it.m.a*q,it.m.b*q,it.m.c*q,it.m.d*q,(it.m.e-x0)*q,(it.m.f-y0)*q);x.clip(it.d);
+   x.setTransform(1,0,0,1,0,0);x.globalAlpha=a;x.translate(cx,cy);x.rotate(rot);x.scale(sc,sc);x.translate(-cx,-cy);
+   x.transform(q*k,0,0,q*k,(R.left-x0)*q,(R.top-y0)*q);x.drawImage(paint.canvas,0,0);
+   x.setTransform(1,0,0,1,0,0);x.fillStyle=it.c;var h=sstep(u/0.7);
+   x.globalCompositeOperation='color';x.globalAlpha=a*h;x.fillRect(0,0,c.width,c.height);          // the paint keeps its light and dark but takes the stone's hue
+   x.globalCompositeOperation='source-over';x.globalAlpha=a*SP.tint*h;x.fillRect(0,0,c.width,c.height);x.restore()}}}
+
 function build(){var g=geom();
  paint=(PAINT==='clip'?clipPaint:livePaint)(wash);
  if(GRAIN>0){grain=node('div','film intro-grain',wash);grain.style.backgroundImage='url('+grainTile()+')';grain.style.opacity=GRAIN}
@@ -180,8 +207,9 @@ function build(){var g=geom();
  function piece(vb,inner,w,h){var e=node('div','intro-fly');e.setAttribute('aria-hidden','true');e.style.width=w+'px';e.style.height=h+'px';e.innerHTML='<svg viewBox="'+vb+'" xmlns="http://www.w3.org/2000/svg">'+inner+'</svg>';return e}
  pieces=[piece('0 0 '+VBH+' '+VBH,'<path d="'+markD+'"/>',g.M1.w,g.M1.w),
          piece(LX+' '+LY+' '+LW+' '+LH,P.map(function(x){return '<path d="'+x+'"/>'}).join(''),g.L1.w,g.L1.w*LH/LW)];
+ try{stoneDraw=stoneLayer()}catch(e){stoneDraw=null}
  return g}
-function run(g){t0=performance.now();try{clearTimeout(I.wd)}catch(e){}I.wd=setTimeout(function(){if(root.classList.contains('intro-on'))I.bail()},(LIFT+TAIL+1.5)*1000);nav.inert=true;paint.start();
+function run(g){t0=performance.now();if(stoneDraw)paint.onFrame=guard(function(){stoneDraw((performance.now()-t0)/1000-LIFT)});try{clearTimeout(I.wd)}catch(e){}I.wd=setTimeout(function(){if(root.classList.contains('intro-on'))I.bail()},(LIFT+TAIL+1.5)*1000);nav.inert=true;paint.start();
  var p=logoPath(g),END=LIFT+TAIL,E='cubic-bezier(.16,1,.3,1)';
  // paint: in, hold, dry to a trace, gone
  A('hand',wash,[{opacity:0,offset:0},{opacity:1,offset:0.5/END},{opacity:1,offset:(LIFT+H.dry[0])/END},{opacity:0.07,offset:(LIFT+H.dry[0]+H.dry[1])/END},{opacity:0.07,offset:(END-0.9)/END},{opacity:0,offset:1}],END,0);
@@ -228,6 +256,7 @@ function finish(){if(ended)return;stopAll();root.classList.remove('intro-on');ro
 function skip(){ // any input: get to the page quickly, without anything jumping
  if(ended||I.dead)return;if(!t0){fail();return}
  var now=(performance.now()-t0)/1000,rate=3,left;
+ if(stoneCv){if(paint)paint.onFrame=null;stoneCv.style.transition='opacity .25s';stoneCv.style.opacity=0}
  if(now<LIFT){var jump=(LIFT-now)*1000,flew=now>LOGO_IN+DEV;
   anims.word.forEach(function(a){try{a.cancel()}catch(e){}});anims.word=[];if(typeBox)typeBox.style.display='none';
   if(!flew){anims.fly.forEach(function(a){try{a.cancel()}catch(e){}});anims.fly=[];pieces.forEach(function(e){e.style.display='none'});
