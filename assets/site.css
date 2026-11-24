@@ -1694,3 +1694,27 @@ font:400 clamp(44px,8.4vw,132px)/1.1 'Instrument Serif',Georgia,serif;letter-spa
 .intro-fly path{fill:#f1f2da;}
 .intro-fly svg{filter:drop-shadow(0 0 9px rgba(170,104,58,.5));}
 @media (max-width:700px){.intro-type span{font-size:min(16vw,68px);}}
+
+/* ——— Paint accents (assets/wash-still.jpg is a still of the homepage intro's paint) ———
+   1. Homepage: a faint dried wash stays behind the hero once the intro has played, and on return visits. */
+html.intro-seen .arrival-wash{display:block;height:min(72vh,620px)!important;background-image:url("/assets/wash-still.jpg")!important;background-size:cover;background-position:center 30%;opacity:.14;
+-webkit-mask-image:linear-gradient(to bottom,#000 35%,transparent 98%)!important;mask-image:linear-gradient(to bottom,#000 35%,transparent 98%)!important;transition:none;animation:washTrace 1.6s ease both;}
+@keyframes washTrace{from{opacity:0}to{opacity:.14}}
+/* 2. The closing "talk" section on every page: the same wash, weighted to the right so the heading stays on clean paper. */
+.home-contact{position:relative;isolation:isolate;overflow:hidden;}
+.home-contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.22;background:url("/assets/wash-still.jpg") center 60%/cover;
+-webkit-mask-image:radial-gradient(ellipse 75% 85% at 72% 55%,#000 20%,transparent 78%);mask-image:radial-gradient(ellipse 75% 85% at 72% 55%,#000 20%,transparent 78%);}
+/* 3. 404: a band of the intro's paint on a slow loop (assets/paint.js). */
+.lost{position:relative;overflow:hidden;min-height:min(84vh,820px);display:flex;align-items:center;background:var(--paper);margin:0 -40px;}
+@media(max-width:800px){.lost{margin:0 -24px;}}
+.lost-paint{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 16%);mask-image:linear-gradient(to bottom,transparent 0,#000 16%);}
+.lost-paint.is-painted{opacity:1;}
+.lost-paint::after{content:"";position:absolute;left:50%;top:50%;width:min(92vw,900px);height:min(70%,420px);transform:translate(-50%,-50%);border-radius:46% 54% 52% 48%/58% 44% 56% 42%;
+background:radial-gradient(ellipse at 50% 50%,rgba(92,34,12,.55) 0%,rgba(92,34,12,.36) 30%,rgba(92,34,12,.12) 55%,rgba(92,34,12,0) 70%);}
+@media(max-width:800px){.lost-paint::after{width:150vw;height:66%;background:radial-gradient(ellipse at 50% 50%,rgba(92,34,12,.62) 0%,rgba(92,34,12,.46) 34%,rgba(92,34,12,.2) 58%,rgba(92,34,12,0) 72%);}}
+.lost .wrap{position:relative;z-index:2;width:100%;max-width:880px;margin:0 auto;padding:120px 32px 96px;text-align:center;}
+.lost h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(40px,6.4vw,88px);line-height:1.05;letter-spacing:-.02em;color:var(--paper);
+text-shadow:0 0 .12em rgba(250,196,140,.6),0 0 .7em rgba(96,44,18,.55);margin:0;}
+.lost .lede{color:var(--paper);font-size:clamp(16px,1.5vw,19px);line-height:1.6;max-width:620px;margin:22px auto 0;text-shadow:0 0 14px rgba(70,28,10,.75),0 0 3px rgba(70,28,10,.5);}
+.lost .lede a{color:var(--paper);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
+.lost .lede a:hover{text-decoration-thickness:2px;}
